@@ -9,6 +9,8 @@ Templating System => Haml/haml-rails
 
 UI Design => Materialize (http://materializecss.com/)
 
+App Language => Spanish
+
 Credits:
 
 Developer/Designer/Repo Owner => Mario Grullon
