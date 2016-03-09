@@ -7,4 +7,20 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+
+
+%nav
+  .nav-wrapper
+    %a.brand-logo{:href => "#"} EuroDental Lab System
+    %ul#nav-mobile.right.hide-on-med-and-down
+      %li
+        %a{:href => "#"} Link 1
+      %li
+        %a{:href => "#"} Link 2
+      %li
+        %a{:href => "#"} Link 3
+
+
+
+  
     = yield
