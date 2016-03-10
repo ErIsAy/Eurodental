@@ -15,7 +15,7 @@
  */
 
 @import "materialize/components/color";
-$primary-color: color("deep-purple", "lighten-1") !default;
+$primary-color: color("indigo", "lighten-1") !default;
 @import "materialize";
 @import "materialize/extras/nouislider";
 
@@ -24,7 +24,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
   }
 
   main {
