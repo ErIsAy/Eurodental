@@ -27,11 +27,14 @@
       -# END OF SIDEBAR MENU
       -# CONTENT
   %br
-  %br
 
-  %div{:style => "width:25%; margin: 0 auto;"}
+
+
+  %div{:style => "width:90%; margin: 0 auto;"}
+    .fixed-action-btn{:style => "bottom: 45px; right: 24px;"}
+    %a.btn-floating.btn-large.blue{:style => "left: 350px; top: 50px"}
+      %i.large.material-icons add
     = render :partial => 'layouts/tooth_chart'
-
 
 
 
