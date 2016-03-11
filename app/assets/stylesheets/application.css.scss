@@ -19,7 +19,7 @@ $primary-color: color("indigo", "lighten-1") !default;
 @import "materialize";
 @import "materialize/extras/nouislider";
 
-
+//Footer Fix
 body {
     display: flex;
     min-height: 100vh;
@@ -30,6 +30,7 @@ body {
     flex: 1 0 auto;
   }
 
+//Logo fonts
 @font-face {
   font-family: 'Bauhaus';
   src:  font-url('Bauhaus_.ttf');
@@ -39,6 +40,24 @@ body {
   font-style: normal;
 }
 
+//Teeth Chart CSS
 footer.page-footer {
 	padding-top: 0px;
 	}
+  body {
+    background: white;
+  }
+  .tooth-chart {
+    width: 450px;
+  }
+  #Spots polygon,
+  #Spots path {
+    -webkit-transition: fill .25s;
+    transition: fill .25s;
+  }
+  #Spots polygon:hover,
+  #Spots polygon:active,
+  #Spots path:hover,
+  #Spots path:active {
+    fill: #dddddd !important;
+  }
