@@ -3,50 +3,18 @@
 -# MAIN
 
 %main
-  %nav
-    .nav-wrapper
-      %a.button-collapse{"data-activates" => "slide-out", :href => "#", :class => "button-collapse show-on-large"}
-        %i.material-icons menu
-      %ul.right.hide-on-med-and-down
-        %li
-          %a{:href => "#"} Opciones
-        %li
-          %a{:href => "#"} Pruebas
-        %li
-      %ul#slide-out.side-nav
-        %li
-          %a{:href => "#"} Clientes
-        %li
-          %a{:href => "#"} Pacientes
-        %li
-          %a{:href => "#"} Administración
-        %li
-          %a{:href => "#"} Cerrar Sesión
+  = render :partial => 'layouts/top_navbar'
 
+  -# CONTENT
 
-      -# END OF SIDEBAR MENU
-      -# CONTENT
- 
-
-
-
-  %div{:style => "width:90%; margin: 0 auto;transform: scale(0.75);"}
-    .fixed-action-btn{:style => "bottom: 45px; right: 24px;"}
-    %a.btn-floating.btn-large.blue{:style => "left: 320px; top: 50px"}
-      %i.large.material-icons add
+  %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
     = render :partial => 'layouts/tooth_chart'
 
 
-
 -# END OF MAIN
--#
--#
--#
--#
+
 -# FOOTER
 
 %footer.page-footer
-  .container
-    %p.grey-text.text-lighten-4{:style => "margin-top: 0;margin-bottom: 0; font-family: 'Bauhaus'; font-size: 20px;"} EURODENTAL LAB
-
+  = render :partial => 'layouts/footer'
 -# END OF FOOTER
