@@ -19,9 +19,7 @@
 
 
 $( document ).ready(function(){
-
 	   $(".button-collapse").sideNav();
-
 })
 
 
@@ -53,11 +51,11 @@ $('.datepicker').pickadate({
 
 
 // $(document).ready(function(){
-  
+
 //   function imageSize(){
 //     var a = $('div').height();
 //     var b = $('page-footer').height();
-  
+
 //     if (a > b){
 //       $('div').height(b).width('auto').css('margin-top', 0);
 //     } else if (b > a){
@@ -66,7 +64,7 @@ $('.datepicker').pickadate({
 //   }
 
 //   $(window).resize(function(){
-//     imageSize();    
+//     imageSize();
 //   });
-  
+
 // });

@@ -1,0 +1,46 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Clientes
+  %br
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_client_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nuevo
+  %br
+  %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    %thead
+      %tr
+        %th Cliente
+        %th Tel.:
+        %th E-mail
+        %th
+        %th
+        %th
+
+    %tbody
+      - @clients.each do |client|
+        %tr
+          %td= client.name
+          %td= client.phone
+          %td= client.email
+          %td= link_to 'Ver', client, :class => "waves-effect waves-light btn blue"
+          %td= link_to 'Editar', edit_client_path(client), :class => "waves-effect waves-light btn teal"
+          %td= link_to 'Eliminar', client, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "waves-effect waves-light btn red"
+
+  %br
+
+  -# = link_to 'Back', clients_path
+  -# = link_to 'New Client', new_client_path
+-# END OF MAIN
+
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

@@ -1,0 +1,23 @@
+
+
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Nuevo Cliente
+  %br
+  -# CONTENT
+  = render 'form'
+  %br
+  -# = link_to 'Back', clients_path
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

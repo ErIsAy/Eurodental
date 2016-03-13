@@ -1,0 +1,33 @@
+.col.s12
+  = form_for @client do |f|
+    - if @client.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@client.errors.count, "error")} prohibited this client from being saved:"
+        %ul
+          - @client.errors.full_messages.each do |msg|
+            %li= msg
+    .row.card.container{:style => "margin: 0 auto;"}
+      .input-field.col.s6
+        %i.material-icons.prefix account_circle
+        = f.label :name, "Cliente"
+        = f.text_field :name
+      .input-field.col.s6
+        %i.material-icons.prefix phone
+        = f.label :phone, "Tel.:"
+        = f.text_field :phone
+      .input-field.col.s12
+        %i.material-icons.prefix email
+        %label{:for => "email"} E-mail
+        = f.text_field :email,
+          :id => 'email',
+          :class=> 'validate',
+          :type => 'email'
+    %br
+    %br
+    .actions.container{:style => "margin: 0 auto;"}
+      %button.btn.waves-effect.waves-light{:name => "action", :type => "submit"}
+        %i.material-icons.right save
+        Crear
+      %a{:href => clients_path, :class => "waves-effect waves-light btn blue"}
+        %i.material-icons.right chevron_left
+        Volver
