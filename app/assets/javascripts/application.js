@@ -18,7 +18,7 @@
 /*Datepicker js*/
 //= require datepicker_spanish
 /*Fades out the whole page when clicking links */
-//= require pagefade
+
 
 /* Sidenav initializer*/
 $( document ).ready(function(){
