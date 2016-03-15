@@ -3,8 +3,8 @@
     %a.button-collapse{"data-activates" => "slide-out", :href => "#", :class => "button-collapse show-on-large"}
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
-      %li
-        %a{:href => "#"} Opciones
+      %li.inactiveLink
+        %a{:href => "#", :style => "color:darkgrey;"} Opciones
       %li
         %a{:href => root_path} Inicio
     .input-field.right.hide-on-med-and-down{:center => ""}
@@ -16,7 +16,7 @@
         %a{:href => clients_path} Clientes
       %li
         %a{:href => "#"} Pacientes
-      %li
-        %a{:href => "#"} Administración
+      %li.inactiveLink
+        %a{:href => "#", :style => "color: darkgrey;"} Administración
       %li
         %a{:href => "#"} Cerrar Sesión

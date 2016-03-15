@@ -47,3 +47,9 @@ footer.page-footer {
 body {
     background: white;
 }
+
+
+.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+}
