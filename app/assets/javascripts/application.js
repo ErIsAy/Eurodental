@@ -29,6 +29,6 @@
 // 	$('select').material_select();
 // });
 
-$(document).ready(function(){
-  $('.tooltipped').tooltip({delay: 25});
-});
+// $(document).ready(function(){
+//   $('.tooltipped').tooltip({delay: 25});
+// });

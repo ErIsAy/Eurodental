@@ -19,8 +19,6 @@
         %th Tel.:
         %th E-mail
         %th
-        %th
-        %th
 
     %tbody
       - @clients.each do |client|
@@ -28,9 +26,19 @@
           %td= client.name
           %td= client.phone
           %td= client.email
-          %td= link_to 'Ver', client, :class => "waves-effect waves-light btn blue"
-          %td= link_to 'Editar', edit_client_path(client), :class => "waves-effect waves-light btn teal"
-          %td= link_to 'Eliminar', client, :method => :delete, :data => { :confirm => 'Está Seguro?' }, :class => "waves-effect waves-light btn red"
+          %td.btn-group
+            %a{:href => client_path(client), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+              %i.material-icons.right search
+            %a{:href => edit_client_path(client), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+              %i.material-icons.right mode_edit  
+            %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+              = link_to 'X', client_path(client), :method => :delete, data: { push: true }, :style => "color: white;"
+             
+
+
+
+
+
 
   %br
 

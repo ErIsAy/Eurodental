@@ -21,8 +21,7 @@
         %th Nota Del Cliente
         %th Otras Notas
         %th
-        %th
-        %th
+
 
     %tbody
       - @orders.each do |order|
@@ -32,9 +31,13 @@
           %td= order.client_name
           %td= order.client_note
           %td= order.other_note
-          %td= link_to 'Ver', order, :class => "waves-effect waves-light btn blue"
-          %td= link_to 'Editar', edit_order_path(order), :class => "waves-effect waves-light btn teal"
-          %td= link_to 'Eliminar', order, :method => :delete, :data => { :confirm => 'Está Seguro?' }, :class => "waves-effect waves-light btn red"
+          %td.btn-group
+            %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+              %i.material-icons.right search
+            %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+              %i.material-icons.right mode_edit  
+            %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+              = link_to 'X', order_path(order), :method => :delete, data: { push: true }, :style => "color: white;"
 
   %br
 
