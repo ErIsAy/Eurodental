@@ -1,0 +1,21 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Nueva Orden
+  %br
+  -# CONTENT
+  = render 'form'
+  %br
+  -# = link_to 'Back', orders_path
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

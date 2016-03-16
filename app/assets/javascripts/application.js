@@ -17,10 +17,18 @@
 //= require materialize/extras/nouislider
 /*Datepicker js*/
 //= require datepicker_spanish
-/*Fades out the whole page when clicking links */
 
 
 /* Sidenav initializer*/
-$( document ).ready(function(){
-	   $(".button-collapse").sideNav();
-})
+// $( document ).ready(function(){
+//   $(".button-collapse").sideNav();
+// })
+//
+//
+// $(document).ready(function() {
+// 	$('select').material_select();
+// });
+
+$(document).ready(function(){
+  $('.tooltipped').tooltip({delay: 25});
+});

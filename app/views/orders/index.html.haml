@@ -1,0 +1,49 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Ordenes
+  %br
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nueva Orden
+  %br
+  %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    %thead
+      %tr
+        %th Nombre
+        %th Fecha
+        %th Cliente
+        %th Nota Del Cliente
+        %th Otras Notas
+        %th
+        %th
+        %th
+
+    %tbody
+      - @orders.each do |order|
+        %tr
+          %td= order.patient_name
+          %td= order.order_date
+          %td= order.client_name
+          %td= order.client_note
+          %td= order.other_note
+          %td= link_to 'Ver', order, :class => "waves-effect waves-light btn blue"
+          %td= link_to 'Editar', edit_order_path(order), :class => "waves-effect waves-light btn teal"
+          %td= link_to 'Eliminar', order, :method => :delete, :data => { :confirm => 'Está Seguro?' }, :class => "waves-effect waves-light btn red"
+
+  %br
+
+  -# = link_to 'New Order', new_order_path
+  -# END OF MAIN
+
+
+  -# FOOTER
+
+  %footer.page-footer
+    = render :partial => 'layouts/footer'
+  -# END OF FOOTER

@@ -1,7 +1,29 @@
 :javascript
   $( document ).ready(function(){
     $(".button-collapse").sideNav();
+    $('select').material_select();
+    $('.datepicker').pickadate({
+    	// Strings and translations
+    	selectMonths: true, // Creates a dropdown to control month
+    	selectYears: 15, // Creates a dropdown of 15 years to control year
+    	monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+    	monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    	weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+    	weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    	// Buttons
+    	today: 'Hoy',
+    	clear: 'Borrar',
+    	close: 'Cerrar',
+
+    	// Accessibility labels
+    	labelMonthNext: 'Siguiente Mes',
+    	labelMonthPrev: 'Mes Anterior',
+    	labelMonthSelect: 'Seleccionar Mes',
+    	labelYearSelect: 'Seleccionar Año',
+    });
   });
+
+
 
 .container
   %p.grey-text.text-lighten-4{:style => "margin-top: 0;margin-bottom: 0; font-family: 'Bauhaus'; font-size: 30px;"} EURODENTAL LAB

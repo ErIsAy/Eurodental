@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Order date:
+  = @order.order_date
+%p
+  %b Age:
+  = @order.age
+%p
+  %b Sex:
+  = @order.sex
+%p
+  %b Client note:
+  = @order.client_note
+%p
+  %b Other note:
+  = @order.other_note
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

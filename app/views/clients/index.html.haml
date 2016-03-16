@@ -10,7 +10,7 @@
   .container{:style => "margin: 0 auto;"}
     %a{:href => new_client_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right add
-      Nuevo
+      Nuevo Cliente
   %br
   %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
     %thead
@@ -30,7 +30,7 @@
           %td= client.email
           %td= link_to 'Ver', client, :class => "waves-effect waves-light btn blue"
           %td= link_to 'Editar', edit_client_path(client), :class => "waves-effect waves-light btn teal"
-          %td= link_to 'Eliminar', client, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "waves-effect waves-light btn red"
+          %td= link_to 'Eliminar', client, :method => :delete, :data => { :confirm => 'Está Seguro?' }, :class => "waves-effect waves-light btn red"
 
   %br
 
