@@ -53,3 +53,8 @@ body {
    pointer-events: none;
    cursor: default;
 }
+
+body > main > table > tbody > tr:nth-child(n) > td.btn-group > button > a {
+font-size: x-large;
+color: white;
+}
