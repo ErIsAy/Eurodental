@@ -29,11 +29,11 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.patient_id.present? && @order.save
-        format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
+        format.html { redirect_to orders_path, notice: 'La Orden fue creada exitosamente.' }
         # format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        @order.errors.add(:patient_name, "cannot be blank") unless @order.patient_id.present?
+        @order.errors.add(:patient_name, "No puede estar en blanco") unless @order.patient_id.present?
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: 'La Orden fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'La Orden fue eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -10,6 +10,10 @@
     %link{:href => "http://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
   %body
 
+  - flash.each do |name, msg| 
+    :javascript
+      Materialize.toast('#{msg}', 2000, 'rounded')
+    
 
   = yield
 
