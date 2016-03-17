@@ -6,16 +6,16 @@
         %ul
           - @client.errors.full_messages.each do |msg|
             %li= msg
-    .row.card.container{:style => "margin: 0 auto;"}
-      .input-field.col.s6
+    .row.card.container.col.s12{:style => "margin: 0 auto;"}
+      .input-field{:class => "col s12 s12 s6"}
         %i.material-icons.prefix account_circle
         = f.label :name, "Cliente"
         = f.text_field :name
-      .input-field.col.s6
+      .input-field{:class => "col s12 s12 s6"}
         %i.material-icons.prefix phone
         = f.label :phone, "Tel.:"
         = f.text_field :phone
-      .input-field.col.s12
+      .input-field{:class => "col s12 s12 s6"}
         %i.material-icons.prefix email
         %label{:for => "email"} E-mail
         = f.text_field :email,
