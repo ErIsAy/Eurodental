@@ -7,10 +7,57 @@
   %br
   %h3.container{:style => "margin: 0 auto;"} Nueva Orden
   %br
+
+
+  .container.col.s12
+    %ul.tabs
+      %li.tab.col.s3
+        %a.active{:href => "#test1"} Detalles de la Orden
+      %li.tab.col.s3.disabled#invoice_tab
+        %a{:href => "#test2"} Servicios
+  #test1.col.s12{:style => "margin: 0 auto;"}
+    = render 'form'
+  #test2
+    .row.card.container{:style => "margin: 0 auto;"}
+      .col.s6
+        = render :partial => 'layouts/tooth_chart'
+      %ul.collection.with-header.right.col.s6
+        %li.collection-header
+          %h4 Facturacion
+        %li.collection-item
+          %div
+            Description {Corona, Implante, etc...} + $
+            %a.secondary-content{:href => "#!"}
+              %i.material-icons send
+        %li.collection-item
+          %div
+            Description {Corona, Implante, etc...} + $
+            %a.secondary-content{:href => "#!"}
+              %i.material-icons send
+        %li.collection-item
+          %div
+            Description {Corona, Implante, etc...} + $
+            %a.secondary-content{:href => "#!"}
+              %i.material-icons send
+        %li.collection-item
+          %div
+            Total $0000.00
+            %a.secondary-content{:href => "#!"}
+              %i.material-icons send
+    %br
+    .container
+      %a{:href => "#test1", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura_back"}
+        %i.material-icons.right chevron_left
+
   -# CONTENT
-  = render 'form'
+  -# = render 'form'
   %br
   -# = link_to 'Back', orders_path
+
+
+
+
+
 
 -# END OF MAIN
 

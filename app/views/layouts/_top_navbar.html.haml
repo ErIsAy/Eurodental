@@ -3,20 +3,25 @@
     %a.button-collapse{"data-activates" => "slide-out", :href => "#", :class => "button-collapse show-on-large"}
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
-      %li.inactiveLink
-        %a{:href => "#", :style => "color:darkgrey;"} Opciones
       %li
-        %a{:href => root_path} Inicio
+        %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "bottom"}
+          %i.material-icons home
+      %li
+        %a.tooltipped{:href => "#", "data-tooltip" => "Opciones", "data-position" => "bottom"}
+          %i.material-icons settings
     .input-field.right.hide-on-med-and-down{:center => ""}
       %input#search{:placeholder => "Buscar...", :required => "", :type => "search"}
         %label{:for => "search"}
           %i.material-icons search
     %ul#slide-out.side-nav
       %li
-        %a{:href => clients_path} Clientes
+        %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right"} Clientes
       %li
-        %a{:href => orders_path} Ordenes
+        %a.tooltipped{:href => orders_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right"} Ordenes
+      %li.inactiveLink
+        %a{:href => "#", :style => "color: darkgrey;"} Reportes
       %li.inactiveLink
         %a{:href => "#", :style => "color: darkgrey;"} Administración
       %li
-        %a{:href => "#"} Cerrar Sesión
+        %a.tooltipped{:href => "#", "data-tooltip" => "Cerrar Sesión", "data-position" => "right"}
+          %i.material-icons power_settings_new
