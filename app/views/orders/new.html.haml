@@ -5,9 +5,19 @@
 %main
   = render :partial => 'layouts/top_navbar'
   %br
-  %h3.container{:style => "margin: 0 auto;"} Nueva Orden
+  %h4.container{:style => "margin: 0 auto;"} Nueva Orden
   %br
 
+  .modal.modal-fixed-footer#services_modal
+    .modal-content
+      %h4
+        Seleccionar Servicios
+    .modal-footer
+      %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.left{:href => "#!"}
+        Limpiar
+      %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
+        Agregar
+        %i.material-icons{:class => "small"} send
 
   .container.col.s12
     %ul.tabs
@@ -18,32 +28,32 @@
   #test1.col.s12{:style => "margin: 0 auto;"}
     = render 'form'
   #test2
-    .row.card.container{:style => "margin: 0 auto;"}
-      .col.s6
+    .row.card.container{:style => "margin: 0 auto"}
+      %div{:class => "col s6 m6 s12"}
         = render :partial => 'layouts/tooth_chart'
-      %ul.collection.with-header.right.col.s6
+      %ul.collection.with-header.right{:class => "col s6 m6 s12"}
         %li.collection-header
-          %h4 Facturacion
+          %h4 Detalles
         %li.collection-item
           %div
             Description {Corona, Implante, etc...} + $
             %a.secondary-content{:href => "#!"}
-              %i.material-icons send
+              %i.material-icons mode_edit
         %li.collection-item
           %div
             Description {Corona, Implante, etc...} + $
             %a.secondary-content{:href => "#!"}
-              %i.material-icons send
+              %i.material-icons mode_edit
         %li.collection-item
           %div
             Description {Corona, Implante, etc...} + $
             %a.secondary-content{:href => "#!"}
-              %i.material-icons send
+              %i.material-icons mode_edit
         %li.collection-item
-          %div
-            Total $0000.00
+          %div.right{:style => "font-weight: bolder; font-size: 25px;"}
+            Total: $0000.00
             %a.secondary-content{:href => "#!"}
-              %i.material-icons send
+          %br
     %br
     .container
       %a{:href => "#test1", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura_back"}
@@ -63,6 +73,6 @@
 
 -# FOOTER
 
-%footer.page-footer
-  = render :partial => 'layouts/footer'
+
+= render :partial => 'layouts/footer'
 -# END OF FOOTER
