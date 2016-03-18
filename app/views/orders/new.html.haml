@@ -31,29 +31,17 @@
     .row.card.container{:style => "margin: 0 auto"}
       %div{:class => "col s6 m6 s12"}
         = render :partial => 'layouts/tooth_chart'
-      %ul.collection.with-header.right{:class => "col s6 m6 s12"}
-        %li.collection-header
-          %h4 Detalles
-        %li.collection-item
-          %div
-            Description {Corona, Implante, etc...} + $
-            %a.secondary-content{:href => "#!"}
-              %i.material-icons mode_edit
-        %li.collection-item
-          %div
-            Description {Corona, Implante, etc...} + $
-            %a.secondary-content{:href => "#!"}
-              %i.material-icons mode_edit
-        %li.collection-item
-          %div
-            Description {Corona, Implante, etc...} + $
-            %a.secondary-content{:href => "#!"}
-              %i.material-icons mode_edit
-        %li.collection-item
-          %div.right{:style => "font-weight: bolder; font-size: 25px;"}
-            Total: $0000.00
-            %a.secondary-content{:href => "#!"}
-          %br
+      .collection.with-header.right{:class => "col s6 m6 s12 "}
+        %h4.collection-header
+          Detalles
+        %a.collection-item Description {Corona, Implante, etc...} + $
+        %a.collection-item Description {Corona, Implante, etc...} + $
+        %a.collection-item Description {Corona, Implante, etc...} + $
+        %a.collection-item.active{:style => "font-size: 20px;"} +
+        %a.collection-item.right{:style => "font-weight: bolder; font-size: 25px;"}
+          Total: $0000.00
+          %a.secondary-content{:href => "#!"}
+        %br
     %br
     .container
       %a{:href => "#test1", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura_back"}
