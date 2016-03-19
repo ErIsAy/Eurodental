@@ -15,6 +15,8 @@
           %i.material-icons search
     %ul#slide-out.side-nav
       %li
+        %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "right"} Inicio
+      %li
         %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right"} Clientes
       %li
         %a.tooltipped{:href => orders_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right"} Ordenes
@@ -22,6 +24,4 @@
         %a.tooltipped{:href => "#", :style => "color: darkgrey;", "data-tooltip" => "En Desarrollo", "data-position" => "right"} Reportes
       %li.inactiveLink
         %a.tooltipped{:href => "#", :style => "color: darkgrey;", "data-tooltip" => "En Desarrollo", "data-position" => "right"} Administración
-      %li
-        %a.tooltipped{:href => "#", "data-tooltip" => "Cerrar Sesión", "data-position" => "right"}
-          %i.material-icons power_settings_new
+      = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default btn-flat")

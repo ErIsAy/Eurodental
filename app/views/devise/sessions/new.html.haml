@@ -1,0 +1,26 @@
+%body.login-page
+
+.box
+  .container
+    %h3{:style => "font-family: Bauhaus; color: #3498db; text-align: center;"} EURODENTAL LAB
+    %br
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .input-field
+        %i.material-icons.prefix person
+        = f.label :email, "Correo"
+        %br/
+        = f.email_field :email, autofocus: true
+      .input-field
+        %i.material-icons.prefix lock
+        = f.label :password, "Contraseña"
+        %br/
+        = f.password_field :password, autocomplete: "off"
+      -# - if devise_mapping.rememberable?
+      -#   .field
+      -#     = f.check_box :remember_me
+      -#     = f.label :remember_me
+      %br
+      .actions
+        = f.submit "Iniciar Sesión",
+          :class => "btn waves-effect waves-light"
+    -# = render "devise/shared/links"

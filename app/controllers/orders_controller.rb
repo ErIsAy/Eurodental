@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
         # format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        @order.errors.add(:patient_name, "No puede estar en blanco") unless @order.patient_id.present?
+        @order.errors.add("Paciente", "No puede estar en blanco") unless @order.patient_id.present?
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end

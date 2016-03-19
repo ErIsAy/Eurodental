@@ -2,10 +2,11 @@
   = form_for @order do |f|
     - if @order.errors.any?
       #error_explanation
-        %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-        %ul
-          - @order.errors.full_messages.each do |msg|
-            %li= msg
+        -flash[:'notice'] = "Orden no pudo ser procesada "
+        -# %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+        -# %ul
+        -#   - @order.errors.full_messages.each do |msg|
+        -#     %li= msg
     .row.card.container{:style => "margin: 0 auto;"}
       .select.input-field{:class => "col s12 m6 s12"}
         -# = f.label :client_id
@@ -15,19 +16,21 @@
         = f.label :patient_name, "Nombre del Paciente"
         = f.text_field :patient_name
       .input-field{:class => "col s12 m6 s12"}
-        %i.material-icons.prefix today
-        = f.label :order_date, "Fecha"
-        = f.text_field :order_date,
-          :class => "datepicker"
+        -# %i.material-icons.prefix tag_faces
+        -# = f.label :sex, "Sexo"
+        = f.select :sex, ['Femenino', 'Masculino'],
+          prompt: 'Sexo'
+        -# = f.radio_button :sex, 'Masculino'
+      -# %hr.container{:style => "border-top: 2px solid gray;"}
       .input-field{:class => "col s12 m6 s12"}
         %i.material-icons.prefix perm_identity
         = f.label :age, "Edad"
         = f.number_field :age
       .input-field{:class => "col s12 m6 s12"}
-        %i.material-icons.prefix tag_faces
-        = f.label :sex, "Sexo"
-        = f.text_field :sex
-      -# %hr.container{:style => "border-top: 2px solid gray;"}
+        %i.material-icons.prefix today
+        = f.label :order_date, "Fecha"
+        = f.text_field :order_date,
+          :class => "datepicker"
       .input-field.col.s12
         %i.material-icons.prefix mode_edit
         = f.label :client_note, "Notas del Cliente"
