@@ -1,15 +1,52 @@
-%p#notice= notice
+-# %p#notice= notice
+-#
+-#
+-#
+-# = link_to 'Edit', edit_client_path(@client)
+-# \|
+-# = link_to 'Back', clients_path
 
-%p
-  %b Name:
-  = @client.name
-%p
-  %b Phone:
-  = @client.phone
-%p
-  %b Email:
-  = @client.email
 
-= link_to 'Edit', edit_client_path(@client)
-\|
-= link_to 'Back', clients_path
+
+-# %p#notice= notice
+-#
+
+-# = link_to 'Edit', edit_order_path(@order)
+-# \|
+-# = link_to 'Back', orders_path
+-#
+
+
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %h1{:style => "text-align: center;"} Ver Datos
+
+  .container.card{:style => "margin:0 auto;"}
+    %p
+      %b Nombre del Cliente:
+      = @client.name
+    %p
+      %b Tel.::
+      = @client.phone
+    %p
+      %b E-Mail:
+      = @client.email
+  -# CONTENT
+  .container
+    %a{:href => clients_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right chevron_left
+      Volver
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

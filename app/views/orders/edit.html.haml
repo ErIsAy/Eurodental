@@ -1,7 +1,29 @@
-%h1 Editing order
 
-= render 'form'
 
-= link_to 'Show', @order
-\|
-= link_to 'Back', orders_path
+-# = link_to 'Show', @order
+-# \|
+-# = link_to 'Back', orders_path
+
+
+
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %h1.container Editar Orden
+  %br
+  = render 'form'
+  -# CONTENT
+
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

@@ -1,21 +1,48 @@
-%p#notice= notice
+-# %p#notice= notice
+-#
 
-%p
-  %b Order date:
-  = @order.order_date
-%p
-  %b Age:
-  = @order.age
-%p
-  %b Sex:
-  = @order.sex
-%p
-  %b Client note:
-  = @order.client_note
-%p
-  %b Other note:
-  = @order.other_note
+-# = link_to 'Edit', edit_order_path(@order)
+-# \|
+-# = link_to 'Back', orders_path
+-#
 
-= link_to 'Edit', edit_order_path(@order)
-\|
-= link_to 'Back', orders_path
+
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %h1{:style => "text-align: center;"} Ver Datos
+
+  .container.card{:style => "margin:0 auto;"}
+    %p
+      %b Fecha:
+      = @order.order_date
+    %p
+      %b Edad:
+      = @order.age
+    %p
+      %b Sexo:
+      = @order.sex
+    %p
+      %b Notas del Cliente:
+      = @order.client_note
+    %p
+      %b Otras Notas:
+      = @order.other_note
+  -# CONTENT
+  .container
+    %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right chevron_left
+      Volver
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER
