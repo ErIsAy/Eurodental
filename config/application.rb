@@ -30,10 +30,10 @@ module EuroDentalLab
 
      config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
      config.i18n.default_locale = :es
-
+     config.serve_static_assets = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    
+
 # Enable the asset pipeline
 config.assets.enabled = true
 config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
