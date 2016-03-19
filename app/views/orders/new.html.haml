@@ -44,13 +44,21 @@
         %br
     %br
     .container
-      %a{:href => "#test1", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura_back"}
+      %button.btn.waves-effect.waves-light#submit_tab2{data: { disable_with: "Procesando..." }}
+        %i.material-icons.right save
+        Salvar
+      %a{:href => "#test1", :class => "waves-effect waves-light btn blue right tabfactura_back"}
         %i.material-icons.right chevron_left
+        Anterior
+      -# %a{:href => "#test1", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura_back"}
+      -#   %i.material-icons.right chevron_left
 
   -# CONTENT
   -# = render 'form'
   %br
   -# = link_to 'Back', orders_path
+  :javascript
+    $('#submit_tab2').click( function(){ $('#order_submit').click(); } );
 
 
 
