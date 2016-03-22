@@ -18,6 +18,7 @@
 /*Datepicker js*/
 //= require datepicker_spanish
 
+// Turbolinks.enableTransitionCache();
 
 /* Sidenav initializer*/
 // $( document ).ready(function(){
