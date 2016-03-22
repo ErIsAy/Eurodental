@@ -11,31 +11,35 @@
       .select.input-field{:class => "col s12 m6 s12"}
         -# = f.label :client_id
         = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
+
       .input-field{:class => "col s12 m6 s12"}
         %i.material-icons.prefix account_circle
         = f.label :patient_name, "Nombre del Paciente"
         = f.text_field :patient_name
+
       .input-field{:class => "col s12 m6 s12"}
         -# %i.material-icons.prefix tag_faces
         -# = f.label :sex, "Sexo"
         = f.select :sex, ['Femenino', 'Masculino'],
           prompt: 'Sexo'
-        -# = f.radio_button :sex, 'Masculino'
-      -# %hr.container{:style => "border-top: 2px solid gray;"}
+
       .input-field{:class => "col s12 m6 s12"}
         %i.material-icons.prefix perm_identity
         = f.label :age, "Edad"
         = f.number_field :age
+
       .input-field{:class => "col s12 m6 s12"}
         %i.material-icons.prefix today
         = f.label :order_date, "Fecha"
         = f.text_field :order_date,
           :class => "datepicker"
+
       .input-field.col.s12
         %i.material-icons.prefix mode_edit
         = f.label :client_note, "Notas del Cliente"
         = f.text_area :client_note,
           :class => "materialize-textarea"
+
       .input-field.col.s12
         %i.material-icons.prefix mode_edit
         = f.label :other_note, "Otras Notas"
@@ -47,9 +51,11 @@
       %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
         %i.material-icons.right chevron_left
         Volver
+
       %button.btn.waves-effect.waves-light#order_submit{:style => "visibility: hidden;", :name => "action", :type => "submit", data: { disable_with: "Procesando..." }}
         %i.material-icons.right save
         Crear
+
       %a{:href => "#test2", :class => "waves-effect waves-light btn blue right tabfactura"}
         %i.material-icons.right chevron_right
         Siguiente

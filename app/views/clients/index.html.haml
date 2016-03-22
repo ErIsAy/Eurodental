@@ -26,17 +26,16 @@
           %td= client.name
           %td= client.phone
           %td= client.email
+
           %td.btn-group
             %a{:href => client_path(client), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
               %i.material-icons.right search
+
             %a{:href => edit_client_path(client), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
-              %i.material-icons.right mode_edit  
+              %i.material-icons.right mode_edit
+
             %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
               = link_to 'X', client_path(client), :method => :delete
-             
-
-
-
 
 
 
@@ -45,7 +44,6 @@
   -# = link_to 'Back', clients_path
   -# = link_to 'New Client', new_client_path
 -# END OF MAIN
-
 
 -# FOOTER
 

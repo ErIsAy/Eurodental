@@ -7,11 +7,13 @@
   %br
   %h3.container{:style => "margin: 0 auto;"} Listado de Ordenes
   %br
+
   .container{:style => "margin: 0 auto;"}
     %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right add
       Nueva Orden
   %br
+
   %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
     %thead
       %tr
@@ -31,11 +33,14 @@
           %td= order.client_name
           %td= order.client_note
           %td= order.other_note
+
           %td.btn-group
             %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
               %i.material-icons.right search
+
             %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
-              %i.material-icons.right mode_edit  
+              %i.material-icons.right mode_edit
+
             %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
               = link_to 'X', order_path(order), :method => :delete
 
@@ -43,7 +48,6 @@
 
   -# = link_to 'New Order', new_order_path
   -# END OF MAIN
-
 
   -# FOOTER
 

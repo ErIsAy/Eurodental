@@ -25,12 +25,15 @@
         %a.active{:href => "#test1"} Detalles de la Orden
       %li.tab.col.s3.disabled#invoice_tab
         %a{:href => "#test2"} Servicios {En Desarrollo!}
+
   #test1.col.s12{:style => "margin: 0 auto;"}
     = render 'form'
+
   #test2
     .row.card.container{:style => "margin: 0 auto"}
       %div{:class => "col s6 m6 s12"}
         = render :partial => 'layouts/tooth_chart'
+
       .collection.with-header.right{:class => "col s6 m6 s12 "}
         %h4.collection-header
           Detalles {En Desarrollo!}
@@ -43,10 +46,12 @@
           %a.secondary-content{:href => "#!"}
         %br
     %br
+
     .container
       %button.btn.waves-effect.waves-light#submit_tab2{data: { disable_with: "Procesando..." }}
         %i.material-icons.right save
         Salvar
+
       %a{:href => "#test1", :class => "waves-effect waves-light btn blue right tabfactura_back"}
         %i.material-icons.right chevron_left
         Anterior
