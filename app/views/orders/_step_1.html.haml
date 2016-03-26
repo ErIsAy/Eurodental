@@ -1,0 +1,38 @@
+.row.card.container{:style => "margin: 0 auto;"}
+  .select.input-field{:class => "col s12 m6 s12"}
+    -# = f.label :client_id
+    = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
+
+  .input-field{:class => "col s12 m6 s12"}
+    %i.material-icons.prefix account_circle
+    = f.label :patient_name, "Nombre del Paciente"
+    = f.text_field :patient_name
+
+  .input-field{:class => "col s12 m6 s12"}
+    -# %i.material-icons.prefix tag_faces
+    -# = f.label :sex, "Sexo"
+    = f.select :sex, ['Femenino', 'Masculino'],
+      prompt: 'Sexo'
+
+  .input-field{:class => "col s12 m6 s12"}
+    %i.material-icons.prefix perm_identity
+    = f.label :age, "Edad"
+    = f.number_field :age
+
+  .input-field{:class => "col s12 m6 s12"}
+    %i.material-icons.prefix today
+    = f.label :order_date, "Fecha"
+    = f.text_field :order_date,
+      :class => "datepicker"
+
+  .input-field.col.s12
+    %i.material-icons.prefix mode_edit
+    = f.label :client_note, "Notas del Cliente"
+    = f.text_area :client_note,
+      :class => "materialize-textarea"
+
+  .input-field.col.s12
+    %i.material-icons.prefix mode_edit
+    = f.label :other_note, "Otras Notas"
+    = f.text_area :other_note,
+      :class => "materialize-textarea"

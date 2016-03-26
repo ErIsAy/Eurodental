@@ -7,57 +7,28 @@
         -# %ul
         -#   - @order.errors.full_messages.each do |msg|
         -#     %li= msg
-    .row.card.container{:style => "margin: 0 auto;"}
-      .select.input-field{:class => "col s12 m6 s12"}
-        -# = f.label :client_id
-        = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
 
-      .input-field{:class => "col s12 m6 s12"}
-        %i.material-icons.prefix account_circle
-        = f.label :patient_name, "Nombre del Paciente"
-        = f.text_field :patient_name
+    = render "#{@order.current_step}", :f => f
 
-      .input-field{:class => "col s12 m6 s12"}
-        -# %i.material-icons.prefix tag_faces
-        -# = f.label :sex, "Sexo"
-        = f.select :sex, ['Femenino', 'Masculino'],
-          prompt: 'Sexo'
-
-      .input-field{:class => "col s12 m6 s12"}
-        %i.material-icons.prefix perm_identity
-        = f.label :age, "Edad"
-        = f.number_field :age
-
-      .input-field{:class => "col s12 m6 s12"}
-        %i.material-icons.prefix today
-        = f.label :order_date, "Fecha"
-        = f.text_field :order_date,
-          :class => "datepicker"
-
-      .input-field.col.s12
-        %i.material-icons.prefix mode_edit
-        = f.label :client_note, "Notas del Cliente"
-        = f.text_area :client_note,
-          :class => "materialize-textarea"
-
-      .input-field.col.s12
-        %i.material-icons.prefix mode_edit
-        = f.label :other_note, "Otras Notas"
-        = f.text_area :other_note,
-          :class => "materialize-textarea"
     %br
     %br
+
+    // Submit Buttons
     .actions.container{:style => "margin: 0 auto;"}
-      %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
-        %i.material-icons.right chevron_left
-        Volver
+      = f.submit "Volver", :name => "back_button" unless @order.first_step?
 
-      %button.btn.waves-effect.waves-light#order_submit{:style => "visibility: hidden;", :name => "action", :type => "submit", data: { disable_with: "Procesando..." }}
-        %i.material-icons.right save
-        Crear
+      -# %a{:href => orders_path, :class => "waves-effect waves-light btn blue", :name => "back_button"}
+      -#   %i.material-icons.right chevron_left
+      -#   Volver
+      = f.submit "Siguiente"
+      -# %button.btn.waves-effect.waves-light#order_submit{:name => "action", :type => "submit ", data: { disable_with: "Procesando..." }}
+      -#   %i.material-icons.right save
+      -#   Siguiente
 
-      %a{:href => "#test2", :class => "waves-effect waves-light btn blue right tabfactura"}
-        %i.material-icons.right chevron_right
-        Siguiente
-      -# %a{:href => "#test2", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura"}
-      -#   %i.material-icons.right chevron_right
+
+
+    -# %a{:href => "#test2", :class => "waves-effect waves-light btn blue right tabfactura"}
+    -#   %i.material-icons.right chevron_right
+    -#   Siguiente
+    -# %a{:href => "#test2", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura"}
+    -#   %i.material-icons.right chevron_right
