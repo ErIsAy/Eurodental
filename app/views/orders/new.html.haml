@@ -17,19 +17,19 @@
   -#     %li.tab.col.s3.disabled#invoice_tab
   -#       %a{:href => "#test2"} Servicios {En Desarrollo!}
 
-
-
   .col.s12{:style => "margin: 0 auto;"}
     -# = render 'form'
     .col.s12
       = form_for @order do |f|
-        - if @order.errors.any?
-          #error_explanation
-            -flash[:'notice'] = "Orden no pudo ser procesada "
+        -if @order.errors.any?
+          -flash[:notice] = "Favor llenar los campos correctamente"
+          -# #error_explanation
+            -# -flash[:'notice'] = "Orden no pudo ser procesada "
             -# %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-            -# %ul
-            -#   - @order.errors.full_messages.each do |msg|
-            -#     %li= msg
+            %ul
+              - @order.errors.full_messages.each do |msg|
+                -# %li= msg
+                -flash[:notice] = "Favor llenar los campos correctamente"
 
         = render "#{@order.current_step}", :f => f
 
@@ -38,12 +38,23 @@
 
         // Submit Buttons
         .actions.container{:style => "margin: 0 auto;"}
-          = f.submit "Volver", :name => "back_button" unless @order.first_step?
+          -# = f.submit "Volver", :name => "back_button" unless @order.first_step?
 
-          -# %a{:href => orders_path, :class => "waves-effect waves-light btn blue", :name => "back_button"}
-          -#   %i.material-icons.right chevron_left
-          -#   Volver
-          = f.submit "Siguiente"
+          -if @order.first_step? == false
+            %button.btn.waves-effect.waves-light#order_submit{:name => "back_button", :type => "submit", data: { disable_with: "Procesando.." }}
+              %i.material-icons.right chevron_left
+              Volver
+          - elsif @order.first_step? == true
+            %a{:href => orders_path, :class => "waves-effect waves-light btn blue left tabfactura_back"}
+              Volver
+
+
+          %button.btn.waves-effect.waves-light.right#order_submit{:name => "action", :type => "submit", data: { disable_with: "Procesando.." }}
+            %i.material-icons.right chevron_right
+            Siguiente
+
+          -# = f.submit "Siguiente",
+          -#   :class => "waves-effect waves-light btn blue"
           -# %button.btn.waves-effect.waves-light#order_submit{:name => "action", :type => "submit ", data: { disable_with: "Procesando..." }}
           -#   %i.material-icons.right save
           -#   Siguiente
@@ -55,15 +66,6 @@
         -#   Siguiente
         -# %a{:href => "#test2", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura"}
         -#   %i.material-icons.right chevron_right
-
-
-
-
-
-
-
-
-
 
 
   -# #test2
@@ -81,9 +83,6 @@
   -# = link_to 'Back', orders_path
   -# :javascript
   -#   $('#submit_tab2').click( function(){ $('#order_submit').click(); } );
-
-
-
 
 
 

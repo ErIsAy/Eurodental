@@ -5,7 +5,8 @@ class Order < ActiveRecord::Base
   attr_accessor :client_name
   attr_accessor :current_step
 
-  #validates_presence_of :patient_id
+  validates_presence_of :patient_name, :if => lambda { |o| o.current_step == "step_1"}
+  validates_presence_of :client_id, :if => lambda { |o| o.current_step == "step_1"}
   # validate :date_order_is_valid_future_date
 
   # def date_order_is_valid_future_date
