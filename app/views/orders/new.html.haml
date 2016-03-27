@@ -5,7 +5,7 @@
 %main
   = render :partial => 'layouts/top_navbar'
   %br
-  %h4.container{:style => "margin: 0 auto;"} Nueva Orden
+  %h4.container.center{:style => "margin: 0 auto;"} Nueva Orden
   %br
 
   = render 'services_modal'
@@ -16,6 +16,7 @@
   -#       %a.active{:href => "#test1"} Detalles de la Orden
   -#     %li.tab.col.s3.disabled#invoice_tab
   -#       %a{:href => "#test2"} Servicios {En Desarrollo!}
+  = render 'wizard_steps'
 
   .col.s12{:style => "margin: 0 auto;"}
     -# = render 'form'

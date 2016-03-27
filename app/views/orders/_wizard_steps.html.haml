@@ -1,0 +1,97 @@
+.container.col.s12#wizard-progress
+  %ol.step-indicator
+    %li.active
+      .step
+        %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} assignment
+      .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Detalles de la Orden
+    %li.active
+      .step
+        %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} face
+      .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Servicios
+    %li.active
+      .step
+        %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} local_printshop
+      .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Impresión
+
+
+:css
+    body {
+      font-family: Roboto;
+    }
+
+    #wizard-progress {
+      width: 100%;
+      margin: 20px auto 0 auto;
+    }
+    #wizard-progress .step-indicator {
+      border-collapse: separate;
+      display: table;
+      margin-left: 0px;
+      position: relative;
+      table-layout: fixed;
+      text-align: center;
+      vertical-align: middle;
+      padding-left: 0;
+    }
+    #wizard-progress .step-indicator li {
+      display: table-cell;
+      position: relative;
+      float: none;
+      padding: 0;
+      width: 1%;
+    }
+    #wizard-progress .step-indicator li:after {
+      background-color: #ccc;
+      content: "";
+      display: block;
+      height: 1px;
+      position: absolute;
+      width: 100%;
+      top: 32px;
+    }
+    #wizard-progress .step-indicator li:after {
+      left: 50%;
+    }
+    #wizard-progress .step-indicator li:last-child:after {
+      display: none;
+    }
+    #wizard-progress .step-indicator li.active .step {
+    //  border-color: #2ca8ff;
+    //  color: #2ca8ff;
+    color: white;
+    }
+    #wizard-progress .step-indicator li.active .caption {
+    //  color: #2ca8ff;
+    color: white;
+    }
+    #wizard-progress .step-indicator li.complete:after {
+      background-color: #05ae0e;
+    }
+    #wizard-progress .step-indicator li.complete .step {
+      border-color: #05ae0e;
+      color: #05ae0e;
+    }
+    #wizard-progress .step-indicator li.complete .caption {
+      color: #05ae0e;
+    }
+    #wizard-progress .step-indicator .step {
+      //background-color: #fff;
+      background-color: #9fa8da ;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      color: #ccc;
+      font-size: 24px;
+      height: 64px;
+      line-height: 64px;
+      margin: 0 auto;
+      position: relative;
+      width: 64px;
+      z-index: 1;
+    }
+    #wizard-progress .step-indicator .step:hover {
+      cursor: pointer;
+    }
+    #wizard-progress .step-indicator .caption {
+      color: #ccc;
+      padding: 11px 16px;
+    }
