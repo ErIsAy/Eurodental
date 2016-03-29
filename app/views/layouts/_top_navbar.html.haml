@@ -2,14 +2,18 @@
   .nav-wrapper
     %a.button-collapse{"data-activates" => "slide-out", :href => "#", :class => "button-collapse show-on-large"}
       %i.material-icons menu
-    %ul.right.hide-on-med-and-down
+    %ul.left
       %li
         %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "bottom"}
           %i.material-icons home
       %li
+        %a.tooltipped{:href => new_order_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
+          %i.material-icons local_hospital
+    %ul.right
+      %li
         %a.tooltipped{:href => "#", "data-tooltip" => "Opciones", "data-position" => "bottom"}
           %i.material-icons settings
-    .input-field.right.hide-on-med-and-down{:center => ""}
+    .input-field.right.hide-on-small-only{:center => ""}
       %input#search{:placeholder => "Buscar...", :required => "", :type => "search"}
         %label{:for => "search"}
           %i.material-icons search

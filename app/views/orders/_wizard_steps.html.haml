@@ -2,17 +2,19 @@
   %ol.step-indicator
     %li.active
       .step
-        %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} assignment
+        -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} assignment
+        =image_tag "order_details.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Detalles de la Orden
     %li.active
       .step
-        %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} face
+        -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} face
+        =image_tag "dentist_tooth.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Servicios
     %li.active
       .step
-        %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} local_printshop
+        -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} local_printshop
+        =image_tag "order_print.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Impresión
-
 
 :css
     body {
@@ -65,14 +67,18 @@
     color: white;
     }
     #wizard-progress .step-indicator li.complete:after {
-      background-color: #05ae0e;
+      //  background-color: #05ae0e;
+      background-color: #26a69a;
     }
     #wizard-progress .step-indicator li.complete .step {
-      border-color: #05ae0e;
-      color: #05ae0e;
+    //  border-color: #05ae0e;
+    //  color: #05ae0e;
+      border-color: #26a69a;
+      color: #26a69a;
     }
     #wizard-progress .step-indicator li.complete .caption {
-      color: #05ae0e;
+      //color: #05ae0e;
+      color: white;
     }
     #wizard-progress .step-indicator .step {
       //background-color: #fff;
