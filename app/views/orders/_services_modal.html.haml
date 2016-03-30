@@ -1,7 +1,48 @@
 .modal.modal-fixed-footer#services_modal
   .modal-content
-    %h4
+    %h4{:style => "color: black;"}
       Seleccionar Servicios
+
+    %form{:action => "#"}
+      Tipo de Trabajo
+      %p
+        %input#test1{:type => "checkbox"}/
+        %label{:for => "test1"} Corona
+      %p
+        %input#test2{:type => "checkbox"}/
+        %label{:for => "test2"} Puente
+      %p
+        %input#test3{:type => "checkbox"}/
+        %label{:for => "test3"} Implantes
+      %p
+        %input#test4{:type => "checkbox"}/
+        %label{:for => "test4"} Barra
+      %p
+        %input#test5{:type => "checkbox"}/
+        %label{:for => "test5"} Híbrida
+      %p
+        %input#test6{:type => "checkbox"}/
+        %label{:for => "test6"} Carilla
+      %p
+        %input#test7{:type => "checkbox"}/
+        %label{:for => "test7"} Inlay/Onlay
+      %p
+        %input#test8{:type => "checkbox"}/
+        %label{:for => "test8"} Inlay Bridge
+      %p
+        %input#test9{:type => "checkbox"}/
+        %label{:for => "test9"} Lente de Contacto
+      %p
+        %input#test10{:type => "checkbox"}/
+        %label{:for => "test10"} Perno
+      %p
+        %input#test11{:type => "checkbox"}/
+        %label{:for => "test11"} Soldadura Láser
+
+
+
+
+
   .modal-footer
     %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.left{:href => "#!"}
       Limpiar

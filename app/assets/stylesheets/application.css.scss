@@ -26,10 +26,11 @@ $primary-color: color("indigo", "lighten-1") !default;
 
 html {
   font-size: 14px;
+  color: #5C6BC0;
+  }
 
-}
 
-//Footer Fix
+
 body {
     display: flex;
     min-height: 100vh;
@@ -40,14 +41,15 @@ body {
 main {
     flex: 1 0 auto;
 }
-
+//Footer Fix
 footer.page-footer {
 	padding-top: 0px;
 	position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 30px;
+    z-index: 99;
 }
 
 

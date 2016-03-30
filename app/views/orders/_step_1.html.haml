@@ -25,11 +25,12 @@
     = f.text_field :order_date,
       :class => "datepicker"
 
-  .input-field.col.s12
+  .input-field.col.s12#textarea1
     %i.material-icons.prefix mode_edit
     = f.label :client_note, "Notas del Cliente"
     = f.text_area :client_note,
-      :class => "materialize-textarea"
+      :class => "materialize-textarea",
+      :length => 250
 
   .input-field.col.s12
     %i.material-icons.prefix mode_edit

@@ -1,14 +1,14 @@
-.row.card.container{:style => "margin: 0 auto"}
+.row.card.container{:style => "margin: 0 auto;"}
   %div{:class => "col s6 m6 s12"}
     = render :partial => 'layouts/tooth_chart'
 
-  .collection.with-header.right{:class => "col s6 m6 s12 "}
+  .collection.with-header.right{:class => "col s6 m6 s12 ", :style => "right: 6px;"}
     %h4.collection-header{:style => "color: black;"}
       Detalles {En Desarrollo!}
     %a.collection-item Description {Corona, Implante, etc...} + $
-    / %a.collection-item Description {Corona, Implante, etc...} + $
-    / %a.collection-item Description {Corona, Implante, etc...} + $
-    %a.collection-item.active{:style => "font-size: 20px;"} +
+    %a.collection-item Description {Corona, Implante, etc...} + $
+    %a.collection-item Description {Corona, Implante, etc...} + $
+    %a.collection-item.active.modal-trigger{:href => "#services_modal", :style => "font-size: 20px;"} + Click Agregar Servicios
     %a.collection-item.right{:style => "font-weight: bolder; font-size: 25px;"}
       Total: $0000.00
       %a.secondary-content{:href => "#!"}
