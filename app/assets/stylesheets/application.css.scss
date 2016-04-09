@@ -26,11 +26,15 @@ $primary-color: color("indigo", "lighten-1") !default;
 @import "materialize/extras/nouislider";
 
 html {
-  font-size: 14px;
-  color: #5C6BC0;
+  //debe ser 20 ?
+  font-size: 16px;
+  //color: #5C6BC0;
+  color: black;
   }
 
-
+#logoutnav-bar {
+color: white;
+}
 
 body {
     display: flex;

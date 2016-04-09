@@ -11,7 +11,7 @@
           %i.material-icons local_hospital
     %ul.right
       %li
-        %a.tooltipped{:href => "#", "data-tooltip" => "Opciones", "data-position" => "bottom"}
+        %a.tooltipped{:href => "#", "data-tooltip" => "Ajusted", "data-position" => "bottom"}
           %i.material-icons settings
     .input-field.right.hide-on-small-only{:center => ""}
       %input#search{:placeholder => "Buscar...", :required => "", :type => "search"}
@@ -28,4 +28,4 @@
         %a.tooltipped{:href => "#", :style => "color: darkgrey;", "data-tooltip" => "En Desarrollo", "data-position" => "right"} Reportes
       %li.inactiveLink
         %a.tooltipped{:href => "#", :style => "color: darkgrey;", "data-tooltip" => "En Desarrollo", "data-position" => "right"} Administración
-      = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default btn-flat")
+      = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
