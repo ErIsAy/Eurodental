@@ -2,18 +2,20 @@
   %ol.step-indicator{:style => "margin-top: 0px;"}
     %li.active
       .step
+        =image_tag "eu-clipboard.png", :style => "font-size:46px; padding: 0 0; padding-left: 0px; padding-right: 0px; width: 62px;", :class => "material-icons right caption"
         -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} assignment
-        =image_tag "order_details.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
+        -# =image_tag "order_details.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Detalles de la Orden
     %li.active
       .step
         -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} face
-        =image_tag "dentist_tooth.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
+        =image_tag "eu-tooth.png", :style => "font-size:46px; padding: 0 0; padding-left: 0px; padding-right: 0px; width: 62px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Servicios
     %li.active
       .step
+        =image_tag "eu-print.png", :style => "font-size:46px; padding: 0 0; padding-left: 0px; padding-right: 0px; width: 62px;", :class => "material-icons right caption"
         -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} local_printshop
-        =image_tag "order_print.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
+        -# =image_tag "order_print.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Impresión
 
 :css
@@ -43,7 +45,7 @@
       width: 1%;
     }
     #wizard-progress .step-indicator li:after {
-      background-color: #ccc;
+      background-color: #fff;
       content: "";
       display: block;
       height: 1px;
@@ -68,13 +70,13 @@
     }
     #wizard-progress .step-indicator li.complete:after {
       //  background-color: #05ae0e;
-      background-color: #26a69a;
+      background-color: #5BEA60;
     }
     #wizard-progress .step-indicator li.complete .step {
     //  border-color: #05ae0e;
     //  color: #05ae0e;
-      border-color: #26a69a;
-      color: #26a69a;
+      border-color: #5BEA60;
+      color: #5BEA60;
     }
     #wizard-progress .step-indicator li.complete .caption {
       //color: #05ae0e;
@@ -84,8 +86,8 @@
       //background-color: #fff;
       background-color: #9fa8da ;
       border-radius: 50%;
-      border: 1px solid #ccc;
-      color: #ccc;
+      border: 1px solid #fff;
+      color: #fff;
       font-size: 24px;
       height: 64px;
       line-height: 64px;
@@ -98,6 +100,6 @@
       cursor: pointer;
     }
     #wizard-progress .step-indicator .caption {
-      color: #ccc;
+      color: #fff;
       padding: 11px 16px;
     }

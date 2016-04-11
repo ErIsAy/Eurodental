@@ -2,7 +2,10 @@
 
 .box
   .container
-    %h3{:style => "font-family: Bauhaus; color: #3498db; text-align: center;"} EURODENTAL LAB
+    %br
+    %div{:class => "center-align"}
+      =image_tag "eu-tooth.png", :style => "width: 70px;"
+    %h4{:style => "font-family: Bauhaus; color: #3498db; text-align: center;"} EURODENTAL LAB
     %br
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .input-field
@@ -20,7 +23,7 @@
       -#     = f.check_box :remember_me
       -#     = f.label :remember_me
       %br
-      .actions
+      .actions{:class => "center-align"}
         = f.submit "Iniciar Sesión",
           :class => "btn waves-effect waves-light"
     -# = render "devise/shared/links"
@@ -30,5 +33,10 @@
   font-size: 15px;
   }
   body > div.box{
-  height: 425px;
+  height: 455px;
   }
+  body {
+   background-image: url("/assets/dentalbg.jpg");
+   background-attachment: fixed;
+   background-position: center;
+   }
