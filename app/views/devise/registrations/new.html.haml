@@ -1,21 +1,48 @@
-%h2 Registro {En Desarrollo!!}
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email, "Correo"
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password, "Contraseña"
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+%body.login-page
+
+.box
+  .container
+    %br
+    %div{:class => "center-align"}
+      %i.material-icons.prefix{:style => "color:#2196F3; font-size: 70px;"} group_add
+    %h4{:style => "font-family: Bauhaus; color: #3498db; text-align: center;"} Registro
+    %br
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .input-field
+        %i.material-icons.prefix person
+        = f.label :email, "Correo"
+        %br/
+        = f.email_field :email, autofocus: true
+      .input-field
+        %i.material-icons.prefix lock
+        = f.label :password, "Contraseña"
+        - if @minimum_password_length
+          -# %em
+          -#   (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off"
+      .input-field
+        %i.material-icons.prefix lock_outline
+        = f.label :password_confirmation, "Confirmar Contraseña"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off"
+      .actions{:class => "center-align"}
+        = f.submit "Sign up",
+          :class => "btn waves-effect waves-light"
+    -# = render "devise/shared/links"
+
+
+:css
+  html {
+  font-size: 15px;
+  }
+  body > div.box{
+  height: 550px;
+  width: 480px;
+  }
+  body {
+   background-image: url("/assets/dentalbg.jpg");
+   background-attachment: fixed;
+   background-position: center;
+   }
