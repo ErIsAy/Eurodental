@@ -28,7 +28,7 @@ class Order < ActiveRecord::Base
 
 
   def steps
-    %w{step_1 step_2}
+    %w{step_1 step_2 step_3}
   end
 
   def next_step

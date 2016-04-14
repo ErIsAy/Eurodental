@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'reports/index'
+
   devise_for :users
   resources :orders
   resources :clients
 
+  get 'reports/index'
   get 'welcome/index'
   root 'welcome#index'
 

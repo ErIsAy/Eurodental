@@ -23,6 +23,7 @@
   .col.s12{:style => "margin: 0 auto;"}
     -# = render 'form'
     .col.s12
+
       = form_for @order do |f|
         -if @order.errors.any?
           -flash[:notice] = "Favor llenar los campos correctamente"
@@ -33,6 +34,7 @@
               - @order.errors.full_messages.each do |msg|
                 -# %li= msg
                 -flash[:notice] = "Favor llenar los campos correctamente"
+
 
         = render "#{@order.current_step}", :f => f
 

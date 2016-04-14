@@ -1,17 +1,17 @@
 .container.col.s12#wizard-progress{:style => "margin-top: 0px;"}
   %ol.step-indicator{:style => "margin-top: 0px;"}
-    %li.active
+    %li.active#step_1
       .step
         =image_tag "eu-clipboard.png", :style => "font-size:46px; padding: 0 0; padding-left: 0px; padding-right: 0px; width: 62px;", :class => "material-icons right caption"
         -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} assignment
         -# =image_tag "order_details.png", :style => "font-size:46px; padding: 5px 6px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Detalles de la Orden
-    %li.active
+    %li.active#step_2
       .step
         -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} face
         =image_tag "eu-tooth.png", :style => "font-size:46px; padding: 0 0; padding-left: 0px; padding-right: 0px; width: 62px;", :class => "material-icons right caption"
       .caption.hidden-xs.hidden-sm{:style => "font-size: 20px;"} Servicios
-    %li.active
+    %li.active#step_3
       .step
         =image_tag "eu-print.png", :style => "font-size:46px; padding: 0 0; padding-left: 0px; padding-right: 0px; width: 62px;", :class => "material-icons right caption"
         -# %i.material-icons.right{:style => "margin: 8px; font-size:46px;"} local_printshop
