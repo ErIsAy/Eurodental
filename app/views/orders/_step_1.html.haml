@@ -1,4 +1,8 @@
 .row.card.container{:style => "margin: 0 auto;"}
+  .container.right{:style => "padding-right:15px;"}
+    %p.right
+      %input#cotiz{:type => "checkbox"}/
+      %label{:for => "cotiz"} Cotizacion
   .select.input-field{:class => "col s12 m6 s12"}
     -# = f.label :client_id
     = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
@@ -21,7 +25,7 @@
 
   .input-field{:class => "col s12 m6 s12"}
     %i.material-icons.prefix today
-    = f.label :order_date, "Fecha"
+    = f.label :order_date, "Fecha de Entrega"
     = f.text_field :order_date,
       :class => "datepicker"
 

@@ -33,6 +33,11 @@ left: 0;
 z-index: 1030;
 }
 
+/*reduce spacing for tables*/
+#orders_t {
+line-height: 0.5;
+}
+
 .nav-fixed {
 top: 0;
 }
@@ -40,7 +45,7 @@ top: 0;
 
 html {
   //debe ser 20 ?
-  font-size: 16px;
+  font-size: 18px;
   //color: #5C6BC0;
   color: black;
   }

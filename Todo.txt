@@ -1,0 +1,16 @@
+
+Development
+
+  Modal select for clients for new Orders
+  Advanced Search for Clients
+  Advanced Search for Orders
+  Add Order missing data fields
+  Print PDF in orders
+  Order Services functionality
+  Print PDF in reports
+  Accountant section
+
+Gems to add
+
+  Passenger
+  Prawn

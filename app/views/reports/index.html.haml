@@ -1,0 +1,65 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+
+  -# CONTENT
+
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+  %br
+  %h3{:style => "margin: 0 auto; text-align: center;"}
+    %i.material-icons{:style => "margin: 8px; font-size:46px;"} equalizer
+    Reportes
+  %br
+
+  .row.container.card{:style => "margin: 0 auto;"}
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "summary-forms.jpg", :style => "height: 161.469px;"
+          %span.card-title Report Title
+        .card-content
+          %p
+            I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.
+        .card-action
+          %a{:href => "#"} This is a link
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "papers.jpg", :style => "height: 161.469px;"
+          %span.card-title Report Title
+        .card-content
+          %p
+            I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.
+        .card-action
+          %a{:href => "#"} This is a link
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "dentalreport1.jpg", :style => "height: 161.469px;"
+          %span.card-title Report Title
+        .card-content
+          %p
+            I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.
+        .card-action
+          %a{:href => "#"} This is a link
+
+
+
+
+
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER
