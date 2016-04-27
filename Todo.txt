@@ -2,6 +2,7 @@
 Development
 
   Modal select for clients for new Orders
+  Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
   Advanced Search for Clients
   Advanced Search for Orders
   Add Order missing data fields
@@ -14,3 +15,72 @@ Gems to add
 
   Passenger
   Prawn
+
+
+
+/*Migration */
+
+
+class AddAttributesToOrders < ActiveRecord::Migration
+  def change
+    add_column :orders, :cotizacion, :boolean
+
+    add_column :orders, :antagonista, :boolean
+    add_column :orders, :foto, :boolean
+    add_column :orders, :mordida, :boolean
+
+    add_column :orders, :cant, :boolean
+    add_column :orders, :color, :boolean
+
+    #tipo de trabajo
+    add_column :orders, :coronoa, :boolean
+    add_column :orders, :puente, :boolean
+    add_column :orders, :implante, :boolean
+    add_column :orders, :barra, :boolean
+    add_column :orders, :hibrida, :boolean
+    add_column :orders, :carilla, :boolean
+    add_column :orders, :in_onlay, :boolean
+    add_column :orders, :inlay_bridge, :boolean
+    add_column :orders, :lente_contacto, :boolean
+    add_column :orders, :perno, :boolean
+    add_column :orders, :sold_laser, :boolean
+
+    #colorimetro
+    add_column :orders, :vita_classic, :boolean
+    add_column :orders, :vita_3d, :boolean
+    add_column :orders, :bioform, :boolean
+    add_column :orders, :chromarcop, :boolean
+    add_column :orders, :col_otras, :boolean
+
+    #material
+    add_column :orders, :zirconio, :boolean
+    add_column :orders, :disilicato, :boolean
+    add_column :orders, :fedespatica, :boolean
+    add_column :orders, :porcelana, :boolean
+    add_column :orders, :pmma, :boolean
+    add_column :orders, :polimero, :boolean
+    add_column :orders, :composite, :boolean
+    add_column :orders, :metal_porcelana, :boolean
+    add_column :orders, :zirconio_porcelana, :boolean
+    add_column :orders, :peek, :boolean
+
+    #color del munon
+    add_column :orders, :natural, :boolean
+    add_column :orders, :pimentado, :boolean
+    add_column :orders, :metal, :boolean
+
+    #procedimiento
+    add_column :orders, :fresado_maquinado, :boolean
+    add_column :orders, :prensado, :boolean
+    add_column :orders, :colado, :boolean
+
+    #metales
+    add_column :orders, :cromo_cobalto, :boolean
+    add_column :orders, :titanium, :boolean
+    add_column :orders, :cromo_niquel, :boolean
+    add_column :orders, :oro, :boolean
+    add_column :orders, :paladio, :boolean
+
+
+  end
+end
