@@ -1,8 +1,13 @@
 
 Development
 
-  Modal select for clients for new Orders
-  Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
+  *Modal select for clients for new Orders
+  -Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
+  below ones in Order model
+        t.boolean  :cotizacion
+        t.boolean  :antagonista
+        t.boolean  :foto
+        t.boolean  :mordida
   Advanced Search for Clients
   Advanced Search for Orders
   Add Order missing data fields

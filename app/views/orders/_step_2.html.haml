@@ -3,46 +3,18 @@
     = render :partial => 'layouts/tooth_chart'
 
   .container.right{:class => "col s6 m6 s12"}
-    %table.bordered.right.highlight{:style => "right: 2px; table-layout: fixed; background-color: #FDFDFD; "}
-      %thead
-        %tr
-          %th{"data-field" => "name"} Detalle
-          %th{"data-field" => "price"} Precio
-          %th{"data-field" => "Action"}
-      %tbody
-        %tr
-          %td Diente: 18 <br> Implante
-          %td $2500.87
-          %td.btn-group
-            %i.material-icons{:style => "color: gray;"} delete
-        %tr
-          %td Diente: 13 <br> Corona <br> Implante <br>
-          %td $3500.76
-          %td.btn-group
-            %i.material-icons{:style => "color: gray;"} delete
-        %tr
-          %td Diente: 18 <br> Perno
-          %td $700.00
-          %td.btn-group
-            %i.material-icons{:style => "color: gray;"} delete
+    %ul.collection
+      = f.fields_for :services do |service|
+        = render 'service_fields', f: service
+      .links
+        = link_to_add_association 'Agregar', f, :services, class: "btn"
+        .collection.right
+          %a.collection-item{:href => "#!"} $0.00
 
-    .collection.right{:class => "col s6 m6 s12 ", :style => "right: 6px; padding: 0;"}
-      %a.collection-item{:style => "font-size: 25px;"}
-        Total: RD$11.63
-    %i.material-icons.left{:style => "color: gray; font-size:40px;"} add
 
-  -#  .collection.with-header.right{:class => "col s6 m6 s12 ", :style => "right: 6px;"}
-  -#    %h4.collection-header{:style => "color: black;"}
-  -#      Detalles {En Desarrollo!}
-  -#    %a.collection-item Description {Corona, Implante, etc...} + $
-  -#    %a.collection-item Description {Corona, Implante, etc...} + $
-  -#    %a.collection-item Description {Corona, Implante, etc...} + $
-  -#    %a.collection-item.active.modal-trigger{:href => "#services_modal", :style => "font-size: 20px;"} + Click Agregar Servicios
-  -#    %a.collection-item.right{:style => "font-weight: bolder; font-size: 25px;"}
-  -#      Total: $0000.00
-  -#     %a.secondary-content{:href => "#!"}
-    %br
+
 %br
+
 
 
 :css
@@ -55,8 +27,8 @@
 
   }
 
-
 :javascript
   $( document ).ready(function(){
     document.getElementById("step_1").classList.add("complete");
     });
+  $('.modal-trigger').leanModal();

@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+#nested form gem
+gem 'cocoon'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -40,6 +42,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#for hungry cookies
+gem 'activerecord-session_store'
+
+
 group :development, :test do
   gem 'annotate', '2.7.0'
   # Use sqlite3 as the database for Active Record
@@ -51,6 +57,9 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   #App Auto Reloads gem
   gem 'spring'
+
+  gem 'awesome_print'
+
 
 end
 

@@ -1,0 +1,149 @@
+.nested-fields.collection-item.avatar
+  %i.material-icons.circle.green.modal-trigger{:href => "#services_modal_s"} insert_chart
+  %a
+    Test
+    .container.modal.modal-fixed-footer#services_modal_s
+      .input-fields{:class => "col m2 s6"}
+        = f.text_field :color, :placeholder => "Color"
+      .input-fields{:class => "col m2 s6"}
+        = f.number_field :cant, :placeholder => "Cantidad"
+      .input-fields{:class => "col m12 s4"}
+        %br/
+        = f.check_box :corona
+        = f.label :corona, "Corona"
+        %br/
+        = f.check_box :puente
+        = f.label :puente, "puente"
+        %br/
+        = f.check_box :implante
+        = f.label :implante, "implante"
+        %br/
+        = f.check_box :barra
+        = f.label :barra, "barra"
+        %br/
+        = f.check_box :hibrida
+        = f.label :hibrida, "hibrida"
+        %br/
+        = f.check_box :carilla
+        = f.label :carilla, "carilla"
+        %br/
+        = f.check_box :in_onlay
+        = f.label :in_onlay, "in_onlay"
+        %br/
+        = f.check_box :inlay_bridge
+        = f.label :inlay_bridge, "inlay_bridge"
+        %br/
+        = f.check_box :lente_contacto
+        = f.label :lente_contacto, "lente_contacto"
+        %br/
+        = f.check_box :perno
+        = f.label :perno, "perno"
+        %br/
+        = f.check_box :sold_laser
+        = f.label :sold_laser, "sold_laser"
+        %br/
+        = f.check_box :vita_classic
+        = f.label :vita_classic, "vita_classic"
+        %br/
+        = f.check_box :vita_3d
+        = f.label :vita_3d, "vita_3d"
+        %br/
+        = f.check_box :bioform
+        = f.label :bioform, "bioform"
+        %br/
+        = f.check_box :chromarcop
+        = f.label :chromarcop, "chromarcop"
+        %br/
+        = f.check_box :col_otras
+        = f.label :col_otras, "col_otras"
+        %br/
+        = f.check_box :zirconio
+        = f.label :zirconio, "zirconio"
+        %br/
+        = f.check_box :disilicato
+        = f.label :disilicato, "disilicato"
+        %br/
+        = f.check_box :fedespatica
+        = f.label :fedespatica, "fedespatica"
+        %br/
+        = f.check_box :porcelana
+        = f.label :porcelana, "porcelana"
+        %br/
+        = f.check_box :pmma
+        = f.label :pmma, "pmma"
+        %br/
+        = f.check_box :polimero
+        = f.label :polimero, "polimero"
+        %br/
+        = f.check_box :composite
+        = f.label :composite, "composite"
+        %br/
+        = f.check_box :metal_porcelana
+        = f.label :metal_porcelana, "metal_porcelana"
+        %br/
+        = f.check_box :zirconio_porcelana
+        = f.label :zirconio_porcelana, "zirconio_porcelana"
+        %br/
+        = f.check_box :peek
+        = f.label :peek, "peek"
+        %br/
+        = f.check_box :natural
+        = f.label :natural, "natural"
+        %br/
+        = f.check_box :pimentado
+        = f.label :pimentado, "pimentado"
+        %br/
+        = f.check_box :metal
+        = f.label :metal, "metal"
+        %br/
+        = f.check_box :fresado_maquinado
+        = f.label :fresado_maquinado, "fresado_maquinado"
+        %br/
+        = f.check_box :prensado
+        = f.label :prensado, "prensado"
+        %br/
+        = f.check_box :colado
+        = f.label :colado, "colado"
+        %br/
+        = f.check_box :cromo_cobalto
+        = f.label :cromo_cobalto, "cromo_cobalto"
+        %br/
+        = f.check_box :titanium
+        = f.label :titanium, "titanium"
+        %br/
+        = f.check_box :cromo_niquel
+        = f.label :cromo_niquel, "cromo_niquel"
+        %br/
+        = f.check_box :oro
+        = f.label :oro, "oro"
+        %br/
+        = f.check_box :paladio
+        = f.label :paladio, "paladio"
+
+
+
+
+    %p.secondary-content
+      = link_to_remove_association "Remove", f, class: "form-button btn btn-default"
+
+
+-# %a.collection-item.avatar.modal-trigger{:href => "#services_modal"}
+-#   %img.circle{:alt => "", :src => "assets/eu-tooth.png"}
+-#   .nested_fields
+-#     .fields
+-#       = f.check_box :coronoa
+-#       = f.label :coronoa
+-#     -# %span.title Title
+-#     -# %p
+-#     -#   First Line
+-#     -#   %br/
+-#     -#   Second Line
+-#     -# %p.secondary-content
+-#     -#   $0.00
+-#     = link_to_remove_association "remove service", f
+-#
+
+
+-# %i.material-icons.left{:style => "color: gray; font-size:40px;"} add
+:javascript
+  $('.modal-trigger').leanModal();
