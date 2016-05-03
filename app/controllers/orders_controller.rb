@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
     @order = Order.new(session[:order_params])
     @order.current_step = session[:order_step]
 
+
   if @order.valid?
     if params[:back_button]
       @order.previous_step

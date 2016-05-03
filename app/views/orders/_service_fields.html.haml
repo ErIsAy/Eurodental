@@ -1,125 +1,142 @@
 .nested-fields.collection-item.avatar
   %i.material-icons.circle.green.modal-trigger{:href => "#services_modal_s"} insert_chart
   %a
-    Test
-    .container.modal.modal-fixed-footer#services_modal_s
-      .input-fields{:class => "col m2 s6"}
+    Orden!
+    .container.modal.modal-fixed-footer{:id => "services_modal_s"}
+      .input-fields{:class => "col m6 s6"}
         = f.text_field :color, :placeholder => "Color"
-      .input-fields{:class => "col m2 s6"}
+      .input-fields{:class => "col m6 s6"}
         = f.number_field :cant, :placeholder => "Cantidad"
-      .input-fields{:class => "col m12 s4"}
-        %br/
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Tipo de Trabajo
         = f.check_box :corona
         = f.label :corona, "Corona"
         %br/
         = f.check_box :puente
-        = f.label :puente, "puente"
+        = f.label :puente, "Puente"
         %br/
         = f.check_box :implante
-        = f.label :implante, "implante"
+        = f.label :implante, "Implantes"
         %br/
         = f.check_box :barra
-        = f.label :barra, "barra"
+        = f.label :barra, "Barra"
         %br/
         = f.check_box :hibrida
-        = f.label :hibrida, "hibrida"
+        = f.label :hibrida, "Híbrida"
         %br/
         = f.check_box :carilla
-        = f.label :carilla, "carilla"
+        = f.label :carilla, "Carilla"
         %br/
         = f.check_box :in_onlay
-        = f.label :in_onlay, "in_onlay"
+        = f.label :in_onlay, "Inlay/Onlay"
         %br/
         = f.check_box :inlay_bridge
-        = f.label :inlay_bridge, "inlay_bridge"
+        = f.label :inlay_bridge, "Inlay Bridge"
         %br/
         = f.check_box :lente_contacto
-        = f.label :lente_contacto, "lente_contacto"
+        = f.label :lente_contacto, "Lente de contacto"
         %br/
         = f.check_box :perno
-        = f.label :perno, "perno"
+        = f.label :perno, "Perno"
         %br/
         = f.check_box :sold_laser
-        = f.label :sold_laser, "sold_laser"
-        %br/
+        = f.label :sold_laser, "Soldadura Laser"
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Colorímetro
         = f.check_box :vita_classic
-        = f.label :vita_classic, "vita_classic"
+        = f.label :vita_classic, "Vita Classic"
         %br/
         = f.check_box :vita_3d
-        = f.label :vita_3d, "vita_3d"
+        = f.label :vita_3d, "Vita 3D master"
         %br/
         = f.check_box :bioform
-        = f.label :bioform, "bioform"
+        = f.label :bioform, "Bioform"
         %br/
         = f.check_box :chromarcop
-        = f.label :chromarcop, "chromarcop"
+        = f.label :chromarcop, "Chromarcop"
         %br/
         = f.check_box :col_otras
-        = f.label :col_otras, "col_otras"
-        %br/
+        = f.label :col_otras, "Otras ?"
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Material
         = f.check_box :zirconio
-        = f.label :zirconio, "zirconio"
+        = f.label :zirconio, "Zirconio"
         %br/
         = f.check_box :disilicato
-        = f.label :disilicato, "disilicato"
+        = f.label :disilicato, "Disilicato"
         %br/
         = f.check_box :fedespatica
-        = f.label :fedespatica, "fedespatica"
+        = f.label :fedespatica, "Fedespática"
         %br/
         = f.check_box :porcelana
-        = f.label :porcelana, "porcelana"
+        = f.label :porcelana, "Porcelana"
         %br/
         = f.check_box :pmma
-        = f.label :pmma, "pmma"
+        = f.label :pmma, "PMMA"
         %br/
         = f.check_box :polimero
-        = f.label :polimero, "polimero"
+        = f.label :polimero, "Polímero"
         %br/
         = f.check_box :composite
-        = f.label :composite, "composite"
+        = f.label :composite, "Composite"
         %br/
         = f.check_box :metal_porcelana
-        = f.label :metal_porcelana, "metal_porcelana"
+        = f.label :metal_porcelana, "Metal/Pocelana"
         %br/
         = f.check_box :zirconio_porcelana
-        = f.label :zirconio_porcelana, "zirconio_porcelana"
+        = f.label :zirconio_porcelana, "Zirconio/Porcelana"
         %br/
         = f.check_box :peek
-        = f.label :peek, "peek"
-        %br/
+        = f.label :peek, "Peek"
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Color de Muñon
         = f.check_box :natural
-        = f.label :natural, "natural"
+        = f.label :natural, "Natural"
         %br/
         = f.check_box :pimentado
-        = f.label :pimentado, "pimentado"
+        = f.label :pimentado, "Pimentado"
         %br/
         = f.check_box :metal
-        = f.label :metal, "metal"
-        %br/
+        = f.label :metal, "Metal"
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Procedimiento
         = f.check_box :fresado_maquinado
-        = f.label :fresado_maquinado, "fresado_maquinado"
+        = f.label :fresado_maquinado, "Fresado/Maquinado"
         %br/
         = f.check_box :prensado
-        = f.label :prensado, "prensado"
+        = f.label :prensado, "Prensado"
         %br/
         = f.check_box :colado
-        = f.label :colado, "colado"
-        %br/
+        = f.label :colado, "Colado"
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Metales
         = f.check_box :cromo_cobalto
-        = f.label :cromo_cobalto, "cromo_cobalto"
+        = f.label :cromo_cobalto, "Cromo Cobalto"
         %br/
         = f.check_box :titanium
-        = f.label :titanium, "titanium"
+        = f.label :titanium, "Titanium"
         %br/
         = f.check_box :cromo_niquel
-        = f.label :cromo_niquel, "cromo_niquel"
+        = f.label :cromo_niquel, "Cromo níquel"
         %br/
         = f.check_box :oro
-        = f.label :oro, "oro"
+        = f.label :oro, "Oro"
         %br/
         = f.check_box :paladio
-        = f.label :paladio, "paladio"
+        = f.label :paladio, "Paladio"
 
+      .modal-footer
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.left{:href => "#!"}
+          Limpiar
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
+          Agregar
+          %i.material-icons{:class => "small"} send
 
 
 
