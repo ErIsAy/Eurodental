@@ -7,6 +7,12 @@ class CreateOrders < ActiveRecord::Migration
       t.string :sex
       t.text :client_note
       t.text :other_note
+      t.boolean :coti
+      #t.integer :total
+      #t.integer :state, :default => 0
+        # pendiente = 0
+        # procesada = 1
+
 
       t.references :client, index: true, foreign_key: true
 

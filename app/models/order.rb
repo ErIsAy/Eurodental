@@ -1,7 +1,9 @@
 class Order < ActiveRecord::Base
 #  belongs_to :patient
   belongs_to :client
-  has_many :services
+  has_many :services, dependent: :destroy
+
+  default_scope { order("created_at DESC") }
 
   accepts_nested_attributes_for :services, reject_if: :all_blank, allow_destroy: true
 

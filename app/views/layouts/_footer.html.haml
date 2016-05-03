@@ -36,6 +36,19 @@
         $('ul.tabs').tabs('select_tab', 'test1');
 
       });
+
+      /*Changes Order Date to disabled and clear date if exist*/
+      $("#order_coti").click(function() {
+                if (this.checked == true) {
+                  document.getElementById("order_order_date").disabled = "disabled";
+                  document.getElementById("order_order_date").value = "";
+                }
+                else{
+               	  document.getElementById("order_order_date").disabled = "";
+                 }
+          });
+
+
     });
 
 

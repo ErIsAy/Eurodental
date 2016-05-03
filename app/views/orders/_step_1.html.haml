@@ -1,8 +1,21 @@
 .row.card.container{:style => "margin: 0 auto;"}
   .container.right{:style => "padding-right:15px;"}
-    %p.right
-      %input#cotiz{:type => "checkbox"}/
-      %label{:for => "cotiz"} Cotizacion
+    .input-fields.right
+      %br/
+      = f.check_box :coti
+      = f.label :coti, "Cotización"
+  .input-fields.left{:style => "padding-left:15px;"}
+    %br
+      %input#ant{:type => "checkbox"}
+      %label{:for => "ant", :style => "padding-right:15px;"} Antagonista
+      %input#foto{:type => "checkbox"}
+      %label{:for => "foto"} Foto
+    %br
+      %input#mord{:type => "checkbox"}
+      %label{:for => "mord"} Mordida
+
+  - 4.times do
+    %br
   .select.input-field{:class => "col s12 m6 s12"}
     -# = f.label :client_id
     = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
@@ -11,6 +24,7 @@
     %i.material-icons.prefix account_circle
     = f.label :patient_name, "Nombre del Paciente"
     = f.text_field :patient_name
+
 
   .input-field{:class => "col s12 m6 s12"}
     -# %i.material-icons.prefix tag_faces

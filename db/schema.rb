@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160502031041) do
     t.string   "sex"
     t.text     "client_note"
     t.text     "other_note"
+    t.boolean  "coti"
     t.integer  "client_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

@@ -2,9 +2,10 @@
 Development
 
   *Modal select for clients for new Orders
+  Clients nested phones, emails
   -Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
   below ones in Order model
-        t.boolean  :cotizacion
+        *t.boolean  :cotizacion
         t.boolean  :antagonista
         t.boolean  :foto
         t.boolean  :mordida

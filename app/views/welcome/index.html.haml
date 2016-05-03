@@ -23,22 +23,17 @@
       %thead
         %tr
           %th{"data-field" => "id"} Nombre del Cliente
-          %th{"data-field" => "name"} Fecha de Entrega
-          %th{"data-field" => "price"} Notas del Cliente
+          %th{"data-field" => "name"} Nombre del Paciente
+          %th{"data-field" => "date"} Fecha de Entrega
+          %th{"data-field" => "state"} Estado
 
       %tbody
-        %tr
-          %td Ejemplo
-          %td Ejemplo
-          %td Ejemplo
-        %tr
-          %td Ejemplo
-          %td Ejemplo
-          %td Ejemplo
-        %tr
-          %td Ejemplo
-          %td Ejemplo
-          %td Ejemplo
+        - @orders.each do |order|
+          %tr
+            %td= order.client_name
+            %td= order.patient_name
+            %td= order.order_date
+            %td{:style => "color: green;"} Completa
 
 
     %br
@@ -66,21 +61,22 @@
     Ordenes Recientes
   %br
   .row.container.card{:style => "margin: 0 auto;"}
-    %table.centered.highlight#orders_t
+    %table.highlight#orders_t
+
       %thead
         %tr
           %th{"data-field" => "id"} Nombre del Cliente
-          %th{"data-field" => "name"} Fecha de Entrega
-          %th{"data-field" => "price"} Notas del Cliente
+          %th{"data-field" => "name"} Nombre del Paciente
+          %th{"data-field" => "date"} Fecha de Entrega
+          %th{"data-field" => "state"} Estado
+
       %tbody
-        %tr
-          %td Ejemplo
-          %td Ejemplo
-          %td Ejemplo
-        %tr
-          %td Ejemplo
-          %td Ejemplo
-          %td Ejemplo
+        - @orders.each do |order|
+          %tr
+            %td= order.client_name
+            %td= order.patient_name
+            %td= order.order_date
+            %td{:style => "color: orange;"} En Proceso
 
     %br
     .div
