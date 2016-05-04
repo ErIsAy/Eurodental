@@ -1,5 +1,5 @@
 .row.card.container{:style => "margin: 0 auto;"}
-  .container.right{:style => "padding-right:15px;"}
+  .right{:style => "padding-right:15px;"}
     .input-fields.right
       %br/
       = f.check_box :coti
@@ -26,11 +26,21 @@
     = f.text_field :patient_name
 
 
-  .input-field{:class => "col s12 m6 s12"}
+  .input-field{:class => "col m12 s6"}
     -# %i.material-icons.prefix tag_faces
     -# = f.label :sex, "Sexo"
-    = f.select :sex, ['Femenino', 'Masculino'],
-      prompt: 'Sexo'
+    -# = f.select :sex, ['Femenino', 'Masculino'],
+    -#   prompt: 'Sexo'
+    -# = f.radio_button :sex, 'Femenino'
+    -# = f.label :sex_Femenino, 'Femenino'
+    -# = f.radio_button :sex, 'Masculino'
+    -# = f.label :sex_Masculino, 'Masculino'
+    %i.material-icons.prefix tag_faces
+    = f.radio_button :sex, 'Femenino'
+    = f.label :sex, 'Femenino', :value => 'Femenino'
+    = f.radio_button :sex, 'Masculino'
+    = f.label :sex, 'Masculino', :value => 'Masculino'
+
 
   .input-field{:class => "col s12 m6 s12"}
     %i.material-icons.prefix perm_identity
