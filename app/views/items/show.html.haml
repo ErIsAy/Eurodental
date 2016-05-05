@@ -1,0 +1,27 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Detalles
+  %br
+
+  .card.container{:style => "margin: 0 auto;"}
+    %p
+      %b Servicio:
+      = @item.name
+    %p
+      %b Precio:
+      = @item.price
+    %p
+      %b Categoría:
+      = @item.category.name
+
+    = link_to 'Edit', edit_item_path(@item)
+    \|
+    = link_to 'Volver', items_path
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

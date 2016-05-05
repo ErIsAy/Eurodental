@@ -11,10 +11,10 @@
           %i.material-icons local_hospital
     %ul.right
       %li
-        %a.tooltipped{:href => "#", "data-tooltip" => "Ajustes", "data-position" => "bottom"}
+        %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
           %i.material-icons settings
     .input-field.right.hide-on-small-only{:center => ""}
-      %input#search{:placeholder => "Buscar...", :required => "", :type => "search"}
+      %input#search{:placeholder => "Buscar...", :required => "", :type => "search", :style => "height: 63px; margin: 0;"}
         %label{:for => "search"}
           %i.material-icons search
     %ul#slide-out.side-nav
@@ -28,6 +28,6 @@
         %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right"} Reportes
       %li.inactiveLink
         %a.tooltipped{:href => "#", :style => "color: darkgrey;", "data-tooltip" => "En Desarrollo", "data-position" => "right"} Contabilidad
-      %li.inactiveLink
-        %a.tooltipped{:href => "#", :style => "color: darkgrey;", "data-tooltip" => "En Desarrollo", "data-position" => "right"} Administración
+      %li
+        %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Categorías y Servicios", "data-position" => "right"} Administración
       = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")

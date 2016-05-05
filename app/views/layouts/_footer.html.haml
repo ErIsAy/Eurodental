@@ -1,6 +1,9 @@
 %footer.page-footer
   :javascript
     $( document ).ready(function(){
+      $(function() {
+          Materialize.updateTextFields();
+      });
       $(".button-collapse").sideNav();
       $('select').material_select();
       $('.tooltipped').tooltip({delay: 25});

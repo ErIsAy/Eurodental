@@ -39,6 +39,18 @@
 #
 
 Rails.application.routes.draw do
+
+  devise_scope :user do
+    get "/sign_in" => "devise/sessions#new"
+    get "/sign_up" => "devise/sessions#new", as: "new_user_registration"
+  end
+
+  get 'admin/index'
+
+  resources :items
+
+  resources :categories
+
   get 'reports/index'
 
   devise_for :users
@@ -46,6 +58,7 @@ Rails.application.routes.draw do
   resources :clients
 
   get 'reports/index'
+  get 'admin/index'
   get 'welcome/index'
   root 'welcome#index'
 

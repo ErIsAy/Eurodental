@@ -1,0 +1,31 @@
+
+.col.s12
+  = form_for @item do |f|
+    - if @item.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+        %ul
+          - @item.errors.full_messages.each do |msg|
+            %li= msg
+    .row.card.container.col.s12{:style => "margin: 0 auto;"}
+      .input-field{:class => "col s6"}
+        = f.label :name, "Servicio"
+        = f.text_field :name
+      .input-field{:class => "col s6"}
+        = f.label :price, "Precio RD$"
+        = f.number_field :price, :class => 'validate'
+      .select.input-field{:class => "col s6"}
+        = f.collection_select :category_id, Category.all, :id, :name, include_blank: false, prompt: 'Seleccionar Categoría'
+        -# = f.label :category
+        -# = f.text_field :category
+    %br
+    %br
+    .actions.container{:style => "margin: 0 auto;"}
+      %button.btn.waves-effect.waves-light{:name => "action", :type => "submit", data: { disable_with: "Procesando..." }}
+        %i.material-icons.right save
+        Crear
+
+      %a{:href => items_path, :class => "waves-effect waves-light btn blue"}
+        %i.material-icons.right chevron_left
+        Volver
+:javascript

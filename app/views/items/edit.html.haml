@@ -1,0 +1,16 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Editar Item
+  %br
+  = render 'form'
+
+-# = link_to 'Show', @item
+-# \|
+-# = link_to 'Back', items_path
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

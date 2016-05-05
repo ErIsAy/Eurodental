@@ -1,0 +1,39 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Categorías
+  %br
+
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_category_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nueva Categoría
+  %br
+  .card.container{:style => "margin: 0 auto;"}
+    %table
+      %thead
+        %tr
+          %th Categoría
+          %th
+          %th
+          %th
+
+      %tbody
+        - @categories.each do |category|
+          %tr
+            %td= category.name
+            %td= link_to 'Ver', category
+            %td= link_to 'Editar', edit_category_path(category)
+            %td= link_to 'Eliminar', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %br
+
+    -# = link_to 'New Category', new_category_path
+
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

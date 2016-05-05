@@ -38,6 +38,12 @@ z-index: 1030;
 line-height: 0.5;
 }
 
+/*Fix Datepicker size*/
+#order_order_date_root > div > div > div{
+  display: -webkit-inline-box;
+}
+
+
 .nav-fixed {
 top: 0;
 }

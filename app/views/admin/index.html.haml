@@ -1,0 +1,68 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+
+  -# CONTENT
+
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+  %br
+  %h3{:style => "margin: 0 auto; text-align: center;"}
+    %i.material-icons{:style => "margin: 8px; font-size:46px;"} toc
+    Administracion
+  %br
+
+  .row.container.card{:style => "margin: 0 auto;"}
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "categories.jpg", :style => "height: 161.469px;"
+          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Categorías
+        .card-content
+          %p
+            Listado y creación de Categorías
+        .card-action
+          %a{:href => categories_path} Administrar Categorías
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "dentalbg.jpg", :style => "height: 161.469px;"
+          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Servicios
+        .card-content
+          %p
+            Listado y creación de Servicios
+        .card-action
+          %a{:href => items_path} Administrar Servicios
+
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "dentalreport1.jpg", :style => "height: 161.469px;"
+          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Usuarios
+        .card-content
+          %p
+            Creación y Administración de Usuarios
+        .card-action
+          %a{:href => ""} Administrar Usuarios
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "security.jpg", :style => "height: 161.469px;"
+          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Seguridad
+        .card-content
+          %p
+            Monitoreo
+        .card-action
+          %a{:href => ""} Analizar
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER
