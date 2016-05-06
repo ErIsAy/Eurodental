@@ -1,0 +1,35 @@
+.modal.modal-fixed-footer#details_modal{:style => "width: 600px; height:600px;"}
+  .modal-content
+    %h4{:style => "color: black;"}
+      Detalles de la Orden
+
+    %h5
+      Aplicar Descuento
+
+    - 2.times do
+      %br
+
+    .row
+      %form.col.s12
+        .row
+          .input-field.col.s8
+            %input#test.validate{:type => "number", :value => "0.00"}/
+            %label{:for => "test"} Total RD$
+          .input-field.col.s4
+            %input#test2.validate{:type => "number", :value => "0.00", :placeholder => "%"}/
+            %label{:for => "test2"}
+
+    %br
+
+    .card.row
+      %p
+        0.00 * % <br>
+        Total RD$ 0.00
+
+
+  .modal-footer
+    %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.left{:href => "#!"}
+      Reiniciar
+    %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
+      Modificar
+      %i.material-icons{:class => "small"} done

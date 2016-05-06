@@ -58,6 +58,7 @@ group :development, :test do
   #App Auto Reloads gem
   gem 'spring'
 
+#AwesomePrint.irb!
   gem 'awesome_print'
 
 

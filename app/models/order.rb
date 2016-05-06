@@ -1,11 +1,12 @@
 class Order < ActiveRecord::Base
 #  belongs_to :patient
   belongs_to :client
-  has_many :services, dependent: :destroy
+  has_many :items
+  # has_and_belongs_to_many :items
 
   #default_scope { order("created_at DESC") }
 
-  accepts_nested_attributes_for :services, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
 
   attr_accessor :client_name
@@ -22,6 +23,8 @@ class Order < ActiveRecord::Base
   # def patient_name
   #   patient.name if patient
   # end
+
+
 
   def client_name
     client.name if client

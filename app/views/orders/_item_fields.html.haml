@@ -1,0 +1,106 @@
+.nested-fields.collection-item.avatar
+  %i.material-icons.circle.green.modal-trigger{:href => "#services_modal_s"} insert_chart
+  %a
+    Orden!
+    .container.modal.modal-fixed-footer{:id => "services_modal_s"}
+      -# .input-fields{:class => "col m6 s6"}
+      -#   = f.text_field :color, :placeholder => "Color"
+      -# .input-fields{:class => "col m6 s6"}
+      -#   = f.number_field :cant, :placeholder => "Cantidad"
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Tipo de Trabajo
+          -# = f.collection_check_boxes(:item, :item_ids, item.all, :id, :name)
+          -# = f.collection_select :category_id, Category.all, :id, :name, include_blank: false, prompt: 'Seleccionar Categoría'
+          - Item.where(category_id: 1).find_each do |item|
+            %br
+            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+            = label_tag dom_id(item), item.name
+            RD$
+            = label_tag dom_id(item), item.price
+
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Material
+          = hidden_field_tag "order[item_ids][]", nil
+          - Item.where(category_id: 2).find_each do |item|
+            %br
+            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+            = label_tag dom_id(item), item.name
+            RD$
+            = label_tag dom_id(item), item.price
+
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Color de Muñon
+          - Item.where(category_id: 3).find_each do |item|
+            %br
+            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+            = label_tag dom_id(item), item.name
+            RD$
+            = label_tag dom_id(item), item.price
+
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Colorímetro
+          - Item.where(category_id: 4).find_each do |item|
+            %br
+            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+            = label_tag dom_id(item), item.name
+            RD$
+            = label_tag dom_id(item), item.price
+
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Procedimiento
+          - Item.where(category_id: 5).find_each do |item|
+            %br
+            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+            = label_tag dom_id(item), item.name
+            RD$
+            = label_tag dom_id(item), item.price
+
+      .input-fields{:class => "col m3 s8"}
+        %p
+          Metales
+          - Item.where(category_id: 6).find_each do |item|
+            %br
+            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+            = label_tag dom_id(item), item.name
+            RD$
+            = label_tag dom_id(item), item.price
+
+
+      .modal-footer
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.left{:href => "#!"}
+          Limpiar
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
+          Agregar
+          %i.material-icons{:class => "small"} send
+
+
+
+    %p.secondary-content
+      = link_to_remove_association "Remove", f, class: "form-button btn btn-default"
+
+
+-# %a.collection-item.avatar.modal-trigger{:href => "#services_modal"}
+-#   %img.circle{:alt => "", :src => "assets/eu-tooth.png"}
+-#   .nested_fields
+-#     .fields
+-#       = f.check_box :coronoa
+-#       = f.label :coronoa
+-#     -# %span.title Title
+-#     -# %p
+-#     -#   First Line
+-#     -#   %br/
+-#     -#   Second Line
+-#     -# %p.secondary-content
+-#     -#   $0.00
+-#     = link_to_remove_association "remove service", f
+-#
+
+
+-# %i.material-icons.left{:style => "color: gray; font-size:40px;"} add
+:javascript
+  $('.modal-trigger').leanModal();

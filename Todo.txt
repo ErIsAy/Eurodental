@@ -3,12 +3,15 @@ Development
 
   *Modal select for clients for new Orders
   Clients nested phones, emails
-  -Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
+  *-Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
   below ones in Order model
         *t.boolean  :cotizacion
-        t.boolean  :antagonista
-        t.boolean  :foto
-        t.boolean  :mordida
+        *t.boolean  :antagonista
+        *t.boolean  :foto
+        *t.boolean  :mordida
+        t.integer  :cant
+        t.string  :color
+
   Advanced Search for Clients
   Advanced Search for Orders
   Add Order missing data fields
@@ -24,69 +27,67 @@ Gems to add
 
 
 
-/*Migration */
+/*Migration Create Services old*/
 
-
-class AddAttributesToOrders < ActiveRecord::Migration
+class CreateServices < ActiveRecord::Migration
   def change
-    add_column :orders, :cotizacion, :boolean
+    create_table :services do |t|
+      t.belongs_to :order, index: true
 
-    add_column :orders, :antagonista, :boolean
-    add_column :orders, :foto, :boolean
-    add_column :orders, :mordida, :boolean
+      t.integer  :cant
+      t.string  :color
 
-    add_column :orders, :cant, :boolean
-    add_column :orders, :color, :boolean
+      #tipo de trabajo
+      t.boolean  :corona, :default => false
+      t.boolean  :puente, :default => false
+      t.boolean  :implante, :default => false
+      t.boolean  :barra, :default => false
+      t.boolean  :hibrida, :default => false
+      t.boolean  :carilla, :default => false
+      t.boolean  :in_onlay, :default => false
+      t.boolean  :inlay_bridge, :default => false
+      t.boolean  :lente_contacto, :default => false
+      t.boolean  :perno, :default => false
+      t.boolean  :sold_laser, :default => false
 
-    #tipo de trabajo
-    add_column :orders, :coronoa, :boolean
-    add_column :orders, :puente, :boolean
-    add_column :orders, :implante, :boolean
-    add_column :orders, :barra, :boolean
-    add_column :orders, :hibrida, :boolean
-    add_column :orders, :carilla, :boolean
-    add_column :orders, :in_onlay, :boolean
-    add_column :orders, :inlay_bridge, :boolean
-    add_column :orders, :lente_contacto, :boolean
-    add_column :orders, :perno, :boolean
-    add_column :orders, :sold_laser, :boolean
+      #colorimetro
+      t.boolean  :vita_classic, :default => false
+      t.boolean  :vita_3d, :default => false
+      t.boolean  :bioform, :default => false
+      t.boolean  :chromarcop, :default => false
+      t.boolean  :col_otras, :default => false
 
-    #colorimetro
-    add_column :orders, :vita_classic, :boolean
-    add_column :orders, :vita_3d, :boolean
-    add_column :orders, :bioform, :boolean
-    add_column :orders, :chromarcop, :boolean
-    add_column :orders, :col_otras, :boolean
+      #material
+      t.boolean  :zirconio, :default => false
+      t.boolean  :disilicato, :default => false
+      t.boolean  :fedespatica, :default => false
+      t.boolean  :porcelana, :default => false
+      t.boolean  :pmma, :default => false
+      t.boolean  :polimero, :default => false
+      t.boolean  :composite, :default => false
+      t.boolean  :metal_porcelana, :default => false
+      t.boolean  :zirconio_porcelana, :default => false
+      t.boolean  :peek, :default => false
 
-    #material
-    add_column :orders, :zirconio, :boolean
-    add_column :orders, :disilicato, :boolean
-    add_column :orders, :fedespatica, :boolean
-    add_column :orders, :porcelana, :boolean
-    add_column :orders, :pmma, :boolean
-    add_column :orders, :polimero, :boolean
-    add_column :orders, :composite, :boolean
-    add_column :orders, :metal_porcelana, :boolean
-    add_column :orders, :zirconio_porcelana, :boolean
-    add_column :orders, :peek, :boolean
+      #color del munon
+      t.boolean  :natural, :default => false
+      t.boolean  :pimentado, :default => false
+      t.boolean  :metal, :default => false
 
-    #color del munon
-    add_column :orders, :natural, :boolean
-    add_column :orders, :pimentado, :boolean
-    add_column :orders, :metal, :boolean
+      #procedimiento
+      t.boolean  :fresado_maquinado, :default => false
+      t.boolean  :prensado, :default => false
+      t.boolean  :colado, :default => false
 
-    #procedimiento
-    add_column :orders, :fresado_maquinado, :boolean
-    add_column :orders, :prensado, :boolean
-    add_column :orders, :colado, :boolean
+      #metales
+      t.boolean  :cromo_cobalto, :default => false
+      t.boolean  :titanium, :default => false
+      t.boolean  :cromo_niquel, :default => false
+      t.boolean  :oro, :default => false
+      t.boolean  :paladio, :default => false
 
-    #metales
-    add_column :orders, :cromo_cobalto, :boolean
-    add_column :orders, :titanium, :boolean
-    add_column :orders, :cromo_niquel, :boolean
-    add_column :orders, :oro, :boolean
-    add_column :orders, :paladio, :boolean
-
-
+      t.timestamps null: false
+    end
+    add_foreign_key :services, :orders
   end
 end

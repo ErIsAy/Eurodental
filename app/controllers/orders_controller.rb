@@ -98,50 +98,10 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-       params.require(:order).permit(:order_date, :coti, :patient_name, :age, :sex, :client_note, :other_note, :client_id,
-                                      services_attributes: [:id,
-                                                            :cant,
-                                                            :color,
-                                                            :corona,
-                                                            :puente,
-                                                            :implante,
-                                                            :barra,
-                                                            :hibrida,
-                                                            :carilla,
-                                                            :in_onlay,
-                                                            :inlay_bridge,
-                                                            :lente_contacto,
-                                                            :perno,
-                                                            :sold_laser,
-                                                            :vita_classic,
-                                                            :vita_3d,
-                                                            :bioform,
-                                                            :chromarcop,
-                                                            :col_otras,
-                                                            :zirconio,
-                                                            :disilicato,
-                                                            :fedespatica,
-                                                            :porcelana,
-                                                            :pmma,
-                                                            :polimero,
-                                                            :composite,
-                                                            :metal_porcelana,
-                                                            :zirconio_porcelana,
-                                                            :peek,
-                                                            :natural,
-                                                            :pimentado,
-                                                            :metal,
-                                                            :fresado_maquinado,
-                                                            :prensado,
-                                                            :colado,
-                                                            :cromo_cobalto,
-                                                            :titanium,
-                                                            :cromo_niquel,
-                                                            :oro,
-                                                            :paladio,
-                                                            :_destroy])
+       params.require(:order).permit(:order_date, :coti, :patient_name, :age, :sex, :client_note, :other_note, :client_id, :antagonista, :foto, :mordida,
+                                      item_ids: [])
 
-
+#items_attributes: [:id, :name, :price, :category_id ]
       #params.require(:order).permit(:order_date, :patient_name, :age, :sex, :client_note, :other_note, :client_id, {:detalles => [:id, :desc, :precio]})
       #params.permit(:order_date, :patient_name, :age, :sex, :client_note, :other_note, :client_id)
     end
