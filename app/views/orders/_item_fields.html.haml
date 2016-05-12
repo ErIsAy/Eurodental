@@ -1,5 +1,5 @@
 .nested-fields.collection-item.avatar
-  %i.material-icons.circle.green.modal-trigger{:href => "#services_modal_s"} insert_chart
+  %i.material-icons.circle.green.modal-trigger{:href => "#services_modal_s"} polymer
   %a
     Orden!
     .container.modal.modal-fixed-footer{:id => "services_modal_s"}
@@ -7,76 +7,104 @@
       -#   = f.text_field :color, :placeholder => "Color"
       -# .input-fields{:class => "col m6 s6"}
       -#   = f.number_field :cant, :placeholder => "Cantidad"
-      .input-fields{:class => "col m3 s8"}
-        %p
-          Tipo de Trabajo
-          -# = f.collection_check_boxes(:item, :item_ids, item.all, :id, :name)
-          -# = f.collection_select :category_id, Category.all, :id, :name, include_blank: false, prompt: 'Seleccionar Categoría'
-          - Item.where(category_id: 1).find_each do |item|
-            %br
-            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
-            = label_tag dom_id(item), item.name
-            RD$
-            = label_tag dom_id(item), item.price
+      -# .input-fields{:class => "col m3 s8"}
+      -# .input-fields{:class => "col m3 s8"}
+      -# .input-fields{:class => "col m3 s8"}
+      -# .input-fields{:class => "col m3 s8"}
+      -# .input-fields{:class => "col m3 s8"}
+      -# .input-fields{:class => "col m3 s8"}
+      %h4{:style => "color: black; text-align: center; font-weight: bold;"}
+        Servicios
 
-      .input-fields{:class => "col m3 s8"}
-        %p
-          Material
-          = hidden_field_tag "order[item_ids][]", nil
-          - Item.where(category_id: 2).find_each do |item|
-            %br
-            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
-            = label_tag dom_id(item), item.name
-            RD$
-            = label_tag dom_id(item), item.price
 
-      .input-fields{:class => "col m3 s8"}
-        %p
-          Color de Muñon
-          - Item.where(category_id: 3).find_each do |item|
-            %br
-            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
-            = label_tag dom_id(item), item.name
-            RD$
-            = label_tag dom_id(item), item.price
 
-      .input-fields{:class => "col m3 s8"}
-        %p
-          Colorímetro
-          - Item.where(category_id: 4).find_each do |item|
-            %br
-            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
-            = label_tag dom_id(item), item.name
-            RD$
-            = label_tag dom_id(item), item.price
+      .input-fields{:class => "col m12 s6"}
+        %ul.collapsible{"data-collapsible" => "accordion"}
+          %li
+            .collapsible-header
+              %i.material-icons> filter_drama
+              Tipo de Trabajo
+            .collapsible-body
+              %p
+                - Item.where(category_id: 1).find_each do |item|
+                  %br
+                  = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                  = label_tag dom_id(item), item.name
+                  RD$
+                  = label_tag dom_id(item), item.price
+          %li
+            .collapsible-header
+              %i.material-icons> place
+              Material
+            .collapsible-body
+              %p
+                = hidden_field_tag "order[item_ids][]", nil
+                - Item.where(category_id: 2).find_each do |item|
+                  %br
+                  = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                  = label_tag dom_id(item), item.name
+                  RD$
+                  = label_tag dom_id(item), item.price
+          %li
+            .collapsible-header
+              %i.material-icons> whatshot
+              Color de Muñon
+            .collapsible-body
+              %p
+                - Item.where(category_id: 3).find_each do |item|
+                  %br
+                  = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                  = label_tag dom_id(item), item.name
+                  RD$
+                  = label_tag dom_id(item), item.price
+          %li
+            .collapsible-header
+              %i.material-icons> whatshot
+              Color
+            .collapsible-body
+              %p
+                - Item.where(category_id: 4).find_each do |item|
+                  %br
+                  = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                  = label_tag dom_id(item), item.name
+                  RD$
+                  = label_tag dom_id(item), item.price
+          %li
+            .collapsible-header
+              %i.material-icons> repeat
+              Procedimiento
+            .collapsible-body
+              %p
+                Procedimiento
+                - Item.where(category_id: 5).find_each do |item|
+                  %br
+                  = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                  = label_tag dom_id(item), item.name
+                  RD$
+                  = label_tag dom_id(item), item.price
+          %li
+            .collapsible-header
+              %i.material-icons> label_outline
+              Metales
+            .collapsible-body
+              %p
+                - Item.where(category_id: 6).find_each do |item|
+                  %br
+                  = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                  = label_tag dom_id(item), item.name
+                  RD$
+                  = label_tag dom_id(item), item.price
 
-      .input-fields{:class => "col m3 s8"}
-        %p
-          Procedimiento
-          - Item.where(category_id: 5).find_each do |item|
-            %br
-            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
-            = label_tag dom_id(item), item.name
-            RD$
-            = label_tag dom_id(item), item.price
 
-      .input-fields{:class => "col m3 s8"}
-        %p
-          Metales
-          - Item.where(category_id: 6).find_each do |item|
-            %br
-            = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
-            = label_tag dom_id(item), item.name
-            RD$
-            = label_tag dom_id(item), item.price
 
 
       .modal-footer
         %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.left{:href => "#!"}
           Limpiar
+          %i.material-icons{:class => "small"} restore
         %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
-          Agregar
-          %i.material-icons{:class => "small"} send
+          Salvar
+          %i.material-icons{:class => "small"} done
 
 
 
@@ -104,3 +132,8 @@
 -# %i.material-icons.left{:style => "color: gray; font-size:40px;"} add
 :javascript
   $('.modal-trigger').leanModal();
+    $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
