@@ -4,24 +4,8 @@
       %br/
       = f.check_box :coti
       = f.label :coti, "Cotización"
-  .input-fields.left{:style => "padding-left:15px;"}
-    %br
-      = f.check_box :antagonista
-      = f.label :antagonista, "Antagonista", :style => "padding-right:15px;"
-      = f.check_box :foto
-      = f.label :foto, "Foto"
-      = f.check_box :mordida
-      = f.label :mordida, "Mordida"
-    -#   %input#ant{:type => "checkbox"}
-    -#   %label{:for => "ant", :style => "padding-right:15px;"} Antagonista
-    -#   %input#foto{:type => "checkbox"}
-    -#   %label{:for => "foto"} Foto
-    -# %br
-    -#   %input#mord{:type => "checkbox"}
-    -#   %label{:for => "mord"} Mordida
-
-  - 4.times do
-    %br
+  %br/
+  %br/
   .select.input-field{:class => "col s12 m6 s12"}
     -# = f.label :client_id
     = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
@@ -31,16 +15,32 @@
     = f.label :patient_name, "Nombre del Paciente"
     = f.text_field :patient_name
 
+  .input-field{:class => "col s12 m6 s12"}
+    %i.material-icons.prefix perm_identity
+    = f.label :age, "Edad"
+    = f.number_field :age, :class => 'validate'
 
-  .input-field{:class => "col m12 s6"}
-    -# %i.material-icons.prefix tag_faces
-    -# = f.label :sex, "Sexo"
-    -# = f.select :sex, ['Femenino', 'Masculino'],
-    -#   prompt: 'Sexo'
-    -# = f.radio_button :sex, 'Femenino'
-    -# = f.label :sex_Femenino, 'Femenino'
-    -# = f.radio_button :sex, 'Masculino'
-    -# = f.label :sex_Masculino, 'Masculino'
+  .input-field{:class => "col s12 m6 s12"}
+    %i.material-icons.prefix today
+    = f.label :order_date, "Fecha de Entrega"
+    = f.text_field :order_date,
+      :class => "datepicker"
+
+  .input-fields.left{:style => "padding-left:15px;", :class => "col s12 m6"}
+    %br
+      =image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 24px;", :class => "material-icons"
+      = f.check_box :antagonista
+      = f.label :antagonista, "Antagonista", :style => "padding-right:15px;"
+      = f.check_box :foto
+      = f.label :foto, "Foto", :style => "margin-left: 52px;"
+      %br/
+      = f.check_box :mordida
+      = f.label :mordida, "Mordida", :style => "margin-left: 52px;"
+
+  - 4.times do
+    %br
+
+  .input-field.right{:class => "col s12 m6"}
     %i.material-icons.prefix tag_faces
     = f.radio_button :sex, 'Femenino'
     = f.label :sex, 'Femenino', :value => 'Femenino'
@@ -48,17 +48,6 @@
     = f.label :sex, 'Masculino', :value => 'Masculino'
     %br
     %br
-
-  .input-field{:class => "col s12 m6 s12"}
-    %i.material-icons.prefix perm_identity
-    = f.label :age, "Edad"
-    = f.number_field :age
-
-  .input-field{:class => "col s12 m6 s12"}
-    %i.material-icons.prefix today
-    = f.label :order_date, "Fecha de Entrega"
-    = f.text_field :order_date,
-      :class => "datepicker"
 
   .input-field.col.s12#textarea1
     %i.material-icons.prefix mode_edit

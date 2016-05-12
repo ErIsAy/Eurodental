@@ -25,6 +25,9 @@ $primary-color: color("indigo", "lighten-1") !default;
 @import "materialize";
 @import "materialize/extras/nouislider";
 
+
+
+
 /* fix navbar always on top*/
 .nav-fixed{
 position: fixed;

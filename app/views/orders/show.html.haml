@@ -31,6 +31,9 @@
     %p
       %b Otras Notas:
       = @order.other_note
+    %p
+      %b Número de Referencia:
+      = @order.id
   -# CONTENT
   .container
     %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
