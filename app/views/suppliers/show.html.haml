@@ -1,0 +1,42 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %h1{:style => "text-align: center;"} Datos del Suplidor
+
+  .container.card{:style => "margin:0 auto;"}
+
+    %p
+      %b Name:
+      = @supplier.name
+    %p
+      %b Description:
+      = @supplier.description
+
+    %p
+      %b Correos:
+      - @supplier.supplier_emails.each do |smail|
+        %li= smail.email
+
+    %p
+      %b Teléfonos:
+      - @supplier.supplier_phones.each do |sphone|
+        %li= sphone.phone
+  -# CONTENT
+  .container
+    %a{:href => suppliers_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right chevron_left
+      Volver
+
+-# = link_to 'Edit', edit_supplier_path(@supplier)
+-# \|
+-# = link_to 'Back', suppliers_path
+
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

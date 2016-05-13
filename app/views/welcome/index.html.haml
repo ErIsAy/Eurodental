@@ -48,11 +48,12 @@
             %i.material-icons.right{:style => "margin-top: -10px; font-size:85px;"} today
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
-        .card-image
-          =image_tag "summary-forms.jpg", :style => "height: 161.469px;"
-          %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
-            Consultas
-            -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
+        %a{:href => clients_path}
+          .card-image
+            =image_tag "dentists1.jpg", :style => "height: 161.469px;"
+            %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+              Clientes
+              -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
         .card-image
@@ -60,8 +61,21 @@
           %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
             Otros Servicios
             -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
-
-
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "summary-forms.jpg", :style => "height: 161.469px;"
+          %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+            Consultas
+            -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        %a{:href => suppliers_path, :id => "john"}
+          .card-image
+            =image_tag "dental-supplies.jpg", :style => "height: 161.469px;"
+            %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+              Suplidores
+              -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
 
 
 

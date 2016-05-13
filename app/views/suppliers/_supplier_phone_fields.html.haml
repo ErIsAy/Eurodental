@@ -1,0 +1,7 @@
+.nested-fields
+  .input-field{:class => "col m8"}
+    %i.material-icons.prefix phone
+    = f.label :phone, "Tel.."
+    = f.text_field :phone
+
+    = link_to_remove_association "-", f, class: "", style: "font-size: 50px;"

@@ -1,0 +1,45 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Suplidores
+  %br
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_supplier_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nuevo Suplidor
+  %br
+  %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th
+        %th
+        %th
+
+    %tbody
+      - @suppliers.each do |supplier|
+        %tr
+          %td= supplier.name
+          %td= supplier.description
+          %td= link_to 'Ver', supplier
+          %td= link_to 'Editar', edit_supplier_path(supplier)
+          %td= link_to 'Eliminar', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+
+  %br
+
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

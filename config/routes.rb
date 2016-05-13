@@ -40,6 +40,8 @@
 
 Rails.application.routes.draw do
 
+  resources :suppliers
+
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new"
     get "/sign_up" => "devise/sessions#new", as: "new_user_registration"

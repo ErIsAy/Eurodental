@@ -9,7 +9,7 @@
   -# .chip.card{:style => "margin: 0 auto; left: 3%;"} Ordenes
   -# .chip.card{:style => "margin: 0 auto; left: 3%;"} Nueva Orden
   -# %br
-  = render :partial => 'services_modal'
+  = render 'services_modal'
   = render 'details_modal'
 
   -# .container.col.s12
@@ -24,11 +24,11 @@
       %input#state1{:name => "group1", :type => "radio", :checked => "checked"}/
       %label{:for => "state1", :style => "color: black; font-weight: bold;"} En Proceso
     %p
-      %input#state2{:name => "group1", :type => "radio"}/
-      %label{:for => "state2", :style => "color: blue; font-weight: bold;"} Prueba
-    %p
       %input#state3{:name => "group1", :type => "radio"}/
       %label{:for => "state3", :style => "color: red; font-weight: bold;"} Urgente
+    %p
+      %input#state2{:name => "group1", :type => "radio", :disabled =>"disabled"}/
+      %label{:for => "state2", :style => "color: blue; font-weight: bold;"} Prueba
     %p
       %input#state4{:name => "group1", :type => "radio", :disabled =>"disabled"}/
       %label{:for => "state4", :style => "color: green; font-weight: bold;"} Completada
