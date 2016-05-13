@@ -1,0 +1,60 @@
+= form_for @supplier do |f|
+  - if @supplier.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@supplier.errors.count, "error")} prohibited this supplier from being saved:"
+      %ul
+        - @supplier.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row.card.container.col.s12{:style => "margin: 0 auto;"}
+    .input-field{:class => "col s6 "}
+      %i.material-icons.prefix account_circle
+      = f.label :name, "Nombre"
+      = f.text_field :name
+    .input-field{:class => "col s12"}
+      %i.material-icons.prefix comment
+      -# = f.label :description, "Descripción"
+      %h6{:style => "margin-left: 52px;"}
+        Descripción
+      = f.text_area :description, :class => "materialize-textarea"
+
+    .row.container.col.s12{:style => "margin: 0 auto;"}
+      .col.m6
+        %h5{:style => "color: black"}
+          Correos
+        #emails
+          = f.fields_for :supplier_emails do |k|
+            = render 'supplier_email_fields', f: k
+          .links
+            = link_to_add_association '+', f, :supplier_emails, class: "btn", style: "font-size: 50px;"
+
+      .col.m6
+        %h5{:style => "color: black"}
+          Teléfonos
+        #emails
+          = f.fields_for :supplier_phones do |j|
+            = render 'supplier_phone_fields', f: j
+          .links
+            = link_to_add_association '+', f, :supplier_phones, class: "btn", style: "font-size: 50px;"
+
+
+        -2.times do
+          %br
+
+    -# .actions
+    -#   = f.submit 'Save'
+  %br
+  %br
+  .actions.container{:style => "margin: 0 auto;"}
+
+    %button.btn.waves-effect.waves-light{:name => "action", :type => "submit", data: { disable_with: "Procesando..." }}
+      %i.material-icons.right save
+      Crear
+
+    %a{:href => suppliers_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right chevron_left
+      Volver
+
+:css
+   .card{
+      background-color: ghostwhite;

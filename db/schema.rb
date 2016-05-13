@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506040830) do
+ActiveRecord::Schema.define(version: 20160513021256) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -67,6 +67,31 @@ ActiveRecord::Schema.define(version: 20160506040830) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "supplier_emails", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "supplier_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "supplier_emails", ["supplier_id"], name: "index_supplier_emails_on_supplier_id"
+
+  create_table "supplier_phones", force: :cascade do |t|
+    t.string   "phone"
+    t.integer  "supplier_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "supplier_phones", ["supplier_id"], name: "index_supplier_phones_on_supplier_id"
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
