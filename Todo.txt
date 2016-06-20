@@ -29,7 +29,7 @@ Gems to add
 
 
 ==Catch Up
-  >Complete all screens even if blank
+  *>Complete all screens even if blank ***partially done
   >Orders search  by recent,  completed,  in progress,  custom, etc..
   >fix the date picker to disable less than today.
   >fix the step wizard in order creation for 2 steps.
