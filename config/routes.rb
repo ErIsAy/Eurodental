@@ -40,6 +40,8 @@
 
 Rails.application.routes.draw do
 
+  get 'consulta/index'
+
   resources :suppliers
 
   devise_scope :user do
@@ -48,7 +50,10 @@ Rails.application.routes.draw do
   end
 
   get 'admin/index'
-
+  get 'orders/orders_completed'
+  get 'orders/orders_test'
+  get 'orders/orders_process'
+  get 'orders/orders_urgent'
   resources :items
 
   resources :categories
@@ -63,8 +68,6 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'welcome/index'
   root 'welcome#index'
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

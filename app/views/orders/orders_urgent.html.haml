@@ -1,0 +1,72 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Ordenes Urgentes
+  %br
+
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nueva Orden
+  %br
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table.centered.highlight#orders_t
+      %thead
+        %tr
+          %th Paciente
+          %th Fecha
+          %th Cliente
+          %th Nota Del Cliente
+          %th Otras Notas
+
+
+
+      %tbody
+        - @orders.each do |order|
+          %tr
+            %td= order.patient_name
+            %td= order.order_date
+            %td= order.client_name
+            %td= order.client_note
+            %td= order.other_note
+
+            %td.btn-group
+              %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                %i.material-icons.right search
+
+              %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+                %i.material-icons.right mode_edit
+
+              %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+                = link_to 'X', order_path(order), :method => :delete, :style => "color: white;"
+
+      %br
+      .div
+        %ul.pagination{:style => "margin: 0 auto; text-align: right;"}
+          %li.disabled
+            %a{:href => "#!"}
+              %i.material-icons chevron_left
+          %li.active
+            %a{:href => "#!"} 1
+          %li.waves-effect
+            %a{:href => "#!"} 2
+          %li.waves-effect
+            %a{:href => "#!"} 3
+          %li.waves-effect
+            %a{:href => "#!"}
+              %i.material-icons chevron_right
+
+  %br
+
+  -# = link_to 'New Order', new_order_path
+  -# END OF MAIN
+
+  -# FOOTER
+
+  %footer.page-footer
+    = render :partial => 'layouts/footer'
+  -# END OF FOOTER

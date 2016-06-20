@@ -12,6 +12,23 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def orders_completed
+    @orders = Order.all
+  end
+
+  def orders_test
+    @orders = Order.all
+  end
+
+  def orders_process
+    @orders = Order.all
+  end
+
+  def orders_urgent
+    @orders = Order.all
+  end
+
+
   # GET /orders/new
   def new
     session[:order_params] ||= {}
