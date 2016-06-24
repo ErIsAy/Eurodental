@@ -45,6 +45,10 @@ gem 'bcrypt', '~> 3.1.7'
 #for hungry cookies
 gem 'activerecord-session_store'
 
+#Search Gem
+gem 'ransack'
+
+
 
 group :development, :test do
   gem 'annotate', '2.7.0'

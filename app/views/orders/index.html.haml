@@ -5,7 +5,7 @@
 %main
   = render :partial => 'layouts/top_navbar'
   %br
-  %h3.container{:style => "margin: 0 auto;"} Listado de Ordenes
+  %h3.container{:style => "margin: 0 auto;"} Consultar Ordenes
   %br
 
   .container{:style => "margin: 0 auto;"}
@@ -13,6 +13,21 @@
       %i.material-icons.right add
       Nueva Orden
   %br
+
+
+    .row.card.container{:style => "margin: 0 auto;"}
+      = search_form_for @search do |f|
+        .input-field{:class => "col s6"}
+          = f.label :client_name_cont, "Cliente"
+          = f.text_field :client_name_cont
+        .input-field{:class => "col s6"}
+          = f.label :patient_name_cont, "Paciente"
+          = f.text_field :patient_name_cont
+
+        = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                              :style => "left: 15px; bottom: 5px;"
+
+
   .row.container.card{:style => "margin: 0 auto;"}
     %table.centered.highlight#orders_t
       %thead
@@ -62,6 +77,18 @@
 
   %br
 
+
+
+.fixed-action-btn.horizontal.click-to-toggle{:style => "bottom: 45px; right: 24px;"}
+  %a.btn-floating.btn-large.green
+    %i.material-icons menu
+  %ul
+    %li
+      %a.btn-floating.blue
+        %i.material-icons print
+    %li
+      %a.btn-floating.purple.darken-1
+        %i.material-icons email
   -# = link_to 'New Order', new_order_path
   -# END OF MAIN
 

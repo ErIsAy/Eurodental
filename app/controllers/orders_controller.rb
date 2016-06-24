@@ -4,7 +4,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    # @orders = Order.all
+    @search = Order.ransack(params[:q])
+    @orders = @search.result
   end
 
   # GET /orders/1
@@ -13,19 +15,23 @@ class OrdersController < ApplicationController
   end
 
   def orders_completed
-    @orders = Order.all
+    @search = Order.ransack(params[:q])
+    @orders = @search.result
   end
 
   def orders_test
-    @orders = Order.all
+    @search = Order.ransack(params[:q])
+    @orders = @search.result
   end
 
   def orders_process
-    @orders = Order.all
+    @search = Order.ransack(params[:q])
+    @orders = @search.result
   end
 
   def orders_urgent
-    @orders = Order.all
+    @search = Order.ransack(params[:q])
+    @orders = @search.result
   end
 
 

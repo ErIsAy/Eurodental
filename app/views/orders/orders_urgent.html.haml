@@ -8,10 +8,23 @@
   %h3.container{:style => "margin: 0 auto;"} Ordenes Urgentes
   %br
 
+
+  .row.card.container{:style => "margin: 0 auto;"}
+    = search_form_for @search do |f|
+      .input-field{:class => "col s6"}
+        = f.label :client_name_cont, "Cliente"
+        = f.text_field :client_name_cont
+      .input-field{:class => "col s6"}
+        = f.label :patient_name_cont, "Paciente"
+        = f.text_field :patient_name_cont
+
+      = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                            :style => "left: 15px; bottom: 5px;"
+
   .container{:style => "margin: 0 auto;"}
-    %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right add
-      Nueva Orden
+    -# %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
+    -#   %i.material-icons.right add
+    -#   Nueva Orden
   %br
   .row.container.card{:style => "margin: 0 auto;"}
     %table.centered.highlight#orders_t
@@ -37,12 +50,12 @@
             %td.btn-group
               %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
                 %i.material-icons.right search
-
-              %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
-                %i.material-icons.right mode_edit
-
-              %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
-                = link_to 'X', order_path(order), :method => :delete, :style => "color: white;"
+              -#
+              -# %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+              -#   %i.material-icons.right mode_edit
+              -#
+              -# %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+              -#   = link_to 'X', order_path(order), :method => :delete, :style => "color: white;"
 
       %br
       .div

@@ -9,6 +9,12 @@
       %li
         %a.tooltipped{:href => new_order_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
           %i.material-icons local_hospital
+      %li
+        %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
+          %i.material-icons assignment
+      %li
+        %a.tooltipped{:href => clients_path, "data-tooltip" => "Clientes", "data-position" => "bottom"}
+          %i.material-icons person_pin
     %ul.right
       %li
         %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
@@ -24,8 +30,8 @@
         %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right"} Clientes
       %li
         %a.tooltipped{:href => orders_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right"} Ordenes
-      %li
-        %a.tooltipped{:href => consulta_index_path, "data-tooltip" => "Generar Consulta", "data-position" => "right"} Consultas
+      -# %li
+      -#   %a.tooltipped{:href => consulta_index_path, "data-tooltip" => "Generar Consulta", "data-position" => "right"} Consultas
       %li
         %a.tooltipped{:href => suppliers_path, "data-tooltip" => "Listado de Suplidores", "data-position" => "right"} Suplidores
       %li
