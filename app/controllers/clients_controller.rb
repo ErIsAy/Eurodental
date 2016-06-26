@@ -4,7 +4,9 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all.order("created_at DESC")
+    # @clients = Client.all.order("created_at DESC")
+    @search = Client.ransack(params[:q])
+    @clients = @search.result
   end
 
   # GET /clients/1

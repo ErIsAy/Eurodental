@@ -7,10 +7,25 @@
   %br
   %h3.container{:style => "margin: 0 auto;"} Listado de Clientes
   %br
+
   .container{:style => "margin: 0 auto;"}
     %a{:href => new_client_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right add
       Nuevo Cliente
+    %a.right.modal-trigger{:href =>"#search_filter_clients", :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right search
+      Filtro
+
+    .row.card.container.modal#search_filter_clients{:style => "margin: 0 auto;"}
+      = search_form_for @search do |f|
+        .input-field{:class => "col s6"}
+          = f.label :name_cont, "Cliente"
+          = f.text_field :name_cont
+        %br
+        = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                              :style => "left: 15px; bottom: 5px;"
+
+
   %br
   %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
     %thead

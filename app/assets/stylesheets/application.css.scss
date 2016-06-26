@@ -46,6 +46,13 @@ line-height: 0.5;
   display: -webkit-inline-box;
 }
 
+/*Fix DatePicker position for search modal*/
+#q_created_at_lteq_root > div > div{
+  top: 0;
+}
+#q_created_at_gteq_root > div > div{
+  top: 0;
+}
 
 .nav-fixed {
 top: 0;

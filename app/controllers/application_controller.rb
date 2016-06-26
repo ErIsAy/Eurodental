@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)  #redirect to dashboard after successful sign in
   welcome_index_path
   end
+
 end

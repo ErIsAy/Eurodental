@@ -1,0 +1,9 @@
+= search_form_for @search do |f|
+  .input-field.right.hide-on-small-only{:center => ""}
+    = f.text_field :client_name_cont, :placeholder => "Buscar...",
+                                      :required => "",
+                                      :type => "search",
+                                      :style => "height: 63px; margin: 0;",
+                                      :id => "search"
+    %label{:for => "search"}
+      %i.material-icons search

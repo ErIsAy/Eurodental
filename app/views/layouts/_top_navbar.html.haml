@@ -10,19 +10,19 @@
         %a.tooltipped{:href => new_order_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
           %i.material-icons local_hospital
       %li
-        %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
-          %i.material-icons assignment
-      %li
         %a.tooltipped{:href => clients_path, "data-tooltip" => "Clientes", "data-position" => "bottom"}
           %i.material-icons person_pin
+      %li
+        %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
+          %i.material-icons assignment
     %ul.right
       %li
         %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
           %i.material-icons settings
-    .input-field.right.hide-on-small-only{:center => ""}
-      %input#search{:placeholder => "Buscar...", :required => "", :type => "search", :style => "height: 63px; margin: 0;"}
-        %label{:for => "search"}
-          %i.material-icons search
+
+          /*Renders search field only if Welcome/Root page*/
+    = render 'layouts/search_nav' if current_page?('/')
+
     %ul#slide-out.side-nav
       %li
         %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "right"} Inicio

@@ -12,10 +12,15 @@
     %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right add
       Nueva Orden
+
+
+    %a.right.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right search
+      Filtro
   %br
 
 
-    .row.card.container{:style => "margin: 0 auto;"}
+    .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
       = search_form_for @search do |f|
         .input-field{:class => "col s6"}
           = f.label :client_name_cont, "Cliente"
@@ -23,31 +28,56 @@
         .input-field{:class => "col s6"}
           = f.label :patient_name_cont, "Paciente"
           = f.text_field :patient_name_cont
+        .input-field{:class => "col s3"}
+          = f.label :created_at_gteq, "Fecha de Entrada"
+          = f.text_field :created_at_gteq,
+                         :class => "datepicker"
+        .input-field{:class => "col s3"}
+          = f.label :created_at_lteq, "Hasta"
+          = f.text_field :created_at_lteq,
+                         :class => "datepicker"
+
+        .input-field.col.s6
+          %select
+            %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
+            %option{:value => "1"} Completada
+            %option{:value => "2"} En Proceso
+            %option{:value => "3"} Urgente
+            %option{:value => "4"} En Prueba
+            %option{:value => "5"} Nueva
+          %label Estado
 
         = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
                               :style => "left: 15px; bottom: 5px;"
+
+
+
 
 
   .row.container.card{:style => "margin: 0 auto;"}
     %table.centered.highlight#orders_t
       %thead
         %tr
-          %th Paciente
-          %th Fecha
           %th Cliente
-          %th Nota Del Cliente
-          %th Otras Notas
+          %th Paciente
+          %th Fecha  de Entrada
+          %th Fecha  de Entrega
+          %th Estado
+          -# %th Nota Del Cliente
+          -# %th Otras Notas
 
 
 
       %tbody
         - @orders.each do |order|
           %tr
-            %td= order.patient_name
-            %td= order.order_date
             %td= order.client_name
-            %td= order.client_note
-            %td= order.other_note
+            %td= order.patient_name
+            %td= order.created_at.strftime("%F")
+            %td= order.order_date
+            %td Nueva
+            -# %td= order.client_note
+            -# %td= order.other_note
 
             %td.btn-group
               %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
@@ -84,7 +114,7 @@
     %i.material-icons menu
   %ul
     %li
-      %a.btn-floating.blue
+      %a.btn-floating.blue{onclick: "printpage()"}
         %i.material-icons print
     %li
       %a.btn-floating.purple.darken-1
@@ -97,3 +127,10 @@
   %footer.page-footer
     = render :partial => 'layouts/footer'
   -# END OF FOOTER
+
+
+:javascript
+  function printpage()
+    {
+       window.print()
+    }

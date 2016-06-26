@@ -1,5 +1,6 @@
 %header
 
+
 -# MAIN
 
 %main
@@ -7,165 +8,86 @@
 
   -# CONTENT
 
-  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
-  -#   = render :partial => 'layouts/tooth_chart'
-
-
-
   %br
   %h3{:style => "margin: 0 auto; text-align: center;"}
     -# %i.material-icons{:style => "margin: 8px; font-size:46px;"} check
     Bienvenido
   %br
-  .row{:style => "margin: 0 auto; background-color: rgba(220, 220, 245, 0); box-shadow: 0 0 0 0; max-width:90%; zoom:81%"}
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        %a{:href => orders_orders_completed_path}
-          .card-image
-            =image_tag "green_bg.jpg", :style => "height: 161.469px;"
-            %span.card-title{:style => "padding: 10px;"}
-              Ordenes Completadas
-              %i.material-icons.right{:style => "margin: 8px; font-size:85px;"} check
-    .col.s12.m7{:style => "width: 213.33px;"}
-      .card
-        %a{:href => orders_orders_test_path}
-          .card-image
-            =image_tag "blue_bg.jpg", :style => "height: 161.469px;"
-            %span.card-title{:style => "padding: 10px;"}
-              Ordenes en Prueba
-              %i.material-icons.right{:style => "margin-top: -10px; font-size:85px;"} assignment
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        %a{:href => orders_orders_process_path}
-          .card-image
-            =image_tag "yellow_bg.jpg", :style => "height: 161.469px;"
-            %span.card-title{:style => "padding: 10px;"}
-              Ordenes en Proceso
-              %i.material-icons.right{:style => "margin: 8px; font-size:85px;"} schedule
-    .col.s12.m7{:style => "width: 213.33px;"}
-      .card
-        %a{:href => orders_orders_urgent_path}
-          .card-image
-            =image_tag "red_bg.jpg", :style => "height: 161.469px;"
-            %span.card-title{:style => "padding: 10px;"}
-              Ordenes Urgentes
-              %i.material-icons.right{:style => "margin-top: -10px; font-size:85px;"} today
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        %a{:href => clients_path}
-          .card-image
-            =image_tag "dentists1.jpg", :style => "height: 161.469px;"
-            %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
-              Clientes
+
+  /*max-width:90% for wide screen*/
+  .card.container.row{:style => "margin: 0 auto; background-color: rgba(220, 220, 245, 0); box-shadow: 0 0 0 0; zoom:81%"}
+    .row
+      .col.s12.m7{:style => "width: 426.66px;"}
+        .card
+          %a{:href => orders_path}
+            .card-image
+              =image_tag "categories.jpg", :style => "height: 161.469px;"
+              %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+                Consultar Ordenes
+      -# .col.s12.m7{:style => "width: 426.66px;"}
+      -#   .card
+      -#     %a{:href => orders_orders_completed_path}
+      -#       .card-image
+      -#         =image_tag "green_bg.jpg", :style => "height: 161.469px;"
+      -#         %span.card-title{:style => "padding: 10px;"}
+      -#           Ordenes Completadas
+      -#           %i.material-icons.right{:style => "margin: 8px; font-size:85px;"} check
+      -# .col.s12.m7{:style => "width: 213.33px;"}
+      -#   .card
+      -#     %a{:href => orders_orders_test_path}
+      -#       .card-image
+      -#         =image_tag "blue_bg.jpg", :style => "height: 161.469px;"
+      -#         %span.card-title{:style => "padding: 10px;"}
+      -#           Ordenes en Prueba
+      -#           %i.material-icons.right{:style => "margin-top: -10px; font-size:85px;"} assignment
+      -# .col.s12.m7{:style => "width: 426.66px;"}
+      -#   .card
+      -#     %a{:href => orders_orders_process_path}
+      -#       .card-image
+      -#         =image_tag "yellow_bg.jpg", :style => "height: 161.469px;"
+      -#         %span.card-title{:style => "padding: 10px;"}
+      -#           Ordenes en Proceso
+      -#           %i.material-icons.right{:style => "margin: 8px; font-size:85px;"} schedule
+      -# .col.s12.m7{:style => "width: 213.33px;"}
+      -#   .card
+      -#     %a{:href => orders_orders_urgent_path}
+      -#       .card-image
+      -#         =image_tag "red_bg.jpg", :style => "height: 161.469px;"
+      -#         %span.card-title{:style => "padding: 10px;"}
+      -#           Ordenes Urgentes
+      -#           %i.material-icons.right{:style => "margin-top: -10px; font-size:85px;"} today
+      .col.s12.m7{:style => "width: 426.66px;"}
+        .card
+          %a{:href => clients_path}
+            .card-image
+              =image_tag "dentists1.jpg", :style => "height: 161.469px;"
+              %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+                Clientes
+                -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
+      -# .col.s12.m7{:style => "width: 426.66px;"}
+      -#   .card
+      -#     .card-image
+      -#       =image_tag "categories.jpg", :style => "height: 161.469px;"
+      -#       %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+      -#         Otros Servicios
               -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        .card-image
-          =image_tag "categories.jpg", :style => "height: 161.469px;"
-          %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
-            Otros Servicios
-            -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
-    -# .col.s12.m7{:style => "width: 426.66px;"}
-    -#   .card
-    -#     %a{:href => consulta_index_path}
-    -#       .card-image
-    -#         =image_tag "summary-forms.jpg", :style => "height: 161.469px;"
-    -#         %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
-    -#           Consultas
-              -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        %a{:href => suppliers_path}
-          .card-image
-            =image_tag "dental-supplies.jpg", :style => "height: 161.469px;"
-            %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
-              Suplidores
-              -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
+      -# .col.s12.m7{:style => "width: 426.66px;"}
+      -#   .card
+      -#     %a{:href => consulta_index_path}
+      -#       .card-image
+      -#         =image_tag "summary-forms.jpg", :style => "height: 161.469px;"
+      -#         %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+      -#           Consultas
+                -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
+      .col.s12.m7{:style => "width: 426.66px;"}
+        .card
+          %a{:href => suppliers_path}
+            .card-image
+              =image_tag "dental-supplies.jpg", :style => "height: 161.469px;"
+              %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+                Suplidores
+                -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
 
-
-
-
-
-
-
-
-
-
-    -# %table.highlight#orders_t
-    -#
-    -#   %thead
-    -#     %tr
-    -#       %th{"data-field" => "id"} Nombre del Cliente
-    -#       %th{"data-field" => "name"} Nombre del Paciente
-    -#       %th{"data-field" => "date"} Fecha de Entrega
-    -#       %th{"data-field" => "state"} Estado
-    -#
-    -#   %tbody
-    -#     - @orders.each do |order|
-    -#       %tr
-    -#         %td= order.client_name
-    -#         %td= order.patient_name
-    -#         %td= order.order_date
-    -#         %td{:style => "color: green;"} Completa
-    -#
-    -#
-    -# %br
-    -# .div
-    -#   %ul.pagination{:style => "margin: 0 auto; text-align: right;"}
-    -#     %li.disabled
-    -#       %a{:href => "#!"}
-    -#         %i.material-icons chevron_left
-    -#     %li.active
-    -#       %a{:href => "#!"} 1
-    -#     %li.waves-effect
-    -#       %a{:href => "#!"} 2
-    -#     %li.waves-effect
-    -#       %a{:href => "#!"} 3
-    -#     %li.waves-effect
-    -#       %a{:href => "#!"}
-    -#         %i.material-icons chevron_right
-
-  -#
-  -# %br
-  -# %br
-  -# %br
-  -# %h3{:style => "margin: 0 auto; text-align: center;"}
-  -#   %i.material-icons{:style => "margin: 8px; font-size:46px;"} traffic
-  -#   Ordenes Recientes
-  -# %br
-  -# .row.container.card{:style => "margin: 0 auto;"}
-  -#   %table.highlight#orders_t
-  -#
-  -#     %thead
-  -#       %tr
-  -#         %th{"data-field" => "id"} Nombre del Cliente
-  -#         %th{"data-field" => "name"} Nombre del Paciente
-  -#         %th{"data-field" => "date"} Fecha de Entrega
-  -#         %th{"data-field" => "state"} Estado
-  -#
-  -#     %tbody
-  -#       - @orders.each do |order|
-  -#         %tr
-  -#           %td= order.client_name
-  -#           %td= order.patient_name
-  -#           %td= order.order_date
-  -#           %td{:style => "color: orange;"} En Proceso
-  -#
-  -#   %br
-  -#   .div
-  -#     %ul.pagination{:style => "margin: 0 auto; text-align: right;"}
-  -#       %li.disabled
-  -#         %a{:href => "#!"}
-  -#           %i.material-icons chevron_left
-  -#       %li.active
-  -#         %a{:href => "#!"} 1
-  -#       %li.waves-effect
-  -#         %a{:href => "#!"} 2
-  -#       %li.waves-effect
-  -#         %a{:href => "#!"} 3
-  -#       %li.waves-effect
-  -#         %a{:href => "#!"}
-  -#           %i.material-icons chevron_right
 
 
 
@@ -176,3 +98,7 @@
 %footer.page-footer
   = render :partial => 'layouts/footer'
 -# END OF FOOTER
+
+-#
+-# :javascript
+-#   $('#searchbar').prepend('');
