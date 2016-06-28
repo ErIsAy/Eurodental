@@ -29,11 +29,11 @@ Gems to add
 
 
 ==Catch Up
-  *>Complete all screens even if blank ***partially done
-  >Orders search  by recent,  completed,  in progress,  custom, etc..
-  >fix the date picker to disable less than today.
-  >fix the step wizard in order creation for 2 steps.
-  >print any report and invoices
-  >send emails for test
+  *>Complete all screens even if blank
+  *>Orders search  by recent,  completed,  in progress,  custom, etc..
+  *>fix the date picker to disable less than today.
+  *>fix the step wizard in order creation for 2 steps.
+  ->print any report and invoices
+  ->send emails for test
   >finish the missing model
   >finish the order creation js

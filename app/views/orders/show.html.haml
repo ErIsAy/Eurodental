@@ -12,7 +12,7 @@
     -# %i.material-icons{:style => "margin: 8px; font-size:46px;"} check
     Detalles de la Orden
   %br
-  .card.container.row{:style => "margin: 0 auto;"}
+  .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
     %p.col.s6
       %b Cliente:
       = @order.client_name
@@ -44,14 +44,14 @@
       %b Estado:
       Nueva
     .row.col.s12{:style => "text-align: center;"}
-      %p.col.s6.m4.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
+      %p.col.s6.m3.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
         %i.material-icons.prefix{:style => "font-size:100px;"} print
-      %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+      %p.col.s6.m3.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
         %i.material-icons.prefix{:style => "font-size:100px;"} label
-      %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
+      %p.col.s6.m3.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
         %i.material-icons.prefix{:style => "font-size:100px;"} email
-      -# %p.col.s6.m3
-      -#   %i.material-icons.prefix{:style => "font-size:100px;"} account_circle
+      %p.col.s6.m3.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
+        %i.material-icons.prefix{:style => "font-size:100px;"} assignment
 
 
   .row.card.container.modal.modal-fixed-footer#email_modal{:style => "width: 1024px; height:800px; overflow-y: initial;"}

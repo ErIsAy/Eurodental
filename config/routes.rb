@@ -40,6 +40,8 @@
 
 Rails.application.routes.draw do
 
+  get 'accountability/index'
+
   get 'consulta/index'
 
   resources :suppliers
