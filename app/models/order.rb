@@ -10,6 +10,7 @@ class Order < ActiveRecord::Base
 
 
   attr_accessor :client_name
+  attr_accessor :client_email
   attr_accessor :current_step
 
   validates_presence_of :patient_name, :if => lambda { |o| o.current_step == "step_1"}
@@ -31,13 +32,18 @@ class Order < ActiveRecord::Base
     #Client.name if order
   end
 
+  def client_email
+    client.email if client
+  end
+
   def current_step
     @current_step || steps.first
   end
 
 
   def steps
-    %w{step_1 step_2 step_3}
+    # %w{step_1 step_2 step_3}
+    %w{step_1 step_2}
   end
 
   def next_step
@@ -56,5 +62,8 @@ class Order < ActiveRecord::Base
     current_step == steps.last
   end
 
+  ransacker :created_at do |parent|
+      Arel::Nodes::SqlLiteral.new('date(created_at)')
+  end
 
 end

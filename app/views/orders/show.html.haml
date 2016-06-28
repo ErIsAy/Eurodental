@@ -1,46 +1,89 @@
--# %p#notice= notice
--#
-
--# = link_to 'Edit', edit_order_path(@order)
--# \|
--# = link_to 'Back', orders_path
--#
-
-
 %header
 
 -# MAIN
 
 %main
   = render :partial => 'layouts/top_navbar'
-  %h1{:style => "text-align: center;"} Ver Datos
+  -# %h1{:style => "text-align: center;"} Ver Datos
 
-  .container.card{:style => "margin:0 auto;"}
-    %p
-      %b Fecha:
+  -# = render 'wizard_steps'
+  %br
+  %h3{:style => "margin: 0 auto; text-align: center;"}
+    -# %i.material-icons{:style => "margin: 8px; font-size:46px;"} check
+    Detalles de la Orden
+  %br
+  .card.container.row{:style => "margin: 0 auto;"}
+    %p.col.s6
+      %b Cliente:
+      = @order.client_name
+    %p.col.s6
+      %b E-Mail:
+      = @order.client_email
+    %p.col.s6
+      %b Fecha de Entrada:
+      = @order.created_at.strftime("%F")
+    %p.col.s6
+      %b Fecha de Entrega:
       = @order.order_date
-    %p
+    %p.col.s6
       %b Edad:
       = @order.age
-    %p
+    %p.col.s6
       %b Sexo:
       = @order.sex
-    %p
+    %p.col.s6
       %b Notas del Cliente:
       = @order.client_note
-    %p
+    %p.col.s6
       %b Otras Notas:
       = @order.other_note
-    %p
-      %b Número de Referencia:
+    %p.col.s6
+      %b Referencia:
       = @order.id
+    %p.col.s6
+      %b Estado:
+      Nueva
+    .row.col.s12{:style => "text-align: center;"}
+      %p.col.s6.m4.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
+        %i.material-icons.prefix{:style => "font-size:100px;"} print
+      %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+        %i.material-icons.prefix{:style => "font-size:100px;"} label
+      %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
+        %i.material-icons.prefix{:style => "font-size:100px;"} email
+      -# %p.col.s6.m3
+      -#   %i.material-icons.prefix{:style => "font-size:100px;"} account_circle
+
+
+  .row.card.container.modal.modal-fixed-footer#email_modal{:style => "width: 1024px; height:800px; overflow-y: initial;"}
+    .input-field.col.s12
+      %input#email.validate{:placeholder => "mail@mail.com", :type => "email", :id => "email", :value => "#{@order.client_email}"}/
+      %label{:for => "email"} Para
+    .input-field.col.s12
+      %input#subject.validate{:placeholder => "Asunto", :type => "text"}/
+      %label{:for => "subject"} Asunto
+    %br
+    .file-field.input-field.col.s12
+      .btn
+        %span Elegir
+        %input{:type => "file"}/
+      .file-path-wrapper
+        %input.file-path.validate{:type => "text"}/
+    .input-field.col.s12
+      %textarea#message.materialize-textarea{:length => "240"}
+      %label{:for => "message"} Mensaje
+    .modal-footer
+      %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Enviar
+
+
+
+
   -# CONTENT
   .container
+    %br
     %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right chevron_left
-      Volver
-  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
-  -#   = render :partial => 'layouts/tooth_chart'
+      Regresar
+
 
 -# END OF MAIN
 
@@ -49,3 +92,20 @@
 %footer.page-footer
   = render :partial => 'layouts/footer'
 -# END OF FOOTER
+-#
+-# :javascript
+-#   $(function() {
+-#       Materialize.updateTextFields();
+-#   });
+-#   $( document ).ready(function(){
+-#     document.getElementById("step_1").classList.add("complete");
+-#     document.getElementById("step_2").classList.add("complete");
+-#     document.getElementById("step_3").classList.add("complete");
+-#     });
+-#
+-#
+-#   function printpage()
+-#     {
+-#
+-#       window.print()
+-#     }

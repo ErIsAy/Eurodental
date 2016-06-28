@@ -69,7 +69,8 @@ class OrdersController < ApplicationController
     else
       session[:order_step] = session[:order_params] = nil
       # flash[:notice] = "Orden Salvada Correctamente"
-      redirect_to orders_path, notice: "Orden Salvada Correctamente"
+      #redirect_to orders_path, notice: "Orden Salvada Correctamente"
+      redirect_to @order, notice: "Orden Salvada"
     end
 
 
