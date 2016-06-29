@@ -12,9 +12,16 @@
 
     %a.right.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right search
-      Filtro
+      Otros Filtros
   %br
-
+    %br
+    .row.card.container{:style => "margin: 0 auto"}
+      .input-field.col.s12
+        %select
+          %option{:selected => "selected", :value => "1"} Todas
+          %option{:value => "2"} Pendientes de Pago
+          %option{:value => "3"} Pagadas
+        %label Filtrar por:
 
     .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
       = search_form_for @search do |f|

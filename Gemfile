@@ -26,6 +26,9 @@ gem 'activerecord-session_store'
 gem 'ransack'
 gem 'public_activity'
 
+#gem 'will_paginate'
+
+
 group :development, :test do
   gem 'annotate', '2.7.0'
   gem 'sqlite3'
