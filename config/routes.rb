@@ -40,6 +40,8 @@
 
 Rails.application.routes.draw do
 
+  get 'activity/index'
+
   get 'accountability/index'
 
   get 'consulta/index'

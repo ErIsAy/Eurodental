@@ -1,0 +1,23 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Monitoreo de Activiades
+  %br
+
+  .container{:style => "margin: 0 auto;"}
+    -# %a{:href => new_item_path, :class => "waves-effect waves-light btn blue"}
+    -#   %i.material-icons.right add
+    -#   Nuevo Servicio
+  %br
+  .card.container{:style => "margin: 0 auto;"}
+    = render_activities(@activities)
+    %br
+
+    -# = link_to 'Nuevo', new_item_path
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER
