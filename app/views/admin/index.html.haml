@@ -26,7 +26,7 @@
           %p
             Listado y creación de Categorías
         .card-action
-          %a{:href => categories_path} Administrar Categorías
+          %a{:href => categories_path} Configurar
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
         .card-image
@@ -36,7 +36,7 @@
           %p
             Listado y creación de Servicios
         .card-action
-          %a{:href => items_path} Administrar Servicios
+          %a{:href => items_path} Configurar
 
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
@@ -47,7 +47,7 @@
           %p
             Creación y Administración de Usuarios
         .card-action
-          %a{:href => users_admin_index_path} Administrar Usuarios
+          %a{:href => users_admin_index_path} Configurar
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
         .card-image
@@ -57,8 +57,17 @@
           %p
             Monitoreo
         .card-action
-          %a{:href => activity_index_path} Analizar
-
+          %a{:href => activity_index_path} Ver
+    .col.s12.m7{:style => "width: 426.66px;"}
+      .card
+        .card-image
+          =image_tag "stock-email.jpg", :style => "height: 161.469px;"
+          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Alertas
+        .card-content
+          %p
+            Alertas
+        .card-action
+          %a{:href => ""} Configurar
 -# END OF MAIN
 
 -# FOOTER

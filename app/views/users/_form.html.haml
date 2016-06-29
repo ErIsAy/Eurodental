@@ -34,7 +34,15 @@
         -#     %li= msg
 
     .row.card.container.col.s12{:style => "margin: 0 auto;"}
-      =image_tag "dentist_user.png", :style => "width: 250px"
+      =image_tag "user.png", :style => "width: 250px"
+      .input-field.col.s6.right
+        %select
+          %option{:value => "1"} Administrador
+          %option{:value => "2"} Técnico
+          %option{:value => "3"} Recepción
+        %label Elige Tipo de Usuario
+
+
       .input-field{:class => "col s12 s12 s6"}
         %i.material-icons.prefix email
         %label{:for => "email"} E-mail
