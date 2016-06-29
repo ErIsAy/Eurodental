@@ -1,0 +1,63 @@
+
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %h1.container Editar Usuario
+  -# = render 'form'
+  -# CONTENT
+  .col.s12
+    = form_for @user, url: users_admin_path(@user) do |f|
+      - if @user.errors.any?
+        #error_explanation
+          -flash[:'notice'] = "Usuario no pudo ser guardado "
+          -# %h2= "#{pluralize(@client.errors.count, "error")} prohibited this client from being saved:"
+          -# %ul
+          -#   - @client.errors.full_messages.each do |msg|
+          -#     %li= msg
+
+      .row.card.container.col.s12{:style => "margin: 0 auto;"}
+        =image_tag "dentist_user.png", :style => "width: 250px"
+        .input-field{:class => "col s12 s12 s6"}
+          %i.material-icons.prefix email
+          %label{:for => "email"} E-mail
+          = f.text_field :email,
+            :id => 'email',
+            :class=> 'validate',
+            :type => 'email'
+        .input-field{:class => "col s12 s12 s6"}
+          %i.material-icons.prefix lock
+          = f.label :password, "Contraseña"
+          - if @minimum_password_length
+            -# %em
+            -#   (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off"
+        .input-field{:class => "col s12 s12 s6"}
+          %i.material-icons.prefix lock_outline
+          = f.label :password_confirmation, "Confirmar Contraseña"
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off"
+
+      %br
+      .actions.container{:style => "margin: 0 auto;"}
+
+        %button.btn.waves-effect.waves-light{:name => "action", :type => "submit", data: { disable_with: "Procesando..." }}
+          %i.material-icons.right save
+          Crear
+
+        %a{:href => users_admin_index_path, :class => "waves-effect waves-light btn blue"}
+          %i.material-icons.right chevron_left
+          Volver
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

@@ -1,0 +1,80 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Usuarios
+  %br
+
+  -# .container{:style => "margin: 0 auto;"}
+  -#   %a{:href => new_client_path, :class => "waves-effect waves-light btn blue"}
+  -#     %i.material-icons.right add
+  -#     Nuevo Cliente
+  -#   %a.right.modal-trigger{:href =>"#search_filter_clients", :class => "waves-effect waves-light btn blue"}
+  -#     %i.material-icons.right search
+  -#     Filtro
+  -#
+  -#   .row.card.container.modal#search_filter_clients{:style => "margin: 0 auto;"}
+  -#     = search_form_for @search do |f|
+  -#       .input-field{:class => "col s6"}
+  -#         = f.label :name_cont, "Cliente"
+  -#         = f.text_field :name_cont
+  -#       %br
+  -#       = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+  -#                             :style => "left: 15px; bottom: 5px;"
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_users_admin_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nuevo Usuario
+    %a.right.modal-trigger{:href =>"#search_filter_users", :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right search
+      Filtro
+
+    -# .row.card.container.modal#search_filter_users{:style => "margin: 0 auto;"}
+    -#   = search_form_for @search do |f|
+    -#     .input-field{:class => "col s6"}
+    -#       = f.label :email_cont, "Correo"
+    -#       = f.text_field :email_cont
+    -#     %br
+    -#     = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+    -#                           :style => "left: 15px; bottom: 5px;"
+
+
+  %br
+  %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    %thead
+      %tr
+        %th E-mail
+
+
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.email
+
+
+          %td.btn-group
+            %a{:href => users_admin_path(user), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+              %i.material-icons.right search
+
+            %a{:href => edit_users_admin_path(user), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+              %i.material-icons.right mode_edit
+
+            %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+              = link_to 'X', users_admin_path(user), :method => :delete
+
+
+
+  %br
+
+  -# = link_to 'Back', clients_path
+  -# = link_to 'New Client', new_client_path
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

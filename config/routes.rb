@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   get 'reports/index'
 
   devise_for :users
+  resources :users_admin, :controller => 'users'
   resources :orders
   resources :clients
 
