@@ -12,7 +12,8 @@ class CreateOrders < ActiveRecord::Migration
       t.boolean  :antagonista
       t.boolean  :foto
       t.boolean  :mordida
-
+      t.string :state, default: "nueva"
+      t.integer :quantity, default: 1
       #t.integer :state, :default => 0
         # pendiente = 0
         # procesada = 1

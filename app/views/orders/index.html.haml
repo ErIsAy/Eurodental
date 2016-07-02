@@ -76,7 +76,7 @@
             %td= order.patient_name
             %td= order.created_at.strftime("%F")
             %td= order.order_date
-            %td Nueva
+            %td= order.state.capitalize
             -# %td= order.client_note
             -# %td= order.other_note
 

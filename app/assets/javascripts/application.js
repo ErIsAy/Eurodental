@@ -33,6 +33,24 @@
 // $(document).ready(function(){
 //   $('.tooltipped').tooltip({delay: 25});
 // });
+
+
+var slider = document.getElementById('test5');
+noUiSlider.create(slider, {
+ start: [20, 80],
+ connect: true,
+ step: 1,
+ range: {
+   'min': 0,
+   'max': 100
+ },
+ format: wNumb({
+   decimals: 0
+ })
+});
+      
+
+
 $(document).ready(function(){
 $('.collapsible').collapsible({
 accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style

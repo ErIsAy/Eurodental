@@ -21,11 +21,8 @@
       .row.card.container.col.s12{:style => "margin: 0 auto;"}
         =image_tag "user.png", :style => "width: 250px"
         .input-field.col.s6.right
-          %select
-            %option{:value => "1"} Administrador
-            %option{:value => "2"} Técnico
-            %option{:value => "3"} Recepción
-          %label Elige Tipo de Usuario
+          = f.select :role_level, options_for_select([["Elige Tipo de Usuario", ""], ["Administrador",1],["Usuario",2],["Otro",3]])
+          
         .input-field{:class => "col s12 s12 s6"}
           %i.material-icons.prefix email
           %label{:for => "email"} E-mail

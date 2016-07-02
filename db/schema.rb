@@ -68,9 +68,11 @@ ActiveRecord::Schema.define(version: 20160629043157) do
     t.boolean  "antagonista"
     t.boolean  "foto"
     t.boolean  "mordida"
+    t.string   "state",        default: "nueva"
+    t.integer  "quantity",     default: 1
     t.integer  "client_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "orders", ["client_id"], name: "index_orders_on_client_id"
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(version: 20160629043157) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer  "role_level",             default: 0
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"

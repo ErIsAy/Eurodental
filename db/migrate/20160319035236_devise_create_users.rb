@@ -12,6 +12,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Rememberable
       t.datetime :remember_created_at
 
+      ##roles
+      t.integer :role_level, default: false
+            #  0: default off-set, registrated user.
+            #  1: Admin
+            #  2: Usuario
+            #  3: Otro
+
+
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false
       t.datetime :current_sign_in_at

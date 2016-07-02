@@ -7,7 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(email: 'admin@admin.com', password: '123456789')
+User.create(email: 'admin@admin.com', password: '123456789', role_level: 1)
+
+
+
 Category.create([{ name: 'Tipo de Trabajo'},
                 { name: 'Material'},
                 { name: 'Color de Muñon'},

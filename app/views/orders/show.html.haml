@@ -12,6 +12,11 @@
     -# %i.material-icons{:style => "margin: 8px; font-size:46px;"} check
     Detalles de la Orden
   %br
+
+  .container.col.s6{:style => "text-align: right;"}
+    %b Estado:
+    = @order.state.capitalize
+
   .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
     %p.col.s6
       %b Cliente:
@@ -81,8 +86,8 @@
   .container
     %br
     %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right chevron_left
-      Regresar
+      %i.material-icons.right exit_to_app
+      Salir
 
 
 -# END OF MAIN

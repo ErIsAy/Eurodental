@@ -1,39 +1,17 @@
 
 Development
-
-  *Modal select for clients for new Orders
-  Clients nested phones, emails
-  *-Agregar Migracion de la tabla de Detalle(texto or string)/Precio para el hash y la misma sera nested_form
-  below ones in Order model
-        *t.boolean  :cotizacion
-        *t.boolean  :antagonista
-        *t.boolean  :foto
-        *t.boolean  :mordida
-        t.integer  :cant
-        t.string  :color
-
-  Advanced Search for Clients
-  Advanced Search for Orders
-  Add Order missing data fields
-  Print PDF in orders
-  Order Services functionality
-  Print PDF in reports
-  Accountant section
+*>Complete all screens even if blank
+*>Orders search  by recent,  completed,  in progress,  custom, etc..
+*>fix the date picker to disable less than today.
+*>fix the step wizard in order creation for 2 steps.
+ >Modal select for clients for new Orders
+->print any report and invoices
+->send emails for test
+->finish the missing model
+>finish the order creation js
+>Clients nested phones, emails
+>Generar Reportes 
 
 Gems to add
-
   Passenger
   Prawn
-
-
-
-
-==Catch Up
-  *>Complete all screens even if blank
-  *>Orders search  by recent,  completed,  in progress,  custom, etc..
-  *>fix the date picker to disable less than today.
-  *>fix the step wizard in order creation for 2 steps.
-  ->print any report and invoices
-  ->send emails for test
-  >finish the missing model
-  >finish the order creation js

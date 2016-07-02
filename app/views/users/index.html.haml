@@ -46,13 +46,21 @@
   %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
     %thead
       %tr
-        %th E-mail
+        %th Usuario
+        %th Tipo de Usuario
 
 
     %tbody
       - @users.each do |user|
         %tr
           %td= user.email
+          - case user.role_level
+            - when 1
+              %td Administrador
+            - when 2
+              %td Usuario
+            - when 3
+              %td Otro
 
 
           %td.btn-group

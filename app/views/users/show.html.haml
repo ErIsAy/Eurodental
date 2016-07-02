@@ -32,6 +32,21 @@
         %b Nombre del Usuario:
         = @user.email
 
+      %p
+        %b Tipo de Usuario:
+        - case @user.role_level
+          - when 1
+            Administrador
+          - when 2
+            Usuario
+          - when 3
+            Otro
+
+
+
+  %br
+
+
   -# CONTENT
   .container
     %a{:href => users_admin_index_path, :class => "waves-effect waves-light btn blue"}

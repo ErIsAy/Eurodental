@@ -1,16 +1,14 @@
 .row.card.container{:style => "margin: 0 auto;"}
-  %div{:class => "col s6 m6 s12"}
+  %div{:class => "col s12 m6"}
     = render :partial => 'layouts/tooth_chart'
 
-
-  .container.right#order_collection{:class => "col s6 m6 s12"}
-    -# %ul.collection
-    -#   = f.fields_for :items do |item|
-    -#     = render 'item_fields', f: item
-    -#   .links
-    -#     = link_to_add_association 'Agregar', f, :items, class: "btn"
-    -#     .collection.right
-    -#       %a.collection-item.modal-trigger{:href => "#details_modal"} $0.00
+  .container.right#order_collection{:class => "col s12 m4"}
+    .input-field.col.s12
+      %i.material-icons.prefix library_add
+      = f.label :quantity, "Cantidad"
+      = f.number_field :quantity, :class => 'validate'
+    .input-field  
+      = f.hidden_field :state
 
 
     .input-fields{:class => "col m12 s6"}
