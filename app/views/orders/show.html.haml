@@ -49,13 +49,14 @@
       %b Estado:
       Nueva
     .row.col.s12{:style => "text-align: center;"}
-      %p.col.s6.m3.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
-        %i.material-icons.prefix{:style => "font-size:100px;"} print
-      %p.col.s6.m3.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+      -# = link_to '<i class="material-icons" style="font-size: 100px;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right", :target => "_blank", :style => "font-size:100px;"
+      -# %p.col.s6.m3.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
+      -#   %i.material-icons.prefix{:style => "font-size:100px;"} print
+      %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
         %i.material-icons.prefix{:style => "font-size:100px;"} label
-      %p.col.s6.m3.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
+      %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
         %i.material-icons.prefix{:style => "font-size:100px;"} email
-      %p.col.s6.m3.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
+      %p.col.s6.m4.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
         %i.material-icons.prefix{:style => "font-size:100px;"} assignment
 
 
@@ -88,6 +89,7 @@
     %a{:href => orders_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right exit_to_app
       Salir
+    = link_to '<i class="material-icons" style="font-size: 2.3rem;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right btn green", :target => "_blank", :data => {:confirm => 'Desea Facturar?'}
 
 
 -# END OF MAIN

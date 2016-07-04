@@ -12,6 +12,20 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = Order.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @order.state = "Facturada"
+        @order.save
+        pdf = InvoicePdf.new(@order)
+        send_data pdf.render,
+          filename: "Factura_Orden_#{@order.id}.pdf",
+          type: "application/pdf",
+          disposition: "inline" ##display in browser
+      end
+      @order.save
+    end
   end
 
   def orders_completed
@@ -129,7 +143,7 @@ class OrdersController < ApplicationController
                                       :client_note,
                                       :other_note,
                                       :client_id,
-                                      :antagonista, 
+                                      :antagonista,
                                       :foto,
                                       :mordida,
                                       :quantity,

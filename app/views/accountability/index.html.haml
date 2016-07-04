@@ -48,7 +48,8 @@
             %option{:value => "3"} Urgente
             %option{:value => "4"} En Prueba
             %option{:value => "5"} Nueva
-            %option{:value => "5"} Anulada
+            %option{:value => "6"} Anulada
+            %option{:value => "7"} Facturada
           %label Estado
 
         = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
@@ -80,7 +81,7 @@
             %td= order.client_name
             %td= order.created_at.strftime("%F")
             %td= order.order_date
-            %td Nueva
+            %td= order.state
             %td 9.99
             -# %td= order.client_note
             -# %td= order.other_note
