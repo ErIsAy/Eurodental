@@ -10,6 +10,34 @@
     -# = f.label :client_id
     = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
 
+  -#
+  -# .file-field.input-field{:class => "col s12 m6 s12"}
+  -#   .btn.modal-trigger{:href =>"#clients_modal"}
+  -#     %span
+  -#       %i.material-icons.prefix person_pin
+  -#   .file-path-wrapper
+  -#     %input.file-path.validate{:disabled => true, :placeholder => "Seleccionar Cliente", :type => "text"}
+  -#
+  -# .row.card.container.modal#clients_modal{:style => "margin: 0 auto; width: 1024px; height:800px; overflow-y: initial;"}
+    -# .input-field.col.s12
+    -#   = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
+
+    -# %table{:style => "col s12", :class => "highlight"}
+    -#   %thead
+    -#     %tr
+    -#       %th Cliente
+    -#
+    -#   %tbody
+    -#     - @clients.each do |c|
+    -#       %tr
+    -#         %td= c.name
+    -#         %td
+    -#           .btn Seleccionar
+
+
+
+
+
   .input-field{:class => "col s12 m6 s12"}
     %i.material-icons.prefix account_circle
     = f.label :patient_name, "Nombre del Paciente"
@@ -62,10 +90,3 @@
     = f.label :other_note, "Otras Notas"
     = f.text_area :other_note,
       :class => "materialize-textarea"
-
-
-:css
-   .card{
-      background-color: ghostwhite;
-     // border-radius: 30px;
-    }

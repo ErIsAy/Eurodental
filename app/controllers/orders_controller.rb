@@ -51,6 +51,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @clients = Client.all
     session[:order_params] ||= {}
     @order = Order.new
     @order.current_step = session[:order_step]
@@ -72,6 +73,9 @@ class OrdersController < ApplicationController
     if params[:back_button]
       @order.previous_step
     elsif @order.last_step?
+      if @order.coti == true
+          @order.state = "Cotizacion"
+      end
       @order.save
     else
       @order.next_step
