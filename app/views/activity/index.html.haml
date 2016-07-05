@@ -14,7 +14,10 @@
     -#   Nuevo Servicio
   %br
   .card.container{:style => "margin: 0 auto;"}
-    = render_activities(@activities)
+    %ul.collection.with-header
+      %li.collection-header
+        %h6{:style => "color: black;"} Eventos
+      = render_activities(@activities)
     %br
 
     -# = link_to 'Nuevo', new_item_path

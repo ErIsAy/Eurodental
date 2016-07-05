@@ -1,9 +1,10 @@
-%i.material-icons.prefix perm_identity
-= current_user.email
-Ha agregado una orden nueva -
-- if activity.trackable
-  %b Detalle:
-  = link_to activity.trackable.id, activity.trackable
-- else
-  Ha Eliminado una orden
+%li.collection-item
+  %i.material-icons.prefix perm_identity
+  = current_user.email
+  Ha agregado una orden nueva -
+  - if activity.trackable
+    %b Detalle:
+    = link_to activity.trackable.id, activity.trackable
+  - else
+    Ha Eliminado una orden
 %br

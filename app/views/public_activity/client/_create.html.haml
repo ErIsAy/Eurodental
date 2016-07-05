@@ -1,9 +1,10 @@
-%i.material-icons.prefix perm_identity
-= current_user.email
-Ha agregado un cliente nuevo -
-- if activity.trackable
-  %b Detalle:
-  = link_to activity.trackable.name, activity.trackable
--# - else
--#   Ha Eliminado un cliente
+%li.collection-item
+  %i.material-icons.prefix perm_identity
+  = current_user.email
+  Ha agregado un cliente nuevo -
+  - if activity.trackable
+    %b Detalle:
+    = link_to activity.trackable.name, activity.trackable
+  -# - else
+  -#   Ha Eliminado un cliente
 %br

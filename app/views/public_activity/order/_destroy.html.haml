@@ -1,8 +1,9 @@
-%i.material-icons.prefix perm_identity
-%span{:style => "color: red;"}
-  = current_user.email
-Ha Eliminado una orden
-- if activity.trackable
-  %b Detalle:
-  = link_to activity.trackable.name, activity.trackable
+%li.collection-item
+  %i.material-icons.prefix perm_identity
+  %span{:style => "color: red;"}
+    = current_user.email
+  Ha Eliminado una orden
+  - if activity.trackable
+    %b Detalle:
+    = link_to activity.trackable.name, activity.trackable
 %br

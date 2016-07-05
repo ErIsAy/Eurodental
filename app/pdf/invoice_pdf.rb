@@ -14,7 +14,7 @@ class InvoicePdf < Prawn::Document
     text "Santiago, República Dominicana", size: 10
     text "Rolando@eurodental.com	", size: 10
     text "Orden: #0000#{@order.id}", size: 20, style: :bold, :align => :right
-    text "Fecha: ##{@order.created_at}", size: 10, style: :italic, :align => :right
+    text "Fecha: #{@order.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
   end
 
   def order_info

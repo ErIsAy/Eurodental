@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :label_print]
 
   # GET /orders
   # GET /orders.json
@@ -27,6 +27,23 @@ class OrdersController < ApplicationController
       @order.save
     end
   end
+
+  def label_print
+    @order = Order.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+      pdf = LabelPdf.new(@order)
+      send_data pdf.render,
+        filename: "Label_Orden_#{@order.id}.pdf",
+        type: "application/pdf",
+        disposition: "inline" ##display in browser
+      end
+    end
+  end
+
+
+
 
   def orders_completed
     @search = Order.ransack(params[:q])

@@ -14,16 +14,26 @@
     Bienvenido
   %br
 
+  .container.wrapper{ :style => "font-size: 25px;"}
+    %span.ripplelink.cyan
+      %a{:href => orders_path} Consultar Ordenes
+    %span.ripplelink.lightgreen
+      %a{:href => clients_path} Clientes
+    %span.ripplelink.amber
+      %a{:href => suppliers_path} Suplidores
+    -if current_user.role_level == 1
+      %span.ripplelink.orange
+        %a{:href => admin_index_path} Administración
   /*max-width:90% for wide screen*/
-  .card.container.row{:style => "margin: 0 auto; background-color: rgba(220, 220, 245, 0); box-shadow: 0 0 0 0; zoom:81%"}
-    .row
-      .col.s12.m7{:style => "width: 426.66px;"}
-        .card
-          %a{:href => orders_path}
-            .card-image
-              =image_tag "categories.jpg", :style => "height: 161.469px;"
-              %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
-                Consultar Ordenes
+  -# .card.container.row{:style => "margin: 0 auto; background-color: rgba(220, 220, 245, 0); box-shadow: 0 0 0 0; zoom:81%"}
+  -#   .row
+  -#     .col.s12.m7{:style => "width: 426.66px;"}
+  -#       .card
+  -#         %a.ripplelink{:href => orders_path}
+  -#           .card-image
+  -#             =image_tag "categories.jpg", :style => "height: 161.469px;"
+  -#             %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
+  -#               Consultar Ordenes
       -# .col.s12.m7{:style => "width: 426.66px;"}
       -#   .card
       -#     %a{:href => orders_orders_completed_path}
@@ -58,7 +68,7 @@
       -#           %i.material-icons.right{:style => "margin-top: -10px; font-size:85px;"} today
       .col.s12.m7{:style => "width: 426.66px;"}
         .card
-          %a{:href => clients_path}
+          %a.ripplelink{:href => clients_path}
             .card-image
               =image_tag "dentists1.jpg", :style => "height: 161.469px;"
               %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}
@@ -81,7 +91,7 @@
                 -# %i.material-icons.right{:style => "margin: 8px; font-size:94px;"} check
       .col.s12.m7{:style => "width: 426.66px;"}
         .card
-          %a{:href => suppliers_path}
+          %a.ripplelink{:href => suppliers_path}
             .card-image
               =image_tag "dental-supplies.jpg", :style => "height: 161.469px;"
               %span.card-title{:style => "background: rgba(0, 0, 0, 0.21); padding: 7px; bottom: 10px;"}

@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   end
 
   get 'admin/index'
-  get 'orders/orders_completed'
-  get 'orders/orders_test'
-  get 'orders/orders_process'
-  get 'orders/orders_urgent'
+  # get 'orders/orders_completed'
+  # get 'orders/orders_test'
+  # get 'orders/orders_process'
+  # get 'orders/orders_urgent'
+  get '/order/:id' => 'orders#label_print'
+
+
   resources :items
 
   resources :categories
