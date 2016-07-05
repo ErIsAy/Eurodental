@@ -15,17 +15,20 @@
       %li
         %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
           %i.material-icons assignment
-      %li
-        %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
-          %i.material-icons attach_money
+      - if current_user.role_level == 1
+        %li
+          %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
+            %i.material-icons attach_money
 
     %ul.right
-      %li
-        %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
-          %i.material-icons settings
+      - if current_user.role_level == 1
+        %li
+          %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
+            %i.material-icons settings
 
-          /*Renders search field only if Welcome/Root page*/
+          /*Renders search field only if root page or orders*/
     = render 'layouts/search_nav' if current_page?('/')
+    = render 'layouts/search_nav' if current_page?(orders_path)
 
     %ul#slide-out.side-nav
       %li
@@ -38,10 +41,11 @@
       -#   %a.tooltipped{:href => consulta_index_path, "data-tooltip" => "Generar Consulta", "data-position" => "right"} Consultas
       %li
         %a.tooltipped{:href => suppliers_path, "data-tooltip" => "Listado de Suplidores", "data-position" => "right"} Suplidores
-      %li
-        %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right"} Reportes
-      %li
-        %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "right"} Contabilidad
-      %li
-        %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Administración", "data-position" => "right"} Administración
+      - if current_user.role_level == 1
+        %li
+          %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right"} Reportes
+        %li
+          %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "right"} Contabilidad
+        %li
+          %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Administración", "data-position" => "right"} Administración
       = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
