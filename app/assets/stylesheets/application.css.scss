@@ -17,6 +17,7 @@
  *= require tooth_chart
  //Logo fonts
  *= require Bauhaus_font
+ *= require pagination
  */
 
 /* Materialize Color*/
@@ -25,9 +26,12 @@ $primary-color: color("indigo", "lighten-1") !default;
 @import "materialize";
 @import "materialize/extras/nouislider";
 
+/*****************************************************************/
 
 
 
+
+/****************************************************************/
 /* fix navbar always on top*/
 .nav-fixed{
 position: fixed;
@@ -37,7 +41,7 @@ z-index: 1030;
 }
 
 /*reduce spacing for tables*/
-#orders_t {
+#table_line {
 line-height: 0.5;
 }
 

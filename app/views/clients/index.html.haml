@@ -27,34 +27,38 @@
 
 
   %br
-  %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
-    %thead
-      %tr
-        %th Cliente
-        %th Tel.:
-        %th E-mail
-        %th
-
-    %tbody
-      - @clients.each do |client|
+  -# %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table.centered.highlight#table_line
+      %thead
         %tr
-          %td= client.name
-          %td= client.phone
-          %td= client.email
+          %th Cliente
+          %th Tel.:
+          %th E-mail
+          %th
 
-          %td.btn-group
-            %a{:href => client_path(client), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
-              %i.material-icons.right search
+      %tbody
+        - @clients.each do |client|
+          %tr
+            %td= client.name
+            %td= client.phone
+            %td= client.email
 
-            %a{:href => edit_client_path(client), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
-              %i.material-icons.right mode_edit
+            %td.btn-group
+              %a{:href => client_path(client), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                %i.material-icons.right search
 
-            %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
-              = link_to 'X', client_path(client), :method => :delete
+              %a{:href => edit_client_path(client), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+                %i.material-icons.right mode_edit
+
+              %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+                = link_to 'X', client_path(client), :method => :delete
 
 
 
-  %br
+      %br
+        %ul.pagination.right{:style => "margin: 0 auto;"}
+          = will_paginate @orders, previous_label: h("<"), next_label: h(">")
 
   -# = link_to 'Back', clients_path
   -# = link_to 'New Client', new_client_path

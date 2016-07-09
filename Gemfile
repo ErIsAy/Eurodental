@@ -26,7 +26,7 @@ gem 'activerecord-session_store'
 gem 'ransack'
 gem 'public_activity'
 
-#gem 'will_paginate'
+gem 'will_paginate'
 gem 'prawn'
 gem 'prawn-table'
 
@@ -39,6 +39,7 @@ group :development, :test do
   gem 'spring'
   #AwesomePrint.irb!
   gem 'awesome_print'
+
 
 end
 

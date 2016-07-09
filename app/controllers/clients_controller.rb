@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
   def index
     # @clients = Client.all.order("created_at DESC")
     @search = Client.ransack(params[:q])
-    @clients = @search.result
+    @clients = @search.result.page(params[:page]).per_page(15)
   end
 
   # GET /clients/1

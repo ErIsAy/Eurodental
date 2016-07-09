@@ -12,52 +12,49 @@
     %a{:href => new_order_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right add
       Nueva Orden
-
-
     %a.right.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right search
       Filtro
+
+
+  .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
+    = search_form_for @search do |f|
+      .input-field{:class => "col s6"}
+        = f.label :client_name_cont, "Cliente"
+        = f.text_field :client_name_cont
+      .input-field{:class => "col s6"}
+        = f.label :patient_name_cont, "Paciente"
+        = f.text_field :patient_name_cont
+      .input-field{:class => "col s3"}
+        = f.label :created_at_date_gequals, "Desde"
+        = f.text_field :created_at_date_gequals,
+                       :class => "datepicker_all"
+      .input-field{:class => "col s3"}
+        = f.label :created_at_date_lequals, "Hasta"
+        = f.text_field :created_at_date_lequals,
+                       :class => "datepicker_all"
+
+      .input-field.col.s6
+        %select
+          %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
+          %option{:value => "1"} Completada
+          %option{:value => "2"} En Proceso
+          %option{:value => "3"} Urgente
+          %option{:value => "4"} En Prueba
+          %option{:value => "5"} Nueva
+          %option{:value => "6"} Anulada
+          %option{:value => "7"} Facturada
+        %label Estado
+
+      = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                            :style => "left: 15px; bottom: 5px;"
+
+
   %br
 
 
-    .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
-      = search_form_for @search do |f|
-        .input-field{:class => "col s6"}
-          = f.label :client_name_cont, "Cliente"
-          = f.text_field :client_name_cont
-        .input-field{:class => "col s6"}
-          = f.label :patient_name_cont, "Paciente"
-          = f.text_field :patient_name_cont
-        .input-field{:class => "col s3"}
-          = f.label :created_at_date_gequals, "Desde"
-          = f.text_field :created_at_date_gequals,
-                         :class => "datepicker_all"
-        .input-field{:class => "col s3"}
-          = f.label :created_at_date_lequals, "Hasta"
-          = f.text_field :created_at_date_lequals,
-                         :class => "datepicker_all"
-
-        .input-field.col.s6
-          %select
-            %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
-            %option{:value => "1"} Completada
-            %option{:value => "2"} En Proceso
-            %option{:value => "3"} Urgente
-            %option{:value => "4"} En Prueba
-            %option{:value => "5"} Nueva
-            %option{:value => "6"} Anulada
-            %option{:value => "7"} Facturada
-          %label Estado
-
-        = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
-                              :style => "left: 15px; bottom: 5px;"
-
-
-
-
-
   .row.container.card{:style => "margin: 0 auto;"}
-    %table.centered.highlight#orders_t
+    %table.centered.highlight#table_line
       %thead
         %tr
           %th Cliente
@@ -93,19 +90,21 @@
 
       %br
       .div
-        %ul.pagination{:style => "margin: 0 auto; text-align: right;"}
-          %li.disabled
-            %a{:href => "#!"}
-              %i.material-icons chevron_left
-          %li.active
-            %a{:href => "#!"} 1
-          %li.waves-effect
-            %a{:href => "#!"} 2
-          %li.waves-effect
-            %a{:href => "#!"} 3
-          %li.waves-effect
-            %a{:href => "#!"}
-              %i.material-icons chevron_right
+
+      %ul.pagination.right{:style => "margin: 0 auto; text-align: right;"}
+        = will_paginate @orders, previous_label: h("<"), next_label: h(">")
+        -#   %li.disabled
+        -#     %a{:href => "#!"}
+        -#       %i.material-icons chevron_left
+        -#   %li.active
+        -#     %a{:href => "#!"} 1
+        -#   %li.waves-effect
+        -#     %a{:href => "#!"} 2
+        -#   %li.waves-effect
+        -#     %a{:href => "#!"} 3
+        -#   %li.waves-effect
+        -#     %a{:href => "#!"}
+        -#       %i.material-icons chevron_right
 
   %br
 

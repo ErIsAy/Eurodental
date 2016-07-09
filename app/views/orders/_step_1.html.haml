@@ -7,10 +7,9 @@
   %br/
   %br/
   .select.input-field{:class => "col s12 m6 s12"}
-    -# = f.label :client_id
+    = f.label :client_id
     = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
 
-  -#
   -# .file-field.input-field{:class => "col s12 m6 s12"}
   -#   .btn.modal-trigger{:href =>"#clients_modal"}
   -#     %span
@@ -33,9 +32,6 @@
     -#         %td= c.name
     -#         %td
     -#           .btn Seleccionar
-
-
-
 
 
   .input-field{:class => "col s12 m6 s12"}

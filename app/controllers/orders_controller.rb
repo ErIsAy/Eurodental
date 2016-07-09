@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def index
     # @orders = Order.all
     @search = Order.ransack(params[:q])
-    @orders = @search.result
+    @orders = @search.result.page(params[:page]).per_page(15)
   end
 
   # GET /orders/1
