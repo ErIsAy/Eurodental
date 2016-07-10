@@ -76,6 +76,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @clients = Client.all
   end
 
   # POST /orders
