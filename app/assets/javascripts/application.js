@@ -18,6 +18,7 @@
  /*Datepicker js*/
 //= require datepicker_spanish
 //= require cocoon
+//= require select2
 // Turbolinks.enableTransitionCache();
 
 
@@ -35,6 +36,8 @@
 // $(document).ready(function(){
 //   $('.tooltipped').tooltip({delay: 25});
 // });
+
+
 
 
 

@@ -29,6 +29,7 @@ gem 'public_activity'
 gem 'will_paginate'
 gem 'prawn'
 gem 'prawn-table'
+gem 'select2-rails'
 
 group :development, :test do
   gem 'annotate', '2.7.0'

@@ -18,6 +18,7 @@
  //Logo fonts
  *= require Bauhaus_font
  *= require pagination
+ *= require select2
  */
 
 /* Materialize Color*/
@@ -27,6 +28,35 @@ $primary-color: color("indigo", "lighten-1") !default;
 @import "materialize/extras/nouislider";
 
 /*****************************************************************/
+/*Select2 Style*/
+#new_order > div.row.card.container > div:nth-child(4) > span > span.selection > span {
+
+  height: 46px;
+  // margin-left: 54px;
+}
+#select2-e1-container{
+  margin-top: 7px;
+}
+
+
+/*Hr style in orders*/
+hr.style17 {
+	border-top: 1px solid rgba(159, 168, 218, 0.8);;
+	text-align: center;
+}
+hr.style17:after {
+	content: '§';
+	display: inline-block;
+	position: relative;
+	top: -14px;
+	padding: 0 10px;
+	background: #fff;
+	color: #8c8b8b;
+	font-size: 18px;
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	transform: rotate(60deg);
+}
 
 
 

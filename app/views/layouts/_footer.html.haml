@@ -1,9 +1,52 @@
 %footer.page-footer
   :javascript
+    (function() {
+        $("#e1").select2();
+        $('#e1').select2({
+            language: {
+                noResults: function() {
+                    return "Cliente no encontrado.  <a href='/clients/new'>Desea crearlo?</a>";
+                }
+            },
+            escapeMarkup: function(markup) {
+                return markup;
+            }
+        });
+    })();
+
+    (function() {
+      $('.datepicker').pickadate({
+            //set today the min date
+            min: true,
+            // Strings and translations
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year
+            monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+            monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+            weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            // Buttons
+            today: 'Hoy',
+            clear: 'Borrar',
+            close: 'Cerrar',
+
+            // Accessibility labels
+            labelMonthNext: 'Siguiente Mes',
+            labelMonthPrev: 'Mes Anterior',
+            labelMonthSelect: 'Seleccionar Mes',
+            labelYearSelect: 'Seleccionar Año',
+
+
+
+          });
+    })();
+
+
     function printpage(){
          window.print()
       }
     $( document ).ready(function(){
+
       $(function() {
           Materialize.updateTextFields();
       });
@@ -13,30 +56,7 @@
       $('ul.tabs').tabs();
       $('input#input_text, textarea#textarea1').characterCounter();
       $('.modal-trigger').leanModal();
-      $('.datepicker').pickadate({
-        //set today the min date
-        min: true,
-      	// Strings and translations
-      	selectMonths: true, // Creates a dropdown to control month
-      	selectYears: 15, // Creates a dropdown of 15 years to control year
-      	monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-      	monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-      	weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-      	weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-      	// Buttons
-      	today: 'Hoy',
-      	clear: 'Borrar',
-      	close: 'Cerrar',
 
-      	// Accessibility labels
-      	labelMonthNext: 'Siguiente Mes',
-      	labelMonthPrev: 'Mes Anterior',
-      	labelMonthSelect: 'Seleccionar Mes',
-      	labelYearSelect: 'Seleccionar Año',
-
-
-
-      });
       //Datepicker withou date restriction
       $('.datepicker_all').pickadate({
         // Strings and translations

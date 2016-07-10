@@ -81,6 +81,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    @clients = Client.all
     session[:order_params].deep_merge!(params[:order]) if params[:order]
     @order = Order.new(session[:order_params])
     @order.current_step = session[:order_step]
