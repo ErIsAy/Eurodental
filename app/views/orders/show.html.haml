@@ -54,12 +54,21 @@
       -#   %i.material-icons.prefix{:style => "font-size:100px;"} print
       -# %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
       -#   %i.material-icons.prefix{:style => "font-size:100px;"} label
+
+      -# %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+      -#   = link_to('<i class="material-icons" style="font-size:100px;">label</i>'.html_safe, {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+      -# %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
+      -#   %i.material-icons.prefix{:style => "font-size:100px;"} email
+      -# %p.col.s6.m4.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
+      -#   %i.material-icons.prefix{:style => "font-size:100px;"} assignment
+
       %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
-        = link_to('<i class="material-icons" style="font-size:100px;">label</i>'.html_safe, {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+        = link_to((image_tag "Paper-100.png", :id => "show_icons"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
       %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
-        %i.material-icons.prefix{:style => "font-size:100px;"} email
+        = image_tag "Message-Filled-100.png", :id => "show_icons"
       %p.col.s6.m4.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
-        %i.material-icons.prefix{:style => "font-size:100px;"} assignment
+        = image_tag "Teeth-100.png", :id => "show_icons"
+
 
 
   .row.card.container.modal.modal-fixed-footer#email_modal{:style => "width: 1024px; height:800px; overflow-y: initial;"}
