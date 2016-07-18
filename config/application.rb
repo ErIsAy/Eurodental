@@ -33,6 +33,8 @@ module EuroDentalLab
      config.serve_static_files = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    # fix for field with errors => http://tinyurl.com/ppnj5md
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
 # Enable the asset pipeline
 config.assets.enabled = true

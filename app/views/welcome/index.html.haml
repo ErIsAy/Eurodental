@@ -15,14 +15,14 @@
   %br
 
   .container.wrapper{ :style => "font-size: 25px;"}
-    %span.ripplelink.cyan
+    %span.ripplelink.xpurple
       %a{:href => orders_path} Consultar Ordenes
-    %span.ripplelink.lightgreen
+    %span.ripplelink.xpurple
       %a{:href => clients_path} Clientes
-    %span.ripplelink.amber
+    %span.ripplelink.xpurple
       %a{:href => suppliers_path} Suplidores
     -if current_user.role_level == 1
-      %span.ripplelink.orange
+      %span.ripplelink.xpurple
         %a{:href => admin_index_path} Administración
   /*max-width:90% for wide screen*/
   -# .card.container.row{:style => "margin: 0 auto; background-color: rgba(220, 220, 245, 0); box-shadow: 0 0 0 0; zoom:81%"}

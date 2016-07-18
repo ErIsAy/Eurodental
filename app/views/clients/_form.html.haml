@@ -9,16 +9,25 @@
         -#     %li= msg
 
     .row.card.container.col.s12{:style => "margin: 0 auto;"}
-      =image_tag "dentist_user.png", :style => "width: 250px"
-      .input-field{:class => "col s12 s12 s6"}
+      =image_tag "dentist_user.png", :style => "width: 250px; margin: 0 auto; display: block; margin-bottom: 30px;"
+      .input-field{:class => "col s6"}
         %i.material-icons.prefix account_circle
         = f.label :name, "Cliente"
         = f.text_field :name
 
-      .input-field{:class => "col s12 s12 s6"}
+      .input-field{:class => "col s6"}
         %i.material-icons.prefix phone
         = f.label :phone, "Tel.:"
-        = f.text_field :phone
+        = f.text_field :phone,
+          :placeholder => "(_ _ _) ___ ____ ",
+          :type => "tel"
+
+
+      .input-field{:class => "col s12 s12 s6"}
+        %i.material-icons.prefix mode_edit
+        = f.label :address, "Dirección"
+        = f.text_area :address,
+          :class => "materialize-textarea"
 
       .input-field{:class => "col s12 s12 s6"}
         %i.material-icons.prefix email

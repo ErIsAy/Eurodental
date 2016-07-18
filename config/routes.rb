@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :users_admin, :controller => 'users'
   resources :orders
   resources :clients
+  resources :users
 
   get 'reports/index'
   get 'admin/index'

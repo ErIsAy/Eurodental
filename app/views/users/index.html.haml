@@ -32,14 +32,14 @@
       %i.material-icons.right search
       Filtro
 
-    -# .row.card.container.modal#search_filter_users{:style => "margin: 0 auto;"}
-    -#   = search_form_for @search do |f|
-    -#     .input-field{:class => "col s6"}
-    -#       = f.label :email_cont, "Correo"
-    -#       = f.text_field :email_cont
-    -#     %br
-    -#     = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
-    -#                           :style => "left: 15px; bottom: 5px;"
+    .row.card.container.modal#search_filter_users{:style => "margin: 0 auto;"}
+      = search_form_for @search do |f|
+        .input-field{:class => "col s6"}
+          = f.label :email_cont, "Correo"
+          = f.text_field :email_cont
+        %br
+        = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                              :style => "left: 15px; bottom: 5px;"
 
 
   %br

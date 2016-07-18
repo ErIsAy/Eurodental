@@ -59,7 +59,11 @@ hr.style17:after {
 	transform: rotate(60deg);
 }
 
-
+//change table color on hover
+table.highlight tbody tr:hover {
+    background-color: #5c6bc0 !important;
+    color: white;
+}
 
 
 /****************************************************************/

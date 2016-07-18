@@ -7,7 +7,7 @@ Ransack.configure do |config|
 
   config.add_predicate 'date_gequals',
     arel_predicate: 'gteq',
-    formatter: proc { |v| v.to_date },
+    formatter: proc { |k| k.to_date },
     type: :string
 
 

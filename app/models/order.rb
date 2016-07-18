@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
 #  belongs_to :patient
   belongs_to :client
   has_many :items
+
+  # default_scope { order('orders.created_at') }
   # has_and_belongs_to_many :items
 
   #default_scope { order("created_at DESC") }
@@ -64,8 +66,9 @@ class Order < ActiveRecord::Base
     current_step == steps.last
   end
 
+  #fix the date format for search accurately YYYY/MM/DD
   ransacker :created_at do |parent|
-      Arel::Nodes::SqlLiteral.new('date(created_at)')
+      Arel::Nodes::SqlLiteral.new('date(orders.created_at)')
   end
 
 end

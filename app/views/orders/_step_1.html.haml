@@ -13,7 +13,7 @@
     -# = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
 
 
-    = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: true, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
+    = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
   - 3.times do
     %br
 

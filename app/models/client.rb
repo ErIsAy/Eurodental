@@ -4,6 +4,11 @@ class Client < ActiveRecord::Base
 
    has_many :orders
    validates :name, presence: true
+   validates :address, presence: true
+   validates :phone,:presence => true
+   validates_length_of :phone, :maximum => 10
+
+  #  default_scope { order('clients.created_at') }
 
 
 end
