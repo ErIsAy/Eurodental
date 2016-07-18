@@ -7,23 +7,23 @@
   %h1{:style => "text-align: center;"} Datos del Suplidor
 
   .container.card{:style => "margin:0 auto;"}
+    .div{:style => "margin-left: 15px;"}
+      %p
+        %b{:style => "display: block;"} Name:
+        = @supplier.name
+      %p
+        %b{:style => "display: block;"} Description:
+        = @supplier.description
 
-    %p
-      %b Name:
-      = @supplier.name
-    %p
-      %b Description:
-      = @supplier.description
+      %p
+        %b{:style => "display: block;"} Correos:
+        - @supplier.supplier_emails.each do |smail|
+          %li= smail.email
 
-    %p
-      %b Correos:
-      - @supplier.supplier_emails.each do |smail|
-        %li= smail.email
-
-    %p
-      %b Teléfonos:
-      - @supplier.supplier_phones.each do |sphone|
-        %li= sphone.phone
+      %p
+        %b{:style => "display: block;"} Teléfonos:
+        - @supplier.supplier_phones.each do |sphone|
+          %li= sphone.phone
   -# CONTENT
   .container
     %a{:href => suppliers_path, :class => "waves-effect waves-light btn blue"}

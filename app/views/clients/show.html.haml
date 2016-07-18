@@ -26,17 +26,22 @@
   %h1{:style => "text-align: center;"} Ver Datos
 
   .container.card{:style => "margin:0 auto;"}
-    =image_tag "dentist_user.png", :style => "width: 250px;margin-left: 15px;"
+    =image_tag "dentist_user.png", :style => "width: 250px; margin: 0 auto; display:block;"
     .div{:style => "margin-left: 15px;"}
       %p
-        %b Nombre del Cliente:
+        %b{:style => "display: block;"} Nombre del Cliente:
         = @client.name
       %p
-        %b Tel.::
+        %b{:style => "display: block;"} Tel.::
         = @client.phone
       %p
-        %b E-Mail:
+        %b{:style => "display: block;"} Dirección:
+        = @client.address
+      %p
+        %b{:style => "display: block;"} E-Mail:
         = @client.email
+
+
   -# CONTENT
   .container
     %a{:href => clients_path, :class => "waves-effect waves-light btn blue"}

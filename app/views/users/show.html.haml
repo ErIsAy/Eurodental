@@ -29,11 +29,11 @@
     =image_tag "user.png", :style => "width: 250px;margin-left: 15px;"
     .div{:style => "margin-left: 15px;"}
       %p
-        %b Nombre del Usuario:
+        %b{:style => "display: block;"} Nombre del Usuario:
         = @user.email
 
       %p
-        %b Tipo de Usuario:
+        %b{:style => "display: block;"} Tipo de Usuario:
         - case @user.role_level
           - when 1
             Administrador

@@ -46,8 +46,8 @@
       %b Referencia:
       = @order.id
     %p.col.s6
-      %b Estado:
-      Nueva
+      %b Paciente:
+      = @order.patient_name
     .row.col.s12{:style => "text-align: center;"}
       -# = link_to '<i class="material-icons" style="font-size: 100px;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right", :target => "_blank", :style => "font-size:100px;"
       -# %p.col.s6.m3.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
