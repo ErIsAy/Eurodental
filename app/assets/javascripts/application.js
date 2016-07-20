@@ -19,6 +19,7 @@
 //= require datepicker_spanish
 //= require cocoon
 //= require select2
+//= require jquery.maskedinput
 // Turbolinks.enableTransitionCache();
 
 
@@ -39,9 +40,8 @@
 
 
 
-
-
 $(document).ready(function(){
+
 $('.collapsible').collapsible({
 accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 });
