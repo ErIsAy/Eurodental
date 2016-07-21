@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$in_process: #2175de;
+$in_urgent: #ff5555;
+$in_test_pending: #ffb380;
+$in_paid: #55aa60;
+$in_null: #ac9d93;
+
 
 
 #show_icons:hover {
@@ -10,4 +16,24 @@
 }
 #show_icons:active {
   width: 80px;
+}
+
+.in_process {
+	background-color: $in_process;
+}
+
+.in_urgent{
+	background-color: $in_urgent;
+}
+
+.in_test_pending{
+	background-color: $in_test_pending;
+}
+
+.in_paid{
+	background-color: $in_paid;
+}
+
+.in_null{
+	background-color: $in_null;
 }

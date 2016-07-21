@@ -69,11 +69,11 @@ ActiveRecord::Schema.define(version: 20160629043157) do
     t.boolean  "antagonista"
     t.boolean  "foto"
     t.boolean  "mordida"
-    t.string   "state",        default: "nueva"
+    t.string   "state",        default: "En Proceso"
     t.integer  "quantity",     default: 1
     t.integer  "client_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "orders", ["client_id"], name: "index_orders_on_client_id"
