@@ -9,7 +9,7 @@ class InvoicePdf < Prawn::Document
 
 
   def order_title
-    image "/public/logo.png", :scale => 0.2
+    image "public/logo.png", :scale => 0.2
     move_down 10
     text "Calle Eusebio Manzueta #G8", size: 10, :style => :italic
     text "Los Jardines Metropolitanos", size: 10, :style => :italic
