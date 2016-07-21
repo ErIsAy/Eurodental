@@ -75,7 +75,26 @@
             %td= order.patient_name
             %td= order.created_at.strftime("%F")
             %td= order.order_date
-            %td.chip{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+            -case order.state.capitalize 
+              -when "En proceso"
+                %td.chip.in_process{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+              -when "Urgente"
+                %td.chip.in_urgent{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+              -when "En prueba"
+                %td.chip.in_test_pending{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+              -when "Facturada - pendiente"
+                %td.chip.in_test_pending{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+              -when "Facturada - pago"
+                %td.chip.in_paid{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+              -when "Anulada"
+                %td.chip.in_null{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+              -when "Cotizacion"
+                %td.chip.in_null{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
+
+
+
+
+
             -# %td= order.client_note
             -# %td= order.other_note
 
@@ -109,6 +128,7 @@
 
   %br
 
+-# =image_tag "blue.png" 
 
 .fixed-action-btn.horizontal.click-to-toggle{:style => "bottom: 45px; right: 24px;"}
   %a.btn-floating.btn-large.green

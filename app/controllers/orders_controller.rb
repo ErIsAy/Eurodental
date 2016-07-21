@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        @order.state = "Facturada"
+        @order.state = "Facturada - pendiente"
         @order.save
         pdf = InvoicePdf.new(@order)
         send_data pdf.render,
