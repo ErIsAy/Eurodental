@@ -5,7 +5,8 @@ class LabelPdf < Prawn::Document
 
   def initialize(order)
     super(top_margin: 10, page_size: [600,200])
-    image "#{Rails.root}/App/assets/images/logo.png", :scale => 0.2
+    # image "#{Rails.root}/App/assets/images/logo.png", :scale => 0.2
+    image "public/logo.png", :scale => 0.2
     @order = order
     label_body
 
