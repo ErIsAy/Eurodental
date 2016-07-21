@@ -35,16 +35,17 @@
                        :class => "datepicker_all"
 
       .input-field.col.s6
-        %select
+        %select.icons
           %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
-          %option{:value => "1"} Completada
-          %option{:value => "2"} En Proceso
-          %option{:value => "3"} Urgente
-          %option{:value => "4"} En Prueba
-          %option{:value => "5"} Nueva
-          %option{:value => "6"} Anulada
-          %option{:value => "7"} Facturada
+          %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} En Proceso
+          %option.circle{:value => "2", "data-icon" => "/assets/red.png"} Urgente
+          %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} En Prueba
+          %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} Facturada - Pendiente
+          %option.circle{:value => "5", "data-icon" => "/assets/green.png"} Facturada - Pago
+          %option.circle{:value => "6", "data-icon" => "/assets/null.png"} Anulada
         %label Estado
+
+
 
       = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
                             :style => "left: 15px; bottom: 5px;"
@@ -70,11 +71,11 @@
       %tbody
         - @orders.each do |order|
           %tr
-            %td= order.client_name
+            %td{:style => "text-align: justify;"}= order.client_name
             %td= order.patient_name
             %td= order.created_at.strftime("%F")
             %td= order.order_date
-            %td= order.state.capitalize
+            %td.chip{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
             -# %td= order.client_note
             -# %td= order.other_note
 

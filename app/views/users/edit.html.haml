@@ -33,7 +33,7 @@
         .input-field{:class => "col s12 s12 s6"}
           %i.material-icons.prefix lock
           = f.label :password, "Contraseña"
-          - if @minimum_password_length
+          -# - if @minimum_password_length
             -# %em
             -#   (#{@minimum_password_length} characters minimum)
           %br/

@@ -58,10 +58,11 @@
             - when 1
               %td Administrador
             - when 2
-              %td Usuario
+              %td Despacho
             - when 3
-              %td Otro
-
+              %td Social
+            - when 4
+              %td Tecnico
 
           %td.btn-group
             %a{:href => users_admin_path(user), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}

@@ -14,6 +14,7 @@ class Order < ActiveRecord::Base
 
 
   attr_accessor :client_name
+  attr_accessor :client_phone
   attr_accessor :client_email
   attr_accessor :current_step
 
@@ -34,6 +35,14 @@ class Order < ActiveRecord::Base
   def client_name
     client.name if client
     #Client.name if order
+  end
+
+  def client_phone
+    client.phone if client
+  end
+
+  def client_address
+    client.address if client
   end
 
   def client_email

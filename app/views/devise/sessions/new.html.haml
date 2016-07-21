@@ -2,11 +2,13 @@
 
 
 .box
+  =image_tag "logo.png", :style => "display: block; margin: 0 auto; max-width:90%; margin-bottom: 15px; margin-top: 15px;"
   .container
     %br
     %div{:class => "center-align"}
-      =image_tag "eu-tooth.png", :style => "width: 70px;"
-    %h4{:style => "font-family: Bauhaus; color: #3498db; text-align: center;"} EURODENTAL LAB
+      -# =image_tag "eu-tooth.png", :style => "width: 70px;"
+    -# %h4{:style => "font-family: Bauhaus; color: #3498db; text-align: center;"} EURODENTAL LAB
+    -# =image_tag "logo.png", :style => "display: block; margin: 0 auto; width: 277px; margin-bottom: 15px;"
     %br
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .input-field

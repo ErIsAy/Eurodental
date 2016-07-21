@@ -40,7 +40,7 @@
       %tbody
         - @clients.each do |client|
           %tr
-            %td= client.name
+            %td{:style => "text-align: justify;"}= client.name
             %td= client.phone
             %td= client.email
 
@@ -56,7 +56,8 @@
 
 
 
-      %br
+        %br
+        .div
         %ul.pagination.right{:style => "margin: 0 auto;"}
           = will_paginate @orders, previous_label: h("<"), next_label: h(">")
 

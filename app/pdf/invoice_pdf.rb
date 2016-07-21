@@ -9,10 +9,12 @@ class InvoicePdf < Prawn::Document
 
 
   def order_title
-    text "EuroDental Lab", size: 20
-    text "Los Jardines Metropolitanos, C#XX", size: 10
-    text "Santiago, República Dominicana", size: 10
-    text "Rolando@eurodental.com	", size: 10
+    image "#{Rails.root}/App/assets/images/logo.png", :scale => 0.2
+    move_down 10
+    text "Calle Eusebio Manzueta #G8", size: 10, :style => :italic
+    text "Los Jardines Metropolitanos", size: 10, :style => :italic
+    text "Santiago, República Dominicana", size: 10, :style => :italic
+    text "Info@eurodental.com	", size: 10, :style => :italic
     text "Orden: #0000#{@order.id}", size: 20, style: :bold, :align => :right
     text "Fecha: #{@order.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
   end

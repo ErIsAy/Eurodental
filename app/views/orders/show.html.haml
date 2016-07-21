@@ -13,39 +13,50 @@
     Detalles de la Orden
   %br
 
-  .container.col.s6{:style => "text-align: right;"}
-    %b Estado:
-    = @order.state.capitalize
+  .card.container.col.s6{:style => "text-align: right;"}
+    -# %b Estado:
+    -# = @order.state.capitalize
 
   .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
-    %p.col.s6
+    .div.col.s12
+      .col.s6.right
+        .input-field
+          %select.icons
+            %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
+            %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} En Proceso
+            %option.circle{:value => "2", "data-icon" => "/assets/red.png"} Urgente
+            %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} En Prueba
+            %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} Facturada - Pendiente
+            %option.circle{:value => "5", "data-icon" => "/assets/green.png"} Facturada - Pago
+            %option.circle{:value => "6", "data-icon" => "/assets/null.png"} Anulada
+    %p.col.s6.margin-f
       %b Cliente:
       = @order.client_name
-    %p.col.s6
+    %p.col.s6.margin-f
       %b E-Mail:
       = @order.client_email
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Fecha de Entrada:
       = @order.created_at.strftime("%F")
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Fecha de Entrega:
       = @order.order_date
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Edad:
       = @order.age
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Sexo:
       = @order.sex
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Notas del Cliente:
       = @order.client_note
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Otras Notas:
       = @order.other_note
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Referencia:
       = @order.id
-    %p.col.s6
+    %p.col.s6.margin-f
       %b Paciente:
       = @order.patient_name
     .row.col.s12{:style => "text-align: center;"}

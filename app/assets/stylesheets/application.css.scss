@@ -29,6 +29,12 @@ $primary-color: color("indigo", "lighten-1") !default;
 @import "materialize/extras/nouislider";
 
 /*****************************************************************/
+
+.margin-f{
+    margin: 10px auto 10px 10px;
+}
+
+
 /*Select2 Style*/
 #new_order > div.row.card.container > div:nth-child(4) > span > span.selection > span {
 
@@ -38,6 +44,16 @@ $primary-color: color("indigo", "lighten-1") !default;
 #select2-e1-container{
   margin-top: 7px;
 }
+
+/*table formatting*/
+th {
+  padding: 4px 6px;
+  padding-bottom: 18px;
+}
+td {
+  padding: 4px 6px;
+}
+
 
 
 /*Hr style in orders*/
