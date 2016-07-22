@@ -17,18 +17,37 @@
     -# %b Estado:
     -# = @order.state.capitalize
 
+    -# = f.select :role_level, options_for_select([["Elige Tipo de Usuario", ""], ["Administrador",1],["Despacho",2],["Social",3],["Tecnico",4]])
+
+
   .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
     .div.col.s12
-      .col.s6.right
-        .input-field
-          %select.icons
-            %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
-            %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} En Proceso
-            %option.circle{:value => "2", "data-icon" => "/assets/red.png"} Urgente
-            %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} En Prueba
-            %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} Facturada - Pendiente
-            %option.circle{:value => "5", "data-icon" => "/assets/green.png"} Facturada - Pago
-            %option.circle{:value => "6", "data-icon" => "/assets/null.png"} Anulada
+      .col.s8.row
+        = form_for(@order, remote: true, html: {id: "status-update"}) do |f|
+          .input-field.col.s6
+            = f.select( :state, options_for_select([["Elige el Estado"],
+                                                    ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
+                                                    ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
+                                                    ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+                                                    ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+                                                    ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
+                                                    ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
+                                                    disabled: "Elige el Estado"), class: "icons" )
+          .col.s2
+            %button.btn.waves-effect.waves-light{:style => "height: 49px; top: 23px;", :name => "action", :type => "submit"}
+              %i.material-icons.right{:style => "margin-left: 0px; padding-top: 4px; font-size:50px;"} check
+
+            -# %select.icons
+          -#   %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
+          -#   %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} En Proceso
+          -#   %option.circle{:value => "2", "data-icon" => "/assets/red.png"} Urgente
+          -#   %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} En Prueba
+          -#   %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} Facturada - Pendiente
+          -#   %option.circle{:value => "5", "data-icon" => "/assets/green.png"} Facturada - Pago
+          -#   %option.circle{:value => "6", "data-icon" => "/assets/null.png"} Anulada
+      .div#order-status
+        = render 'order_status'
+
     %p.col.s6.margin-f
       %b Cliente:
       = @order.client_name

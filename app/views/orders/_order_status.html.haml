@@ -1,0 +1,21 @@
+-# .col.s2.right
+-#   %p.chip{:style => "display: inline-table;", :id => "status-actual"}
+-#     = @order.state.capitalize
+
+
+.col.s2.right
+  -case @order.state.capitalize
+    -when "En proceso"
+      .chip.in_process= @order.state.capitalize
+    -when "Urgente"
+      .chip.in_urgent= @order.state.capitalize
+    -when "En prueba"
+      .chip.in_test_pending= @order.state.capitalize
+    -when "Facturada - pendiente"
+      .chip.in_test_pending= @order.state.capitalize
+    -when "Facturada - pago"
+      .chip.in_paid= @order.state.capitalize
+    -when "Anulada"
+      .chip.in_null= @order.state.capitalize
+    -when "Cotizacion"
+      .chip.in_null= @order.state.capitalize

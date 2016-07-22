@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160629043157) do
     t.boolean  "antagonista"
     t.boolean  "foto"
     t.boolean  "mordida"
-    t.string   "state",        default: "En Proceso"
+    t.string   "state",        default: "En proceso"
     t.integer  "quantity",     default: 1
     t.integer  "client_id"
     t.datetime "created_at",                          null: false

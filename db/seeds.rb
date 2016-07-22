@@ -5,10 +5,24 @@
 #   áéíóú
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+require 'faker'
 
 User.create(email: 'admin@admin.com', password: '123456789', role_level: 1)
 
+
+50.times do
+  Client.create(name: Faker::Name.name,
+                phone: Faker::PhoneNumber.phone_number,
+                address: Faker::Address.street_address,
+                email: Faker::Internet.free_email)
+end
+
+
+
+#
+# Client.create()
+#
+# json.extract! @client, :id, :name, :phone, :address, :email, :created_at, :updated_at
 
 
 Category.create([{ name: 'Tipo de Trabajo'},

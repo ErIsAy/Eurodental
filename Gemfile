@@ -31,6 +31,8 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'select2-rails'
 
+gem 'faker'
+
 group :development, :test do
   gem 'annotate', '2.7.0'
   gem 'sqlite3'
