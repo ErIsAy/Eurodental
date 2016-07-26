@@ -77,6 +77,8 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @clients = Client.all
+    # session[:order_params] ||= {}
+    # @order.current_step = session[:order_step]
   end
 
   # POST /orders
@@ -130,6 +132,35 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+  #   @clients = Client.all
+  #   session[:order_params].deep_merge!(params[:order]) if params[:order]
+  #   @order = Order.new(session[:order_params])
+  #   @order.current_step = session[:order_step]
+  #
+  #
+  # if @order.valid?
+  #   if params[:back_button]
+  #     @order.previous_step
+  #   elsif @order.last_step?
+  #     if @order.coti == true
+  #         @order.state = "Cotizacion"
+  #     end
+  #     @order.save
+  #   else
+  #     @order.next_step
+  #   end
+  #   session[:order_step] = @order.current_step
+  # end
+  #   if @order.new_record?
+  #     render "new"
+  #   else
+  #     session[:order_step] = session[:order_params] = nil
+  #     redirect_to @order, notice: "Orden Salvada"
+  #   end
+
+
+
+
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'La Orden fue actualizada exitosamente.' }
@@ -140,6 +171,7 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /orders/1

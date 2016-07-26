@@ -1,6 +1,8 @@
 .row.card.container{:style => "margin: 0 auto;"}
   %div{:class => "col s12 m6"}
     = render :partial => 'layouts/tooth_chart'
+    = render 'tooth_fields', :f => f
+
 
   .container.right#order_collection{:class => "col s12 m4"}
 
@@ -123,3 +125,16 @@
     document.getElementById("step_1").classList.add("complete");
     });
   $('.modal-trigger').leanModal();
+
+  (function ()
+    {
+      for(i=1; i<33; i++) {
+        if(document.getElementById("t"+i).value != 'null'){var z = document.getElementById("t"+i).value;}
+        //var z = document.getElementById("t"+i).value;
+        if (String(z) == 1) {$("#Tooth"+i).css({ fill: "lightskyblue" });}
+
+      }
+    z = null;
+    i = 1;
+
+    })();

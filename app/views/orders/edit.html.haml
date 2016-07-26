@@ -1,29 +1,151 @@
-
-
--# = link_to 'Show', @order
--# \|
--# = link_to 'Back', orders_path
-
-
-
 %header
 
 -# MAIN
 
 %main
   = render :partial => 'layouts/top_navbar'
-  %h1.container Editar Orden
   %br
-  = render 'form'
+  -# %h4.left{:style => "margin: 0 auto;"} Nueva Orden
+  -# .chip.card{:style => "margin: 0 auto; left: 3%;"} Ordenes
+  -# .chip.card{:style => "margin: 0 auto; left: 3%;"} Nueva Orden
+  -# %br
+  = render 'services_modal'
+  = render 'details_modal'
+
+  -# .container.col.s12
+  -#   %ul.tabs
+  -#     %li.tab.col.s3
+  -#       %a.active{:href => "#test1"} Detalles de la Orden
+  -#     %li.tab.col.s3.disabled#invoice_tab
+  -#       %a{:href => "#test2"} Servicios {En Desarrollo!}
+  = render 'wizard_steps'
+  -# .card.right{:style => "padding-right: 25px; margin-top: 0px;"}
+  -#   %p
+  -#     %input#state1{:name => "group1", :type => "radio", :checked => "checked"}/
+  -#     %label{:for => "state1", :style => "color: black; font-weight: bold;"} En Proceso
+  -#   %p
+  -#     %input#state3{:name => "group1", :type => "radio"}/
+  -#     %label{:for => "state3", :style => "color: red; font-weight: bold;"} Urgente
+  -#   %p
+  -#     %input#state2{:name => "group1", :type => "radio", :disabled =>"disabled"}/
+  -#     %label{:for => "state2", :style => "color: blue; font-weight: bold;"} Prueba
+  -#   %p
+  -#     %input#state4{:name => "group1", :type => "radio", :disabled =>"disabled"}/
+  -#     %label{:for => "state4", :style => "color: green; font-weight: bold;"} Completada
+
+
+
+
+  .col.s12{:style => "margin: 0 auto;"}
+    -# = render 'form'
+    .col.s12
+
+      = form_for @order do |f|
+        -if @order.errors.any?
+          -flash[:notice] = "Favor llenar los campos correctamente"
+          -# #error_explanation
+            -# -flash[:'notice'] = "Orden no pudo ser procesada "
+            -# %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+            %ul
+              - @order.errors.full_messages.each do |msg|
+                -# %li= msg
+                -flash[:notice] = "Favor llenar los campos correctamente"
+
+
+        = render "#{@order.current_step}", :f => f
+
+        %br
+        %br
+
+        // Submit Buttons
+        .actions.container{:style => "margin: 0 auto;"}
+          -# = f.submit "Volver", :name => "back_button" unless @order.first_step?
+
+          -if @order.first_step? == false
+            %button.btn.waves-effect.waves-light#order_submit{:name => "back_button", :type => "submit", data: { disable_with: "Procesando.." }}
+              %i.material-icons.right chevron_left
+              Volver
+          - elsif @order.first_step? == true
+            %a{:href => orders_path, :class => "waves-effect waves-light btn blue left tabfactura_back"}
+              Volver
+          -#
+          -# - if @order.first_step? == true
+          -#   %a{:href => orders_path, :class => "waves-effect waves-light btn blue left tabfactura_back"}
+          -#     Volver
+
+
+          %button.btn.waves-effect.waves-light.right#order_submit{:name => "action", :type => "submit", data: { disable_with: "Procesando.." }}
+            %i.material-icons.right chevron_right
+            Siguiente
+
+          -# = f.submit "Siguiente",
+          -#   :class => "waves-effect waves-light btn blue"
+          -# %button.btn.waves-effect.waves-light#order_submit{:name => "action", :type => "submit ", data: { disable_with: "Procesando..." }}
+          -#   %i.material-icons.right save
+          -#   Siguiente
+
+
+
+        -# %a{:href => "#test2", :class => "waves-effect waves-light btn blue right tabfactura"}
+        -#   %i.material-icons.right chevron_right
+        -#   Siguiente
+        -# %a{:href => "#test2", :class => "waves-effect waves-light btn-floating btn-large blue right tabfactura"}
+        -#   %i.material-icons.right chevron_right
+
+
+  -# #test2
+  -#   = render 'step_2'
+  -#
+  -#   .container
+  -#     %a{:href => "#test1", :class => "waves-effect waves-light btn blue right tabfactura_back"}
+  -#       %i.material-icons.right chevron_left
+  -#       Anterior
+
+
   -# CONTENT
 
-  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
-  -#   = render :partial => 'layouts/tooth_chart'
+  %br
+  -# = link_to 'Back', orders_path
+  -# :javascript
+  -#   $('#submit_tab2').click( function(){ $('#order_submit').click(); } );
+
+
 
 -# END OF MAIN
 
 -# FOOTER
 
-%footer.page-footer
-  = render :partial => 'layouts/footer'
+
+= render :partial => 'layouts/footer'
 -# END OF FOOTER
+
+
+
+-# -------------------------------------replaced
+-# = link_to 'Show', @order
+-# \|
+-# = link_to 'Back', orders_path
+-#
+-#
+-#
+-# %header
+-#
+-# -# MAIN
+-#
+-# %main
+-#   = render :partial => 'layouts/top_navbar'
+-#   %h1.container Editar Orden
+-#   %br
+-#   = render 'form'
+-#   -# CONTENT
+-#
+-#   -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+-#   -#   = render :partial => 'layouts/tooth_chart'
+-#
+-# -# END OF MAIN
+-#
+-# -# FOOTER
+-#
+-# %footer.page-footer
+-#   = render :partial => 'layouts/footer'
+-# -# END OF FOOTER

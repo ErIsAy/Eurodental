@@ -1,0 +1,78 @@
+%a{:id => 't1', :style => "display: none ;"}
+  = @order.t1
+%a{:id => 't2', :style => "display: none ;"}
+  = @order.t2
+%a{:id => 't3', :style => "display: none ;"}
+  = @order.t3
+%a{:id => 't4', :style => "display: none ;"}
+  = @order.t4
+%a{:id => 't5', :style => "display: none ;"}
+  = @order.t5
+%a{:id => 't6', :style => "display: none ;"}
+  = @order.t6
+%a{:id => 't7', :style => "display: none ;"}
+  = @order.t7
+%a{:id => 't8', :style => "display: none ;"}
+  = @order.t8
+%a{:id => 't9', :style => "display: none ;"}
+  = @order.t9
+%a{:id => 't10', :style => "display: none ;"}
+  = @order.t10
+%a{:id => 't11', :style => "display: none ;"}
+  = @order.t11
+%a{:id => 't12', :style => "display: none ;"}
+  = @order.t12
+%a{:id => 't13', :style => "display: none ;"}
+  = @order.t13
+%a{:id => 't14', :style => "display: none ;"}
+  = @order.t14
+%a{:id => 't15', :style => "display: none ;"}
+  = @order.t15
+%a{:id => 't16', :style => "display: none ;"}
+  = @order.t16
+%a{:id => 't17', :style => "display: none ;"}
+  = @order.t17
+%a{:id => 't18', :style => "display: none ;"}
+  = @order.t18
+%a{:id => 't19', :style => "display: none ;"}
+  = @order.t19
+%a{:id => 't20', :style => "display: none ;"}
+  = @order.t20
+%a{:id => 't21', :style => "display: none ;"}
+  = @order.t21
+%a{:id => 't22', :style => "display: none ;"}
+  = @order.t22
+%a{:id => 't23', :style => "display: none ;"}
+  = @order.t23
+%a{:id => 't24', :style => "display: none ;"}
+  = @order.t24
+%a{:id => 't25', :style => "display: none ;"}
+  = @order.t25
+%a{:id => 't26', :style => "display: none ;"}
+  = @order.t26
+%a{:id => 't27', :style => "display: none ;"}
+  = @order.t27
+%a{:id => 't28', :style => "display: none ;"}
+  = @order.t28
+%a{:id => 't29', :style => "display: none ;"}
+  = @order.t29
+%a{:id => 't30', :style => "display: none ;"}
+  = @order.t30
+%a{:id => 't31', :style => "display: none ;"}
+  = @order.t31
+%a{:id => 't32', :style => "display: none ;"}
+  = @order.t32
+
+:javascript
+  (function ()
+    {
+    //  var z = document.getElementById("t1").innerText;
+    //  if (String(z) == 1) {$("#Tooth1").css({ fill: "lightskyblue" });}
+
+      for(i=1; i<33; i++) {
+        if(document.getElementById("t"+i).innerText != 'null'){var z = document.getElementById("t"+i).innerText;}
+        if (String(z) == 1) {$("#Tooth"+i).css({ fill: "lightskyblue" });}
+
+      }
+
+    })();

@@ -75,7 +75,7 @@
             %td= order.patient_name
             %td= order.created_at.strftime("%F")
             %td= order.order_date
-            -case order.state.capitalize 
+            -case order.state.capitalize
               -when "En proceso"
                 %td.chip.in_process{:style => "margin: 5px auto 5px 5px; display: block;"}= order.state.capitalize
               -when "Urgente"
@@ -128,7 +128,7 @@
 
   %br
 
--# =image_tag "blue.png" 
+-# =image_tag "blue.png"
 
 .fixed-action-btn.horizontal.click-to-toggle{:style => "bottom: 45px; right: 24px;"}
   %a.btn-floating.btn-large.green

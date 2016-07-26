@@ -96,7 +96,7 @@
         = link_to((image_tag "Paper-100.png", :id => "show_icons"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
       %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
         = image_tag "Message-Filled-100.png", :id => "show_icons"
-      %p.col.s6.m4.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
+      %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#order_tooth_modal",:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
         = image_tag "Teeth-100.png", :id => "show_icons"
 
 
@@ -121,6 +121,14 @@
     .modal-footer
       %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Enviar
 
+  .row.card.container.modal.modal-fixed-footer#order_tooth_modal{:style => "width: 1024; overflow-y: initial;"}
+    = render 'order_tooth'
+    = render 'tooth_refill'
+
+
+    .modal-footer
+      %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
+        %i.material-icons{:style => "font-size:47px;", :id => "show_icons_only"} print
 
 
 
