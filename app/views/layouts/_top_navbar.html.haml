@@ -5,26 +5,27 @@
     %ul.left
       %li
         %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "bottom"}
-          %i.material-icons home
-      %li
-        %a.tooltipped{:href => new_order_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
-          %i.material-icons local_hospital
+          %i.material-icons{:style => "color: white;"} home
       %li
         %a.tooltipped{:href => clients_path, "data-tooltip" => "Clientes", "data-position" => "bottom"}
-          %i.material-icons person_pin
+          %i.material-icons{:style => "color: #8fbc8f;"} person_pin
+      %li
+        %a.tooltipped{:href => new_order_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
+          = image_tag "Tooth-100", :style => "width: 39px; display:block; padding-top: 12px; padding-bottom: 12px;"
+          -#  %i.material-icons{:style => "color: white;"} local_hospital
       %li
         %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
-          %i.material-icons assignment
+          %i.material-icons{:style => "color: #dda0dd;"} assignment
       - if current_user.role_level == 1
         %li
           %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
-            %i.material-icons attach_money
+            %i.material-icons{:style => "color: #adff2f;"} attach_money
 
     %ul.right
       - if current_user.role_level == 1
         %li
           %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
-            %i.material-icons settings
+            %i.material-icons{:style => "color: #b0c4de;"} settings
 
           /*Renders search field only if root page or orders*/
     = render 'layouts/search_nav' if current_page?('/')
