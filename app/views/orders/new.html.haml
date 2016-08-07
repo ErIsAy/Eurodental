@@ -42,7 +42,7 @@
 
       = form_for @order do |f|
         -if @order.errors.any?
-          -flash[:notice] = "Favor llenar los campos correctamente"
+          -flash[:notice] = "Orden no pudo ser procesada, favor llenar los campos correctamente"
           -# #error_explanation
             -# -flash[:'notice'] = "Orden no pudo ser procesada "
             -# %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"

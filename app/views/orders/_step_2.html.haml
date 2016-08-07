@@ -37,7 +37,7 @@
             %p
               - Item.where(category_id: 1).find_each do |item|
                 %br
-                = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g1'
                 = label_tag dom_id(item), item.name
                 RD$
                 = label_tag dom_id(item), item.price
@@ -47,10 +47,10 @@
             Material
           .collapsible-body
             %p
-              = hidden_field_tag "order[item_ids][]", nil
+              -# = hidden_field_tag "order[item_ids][]", nil
               - Item.where(category_id: 2).find_each do |item|
                 %br
-                = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g2'
                 = label_tag dom_id(item), item.name
                 RD$
                 = label_tag dom_id(item), item.price
@@ -62,7 +62,7 @@
             %p
               - Item.where(category_id: 3).find_each do |item|
                 %br
-                = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g3'
                 = label_tag dom_id(item), item.name
                 RD$
                 = label_tag dom_id(item), item.price
@@ -70,14 +70,26 @@
           .collapsible-header
             %i.material-icons> whatshot
             Color
-          .collapsible-body
+          .collapsible-body{:style => "display: inline-block;"}
             %p
               - Item.where(category_id: 4).find_each do |item|
                 %br
-                = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g4'
                 = label_tag dom_id(item), item.name
                 RD$
                 = label_tag dom_id(item), item.price
+            %div.right
+              %select.icons
+                %option{:disabled => "disabled", :selected => "selected", :value => ""} A1
+                %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} A2
+                %option.circle{:value => "2", "data-icon" => "/assets/red.png"} A3/A3.5
+                %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} A4
+                %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} B1
+                %option.circle{:value => "5", "data-icon" => "/assets/green.png"} B2
+                %option.circle{:value => "6", "data-icon" => "/assets/null.png"} ...
+              %label Otro Color
+
+
         %li
           .collapsible-header
             %i.material-icons> repeat
@@ -87,7 +99,7 @@
               Procedimiento
               - Item.where(category_id: 5).find_each do |item|
                 %br
-                = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g5'
                 = label_tag dom_id(item), item.name
                 RD$
                 = label_tag dom_id(item), item.price
@@ -99,7 +111,7 @@
             %p
               - Item.where(category_id: 6).find_each do |item|
                 %br
-                = check_box_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item)
+                = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g6'
                 = label_tag dom_id(item), item.name
                 RD$
                 = label_tag dom_id(item), item.price
