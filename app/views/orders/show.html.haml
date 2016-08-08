@@ -94,28 +94,37 @@
 
 
 
-
-      %p.dropdown-button.col.s6.m4.tooltipped{"data-activates" => "dropdown1", "data-tooltip" => "Imprimir Label"}
-        = image_tag "Paper-100.png", :id => "show_icons"
-
-
-
-      %ul#dropdown1.dropdown-content
-        = link_to(("1.1''x3.5''"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-        %br
-        = link_to(("5.0''x3.5''"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-        %br
-        = link_to(("Circular"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-
+      -#
+      -# %p.dropdown-button.col.s6.m4.tooltipped{"data-activates" => "dropdown1", "data-tooltip" => "Imprimir Label"}
+      -#   = image_tag "Paper-100.png", :id => "show_icons"
+      -#
+      -#
+      -#
+      -# %ul#dropdown1.dropdown-content
+      -#   = link_to(("1.1''x3.5''"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+      -#   %br
+      -#   = link_to(("5.0''x3.5''"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+      -#   %br
+      -#   = link_to(("Circular"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+      -#
 
       -#
-      -# %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+      -# %p.col.s6.m4..tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
       -#   = link_to((image_tag "Paper-100.png", :id => "show_icons"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+      %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#stickers_modal", :style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+        = image_tag "Paper-100.png", :id => "show_icons"
       %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
         = image_tag "Message-Filled-100.png", :id => "show_icons"
       %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#order_tooth_modal",:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
         = image_tag "Teeth-100.png", :id => "show_icons"
 
+  .row.container.modal.bottom-sheet.col.s12#stickers_modal
+    %div.col.s4.tooltipped{"data-tooltip" => "Circular", "data-position" => "top"}
+      = link_to((image_tag "circle_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+    %div.col.s4.tooltipped{"data-tooltip" => "5.0''x3.5''", "data-position" => "top"}
+      = link_to((image_tag "large_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+    %div.col.s4.tooltipped{"data-tooltip" => "1.1''x3.5''", "data-position" => "top"}
+      = link_to((image_tag "regular_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
 
 
   .row.card.container.modal.modal-fixed-footer#email_modal{:style => "width: 1024px; height:800px; overflow-y: initial;"}
@@ -141,6 +150,21 @@
   .row.card.container.modal.modal-fixed-footer#order_tooth_modal{:style => "width: 1024; overflow-y: initial;"}
     = render 'order_tooth'
     = render 'tooth_refill'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     .modal-footer
