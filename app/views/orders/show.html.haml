@@ -148,24 +148,20 @@
       %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Enviar
 
   .row.card.container.modal.modal-fixed-footer#order_tooth_modal{:style => "width: 1024; overflow-y: initial;"}
-    = render 'order_tooth'
-    = render 'tooth_refill'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .left.col.s8
+      = render 'order_tooth'
+      = render 'tooth_refill'
+    %div.col.s4
+      Tipo de Trabajo
+      %p
+        %input#test8{:disabled => "disabled", :type => "checkbox"}
+        %label{:for => "test8", :style => "width: 100%;"} Corona
+        %input#test8{:disabled => "disabled", :type => "checkbox"}
+        %label{:for => "test8", :style => "width: 100%;"} Puente
+        %input#test8{:disabled => "disabled", :type => "checkbox"}
+        %label{:for => "test8", :style => "width: 100%;"} Implante
+        %input#test8{:disabled => "disabled", :type => "checkbox"}
+        %label{:for => "test8", :style => "width: 100%;"} Barra
 
     .modal-footer
       %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"}
