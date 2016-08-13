@@ -25,13 +25,12 @@
       = f.hidden_field :state
 
 
-
-
     .input-fields{:class => "col m12 s6"}
       %ul.collapsible{"data-collapsible" => "accordion"}
         %li
           .collapsible-header
-            %i.material-icons> filter_drama
+            %i.material-icons> keyboard_arrow_right
+
             Tipo de Trabajo
           .collapsible-body
             %p
@@ -39,11 +38,11 @@
                 %br
                 = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g1'
                 = label_tag dom_id(item), item.name
-                RD$
-                = label_tag dom_id(item), item.price
+                -# RD$
+                -# = label_tag dom_id(item), item.price
         %li
           .collapsible-header
-            %i.material-icons> place
+            %i.material-icons> keyboard_arrow_right
             Material
           .collapsible-body
             %p
@@ -52,11 +51,11 @@
                 %br
                 = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g2'
                 = label_tag dom_id(item), item.name
-                RD$
-                = label_tag dom_id(item), item.price
+                -# RD$
+                -# = label_tag dom_id(item), item.price
         %li
           .collapsible-header
-            %i.material-icons> whatshot
+            %i.material-icons> keyboard_arrow_right
             Color de Muñon
           .collapsible-body
             %p
@@ -64,11 +63,11 @@
                 %br
                 = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g3'
                 = label_tag dom_id(item), item.name
-                RD$
-                = label_tag dom_id(item), item.price
+                -# RD$
+                -# = label_tag dom_id(item), item.price
         %li
           .collapsible-header
-            %i.material-icons> whatshot
+            %i.material-icons> keyboard_arrow_right
             Color
           .collapsible-body{:style => "display: inline-block;"}
             %p
@@ -76,8 +75,8 @@
                 %br
                 = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g4'
                 = label_tag dom_id(item), item.name
-                RD$
-                = label_tag dom_id(item), item.price
+                -# RD$
+                -# = label_tag dom_id(item), item.price
             %div.right
               %select.icons
                 %option{:disabled => "disabled", :selected => "selected", :value => ""} A1
@@ -92,7 +91,7 @@
 
         %li
           .collapsible-header
-            %i.material-icons> repeat
+            %i.material-icons> keyboard_arrow_right
             Procedimiento
           .collapsible-body
             %p
@@ -101,11 +100,11 @@
                 %br
                 = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g5'
                 = label_tag dom_id(item), item.name
-                RD$
-                = label_tag dom_id(item), item.price
+                -# RD$
+                -# = label_tag dom_id(item), item.price
         %li
           .collapsible-header
-            %i.material-icons> label_outline
+            %i.material-icons> keyboard_arrow_right
             Metales
           .collapsible-body
             %p
@@ -113,13 +112,10 @@
                 %br
                 = radio_button_tag "order[item_ids][]", item.id, @order.item_ids.include?(item.id), id: dom_id(item), name: 'g6'
                 = label_tag dom_id(item), item.name
-                RD$
-                = label_tag dom_id(item), item.price
-
-
+                -# RD$
+                -# = label_tag dom_id(item), item.price
 
 %br
-
 
 
 :css

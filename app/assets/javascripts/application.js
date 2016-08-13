@@ -15,8 +15,6 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
- /*Datepicker js*/
-//= require datepicker_spanish
 //= require cocoon
 //= require select2
 //= require jquery.maskedinput

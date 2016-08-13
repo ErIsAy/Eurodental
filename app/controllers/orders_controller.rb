@@ -42,28 +42,25 @@ class OrdersController < ApplicationController
     end
   end
 
-
-
-
-  def orders_completed
-    @search = Order.ransack(params[:q])
-    @orders = @search.result
-  end
-
-  def orders_test
-    @search = Order.ransack(params[:q])
-    @orders = @search.result
-  end
-
-  def orders_process
-    @search = Order.ransack(params[:q])
-    @orders = @search.result
-  end
-
-  def orders_urgent
-    @search = Order.ransack(params[:q])
-    @orders = @search.result
-  end
+  # def orders_completed
+  #   @search = Order.ransack(params[:q])
+  #   @orders = @search.result
+  # end
+  #
+  # def orders_test
+  #   @search = Order.ransack(params[:q])
+  #   @orders = @search.result
+  # end
+  #
+  # def orders_process
+  #   @search = Order.ransack(params[:q])
+  #   @orders = @search.result
+  # end
+  #
+  # def orders_urgent
+  #   @search = Order.ransack(params[:q])
+  #   @orders = @search.result
+  # end
 
 
   # GET /orders/new

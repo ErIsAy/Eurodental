@@ -17,6 +17,7 @@
 
     (function() {
       $('.datepicker').pickadate({
+            format: 'yyyy-mm-dd',
             //set today the min date
             min: true,
             // Strings and translations
@@ -26,6 +27,7 @@
             monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
             weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
             weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+
             // Buttons
             today: 'Hoy',
             clear: 'Borrar',
@@ -60,6 +62,7 @@
 
       //Datepicker withou date restriction
       $('.datepicker_all').pickadate({
+        format: 'yyyy-mm-dd',
         // Strings and translations
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year
@@ -67,6 +70,7 @@
         monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
         weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+
         // Buttons
         today: 'Hoy',
         clear: 'Borrar',
