@@ -1,0 +1,37 @@
+#svg_chart{
+height: 600px;
+
+}
+.tooth-chart {
+  width: 500px;
+  margin: 0 auto;
+  // padding-left: 5%;
+
+  // position: absolute;
+}
+#Spots polygon,
+#Spots path {
+  -webkit-transition: fill .25s;
+  transition: fill .25s;
+}
+// #Spots polygon:hover,
+// #Spots polygon:active,
+// #Spots path:hover,
+// #Spots path:active {
+//   fill: #dddddd !important;
+// }
+#chart_container{
+border-radius: 10px;
+  @media only screen and (min-width: 990px)
+   {
+    max-width: 450px;
+  }
+  // @media only screen and (max-width: 800px)
+  //  {
+  //   margin: 100%;
+  // }
+  // @media only screen and (min-width: 900px)
+  //  {
+  //   margin: auto 100px auto auto;
+  // }
+}

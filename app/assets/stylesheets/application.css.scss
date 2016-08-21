@@ -13,9 +13,7 @@
  *= require normalize-rails
  *= require welcome
  *= require_self
- //Teeth Chart CSS
  *= require tooth_chart
- //Logo fonts
  *= require Bauhaus_font
  *= require pagination
  *= require select2
@@ -178,9 +176,11 @@ padding: 6px 5px;
 }
 
 #order_collection{
-  height: 550px;
-  width: 50%;
-  overflow-y: scroll;
+  //height: 550px;
+  // width: 50%;
+  // overflow-y: scroll;
+  // width: 52%;
+  border-radius: 10px;
 }
 
 
