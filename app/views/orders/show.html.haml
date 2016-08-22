@@ -48,6 +48,24 @@
       .div#order-status
         = render 'order_status'
 
+
+
+    -# .row
+    -#   .col.s12
+    -#     %ul.tabs
+    -#       %li.tab.col.s3
+    -#         %a.active{:href => "#test1"} Datos de la Orden
+    -#       %li.tab.col.s3
+    -#         %a{:href => "#test2"} Datos del Cliente
+    -#       -# %li.tab.col.s3.disabled
+    -#       -#   %a{:href => "#test3"} Disabled Tab
+    -#       %li.tab.col.s3
+    -#         %a{:href => "#test4"} Notas
+    -#   #test1.col.s12 Test 1
+    -#   #test2.col.s12 Test 2
+    -#   -# #test3.col.s12 Test 3
+    -#   #test4.col.s12 Test 4
+
     %p.col.s6.margin-f
       %b Cliente:
       = @order.client_name

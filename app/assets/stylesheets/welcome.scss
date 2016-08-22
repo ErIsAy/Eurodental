@@ -25,12 +25,13 @@ body{
 }
 
 .ripplelink{
+  border-radius: 10px;
   display:block;
-  float:left;
-  width:49.6%;
-  margin:0.2%;
-  height:10em;
-  line-height:10em;
+  // float:left;
+  width:350px;
+  margin:1.2%;
+  height:5em;
+  line-height:5em;
   text-align:center;
   //color: rgb(92, 107, 192);
   text-decoration:none;
@@ -49,7 +50,7 @@ body{
 
 body > main > div > span > a {
   font-family: 'Bauhaus';
-  font-size: -webkit-xxx-large;
+  font-size: 2em;
   color:#fff;
 
 }
@@ -112,5 +113,6 @@ $primary-color: color("indigo", "lighten-1") !default;
 }
 
 .xpurple{
-  background: #5c6bc0;
+//  background: #5c6bc0;
+  background: #2283cb;
 }

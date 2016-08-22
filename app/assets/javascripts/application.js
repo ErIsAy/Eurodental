@@ -18,6 +18,7 @@
 //= require cocoon
 //= require select2
 //= require jquery.maskedinput
+//= require tooth_logic
 // Turbolinks.enableTransitionCache();
 
 
