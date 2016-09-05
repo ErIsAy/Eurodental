@@ -5,8 +5,14 @@
     = render :partial => 'layouts/tooth_chart'
     = render 'tooth_fields', :f => f
 
+  -# Create a model for items where order has_many items
+  -# build 32~ of these with display:none property and with div id for each.
+  -# Create a JS to manage this logic, click to enable div with correspondent div id
+  -# fix the activity section, limit the queries
+  -#  = render 'services_component', :f => f
+
   .card.container.right#order_collection{:class => "col s12 m12 l6"}
-    = render 'services_component', :f => f
+    = render 'services_section', :f => f
 
 
 

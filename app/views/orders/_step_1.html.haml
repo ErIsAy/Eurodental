@@ -83,6 +83,10 @@
     %br
     %br
 
+  -#= f.fields_for :services do |s|
+  -#  = s.check_box :corona
+  -#  = s.label :corona
+
   %div.col.s12
     .input-field.col.s6#textarea1
       %i.material-icons.prefix mode_edit
@@ -95,3 +99,4 @@
       = f.label :other_note, "Otras Notas"
       = f.text_area :other_note,
         :class => "materialize-textarea"
+

@@ -13,7 +13,7 @@ class CreateOrders < ActiveRecord::Migration
       t.boolean  :foto
       t.boolean  :mordida
       t.string :state, default: "En proceso"
-      t.integer :quantity, default: 1
+      t.integer :quantity, default: 1, :in => 0..99
 
       #Tooth list attributes
       t.integer	:t1,	default: 0

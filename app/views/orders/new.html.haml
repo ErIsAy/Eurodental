@@ -62,9 +62,9 @@
           -# = f.submit "Volver", :name => "back_button" unless @order.first_step?
 
           -if @order.first_step? == false
-            %button.btn.waves-effect.waves-light#order_submit{:name => "back_button", :type => "submit", data: { disable_with: "Procesando.." }}
-              %i.material-icons.right chevron_left
-              Volver
+            -#%button.btn.waves-effect.waves-light#order_submit{:name => "back_button", :type => "submit", data: { disable_with: "Procesando.." }}
+            -#  %i.material-icons.right chevron_left
+            -#  Volver
           - elsif @order.first_step? == true
             %a{:href => orders_path, :class => "waves-effect waves-light btn blue left tabfactura_back"}
               Volver

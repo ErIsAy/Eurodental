@@ -4,19 +4,21 @@ class Order < ActiveRecord::Base
 #  belongs_to :patient
   belongs_to :client
   has_many :items
+  has_many :services
 
   # default_scope { order('orders.created_at') }
-  # has_and_belongs_to_many :items
-
-  #default_scope { order("created_at DESC") }
+  # default_scope { order("created_at DESC") }
 
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
+  accepts_nested_attributes_for :services,
+                                reject_if: :all_blank
 
   attr_accessor :client_name
   attr_accessor :client_phone
   attr_accessor :client_email
   attr_accessor :current_step
+
 
   validates_presence_of :patient_name, :if => lambda { |o| o.current_step == "step_1"}
   validates_presence_of :client_id, :if => lambda { |o| o.current_step == "step_1"}

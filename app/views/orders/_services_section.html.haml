@@ -1,0 +1,91 @@
+.input-fields{:style => "", :class => "col s12"}
+  %br
+    =image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 24px;", :class => "material-icons"
+    = f.check_box :antagonista
+    = f.label :antagonista, "Antagonista", :style => "padding-right:15px;"
+    = f.check_box :foto
+    = f.label :foto, "Foto", :style => "margin-left: 52px;"
+    %br
+    = f.check_box :mordida
+    = f.label :mordida, "Mordida", :style => "margin-left: 52px;"
+
+.input-field.col.s12
+  %i.material-icons.prefix library_add
+  = f.label :quantity, "Cantidad/Unidad"
+  = f.number_field :quantity, :class => 'validate'
+.input-field
+  = f.hidden_field :state
+
+
+
+
+.input-fields{:class => "col m12 s6"}
+  %ul.collapsible{"data-collapsible" => "accordion"}
+    %li
+      .collapsible-header
+        %i.material-icons> keyboard_arrow_right
+        Tipo de Trabajo
+      .collapsible-body
+        %p
+        = f.fields_for :services do |s|
+          = s.check_box :corona
+          = s.label :corona
+          = s.check_box :puente
+          = s.label :puente
+
+
+
+
+-#
+-#    %li
+-#      .collapsible-header
+-#        %i.material-icons> keyboard_arrow_right
+-#        Material
+-#      .collapsible-body
+-#        %p
+-#
+-#
+-#
+-#
+-#    %li
+-#      .collapsible-header
+-#        %i.material-icons> keyboard_arrow_right
+-#        Color de Muñon
+-#      .collapsible-body
+-#        %p
+-#
+-#
+-#
+-#    %li
+-#      .collapsible-header
+-#        %i.material-icons> keyboard_arrow_right
+-#        Color
+-#      .collapsible-body{:style => "display: inline-block;"}
+-#        %p
+-#
+-#        -#%div.right
+-#        -#  %select.icons
+-#        -#    %option{:disabled => "disabled", :selected => "selected", :value => ""} A1
+-#        -#    %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} A2
+-#        -#    %option.circle{:value => "2", "data-icon" => "/assets/red.png"} A3/A3.5
+-#        -#    %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} A4
+-#        -#    %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} B1
+-#        -#    %option.circle{:value => "5", "data-icon" => "/assets/green.png"} B2
+-#        -#    %option.circle{:value => "6", "data-icon" => "/assets/null.png"} ...
+-#        -#  %label Otro Color
+-#
+-#
+-#    %li
+-#      .collapsible-header
+-#        %i.material-icons> keyboard_arrow_right
+-#        Procedimiento
+-#      .collapsible-body
+-#        %p
+-#
+-#    %li
+-#      .collapsible-header
+-#        %i.material-icons> keyboard_arrow_right
+-#        Metales
+-#      .collapsible-body
+-#        %p
+

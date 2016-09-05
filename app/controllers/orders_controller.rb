@@ -68,7 +68,9 @@ class OrdersController < ApplicationController
     @clients = Client.all
     session[:order_params] ||= {}
     @order = Order.new
+    # 3.times { @order.services.build }
     @order.current_step = session[:order_step]
+
   end
 
   # GET /orders/1/edit
@@ -87,6 +89,7 @@ class OrdersController < ApplicationController
     @order.current_step = session[:order_step]
 
 
+
   if @order.valid?
     if params[:back_button]
       @order.previous_step
@@ -96,6 +99,7 @@ class OrdersController < ApplicationController
       end
       @order.save
     else
+      3.times { @order.services.build }
       @order.next_step
     end
     session[:order_step] = @order.current_step
@@ -233,7 +237,45 @@ class OrdersController < ApplicationController
                                       :t30,
                                       :t31,
                                       :t32,
-                                      item_ids: [])
+                                      item_ids: [],
+                                      services_attributes: [:corona,
+                                                            :puente,
+                                                            :implante,
+                                                            :barra,
+                                                            :hibrida,
+                                                            :carilla,
+                                                            :in_onlay,
+                                                            :inlay_bridge,
+                                                            :lente_contacto,
+                                                            :perno,
+                                                            :sold_laser,
+                                                            :vita_classic,
+                                                            :vita_3d,
+                                                            :bioform,
+                                                            :chromarcop,
+                                                            :col_otras,
+                                                            :zirconio,
+                                                            :disilicato,
+                                                            :fedespatica,
+                                                            :porcelana,
+                                                            :pmma,
+                                                            :polimero,
+                                                            :composite,
+                                                            :metal_porcelana,
+                                                            :zirconio_porcelana,
+                                                            :peek,
+                                                            :natural,
+                                                            :pimentado,
+                                                            :metal,
+                                                            :fresado_maquinado,
+                                                            :prensado,
+                                                            :colado,
+                                                            :cromo_cobalto,
+                                                            :titanium,
+                                                            :cromo_niquel,
+                                                            :oro,
+                                                            :paladio,
+                                                            :order_id])
 
 #items_attributes: [:id, :name, :price, :category_id ]
       #params.require(:order).permit(:order_date, :patient_name, :age, :sex, :client_note, :other_note, :client_id, {:detalles => [:id, :desc, :precio]})
