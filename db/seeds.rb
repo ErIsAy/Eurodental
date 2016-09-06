@@ -10,12 +10,12 @@ require 'faker'
 User.create(email: 'admin@admin.com', password: '123456789', role_level: 1)
 
 
-50.times do
-  Client.create(name: Faker::Name.name,
-                phone: Faker::PhoneNumber.phone_number,
-                address: Faker::Address.street_address,
-                email: Faker::Internet.free_email)
-end
+# 50.times do
+#   Client.create(name: Faker::Name.name,
+#                 phone: Faker::PhoneNumber.phone_number,
+#                 address: Faker::Address.street_address,
+#                 email: Faker::Internet.free_email)
+# end
 
 
 
