@@ -66,11 +66,7 @@ ActiveRecord::Schema.define(version: 20160905011630) do
     t.text     "other_note"
     t.boolean  "coti"
     t.integer  "total_price"
-    t.boolean  "antagonista"
-    t.boolean  "foto"
-    t.boolean  "mordida"
     t.string   "state",        default: "En proceso"
-    t.integer  "quantity",     default: 1
     t.integer  "t1",           default: 0
     t.integer  "t2",           default: 0
     t.integer  "t3",           default: 0
@@ -112,6 +108,11 @@ ActiveRecord::Schema.define(version: 20160905011630) do
 
   create_table "services", force: :cascade do |t|
     t.integer  "order_id"
+    t.boolean  "antagonista",        default: false
+    t.boolean  "foto",               default: false
+    t.boolean  "mordida",            default: false
+    t.integer  "quantity"
+    t.integer  "tooth_number"
     t.boolean  "corona",             default: false
     t.boolean  "puente",             default: false
     t.boolean  "implante",           default: false
@@ -128,6 +129,11 @@ ActiveRecord::Schema.define(version: 20160905011630) do
     t.boolean  "bioform",            default: false
     t.boolean  "chromarcop",         default: false
     t.boolean  "col_otras",          default: false
+    t.string   "vita_classic_text"
+    t.string   "vita_3d_text"
+    t.string   "bioform_text"
+    t.string   "chromarcop_text"
+    t.string   "col_otras_text"
     t.boolean  "zirconio",           default: false
     t.boolean  "disilicato",         default: false
     t.boolean  "fedespatica",        default: false

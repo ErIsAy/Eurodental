@@ -99,7 +99,7 @@ class OrdersController < ApplicationController
       end
       @order.save
     else
-      3.times { @order.services.build }
+      32.times { @order.services.build }
       @order.next_step
     end
     session[:order_step] = @order.current_step
@@ -238,7 +238,11 @@ class OrdersController < ApplicationController
                                       :t31,
                                       :t32,
                                       item_ids: [],
-                                      services_attributes: [:corona,
+                                      services_attributes: [:antagonista,
+                                                            :foto,
+                                                            :mordida,
+                                                            :quantity,
+                                                            :tooth_number,
                                                             :puente,
                                                             :implante,
                                                             :barra,
@@ -254,6 +258,11 @@ class OrdersController < ApplicationController
                                                             :bioform,
                                                             :chromarcop,
                                                             :col_otras,
+                                                            :vita_classic_text,
+                                                            :vita_3d_text,
+                                                            :bioform_text,
+                                                            :chromarcop_text,
+                                                            :col_otras_text,
                                                             :zirconio,
                                                             :disilicato,
                                                             :fedespatica,

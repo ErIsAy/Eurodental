@@ -5,17 +5,15 @@
     = render :partial => 'layouts/tooth_chart'
     = render 'tooth_fields', :f => f
 
-  -# Create a model for items where order has_many items
-  -# build 32~ of these with display:none property and with div id for each.
-  -# Create a JS to manage this logic, click to enable div with correspondent div id
-  -# fix the activity section, limit the queries
+
   -#  = render 'services_component', :f => f
 
-  .card.container.right#order_collection{:class => "col s12 m12 l6"}
-    = render 'services_section', :f => f
+  -#.card.container.right#order_collection{:class => "col s12 m12 l6"}
+  = render 'services_section', :f => f
+  -#= render 'services_component', :f => f
 
-
-
+  .input-field
+    = f.hidden_field :state
 
 
   %br
@@ -33,6 +31,7 @@
     });
   $('.modal-trigger').leanModal();
 
+  /*refill function for each tooth in the chart verify if value is equal to 1 and fill the color*/
   (function ()
     {
       for(i=1; i<33; i++) {

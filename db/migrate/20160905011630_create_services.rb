@@ -1,10 +1,16 @@
 class CreateServices < ActiveRecord::Migration
   def change
     create_table :services do |t|
-            # t.integer  :cant
-            # t.string  :color
 
+            #referencia a la orden
             t.integer :order_id
+
+            #otras opciones
+            t.boolean :antagonista, :default => false
+            t.boolean :foto, :default => false
+            t.boolean :mordida, :default => false
+            t.integer :quantity, :in => 0..99
+            t.integer :tooth_number
 
             #tipo de trabajo
             t.boolean  :corona, :default => false
@@ -25,6 +31,12 @@ class CreateServices < ActiveRecord::Migration
             t.boolean  :bioform, :default => false
             t.boolean  :chromarcop, :default => false
             t.boolean  :col_otras, :default => false
+
+            t.string :vita_classic_text
+            t.string :vita_3d_text
+            t.string :bioform_text
+            t.string :chromarcop_text
+            t.string :col_otras_text
 
             #material
             t.boolean  :zirconio, :default => false
