@@ -1,0 +1,105 @@
+= form_tag update_prices_path do
+
+  .row.card.container.col.s12{:style => "margin: 0 auto;"}
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :perno_price, "perno_price"
+      = text_field_tag :perno_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :soldadura_price, "soldadura_price"
+      = text_field_tag :soldadura_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :zirconio_price, "zirconio_price"
+      = text_field_tag :zirconio_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :disilicato_price, "disilicato_price"
+      = text_field_tag :disilicato_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :fedespatica_price, "fedespatica_price"
+      = text_field_tag :fedespatica_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :porcelana_price, "porcelana_price"
+      = text_field_tag :porcelana_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :pmma_price, "pmma_price"
+      = text_field_tag :pmma_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :polimero_price, "polimero_price"
+      = text_field_tag :polimero_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :composite_price, "composite_price"
+      = text_field_tag :composite_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :metal_porcelana_price, "metal_porcelana_price"
+      = text_field_tag :metal_porcelana_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :zirconio_porcelana_price, "zirconio_porcelana_price"
+      = text_field_tag :zirconio_porcelana_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :peek_price, "peek_price"
+      = text_field_tag :peek_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :vita_classic_price, "vita_classic_price"
+      = text_field_tag :vita_classic_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :vita_3d_price, "vita_3d_price"
+      = text_field_tag :vita_3d_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :bioform_price, "bioform_price"
+      = text_field_tag :bioform_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :chromarcop_price, "chromarcop_price"
+      = text_field_tag :chromarcop_price
+
+    .input-field{:class => "col s12 "}
+      %i.material-icons.prefix money
+      = label :otras_price, "otras_price"
+      = text_field_tag :otras_price
+
+
+
+  %br
+  %br
+  .actions.container{:style => "margin: 0 auto;"}
+
+    %button.btn.waves-effect.waves-light{:name => "action", :type => "submit", data: { disable_with: "Procesando..." }}
+      %i.material-icons.right save
+      Salvar
+
+    %a{:href => suppliers_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right chevron_left
+      Volver
+
+:css
+   .card{
+      background-color: ghostwhite;

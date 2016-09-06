@@ -35,3 +35,55 @@ function reply_click(toothid)
     }
 }
 
+
+/*Add or Remove price for each box*/
+function service_add(service)
+{
+    var service_obj = document.getElementById(service);
+    var service_id = String(service).replace(/\D/g, '');
+    var s_id = parseInt(service_id) + 1;
+
+
+    if (service_obj.checked){
+        document.getElementById("service_total_f"+s_id).value = 1;
+
+    }
+    else {
+        document.getElementById("service_total_f"+s_id).value -= 1;
+    }
+
+    if (document.getElementById("service_total_f"+s_id).value == 0){
+        document.getElementById("service_total_f"+s_id).value = '';
+    }
+
+    order_total();
+}
+
+/*Sum all the boxes price*/
+function order_total(){
+    var sum = 0;
+    document.getElementById("total_price_f").value = '';
+    for (var sub_total = 1; sub_total <= 32 ;sub_total++){
+        sum += Number(document.getElementById("service_total_f"+sub_total).value);
+     }
+    document.getElementById("total_price_f").value = sum;
+}
+
+
+
+
+
+/*
+ * Assign price values to Totals
+ *
+ */
+// $( document ).ready(function(){
+//     $("#order_services_attributes_10_zirconio").click(function() {
+//         if (this.checked == true) {
+//           //  document.getElementById("total_price_f").innerHTML = "15";
+//             document.getElementById("total_price_f").value = 15;
+//
+//         }
+//     });
+// });
+

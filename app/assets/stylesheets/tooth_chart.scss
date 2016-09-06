@@ -1,5 +1,5 @@
 #svg_chart{
-height: 621px;
+height: 560px;
 width: 29em;
 }
 .tooth-chart {
@@ -20,13 +20,14 @@ width: 29em;
 // #Spots path:active {
 //   fill: #dddddd !important;
 // }
-#chart_container{
+#chart_container {
 border-radius: 10px;
-height: 633px;
+height: 666px;
   @media only screen and (min-width: 990px)
    {
     max-width: 450px;
   }
+
   // @media only screen and (max-width: 800px)
   //  {
   //   margin: 100%;
@@ -35,4 +36,43 @@ height: 633px;
   //  {
   //   margin: auto 100px auto auto;
   // }
+}
+
+#total_price {
+  border-radius: 5px;
+  margin: 24px 0px 5px 5px;
+  font-size: 23px;
+  p {
+    text-align: right;
+  }
+}
+
+#subtotal_price {
+  background-color: #c8a0d5;
+  border-radius: 5px;
+  margin: 0px 0px 5px 5px;
+  p {
+    text-align: right;
+  }
+  input {
+    color: #000000;
+    text-align: center;
+    font-size: 20px;
+  }
+
+}
+#total_price_f {
+  border-radius: 5px;
+  background-color: #c8a0d5;
+  color: #000000;
+  text-align: center;
+  font-size: 25px;
+}
+
+#service_total_f {
+  border-radius: 5px;
+  background-color: #c8a0d5;
+  color: #000000;
+  text-align: center;
+  font-size: 20px;
 }

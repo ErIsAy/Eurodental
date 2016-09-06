@@ -101,12 +101,12 @@
             %td.btn-group
               %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
                 %i.material-icons.right search
+              - if current_user.role_level == 1
+                %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+                  %i.material-icons.right mode_edit
 
-              %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
-                %i.material-icons.right mode_edit
-
-              %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
-                = link_to 'X', order_path(order), :method => :delete, :style => "color: white;"
+                %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+                  = link_to 'X', order_path(order), :method => :delete, :style => "color: white;"
 
       %br
       .div

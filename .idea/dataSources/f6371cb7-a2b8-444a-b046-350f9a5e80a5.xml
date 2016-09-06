@@ -542,186 +542,195 @@ recipient_type</columns>
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <key id="153" parent="8">
+    <column id="153" parent="8" name="puente_a">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="154" parent="8" name="puente_b">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="155" parent="8" name="service_total">
+      <data-type>INT(0,-1)|4</data-type>
+    </column>
+    <key id="156" parent="8">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="154" parent="9" name="id">
+    <column id="157" parent="9" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="155" parent="9" name="session_id">
+    <column id="158" parent="9" name="session_id">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="156" parent="9" name="data">
+    <column id="159" parent="9" name="data">
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <column id="157" parent="9" name="created_at">
+    <column id="160" parent="9" name="created_at">
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="158" parent="9" name="updated_at">
+    <column id="161" parent="9" name="updated_at">
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <index id="159" parent="9" name="index_sessions_on_session_id">
+    <index id="162" parent="9" name="index_sessions_on_session_id">
       <columns>session_id</columns>
       <desc-columns />
       <unique>1</unique>
     </index>
-    <index id="160" parent="9" name="index_sessions_on_updated_at">
+    <index id="163" parent="9" name="index_sessions_on_updated_at">
       <columns>updated_at</columns>
       <desc-columns />
       <unique>1</unique>
     </index>
-    <key id="161" parent="9">
+    <key id="164" parent="9">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="162" parent="10" name="name">
+    <column id="165" parent="10" name="name">
       <data-type>(0,-1)|12</data-type>
     </column>
-    <column id="163" parent="10" name="seq">
+    <column id="166" parent="10" name="seq">
       <data-type>(0,-1)|12</data-type>
     </column>
-    <column id="164" parent="11" name="id">
+    <column id="167" parent="11" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="165" parent="11" name="email">
+    <column id="168" parent="11" name="email">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="166" parent="11" name="supplier_id">
+    <column id="169" parent="11" name="supplier_id">
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="167" parent="11" name="created_at">
+    <column id="170" parent="11" name="created_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="168" parent="11" name="updated_at">
+    <column id="171" parent="11" name="updated_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <index id="169" parent="11" name="index_supplier_emails_on_supplier_id">
+    <index id="172" parent="11" name="index_supplier_emails_on_supplier_id">
       <columns>supplier_id</columns>
       <desc-columns />
       <unique>1</unique>
     </index>
-    <key id="170" parent="11">
+    <key id="173" parent="11">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="171" parent="12" name="id">
+    <column id="174" parent="12" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="172" parent="12" name="phone">
+    <column id="175" parent="12" name="phone">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="173" parent="12" name="supplier_id">
+    <column id="176" parent="12" name="supplier_id">
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="174" parent="12" name="created_at">
+    <column id="177" parent="12" name="created_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="175" parent="12" name="updated_at">
+    <column id="178" parent="12" name="updated_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <index id="176" parent="12" name="index_supplier_phones_on_supplier_id">
+    <index id="179" parent="12" name="index_supplier_phones_on_supplier_id">
       <columns>supplier_id</columns>
       <desc-columns />
       <unique>1</unique>
     </index>
-    <key id="177" parent="12">
+    <key id="180" parent="12">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="178" parent="13" name="id">
+    <column id="181" parent="13" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="179" parent="13" name="name">
+    <column id="182" parent="13" name="name">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="180" parent="13" name="description">
+    <column id="183" parent="13" name="description">
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <column id="181" parent="13" name="created_at">
+    <column id="184" parent="13" name="created_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="182" parent="13" name="updated_at">
+    <column id="185" parent="13" name="updated_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <key id="183" parent="13">
+    <key id="186" parent="13">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="184" parent="14" name="id">
+    <column id="187" parent="14" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="185" parent="14" name="email">
+    <column id="188" parent="14" name="email">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(0,-1)|12</data-type>
       <default-expression>''</default-expression>
     </column>
-    <column id="186" parent="14" name="encrypted_password">
+    <column id="189" parent="14" name="encrypted_password">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(0,-1)|12</data-type>
       <default-expression>''</default-expression>
     </column>
-    <column id="187" parent="14" name="reset_password_token">
+    <column id="190" parent="14" name="reset_password_token">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="188" parent="14" name="reset_password_sent_at">
+    <column id="191" parent="14" name="reset_password_sent_at">
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="189" parent="14" name="remember_created_at">
+    <column id="192" parent="14" name="remember_created_at">
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="190" parent="14" name="role_level">
+    <column id="193" parent="14" name="role_level">
       <data-type>INTEGER(0,-1)|4</data-type>
       <default-expression>0</default-expression>
     </column>
-    <column id="191" parent="14" name="sign_in_count">
+    <column id="194" parent="14" name="sign_in_count">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
       <default-expression>0</default-expression>
     </column>
-    <column id="192" parent="14" name="current_sign_in_at">
+    <column id="195" parent="14" name="current_sign_in_at">
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="193" parent="14" name="last_sign_in_at">
+    <column id="196" parent="14" name="last_sign_in_at">
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="194" parent="14" name="current_sign_in_ip">
+    <column id="197" parent="14" name="current_sign_in_ip">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="195" parent="14" name="last_sign_in_ip">
+    <column id="198" parent="14" name="last_sign_in_ip">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="196" parent="14" name="created_at">
+    <column id="199" parent="14" name="created_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <column id="197" parent="14" name="updated_at">
+    <column id="200" parent="14" name="updated_at">
       <mandatory>1</mandatory>
       <data-type>DATETIME(0,-1)|12</data-type>
     </column>
-    <index id="198" parent="14" name="index_users_on_email">
+    <index id="201" parent="14" name="index_users_on_email">
       <columns>email</columns>
       <desc-columns />
       <unique>1</unique>
     </index>
-    <index id="199" parent="14" name="index_users_on_reset_password_token">
+    <index id="202" parent="14" name="index_users_on_reset_password_token">
       <columns>reset_password_token</columns>
       <desc-columns />
       <unique>1</unique>
     </index>
-    <key id="200" parent="14">
+    <key id="203" parent="14">
       <columns>id</columns>
       <primary>1</primary>
     </key>

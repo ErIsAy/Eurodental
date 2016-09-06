@@ -15,6 +15,8 @@ class CreateServices < ActiveRecord::Migration
             #tipo de trabajo
             t.boolean  :corona, :default => false
             t.boolean  :puente, :default => false
+            t.string :puente_a
+            t.string :puente_b
             t.boolean  :implante, :default => false
             t.boolean  :barra, :default => false
             t.boolean  :hibrida, :default => false
@@ -66,6 +68,10 @@ class CreateServices < ActiveRecord::Migration
             t.boolean  :cromo_niquel, :default => false
             t.boolean  :oro, :default => false
             t.boolean  :paladio, :default => false
+
+            #subtotal precio
+            t.integer :service_total
+
 
             t.timestamps null: false
           end

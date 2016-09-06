@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'consulta/index'
 
   resources :suppliers
+  get 'prices/home' => 'prices#home'
+
+  post 'update_prices' => 'prices#update_prices', as: :update_prices
 
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new"

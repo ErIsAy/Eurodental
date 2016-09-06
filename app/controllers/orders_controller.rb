@@ -200,11 +200,8 @@ class OrdersController < ApplicationController
                                       :client_note,
                                       :other_note,
                                       :client_id,
-                                      :antagonista,
-                                      :foto,
-                                      :mordida,
-                                      :quantity,
                                       :state,
+                                      :total_price,
                                       :t1,
                                       :t2,
                                       :t3,
@@ -244,6 +241,8 @@ class OrdersController < ApplicationController
                                                             :quantity,
                                                             :tooth_number,
                                                             :puente,
+                                                            :puente_a,
+                                                            :puente_b,
                                                             :implante,
                                                             :barra,
                                                             :hibrida,
@@ -284,6 +283,7 @@ class OrdersController < ApplicationController
                                                             :cromo_niquel,
                                                             :oro,
                                                             :paladio,
+                                                            :service_total,
                                                             :order_id])
 
 #items_attributes: [:id, :name, :price, :category_id ]

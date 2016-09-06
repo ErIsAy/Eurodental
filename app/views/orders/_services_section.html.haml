@@ -2,15 +2,15 @@
 = f.fields_for :services do |s|
   - cont += 1
   .card.container#order_collection{:class => "col s12 m12 l6 box#{cont}"}
-    .input-fields{:style => 'margin-top: 5px;'}
-      .left{:style => 'width: 4em;'}
-        = s.label :tooth_number, 'Selección'
+    .input-field{:style => 'margin-top: 5px;'}
+      .left{:style => 'width: 4em; margin-bottom: -2em;'}
+        -#= s.label :tooth_number, 'Selección'
         = s.text_field :tooth_number, :disabled => true, :id => "tooth_number#{cont}"
       .right
         %a.btn-floating.btn.waves-effect.waves-light.red{:id => "close_box#{cont}", "onClick"=>'close_box(this.id)'}
           %i.material-icons close
 
-    .input-fields{:style => "", :class => "col s12"}
+    .input-field{:style => "", :class => "col s12"}
       %br
         = image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 24px;", :class => "material-icons"
         = s.check_box :antagonista
@@ -27,7 +27,7 @@
       = s.number_field :quantity, :class => 'validate'
 
 
-    .input-fields{:class => "col m12 s6"}
+    .input-field{:class => "col m12 s6", :style => "margin-top: 0px"}
       %ul.collapsible{"data-collapsible" => "accordion"}
         %li
           .collapsible-header
@@ -40,6 +40,9 @@
               %br
               = s.check_box :puente
               = s.label :puente, 'Puente'
+              = s.text_field :puente_a, :style => 'height: 36px;width: 35px;margin-left: 33px;'
+              " a "
+              = s.text_field :puente_b, :style => 'height: 36px;width: 35px;'
               %br
               = s.check_box :implante
               = s.label :implante, 'implantes'
@@ -131,23 +134,23 @@
             %p
               = s.check_box :vita_classic
               = s.label :vita_classic, 'Vita Classic'
-              = s.text_field :vita_classic_text
+              = s.text_field :vita_classic_text, :style => 'width:65px; margin-left:15px;'
               %br
               = s.check_box :vita_3d
               = s.label :vita_3d, 'Vita 3D Master'
-              = s.text_field :vita_3d_text
+              = s.text_field :vita_3d_text, :style => 'width:65px; margin-left:15px;'
               %br
               = s.check_box :bioform
               = s.label :bioform, 'Bioform'
-              = s.text_field :bioform_text
+              = s.text_field :bioform_text, :style => 'width:65px; margin-left:15px;'
               %br
               = s.check_box :chromarcop
               = s.label :chromarcop, 'Chromarcop'
-              = s.text_field :chromarcop_text
+              = s.text_field :chromarcop_text, :style => 'width:65px; margin-left:15px;'
               %br
               = s.check_box :col_otras
               = s.label :col_otras, 'Otras'
-              = s.text_field :col_otras_text
+              = s.text_field :col_otras_text, :style => 'width:65px; margin-left:15px;'
 
 
 
@@ -201,7 +204,11 @@
 
 
 
-
+    .input-field.col.s12#subtotal_price
+      = s.label :service_total, 'Sub-Total RD$', :style => "color: #000000; font-size: 20px;"
+      = s.text_field :service_total, :disabled => true,
+                                       :id => "service_total_f#{cont}",
+                                       :class => 'right'
 
 
 

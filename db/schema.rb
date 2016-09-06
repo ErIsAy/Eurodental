@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905011630) do
+ActiveRecord::Schema.define(version: 20160906202331) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -106,6 +106,28 @@ ActiveRecord::Schema.define(version: 20160905011630) do
 
   add_index "orders", ["client_id"], name: "index_orders_on_client_id"
 
+  create_table "prices", force: :cascade do |t|
+    t.integer  "perno_price",              default: 0
+    t.integer  "soldadura_price",          default: 0
+    t.integer  "zirconio_price",           default: 0
+    t.integer  "disilicato_price",         default: 0
+    t.integer  "fedespatica_price",        default: 0
+    t.integer  "porcelana_price",          default: 0
+    t.integer  "pmma_price",               default: 0
+    t.integer  "polimero_price",           default: 0
+    t.integer  "composite_price",          default: 0
+    t.integer  "metal_porcelana_price",    default: 0
+    t.integer  "zirconio_porcelana_price", default: 0
+    t.integer  "peek_price",               default: 0
+    t.integer  "vita_classic_price",       default: 0
+    t.integer  "vita_3d_price",            default: 0
+    t.integer  "bioform_price",            default: 0
+    t.integer  "chromarcop_price",         default: 0
+    t.integer  "otras_price",              default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.integer  "order_id"
     t.boolean  "antagonista",        default: false
@@ -157,6 +179,9 @@ ActiveRecord::Schema.define(version: 20160905011630) do
     t.boolean  "paladio",            default: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.text     "puente_a"
+    t.text     "puente_b"
+    t.integer  "service_total"
   end
 
   create_table "sessions", force: :cascade do |t|

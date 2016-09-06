@@ -4,6 +4,14 @@
     -# %div{:class => "col s12 m6"}
     = render :partial => 'layouts/tooth_chart'
     = render 'tooth_fields', :f => f
+    .input-field.col.s12#total_price
+      = f.label :total_price, 'Total RD$', :style => "color: #000000; font-size: 25px;"
+      = f.text_field :total_price, :disabled => true,
+                                     :id => 'total_price_f',
+                                     :class => 'right'
+
+
+
 
 
   -#  = render 'services_component', :f => f
