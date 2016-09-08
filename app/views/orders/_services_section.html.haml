@@ -5,7 +5,7 @@
     .input-field{:style => 'margin-top: 5px;'}
       .left{:style => 'width: 4em; margin-bottom: -2em;'}
         -#= s.label :tooth_number, 'Selección'
-        = s.text_field :tooth_number, :disabled => true, :id => "tooth_number#{cont}"
+        = s.text_field :tooth_number, :readonly => true, :id => "tooth_number#{cont}"
       .right
         %a.btn-floating.btn.waves-effect.waves-light.red{:id => "close_box#{cont}", "onClick"=>'close_box(this.id)'}
           %i.material-icons close
