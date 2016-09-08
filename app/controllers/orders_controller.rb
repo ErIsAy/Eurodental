@@ -25,7 +25,9 @@ class OrdersController < ApplicationController
           disposition: "inline" ##display in browser
       end
       @order.save
+
     end
+
   end
 
   def label_print
@@ -162,8 +164,6 @@ class OrdersController < ApplicationController
   #   end
 
 
-
-
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'La Orden fue actualizada exitosamente.' }
@@ -204,6 +204,8 @@ class OrdersController < ApplicationController
                                       :client_id,
                                       :state,
                                       :total_price,
+                                      :partial_pay,
+                                      :total_pending,
                                       :t1,
                                       :t2,
                                       :t3,

@@ -5,6 +5,7 @@ function close_box(b_id){
     service_box2.style.display = "none";
     $("#Tooth"+button_id).css({ fill: "white" });
     document.getElementById("t"+button_id).value = 0;
+   // document.getElementById("service_exist"+b_id).value = false;
 }
 
 function reply_click(toothid)
@@ -74,21 +75,8 @@ function service_add(service, s_price)
     }
 
     document.getElementById("service_total_f"+s_id).value = price_sum;
+    //document.getElementById("service_exist"+s_id).value = true;
 
-
-
-    //
-    // if (service_obj.checked){
-    //     document.getElementById("service_total_f"+s_id).value = 1;
-    //
-    // }
-    // else {
-    //     document.getElementById("service_total_f"+s_id).value -= 1;
-    // }
-    //
-    // if (document.getElementById("service_total_f"+s_id).value == 0){
-    //     document.getElementById("service_total_f"+s_id).value = '';
-    // }
 
     order_total();
 }

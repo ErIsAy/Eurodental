@@ -18,6 +18,9 @@ class Order < ActiveRecord::Base
   attr_accessor :client_phone
   attr_accessor :client_email
   attr_accessor :current_step
+  # attr_accessor :total_pending
+  # attr_accessor :partial_pay
+  # attr_accessor :total_price
 
 
   validates_presence_of :patient_name, :if => lambda { |o| o.current_step == "step_1"}
@@ -33,6 +36,9 @@ class Order < ActiveRecord::Base
   #   patient.name if patient
   # end
 
+  # def total_calc
+  #    order.total_price - order.partial_pay
+  # end
 
 
   def client_name

@@ -9,6 +9,8 @@ class CreateOrders < ActiveRecord::Migration
       t.text :other_note
       t.boolean :coti
       t.integer :total_price,	default: 0
+      t.integer :partial_pay, default: 0
+      t.integer :total_pending
       # t.boolean  :antagonista
       # t.boolean  :foto
       # t.boolean  :mordida

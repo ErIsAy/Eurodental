@@ -9,7 +9,7 @@ class CreateServices < ActiveRecord::Migration
             t.boolean :antagonista, :default => false
             t.boolean :foto, :default => false
             t.boolean :mordida, :default => false
-            t.integer :quantity, :in => 0..99
+            t.integer :quantity, :default => 0
             t.integer :tooth_number
 
             #tipo de trabajo

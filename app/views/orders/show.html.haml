@@ -29,10 +29,13 @@
                                                     ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
                                                     ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
                                                     ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
-                                                    ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+                                                    ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
                                                     ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
                                                     ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
                                                     disabled: "Elige el Estado"), class: "icons" )
+            .input-field.col.s6
+              = f.label :partial_pay, 'Abono'
+              = f.number_field :partial_pay
           .col.s2
             %button.btn.waves-effect.waves-light{:style => "height: 49px; top: 23px;", :name => "action", :type => "submit"}
               %i.material-icons.right{:style => "margin-left: 0px; padding-top: 4px; font-size:50px;"} check
@@ -97,42 +100,14 @@
       %b Paciente:
       = @order.patient_name
     .row.col.s12{:style => "text-align: center;"}
-      -# = link_to '<i class="material-icons" style="font-size: 100px;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right", :target => "_blank", :style => "font-size:100px;"
-      -# %p.col.s6.m3.tooltipped{:style => "color: cornflowerblue;", onclick: "printpage()", "data-tooltip" => "Imprimir Factura ó Cotización", "data-position" => "bottom"}
-      -#   %i.material-icons.prefix{:style => "font-size:100px;"} print
-      -# %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
-      -#   %i.material-icons.prefix{:style => "font-size:100px;"} label
-
-      -# %p.col.s6.m4.tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
-      -#   = link_to('<i class="material-icons" style="font-size:100px;">label</i>'.html_safe, {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-      -# %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
-      -#   %i.material-icons.prefix{:style => "font-size:100px;"} email
-      -# %p.col.s6.m4.tooltipped{:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
-      -#   %i.material-icons.prefix{:style => "font-size:100px;"} assignment
 
 
+      -#Modificar esto: correos desabilitados temporalmente
 
-      -#
-      -# %p.dropdown-button.col.s6.m4.tooltipped{"data-activates" => "dropdown1", "data-tooltip" => "Imprimir Label"}
-      -#   = image_tag "Paper-100.png", :id => "show_icons"
-      -#
-      -#
-      -#
-      -# %ul#dropdown1.dropdown-content
-      -#   = link_to(("1.1''x3.5''"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-      -#   %br
-      -#   = link_to(("5.0''x3.5''"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-      -#   %br
-      -#   = link_to(("Circular"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-      -#
-
-      -#
-      -# %p.col.s6.m4..tooltipped{:style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
-      -#   = link_to((image_tag "Paper-100.png", :id => "show_icons"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
       %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#stickers_modal", :style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
         = image_tag "Paper-100.png", :id => "show_icons"
-      %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
-        = image_tag "Message-Filled-100.png", :id => "show_icons"
+      -#%p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
+      -#  = image_tag "Message-Filled-100.png", :id => "show_icons"
       %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#order_tooth_modal",:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
         = image_tag "Teeth-100.png", :id => "show_icons"
 
@@ -199,7 +174,7 @@
       %i.material-icons.right exit_to_app
       Salir
     - if current_user.role_level <= 2
-      = link_to '<i class="material-icons" style="font-size: 2.3rem;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right btn green", :target => "_blank", :data => {:confirm => 'Desea Facturar?'}
+      = link_to '<i class="material-icons" style="font-size: 2.3rem;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right btn green", :target => "_blank", :data => { :reload => true}
 
 
 -# END OF MAIN

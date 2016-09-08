@@ -35,34 +35,34 @@
             Tipo de Trabajo
           .collapsible-body
             %p
-              = s.check_box :corona
+              = s.check_box :corona, :onclick => "service_add(this.id, 0)"
               = s.label :corona, 'Corona'
               %br
-              = s.check_box :puente
+              = s.check_box :puente, :onclick => "service_add(this.id, 0)"
               = s.label :puente, 'Puente'
               = s.text_field :puente_a, :style => 'height: 36px;width: 35px;margin-left: 33px;'
               ' a '
               = s.text_field :puente_b, :style => 'height: 36px;width: 35px;'
               %br
-              = s.check_box :implante
+              = s.check_box :implante, :onclick => "service_add(this.id, 0)"
               = s.label :implante, 'implantes'
               %br
-              = s.check_box :barra
+              = s.check_box :barra, :onclick => "service_add(this.id, 0)"
               = s.label :barra, 'Barra'
               %br
-              = s.check_box :hibrida
+              = s.check_box :hibrida, :onclick => "service_add(this.id, 0)"
               = s.label :hibrida, 'Hibrida'
               %br
-              = s.check_box :carilla
+              = s.check_box :carilla, :onclick => "service_add(this.id, 0)"
               = s.label :carilla, 'Carilla'
               %br
-              = s.check_box :in_onlay
+              = s.check_box :in_onlay, :onclick => "service_add(this.id, 0)"
               = s.label :in_onlay, 'Inlay/Onlay'
               %br
-              = s.check_box :inlay_bridge
+              = s.check_box :inlay_bridge, :onclick => "service_add(this.id, 0)"
               = s.label :inlay_bridge, 'Inlay Bridge'
               %br
-              = s.check_box :lente_contacto
+              = s.check_box :lente_contacto, :onclick => "service_add(this.id, 0)"
               = s.label :lente_contacto, 'Lente de Contacto'
               %br
               = s.check_box :perno, :onclick => "service_add(this.id, #{@price.first.perno_price})"
@@ -116,13 +116,13 @@
             Color de Muñon
           .collapsible-body
             %p
-              = s.check_box :natural
+              = s.check_box :natural, :onclick => "service_add(this.id, 0)"
               = s.label :natural, 'Natural'
               %br
-              = s.check_box :pimentado
+              = s.check_box :pimentado, :onclick => "service_add(this.id, 0)"
               = s.label :pimentado, 'Pimentado'
               %br
-              = s.check_box :metal
+              = s.check_box :metal, :onclick => "service_add(this.id, 0)"
               = s.label :metal, 'Metal'
 
 
@@ -172,13 +172,13 @@
             Procedimiento
           .collapsible-body
             %p
-              = s.check_box :fresado_maquinado
+              = s.check_box :fresado_maquinado, :onclick => "service_add(this.id, 0)"
               = s.label :fresado_maquinado, 'Fresado Maquinado'
               %br
-              = s.check_box :prensado
+              = s.check_box :prensado, :onclick => "service_add(this.id, 0)"
               = s.label :prensado, 'Prensado'
               %br
-              = s.check_box :colado
+              = s.check_box :colado, :onclick => "service_add(this.id, 0)"
               = s.label :colado, 'Colado'
 
         %li
@@ -187,21 +187,20 @@
             Metales
           .collapsible-body
             %p
-              = s.check_box :cromo_cobalto
+              = s.check_box :cromo_cobalto, :onclick => "service_add(this.id, 0)"
               = s.label :cromo_cobalto, 'Cromo Cobalto'
               %br
-              = s.check_box :titanium
+              = s.check_box :titanium, :onclick => "service_add(this.id, 0)"
               = s.label :titanium, 'Titanium'
               %br
-              = s.check_box :cromo_niquel
+              = s.check_box :cromo_niquel, :onclick => "service_add(this.id, 0)"
               = s.label :cromo_niquel, 'Cromo Niquel'
               %br
-              = s.check_box :oro
+              = s.check_box :oro, :onclick => "service_add(this.id, 0)"
               = s.label :oro, 'Oro'
               %br
-              = s.check_box :paladio
+              = s.check_box :paladio, :onclick => "service_add(this.id, 0)"
               = s.label :paladio, 'Paladio'
-
 
 
     .input-field.col.s12#subtotal_price
