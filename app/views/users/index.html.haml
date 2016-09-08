@@ -72,8 +72,7 @@
               %i.material-icons.right mode_edit
 
             %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
-              = link_to 'X', users_admin_path(user), :method => :delete
-
+              = link_to 'X', users_admin_path(user), :method => :delete, :data => { :confirm => 'Está Seguro?' }
 
 
   %br

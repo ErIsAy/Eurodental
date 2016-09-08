@@ -17,16 +17,16 @@
   %br
 
   .row.container.card{:style => "margin: 0 auto;"}
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        .card-image
-          =image_tag "categories.jpg", :style => "height: 161.469px;"
-          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Categorías
-        .card-content
-          %p
-            Listado y creación de Categorías
-        .card-action
-          %a{:href => categories_path} Configurar
+    -#.col.s12.m7{:style => "width: 426.66px;"}
+    -#  .card
+    -#    .card-image
+    -#      =image_tag "categories.jpg", :style => "height: 161.469px;"
+    -#      %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Categorías
+    -#    .card-content
+    -#      %p
+    -#        Listado y creación de Categorías
+    -#    .card-action
+    -#      %a{:href => categories_path} Configurar
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
         .card-image
@@ -34,9 +34,10 @@
           %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Servicios
         .card-content
           %p
-            Listado y creación de Servicios
+            Listado de Servicios y Precios
         .card-action
-          %a{:href => items_path} Configurar
+          -#%a{:href => items_path} Configurar
+          %a{:href => prices_show_path} Editar Precios
 
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
@@ -58,16 +59,16 @@
             Monitoreo
         .card-action
           %a{:href => activity_index_path} Ver
-    .col.s12.m7{:style => "width: 426.66px;"}
-      .card
-        .card-image
-          =image_tag "stock-email.jpg", :style => "height: 161.469px;"
-          %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Alertas
-        .card-content
-          %p
-            Alertas
-        .card-action
-          %a{:href => ""} Configurar
+    -#.col.s12.m7{:style => "width: 426.66px;"}
+    -#  .card
+    -#    .card-image
+    -#      =image_tag "stock-email.jpg", :style => "height: 161.469px;"
+    -#      %span.card-title{:style => "background-color: #232D25; opacity: 0.8; padding: 6px;"} Alertas
+    -#    .card-content
+    -#      %p
+    -#        Alertas
+    -#    .card-action
+    -#      %a{:href => ""} Configurar
 -# END OF MAIN
 
 -# FOOTER

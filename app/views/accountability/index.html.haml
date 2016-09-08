@@ -66,7 +66,7 @@
           %th Referencia
           %th Cliente
           %th Fecha  de Entrada
-          %th Fecha  de Entrega
+          -#%th Fecha  de Entrega
           %th Estado
           %th Monto RD$
           -# %th Nota Del Cliente
@@ -80,9 +80,9 @@
             %td= order.id
             %td= order.client_name
             %td= order.created_at.strftime("%F")
-            %td= order.order_date
+            -#%td= order.order_date
             %td= order.state
-            %td 9.99
+            %td= order.total_price
             -# %td= order.client_note
             -# %td= order.other_note
 

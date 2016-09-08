@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :suppliers
   get 'prices/home' => 'prices#home'
+  get 'prices/show' => 'prices#show'
 
   post 'update_prices' => 'prices#update_prices', as: :update_prices
 

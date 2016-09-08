@@ -3,7 +3,7 @@
 -#     = @order.state.capitalize
 
 
-.col.s2.right
+.col.s3.right
   -case @order.state.capitalize
     -when "En proceso"
       .chip.in_process= @order.state.capitalize
@@ -12,10 +12,24 @@
     -when "En prueba"
       .chip.in_test_pending= @order.state.capitalize
     -when "Facturada - pendiente"
-      .chip.in_test_pending= @order.state.capitalize
+      .chip.in_test_invoiced= @order.state.capitalize
     -when "Facturada - pago"
       .chip.in_paid= @order.state.capitalize
     -when "Anulada"
       .chip.in_null= @order.state.capitalize
     -when "Cotizacion"
       .chip.in_null= @order.state.capitalize
+
+
+  .col.right{:style => "width: 11em; display:block;"}
+    -#= form_for(@order, remote: true, html: {id: "total-update"}) do |f|
+    .card
+      %p{:style => "font-size: 17px; text-align: right; color: blue;"}
+        Total:
+        = number_to_currency(@order.total_price, :format => "%u%n", :unit => 'RD$', :delimiter => ',', :separator => '.')
+      %p{:style => "font-size: 17px; text-align: right; color: purple;"}
+        Total Pendiente:
+        = number_to_currency((@order.total_price - @order.partial_pay), :format => "%u%n", :unit => 'RD$', :delimiter => ',', :separator => '.')
+
+
+

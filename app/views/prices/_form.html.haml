@@ -1,90 +1,72 @@
 = form_tag update_prices_path do
-
   .row.card.container.col.s12{:style => "margin: 0 auto;"}
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :perno_price, "perno_price"
-      = text_field_tag :perno_price
+    .input-field{:class => "col s6 "}
+      = label :perno_price, "Perno"
+      = number_field_tag :perno_price, @price.first.perno_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :soldadura_price, "soldadura_price"
-      = text_field_tag :soldadura_price
+    .input-field{:class => "col s6 "}
+      = label :soldadura_price, "Soldadura"
+      = number_field_tag :soldadura_price, @price.first.soldadura_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :zirconio_price, "zirconio_price"
-      = text_field_tag :zirconio_price
+    .input-field{:class => "col s6 "}
+      = label :zirconio_price, "Zirconio"
+      = number_field_tag :zirconio_price, @price.first.zirconio_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :disilicato_price, "disilicato_price"
-      = text_field_tag :disilicato_price
+    .input-field{:class => "col s6 "}
+      = label :disilicato_price, "Disilicato"
+      = number_field_tag :disilicato_price, @price.first.disilicato_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :fedespatica_price, "fedespatica_price"
-      = text_field_tag :fedespatica_price
+    .input-field{:class => "col s6 "}
+      = label :fedespatica_price, "Fedespatica"
+      = number_field_tag :fedespatica_price, @price.first.fedespatica_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :porcelana_price, "porcelana_price"
-      = text_field_tag :porcelana_price
+    .input-field{:class => "col s6 "}
+      = label :porcelana_price, "Porcelana"
+      = number_field_tag :porcelana_price, @price.first.porcelana_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :pmma_price, "pmma_price"
-      = text_field_tag :pmma_price
+    .input-field{:class => "col s6 "}
+      = label :pmma_price, "PMMA"
+      = number_field_tag :pmma_price, @price.first.pmma_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :polimero_price, "polimero_price"
-      = text_field_tag :polimero_price
+    .input-field{:class => "col s6 "}
+      = label :polimero_price, "Polímero"
+      = number_field_tag :polimero_price, @price.first.polimero_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :composite_price, "composite_price"
-      = text_field_tag :composite_price
+    .input-field{:class => "col s6 "}
+      = label :composite_price, "Composite"
+      = number_field_tag :composite_price, @price.first.composite_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :metal_porcelana_price, "metal_porcelana_price"
-      = text_field_tag :metal_porcelana_price
+    .input-field{:class => "col s6 "}
+      = label :metal_porcelana_price, "Metal/Porcelana"
+      = number_field_tag :metal_porcelana_price, @price.first.metal_porcelana_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :zirconio_porcelana_price, "zirconio_porcelana_price"
-      = text_field_tag :zirconio_porcelana_price
+    .input-field{:class => "col s6 "}
+      = label :zirconio_porcelana_price, "Zirconio/Porcelana"
+      = number_field_tag :zirconio_porcelana_price, @price.first.zirconio_porcelana_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :peek_price, "peek_price"
-      = text_field_tag :peek_price
+    .input-field{:class => "col s6 "}
+      = label :peek_price, "Peek"
+      = number_field_tag :peek_price, @price.first.peek_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :vita_classic_price, "vita_classic_price"
-      = text_field_tag :vita_classic_price
+    .input-field{:class => "col s6 "}
+      = label :vita_classic_price, "Vita Classic"
+      = number_field_tag :vita_classic_price, @price.first.vita_classic_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :vita_3d_price, "vita_3d_price"
-      = text_field_tag :vita_3d_price
+    .input-field{:class => "col s6 "}
+      = label :vita_3d_price, "Vita 3D"
+      = number_field_tag :vita_3d_price, @price.first.vita_3d_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :bioform_price, "bioform_price"
-      = text_field_tag :bioform_price
+    .input-field{:class => "col s6 "}
+      = label :bioform_price, "Bioform"
+      = number_field_tag :bioform_price, @price.first.bioform_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :chromarcop_price, "chromarcop_price"
-      = text_field_tag :chromarcop_price
+    .input-field{:class => "col s6 "}
+      = label :chromarcop_price, "Chromarcop"
+      = number_field_tag :chromarcop_price, @price.first.chromarcop_price
 
-    .input-field{:class => "col s12 "}
-      %i.material-icons.prefix money
-      = label :otras_price, "otras_price"
-      = text_field_tag :otras_price
+    .input-field{:class => "col s6 "}
+      = label :otras_price, "Color - Otras"
+      = number_field_tag :otras_price, @price.first.otras_price
 
 
 

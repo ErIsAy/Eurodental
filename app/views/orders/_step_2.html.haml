@@ -1,14 +1,54 @@
 -# .card.container{:style => "margin: 0 auto;"}
 .row.container
+
+  -#hidden field for prices
+  %div.price_div{:style=> 'display:none;'}
+    - prices = @price.first
+    %a#perno_price
+      = prices.perno_price
+    %a#soldadura_price
+      = prices.soldadura_price
+    %a#zirconio_price
+      = prices.zirconio_price
+    %a#disilicato_price
+      = prices.disilicato_price
+    %a#fedespatica_price
+      = prices.fedespatica_price
+    %a#porcelana_price
+      = prices.porcelana_price
+    %a#pmma_price
+      = prices.pmma_price
+    %a#polimero_price
+      = prices.polimero_price
+    %a#composite_price
+      = prices.composite_price
+    %a#metal_porcelana_price
+      = prices.metal_porcelana_price
+    %a#zirconio_porcelana_price
+      = prices.zirconio_porcelana_price
+    %a#peek_price
+      = prices.peek_price
+    %a#vita_classic_price
+      = prices.vita_classic_price
+    %a#vita_3d_price
+      = prices.vita_3d_price
+    %a#bioform_price
+      = prices.bioform_price
+    %a#chromarcop_price
+      = prices.chromarcop_price
+    %a#otras_price
+      = prices.otras_price
+
   .card.left#chart_container{:class => "col s12 m12 l6"}
     -# %div{:class => "col s12 m6"}
     = render :partial => 'layouts/tooth_chart'
     = render 'tooth_fields', :f => f
     .input-field.col.s12#total_price
       = f.label :total_price, 'Total RD$', :style => "color: #000000; font-size: 25px;"
-      = f.text_field :total_price, :disabled => true,
+      = f.number_field :total_price, :readonly => true,
                                      :id => 'total_price_f',
-                                     :class => 'right'
+                                     :class => 'right',
+                                     :value => 0
 
 
 

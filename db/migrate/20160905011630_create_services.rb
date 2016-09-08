@@ -9,7 +9,7 @@ class CreateServices < ActiveRecord::Migration
             t.boolean :antagonista, :default => false
             t.boolean :foto, :default => false
             t.boolean :mordida, :default => false
-            t.integer :quantity, :in => 0..99
+            t.integer :quantity, :default => 0
             t.integer :tooth_number
 
             #tipo de trabajo
@@ -29,7 +29,7 @@ class CreateServices < ActiveRecord::Migration
 
             #colorimetro
             t.boolean  :vita_classic, :default => false
-            t.boolean  :vita_3d, :default => false
+            t.boolean  :vita_td, :default => false
             t.boolean  :bioform, :default => false
             t.boolean  :chromarcop, :default => false
             t.boolean  :col_otras, :default => false

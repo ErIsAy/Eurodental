@@ -25,7 +25,9 @@ class OrdersController < ApplicationController
           disposition: "inline" ##display in browser
       end
       @order.save
+
     end
+
   end
 
   def label_print
@@ -65,6 +67,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @price = Price.all
     @clients = Client.all
     session[:order_params] ||= {}
     @order = Order.new
@@ -83,6 +86,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    @price = Price.all
     @clients = Client.all
     session[:order_params].deep_merge!(params[:order]) if params[:order]
     @order = Order.new(session[:order_params])
@@ -160,8 +164,6 @@ class OrdersController < ApplicationController
   #   end
 
 
-
-
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'La Orden fue actualizada exitosamente.' }
@@ -202,6 +204,8 @@ class OrdersController < ApplicationController
                                       :client_id,
                                       :state,
                                       :total_price,
+                                      :partial_pay,
+                                      :total_pending,
                                       :t1,
                                       :t2,
                                       :t3,
@@ -234,7 +238,6 @@ class OrdersController < ApplicationController
                                       :t30,
                                       :t31,
                                       :t32,
-                                      item_ids: [],
                                       services_attributes: [:antagonista,
                                                             :foto,
                                                             :mordida,
@@ -253,7 +256,7 @@ class OrdersController < ApplicationController
                                                             :perno,
                                                             :sold_laser,
                                                             :vita_classic,
-                                                            :vita_3d,
+                                                            :vita_td,
                                                             :bioform,
                                                             :chromarcop,
                                                             :col_otras,

@@ -5,7 +5,7 @@
     .input-field{:style => 'margin-top: 5px;'}
       .left{:style => 'width: 4em; margin-bottom: -2em;'}
         -#= s.label :tooth_number, 'Selección'
-        = s.text_field :tooth_number, :disabled => true, :id => "tooth_number#{cont}"
+        = s.text_field :tooth_number, :readonly => true, :id => "tooth_number#{cont}"
       .right
         %a.btn-floating.btn.waves-effect.waves-light.red{:id => "close_box#{cont}", "onClick"=>'close_box(this.id)'}
           %i.material-icons close
@@ -35,40 +35,40 @@
             Tipo de Trabajo
           .collapsible-body
             %p
-              = s.check_box :corona
+              = s.check_box :corona, :onclick => "service_add(this.id, 0)"
               = s.label :corona, 'Corona'
               %br
-              = s.check_box :puente
+              = s.check_box :puente, :onclick => "service_add(this.id, 0)"
               = s.label :puente, 'Puente'
               = s.text_field :puente_a, :style => 'height: 36px;width: 35px;margin-left: 33px;'
-              " a "
+              ' a '
               = s.text_field :puente_b, :style => 'height: 36px;width: 35px;'
               %br
-              = s.check_box :implante
+              = s.check_box :implante, :onclick => "service_add(this.id, 0)"
               = s.label :implante, 'implantes'
               %br
-              = s.check_box :barra
+              = s.check_box :barra, :onclick => "service_add(this.id, 0)"
               = s.label :barra, 'Barra'
               %br
-              = s.check_box :hibrida
+              = s.check_box :hibrida, :onclick => "service_add(this.id, 0)"
               = s.label :hibrida, 'Hibrida'
               %br
-              = s.check_box :carilla
+              = s.check_box :carilla, :onclick => "service_add(this.id, 0)"
               = s.label :carilla, 'Carilla'
               %br
-              = s.check_box :in_onlay
+              = s.check_box :in_onlay, :onclick => "service_add(this.id, 0)"
               = s.label :in_onlay, 'Inlay/Onlay'
               %br
-              = s.check_box :inlay_bridge
+              = s.check_box :inlay_bridge, :onclick => "service_add(this.id, 0)"
               = s.label :inlay_bridge, 'Inlay Bridge'
               %br
-              = s.check_box :lente_contacto
+              = s.check_box :lente_contacto, :onclick => "service_add(this.id, 0)"
               = s.label :lente_contacto, 'Lente de Contacto'
               %br
-              = s.check_box :perno
+              = s.check_box :perno, :onclick => "service_add(this.id, #{@price.first.perno_price})"
               = s.label :perno, 'Perno'
               %br
-              = s.check_box :sold_laser
+              = s.check_box :sold_laser, :onclick => "service_add(this.id, #{@price.first.soldadura_price})"
               = s.label :sold_laser, 'Soldadura Láser'
 
 
@@ -79,34 +79,34 @@
             Material
           .collapsible-body
             %p
-              = s.check_box :zirconio
+              = s.check_box :zirconio, :onclick => "service_add(this.id, #{@price.first.zirconio_price})"
               = s.label :zirconio, 'Zirconio'
               %br
-              = s.check_box :disilicato
+              = s.check_box :disilicato, :onclick => "service_add(this.id, #{@price.first.disilicato_price})"
               = s.label :disilicato, 'Disilicato'
               %br
-              = s.check_box :fedespatica
+              = s.check_box :fedespatica, :onclick => "service_add(this.id, #{@price.first.fedespatica_price})"
               = s.label :fedespatica, 'Fedespática'
               %br
-              = s.check_box :porcelana
+              = s.check_box :porcelana, :onclick => "service_add(this.id, #{@price.first.porcelana_price})"
               = s.label :porcelana, 'Porcelana'
               %br
-              = s.check_box :pmma
+              = s.check_box :pmma, :onclick => "service_add(this.id, #{@price.first.pmma_price})"
               = s.label :pmma, 'PMMA'
               %br
-              = s.check_box :polimero
+              = s.check_box :polimero, :onclick => "service_add(this.id, #{@price.first.polimero_price})"
               = s.label :polimero, 'Polímero'
               %br
-              = s.check_box :composite
+              = s.check_box :composite, :onclick => "service_add(this.id, #{@price.first.composite_price})"
               = s.label :composite, 'Composite'
               %br
-              = s.check_box :metal_porcelana
+              = s.check_box :metal_porcelana, :onclick => "service_add(this.id, #{@price.first.metal_porcelana_price})"
               = s.label :metal_porcelana, 'Metal/Porcelana'
               %br
-              = s.check_box :zirconio_porcelana
+              = s.check_box :zirconio_porcelana, :onclick => "service_add(this.id, #{@price.first.zirconio_porcelana_price})"
               = s.label :zirconio_porcelana, 'Zirconio/Porcelana'
               %br
-              = s.check_box :peek
+              = s.check_box :peek, :onclick => "service_add(this.id, #{@price.first.peek_price})"
               = s.label :peek, 'Peek'
 
 
@@ -116,13 +116,13 @@
             Color de Muñon
           .collapsible-body
             %p
-              = s.check_box :natural
+              = s.check_box :natural, :onclick => "service_add(this.id, 0)"
               = s.label :natural, 'Natural'
               %br
-              = s.check_box :pimentado
+              = s.check_box :pimentado, :onclick => "service_add(this.id, 0)"
               = s.label :pimentado, 'Pimentado'
               %br
-              = s.check_box :metal
+              = s.check_box :metal, :onclick => "service_add(this.id, 0)"
               = s.label :metal, 'Metal'
 
 
@@ -132,23 +132,23 @@
             Color
           .collapsible-body{:style => "display: inline-block;"}
             %p
-              = s.check_box :vita_classic
+              = s.check_box :vita_classic, :onclick => "service_add(this.id, #{@price.first.vita_classic_price})"
               = s.label :vita_classic, 'Vita Classic'
               = s.text_field :vita_classic_text, :style => 'width:65px; margin-left:15px;'
               %br
-              = s.check_box :vita_3d
-              = s.label :vita_3d, 'Vita 3D Master'
+              = s.check_box :vita_td, :onclick => "service_add(this.id, #{@price.first.vita_3d_price})"
+              = s.label :vita_td, 'Vita 3D Master'
               = s.text_field :vita_3d_text, :style => 'width:65px; margin-left:15px;'
               %br
-              = s.check_box :bioform
+              = s.check_box :bioform, :onclick => "service_add(this.id, #{@price.first.bioform_price})"
               = s.label :bioform, 'Bioform'
               = s.text_field :bioform_text, :style => 'width:65px; margin-left:15px;'
               %br
-              = s.check_box :chromarcop
+              = s.check_box :chromarcop, :onclick => "service_add(this.id, #{@price.first.chromarcop_price})"
               = s.label :chromarcop, 'Chromarcop'
               = s.text_field :chromarcop_text, :style => 'width:65px; margin-left:15px;'
               %br
-              = s.check_box :col_otras
+              = s.check_box :col_otras, :onclick => "service_add(this.id, #{@price.first.otras_price})"
               = s.label :col_otras, 'Otras'
               = s.text_field :col_otras_text, :style => 'width:65px; margin-left:15px;'
 
@@ -172,13 +172,13 @@
             Procedimiento
           .collapsible-body
             %p
-              = s.check_box :fresado_maquinado
+              = s.check_box :fresado_maquinado, :onclick => "service_add(this.id, 0)"
               = s.label :fresado_maquinado, 'Fresado Maquinado'
               %br
-              = s.check_box :prensado
+              = s.check_box :prensado, :onclick => "service_add(this.id, 0)"
               = s.label :prensado, 'Prensado'
               %br
-              = s.check_box :colado
+              = s.check_box :colado, :onclick => "service_add(this.id, 0)"
               = s.label :colado, 'Colado'
 
         %li
@@ -187,26 +187,25 @@
             Metales
           .collapsible-body
             %p
-              = s.check_box :cromo_cobalto
+              = s.check_box :cromo_cobalto, :onclick => "service_add(this.id, 0)"
               = s.label :cromo_cobalto, 'Cromo Cobalto'
               %br
-              = s.check_box :titanium
+              = s.check_box :titanium, :onclick => "service_add(this.id, 0)"
               = s.label :titanium, 'Titanium'
               %br
-              = s.check_box :cromo_niquel
+              = s.check_box :cromo_niquel, :onclick => "service_add(this.id, 0)"
               = s.label :cromo_niquel, 'Cromo Niquel'
               %br
-              = s.check_box :oro
+              = s.check_box :oro, :onclick => "service_add(this.id, 0)"
               = s.label :oro, 'Oro'
               %br
-              = s.check_box :paladio
+              = s.check_box :paladio, :onclick => "service_add(this.id, 0)"
               = s.label :paladio, 'Paladio'
-
 
 
     .input-field.col.s12#subtotal_price
       = s.label :service_total, 'Sub-Total RD$', :style => "color: #000000; font-size: 20px;"
-      = s.text_field :service_total, :disabled => true,
+      = s.number_field :service_total, :readonly => true,
                                        :id => "service_total_f#{cont}",
                                        :class => 'right'
 

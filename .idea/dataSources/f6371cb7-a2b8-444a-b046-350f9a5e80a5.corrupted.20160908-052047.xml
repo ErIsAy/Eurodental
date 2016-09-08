@@ -465,6 +465,7 @@ recipient_type</columns>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <column id="133" parent="9" name="corona">
+<<<<<<< Updated upstream
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
@@ -472,177 +473,357 @@ recipient_type</columns>
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="135" parent="9" name="puente_a">
+    <column id="135" parent="9" name="implante">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="136" parent="9" name="barra">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="137" parent="9" name="hibrida">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="138" parent="9" name="carilla">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="139" parent="9" name="in_onlay">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="140" parent="9" name="inlay_bridge">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="141" parent="9" name="lente_contacto">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="142" parent="9" name="perno">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="143" parent="9" name="sold_laser">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="144" parent="9" name="vita_classic">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="145" parent="9" name="vita_td">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="146" parent="9" name="bioform">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="147" parent="9" name="chromarcop">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="148" parent="9" name="col_otras">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="149" parent="9" name="vita_classic_text">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="136" parent="9" name="puente_b">
+    <column id="150" parent="9" name="vita_3d_text">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="137" parent="9" name="implante">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="138" parent="9" name="barra">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="139" parent="9" name="hibrida">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="140" parent="9" name="carilla">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="141" parent="9" name="in_onlay">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="142" parent="9" name="inlay_bridge">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="143" parent="9" name="lente_contacto">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="144" parent="9" name="perno">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="145" parent="9" name="sold_laser">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="146" parent="9" name="vita_classic">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="147" parent="9" name="vita_td">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="148" parent="9" name="bioform">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="149" parent="9" name="chromarcop">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="150" parent="9" name="col_otras">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
-      <default-expression>'f'</default-expression>
-    </column>
-    <column id="151" parent="9" name="vita_classic_text">
+    <column id="151" parent="9" name="bioform_text">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="152" parent="9" name="vita_3d_text">
+    <column id="152" parent="9" name="chromarcop_text">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="153" parent="9" name="bioform_text">
+    <column id="153" parent="9" name="col_otras_text">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="154" parent="9" name="chromarcop_text">
+    <column id="154" parent="9" name="zirconio">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="155" parent="9" name="disilicato">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="156" parent="9" name="fedespatica">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="157" parent="9" name="porcelana">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="158" parent="9" name="pmma">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="159" parent="9" name="polimero">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="160" parent="9" name="composite">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="161" parent="9" name="metal_porcelana">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="162" parent="9" name="zirconio_porcelana">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="163" parent="9" name="peek">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="164" parent="9" name="natural">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="165" parent="9" name="pimentado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="166" parent="9" name="metal">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="167" parent="9" name="fresado_maquinado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="168" parent="9" name="prensado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="169" parent="9" name="colado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="170" parent="9" name="cromo_cobalto">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="171" parent="9" name="titanium">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="172" parent="9" name="cromo_niquel">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="173" parent="9" name="oro">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="174" parent="9" name="paladio">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="175" parent="9" name="created_at">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="176" parent="9" name="updated_at">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="177" parent="9" name="puente_a">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="155" parent="9" name="col_otras_text">
+    <column id="178" parent="9" name="puente_b">
       <data-type>VARCHAR(0,-1)|12</data-type>
     </column>
-    <column id="156" parent="9" name="zirconio">
+    <column id="179" parent="9" name="service_total">
+      <data-type>INTEGER(0,-1)|4</data-type>
+=======
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="157" parent="9" name="disilicato">
+    <column id="134" parent="9" name="puente">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="158" parent="9" name="fedespatica">
+    <column id="135" parent="9" name="implante">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="159" parent="9" name="porcelana">
+    <column id="136" parent="9" name="barra">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="160" parent="9" name="pmma">
+    <column id="137" parent="9" name="hibrida">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="161" parent="9" name="polimero">
+    <column id="138" parent="9" name="carilla">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="162" parent="9" name="composite">
+    <column id="139" parent="9" name="in_onlay">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="163" parent="9" name="metal_porcelana">
+    <column id="140" parent="9" name="inlay_bridge">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="164" parent="9" name="zirconio_porcelana">
+    <column id="141" parent="9" name="lente_contacto">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="165" parent="9" name="peek">
+    <column id="142" parent="9" name="perno">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="166" parent="9" name="natural">
+    <column id="143" parent="9" name="sold_laser">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="167" parent="9" name="pimentado">
+    <column id="144" parent="9" name="vita_classic">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="168" parent="9" name="metal">
+    <column id="145" parent="9" name="bioform">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="169" parent="9" name="fresado_maquinado">
+    <column id="146" parent="9" name="chromarcop">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="170" parent="9" name="prensado">
+    <column id="147" parent="9" name="col_otras">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="171" parent="9" name="colado">
+    <column id="148" parent="9" name="vita_classic_text">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="149" parent="9" name="vita_3d_text">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="150" parent="9" name="bioform_text">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="151" parent="9" name="chromarcop_text">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="152" parent="9" name="col_otras_text">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="153" parent="9" name="zirconio">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="172" parent="9" name="cromo_cobalto">
+    <column id="154" parent="9" name="disilicato">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="173" parent="9" name="titanium">
+    <column id="155" parent="9" name="fedespatica">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="174" parent="9" name="cromo_niquel">
+    <column id="156" parent="9" name="porcelana">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="175" parent="9" name="oro">
+    <column id="157" parent="9" name="pmma">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="176" parent="9" name="paladio">
+    <column id="158" parent="9" name="polimero">
       <data-type>BOOLEAN(0,-1)|4</data-type>
       <default-expression>'f'</default-expression>
     </column>
-    <column id="177" parent="9" name="service_total">
+    <column id="159" parent="9" name="composite">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="160" parent="9" name="metal_porcelana">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="161" parent="9" name="zirconio_porcelana">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="162" parent="9" name="peek">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="163" parent="9" name="natural">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="164" parent="9" name="pimentado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="165" parent="9" name="metal">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="166" parent="9" name="fresado_maquinado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="167" parent="9" name="prensado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="168" parent="9" name="colado">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="169" parent="9" name="cromo_cobalto">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="170" parent="9" name="titanium">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="171" parent="9" name="cromo_niquel">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="172" parent="9" name="oro">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="173" parent="9" name="paladio">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+    </column>
+    <column id="174" parent="9" name="created_at">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="175" parent="9" name="updated_at">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="176" parent="9" name="puente_a">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="177" parent="9" name="puente_b">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <column id="178" parent="9" name="service_total">
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="178" parent="9" name="created_at">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
-    </column>
-    <column id="179" parent="9" name="updated_at">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="179" parent="9" name="vita_td">
+      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <default-expression>'f'</default-expression>
+>>>>>>> Stashed changes
     </column>
     <key id="180" parent="9">
       <columns>id</columns>

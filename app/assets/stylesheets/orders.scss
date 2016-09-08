@@ -8,6 +8,8 @@ $in_urgent: #ff5555;
 $in_test_pending: #ffb380;
 $in_paid: #55aa60;
 $in_null: #ac9d93;
+$in_test_invoiced: #ba68c8;
+
 
 
 
@@ -34,6 +36,10 @@ $in_null: #ac9d93;
 .in_test_pending{
 	background-color: $in_test_pending;
 }
+.in_test_invoiced{
+    background-color: $in_test_invoiced;
+
+}
 
 .in_paid{
 	background-color: $in_paid;
@@ -45,6 +51,8 @@ $in_null: #ac9d93;
 
 .chip {
 	font-size: 15px;
+    height: 100%;
+    margin-left: 38%;
 }
 
 #stickers{
