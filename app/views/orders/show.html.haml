@@ -144,18 +144,18 @@
     .left.col.s8
       = render 'order_tooth'
       = render 'tooth_refill'
-    %div.col.s4
-      Tipo de Trabajo
-      %ul
-        - @order.services.each do |s|
-          - if s.quantity != nil
-            %li
-              Seleccion:
-              = s.id
-            %br
-            %li
-              Cantidad/Unidad:
-              = s.quantity
+    -#%div.col.s4
+    -#  Tipo de Trabajo
+    -#  %ul
+    -#    - @order.services.each do |s|
+    -#      - if s.quantity != nil
+    -#        %li
+    -#          Seleccion:
+    -#          = s.id
+    -#        %br
+    -#        %li
+    -#          Cantidad/Unidad:
+    -#          = s.quantity
 
 
 
