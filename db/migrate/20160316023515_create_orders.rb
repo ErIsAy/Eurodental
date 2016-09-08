@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration
       t.text :client_note
       t.text :other_note
       t.boolean :coti
-      t.integer :total_price
+      t.integer :total_price,	default: 0
       # t.boolean  :antagonista
       # t.boolean  :foto
       # t.boolean  :mordida

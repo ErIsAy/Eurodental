@@ -17,7 +17,7 @@ User.create(email: 'admin@admin.com', password: '123456789', role_level: 1)
                 email: Faker::Internet.free_email)
 end
 
-
+Price.create
 
 #
 # Client.create()

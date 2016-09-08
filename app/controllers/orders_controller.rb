@@ -65,6 +65,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @price = Price.all
     @clients = Client.all
     session[:order_params] ||= {}
     @order = Order.new
@@ -83,6 +84,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    @price = Price.all
     @clients = Client.all
     session[:order_params].deep_merge!(params[:order]) if params[:order]
     @order = Order.new(session[:order_params])
@@ -234,7 +236,6 @@ class OrdersController < ApplicationController
                                       :t30,
                                       :t31,
                                       :t32,
-                                      item_ids: [],
                                       services_attributes: [:antagonista,
                                                             :foto,
                                                             :mordida,
@@ -253,7 +254,7 @@ class OrdersController < ApplicationController
                                                             :perno,
                                                             :sold_laser,
                                                             :vita_classic,
-                                                            :vita_3d,
+                                                            :vita_td,
                                                             :bioform,
                                                             :chromarcop,
                                                             :col_otras,

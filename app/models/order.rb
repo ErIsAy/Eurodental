@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
-#  belongs_to :patient
+# belongs_to :patient
   belongs_to :client
   has_many :items
   has_many :services
@@ -12,7 +12,7 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
   accepts_nested_attributes_for :services,
-                                reject_if: :all_blank
+                                :reject_if => lambda { |a| a[:service_total].blank? }
 
   attr_accessor :client_name
   attr_accessor :client_phone
@@ -22,6 +22,7 @@ class Order < ActiveRecord::Base
 
   validates_presence_of :patient_name, :if => lambda { |o| o.current_step == "step_1"}
   validates_presence_of :client_id, :if => lambda { |o| o.current_step == "step_1"}
+
   # validate :date_order_is_valid_future_date
 
   # def date_order_is_valid_future_date

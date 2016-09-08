@@ -29,7 +29,7 @@ class CreateServices < ActiveRecord::Migration
 
             #colorimetro
             t.boolean  :vita_classic, :default => false
-            t.boolean  :vita_3d, :default => false
+            t.boolean  :vita_td, :default => false
             t.boolean  :bioform, :default => false
             t.boolean  :chromarcop, :default => false
             t.boolean  :col_otras, :default => false

@@ -37,24 +37,58 @@ function reply_click(toothid)
 
 
 /*Add or Remove price for each box*/
-function service_add(service)
-{
+function service_add(service, s_price)
+{   console.log(service);
     var service_obj = document.getElementById(service);
     var service_id = String(service).replace(/\D/g, '');
     var s_id = parseInt(service_id) + 1;
+    var price_sum = Number(document.getElementById("service_total_f"+s_id).value);
+
+
+    /*get all the actual price values*/
+    // var perno_price = parseInt(document.getElementById('perno_price').innerHTML);
+    // var soldadura_price = parseInt(document.getElementById('soldadura_price').innerHTML);
+    // var zirconio_price = parseInt(document.getElementById('zirconio_price').innerHTML);
+    // var disilicato_price = parseInt(document.getElementById('disilicato_price').innerHTML);
+    // var fedespatica_price = parseInt(document.getElementById('fedespatica_price').innerHTML);
+    // var porcelana_price = parseInt(document.getElementById('porcelana_price').innerHTML);
+    // var pmma_price = parseInt(document.getElementById('pmma_price').innerHTML);
+    // var polimero_price = parseInt(document.getElementById('polimero_price').innerHTML);
+    // var composite_price = parseInt(document.getElementById('composite_price').innerHTML);
+    // var metal_porcelana_price = parseInt(document.getElementById('metal_porcelana_price').innerHTML);
+    // var zirconio_porcelana_price = parseInt(document.getElementById('zirconio_porcelana_price').innerHTML);
+    // var peek_price = parseInt(document.getElementById('peek_price').innerHTML);
+    // var vita_classic_price = parseInt(document.getElementById('vita_classic_price').innerHTML);
+    // var vita_3d_price = parseInt(document.getElementById('vita_3d_price').innerHTML);
+    // var bioform_price = parseInt(document.getElementById('bioform_price').innerHTML);
+    // var chromarcop_price = parseInt(document.getElementById('chromarcop_price').innerHTML);
+    // var otras_price = parseInt(document.getElementById('otras_price').innerHTML);
+
 
 
     if (service_obj.checked){
-        document.getElementById("service_total_f"+s_id).value = 1;
-
+        price_sum += s_price;
     }
     else {
-        document.getElementById("service_total_f"+s_id).value -= 1;
+        price_sum -= s_price;
     }
 
-    if (document.getElementById("service_total_f"+s_id).value == 0){
-        document.getElementById("service_total_f"+s_id).value = '';
-    }
+    document.getElementById("service_total_f"+s_id).value = price_sum;
+
+
+
+    //
+    // if (service_obj.checked){
+    //     document.getElementById("service_total_f"+s_id).value = 1;
+    //
+    // }
+    // else {
+    //     document.getElementById("service_total_f"+s_id).value -= 1;
+    // }
+    //
+    // if (document.getElementById("service_total_f"+s_id).value == 0){
+    //     document.getElementById("service_total_f"+s_id).value = '';
+    // }
 
     order_total();
 }
