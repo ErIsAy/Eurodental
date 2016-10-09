@@ -10,7 +10,7 @@ Development
 ->finish the missing model
 >finish the order creation js
 >Clients nested phones, emails
->Generar Reportes 
+>Generar Reportes
 
 ____ para entregar ____
   -# *done* Create a model for items where order has_many items
@@ -21,3 +21,15 @@ ____ para entregar ____
   -# finish the filters for each show page
 
 
+
+
+-- 10/9/2016 ToDo
+  # Agregar a Tipo de Trabajo => abruitment Personalizado
+  # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
+  # Agregar un concepto por anulacion
+  # Cambiar nombre a Pigmentado (corregir)
+  # Opciones barra y hibrida unirlas como Barra/Hibrida
+  # Agregar marca a implantes como descripcion (new feature)
+  # Cambiar nombre a color por Guia de Color
+  # Unir Materiales y Metales
+  # Vita Classic agregar las opciones como select 
