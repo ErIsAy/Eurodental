@@ -78,7 +78,7 @@ class InvoicePdf < Prawn::Document
       description_data += " - Zirconio/Porcelana" if a.zirconio_porcelana == true
       description_data += " - Peek" if a.peek == true
       description_data += " - Natural" if a.natural == true
-      description_data += " - Pimentado" if a.pimentado == true
+      description_data += " - Pigmentado" if a.pimentado == true
       description_data += " - Metal" if a.metal == true
       description_data += " - Fresado/Maquinado" if a.fresado_maquinado == true
       description_data += " - Prensado" if a.prensado == true

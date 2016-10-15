@@ -120,7 +120,7 @@
               = s.label :natural, 'Natural'
               %br
               = s.check_box :pimentado, :onclick => "service_add(this.id, 0)"
-              = s.label :pimentado, 'Pimentado'
+              = s.label :pimentado, 'Pigmentado'
               %br
               = s.check_box :metal, :onclick => "service_add(this.id, 0)"
               = s.label :metal, 'Metal'
@@ -129,7 +129,7 @@
         %li
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
-            Color
+            Guía de Color
           .collapsible-body{:style => "display: inline-block;"}
             %p
               = s.check_box :vita_classic, :onclick => "service_add(this.id, #{@price.first.vita_classic_price})"

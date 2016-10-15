@@ -63,6 +63,8 @@
           %th Fecha  de Entrada
           %th Fecha  de Entrega
           %th Estado
+          %a.btn.purple.right{onclick: "printpage()"}
+            %i.material-icons print
           -# %th Nota Del Cliente
           -# %th Otras Notas
 
@@ -102,9 +104,8 @@
               %a{:href => order_path(order), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
                 %i.material-icons.right search
               - if current_user.role_level == 1
-                %a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
-                  %i.material-icons.right mode_edit
-
+                -#%a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+                -#  %i.material-icons.right mode_edit
                 %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
                   = link_to 'X', order_path(order), :method => :delete, :style => "color: white;"
 
@@ -130,19 +131,19 @@
 
 -# =image_tag "blue.png"
 
-.fixed-action-btn.horizontal.click-to-toggle{:style => "bottom: 45px; right: 24px;"}
-  %a.btn-floating.btn-large.green
-    %i.material-icons menu
-  %ul
-    %li
-      %a.btn-floating.blue{onclick: "printpage()"}
-        %i.material-icons print
+  -#.fixed-action-btn.horizontal.click-to-toggle{:style => "bottom: 45px; right: 24px;"}
+  -#  %a.btn-floating.btn-large.green
+  -#    %i.material-icons menu
+  -#  %ul
+  -#    %li
+  -#      %a.btn-floating.blue{onclick: "printpage()"}
+  -#        %i.material-icons print
 
   -# = link_to 'New Order', new_order_path
   -# END OF MAIN
 
   -# FOOTER
 
-  %footer.page-footer
-    = render :partial => 'layouts/footer'
-  -# END OF FOOTER
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

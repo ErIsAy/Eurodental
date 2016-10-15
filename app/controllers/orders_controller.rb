@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         send_data pdf.render,
           filename: "Factura_Orden_#{@order.id}.pdf",
           type: "application/pdf",
-          disposition: "inline" ##display in browser
+          disposition: "inline" # display in browser
       end
       @order.save
 
@@ -43,26 +43,6 @@ class OrdersController < ApplicationController
       end
     end
   end
-
-  # def orders_completed
-  #   @search = Order.ransack(params[:q])
-  #   @orders = @search.result
-  # end
-  #
-  # def orders_test
-  #   @search = Order.ransack(params[:q])
-  #   @orders = @search.result
-  # end
-  #
-  # def orders_process
-  #   @search = Order.ransack(params[:q])
-  #   @orders = @search.result
-  # end
-  #
-  # def orders_urgent
-  #   @search = Order.ransack(params[:q])
-  #   @orders = @search.result
-  # end
 
 
   # GET /orders/new
