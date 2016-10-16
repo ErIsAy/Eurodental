@@ -1,25 +1,6 @@
 
 Development
-*>Complete all screens even if blank
-*>Orders search  by recent,  completed,  in progress,  custom, etc..
-*>fix the date picker to disable less than today.
-*>fix the step wizard in order creation for 2 steps.
- >Modal select for clients for new Orders
-->print any report and invoices
 ->send emails for test
-->finish the missing model
->finish the order creation js
->Clients nested phones, emails
->Generar Reportes
-
-____ para entregar ____
-  -# *done* Create a model for items where order has_many items
-  -# move cant, foto, antagonista, quantity to services model
-  -# build 32~ of these with display:none property and with div id for each.
-  -# Create a JS to manage this logic, click to enable div with correspondent div id
-  -# fix the activity section, limit the queries
-  -# finish the filters for each show page
-
 
 
 
@@ -30,10 +11,13 @@ ____ para entregar ____
   # *Done* Unir Materiales y Metales
   # *Done* Vita Classic agregar las opciones como select - hacer un select con la guia
   # *Done* Agregar a Tipo de Trabajo => abruitment Personalizado
+  # *Done* Remover Implante y agregar un check de implante en tipo de trabajo con text para la marca
+  # *Done* agregar mas de 1 telefono y correo a los clientes
 
-  # agregar mas de 1 telefono y correo a los clientes
-  # Remover Implante y agregar un check de implante en tipo de trabajo con text para la marca
+
+
   # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
   # Agregar un concepto por anulacion
-  # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden)
   # fix all the filters!!!
+  # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden)
+  # complete the service sheet

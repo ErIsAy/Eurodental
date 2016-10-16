@@ -15,6 +15,7 @@ class CreateOrders < ActiveRecord::Migration
       # t.boolean  :foto
       # t.boolean  :mordida
       t.string :state, default: "En proceso"
+      t.text :null_concept # concepto de anulacion
       # t.integer :quantity, default: 1, :in => 0..99
 
       #Tooth list attributes

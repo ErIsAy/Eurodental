@@ -72,9 +72,9 @@
     %p.col.s6.margin-f
       %b Cliente:
       = @order.client_name
-    %p.col.s6.margin-f
-      %b E-Mail:
-      = @order.client_email
+    -#%p.col.s6.margin-f
+    -#  %b E-Mail:
+        -#= @order.client_email
     %p.col.s6.margin-f
       %b Fecha de Entrada:
       = @order.created_at.strftime("%F")

@@ -29,7 +29,7 @@
   %br
   -# %table.card.container{:style => "margin: 0 auto;", :class => "highlight"}
   .row.container.card{:style => "margin: 0 auto;"}
-    %table.centered.highlight#table_line
+    %table.centered.highlight.bordered#table_line
       %thead
         %tr
           %th Cliente
@@ -41,8 +41,17 @@
         - @clients.each do |client|
           %tr
             %td{:style => "text-align: justify;"}= client.name
-            %td= client.phone
-            %td= client.email
+            %td
+              - client.client_phones.each do |sphone|
+                = sphone.phone
+                %br
+                %br
+            %td
+              - client.client_emails.each do |smail|
+                = smail.email
+                %br
+                %br
+                %br
 
             %td.btn-group
               %a{:href => client_path(client), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}

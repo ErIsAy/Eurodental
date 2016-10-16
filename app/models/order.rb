@@ -45,18 +45,18 @@ class Order < ActiveRecord::Base
     client.name if client
     #Client.name if order
   end
-
-  def client_phone
-    client.phone if client
-  end
+  #
+  # def client_phone
+  #   client.phone if client
+  # end
 
   def client_address
     client.address if client
   end
 
-  def client_email
-    client.email if client
-  end
+  # def client_email
+  #   client.email if client
+  # end
 
   def current_step
     @current_step || steps.first

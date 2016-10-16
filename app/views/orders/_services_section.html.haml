@@ -33,51 +33,147 @@
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Tipo de Trabajo
-          .collapsible-body{:style => "display: inline-block;"}
-            %p
-              = s.check_box :corona, :onclick => "service_add(this.id, 0)"
-              = s.label :corona, 'Corona'
-              %br
-              = s.check_box :puente, :onclick => "service_add(this.id, 0)"
-              = s.label :puente, 'Puente'
-              = s.text_field :puente_a, :style => 'height: 36px;width: 35px;margin-left: 33px;'
-              ' a '
-              = s.text_field :puente_b, :style => 'height: 36px;width: 35px;'
-              %br
-              = s.check_box :implante, :onclick => "service_add(this.id, 0)"
-              = s.label :implante, 'implantes'
-              %br
-              = s.check_box :barra, :onclick => "service_add(this.id, 0)"
-              = s.label :barra, 'Barra/Hibrida'
-              -# eliminar atributo
-              -#%br
-              -#= s.check_box :hibrida, :onclick => "service_add(this.id, 0)"
-              -#= s.label :hibrida, 'Hibrida'
-              %br
-              = s.check_box :carilla, :onclick => "service_add(this.id, 0)"
-              = s.label :carilla, 'Carilla'
-              %br
-              = s.check_box :in_onlay, :onclick => "service_add(this.id, 0)"
-              = s.label :in_onlay, 'Inlay/Onlay'
-              %br
-              = s.check_box :inlay_bridge, :onclick => "service_add(this.id, 0)"
-              = s.label :inlay_bridge, 'Inlay Bridge'
-              %br
-              = s.check_box :lente_contacto, :onclick => "service_add(this.id, 0)"
-              = s.label :lente_contacto, 'Lente de Contacto'
-              %br
-              = s.check_box :perno, :onclick => "service_add(this.id, #{@price.first.perno_price})"
-              = s.label :perno, 'Perno'
-              %br
-              = s.check_box :sold_laser, :onclick => "service_add(this.id, #{@price.first.soldadura_price})"
-              = s.label :sold_laser, 'Soldadura Láser'
-              %br
-              = s.check_box :cabutment, :onclick => "service_add(this.id, #{@price.first.abuitment_price})"
-              = s.label :cabutment, 'Abutment Personalizado', :style=> 'margin-right:28px;'
-              = s.text_field :cabutment_text, :style => 'width:150px;'
+          .collapsible-body
+            %table
+              %thead
+                %tr
+                  %th{"data-field" => "id"} Agregar
+                  %th
+                  %th
+                    = s.check_box :implante
+                    = s.label :implante, 'Implante?'
+              %tbody{:style => 'line-height: 0.5;'}
+                %tr
+                  %td
+                    = s.check_box :corona, :onclick => "service_add(this.id, 0)"
+                    = s.label :corona, 'Corona'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :puente, :onclick => "service_add(this.id, 0)"
+                    = s.label :puente, 'Puente'
+                  %td
+                    = s.text_field :puente_a, :style => 'height: 36px;width: 35px;margin-left: 33px;'
+                    ' a '
+                    = s.text_field :puente_b, :style => 'height: 36px;width: 35px;'
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :barra, :onclick => "service_add(this.id, 0)"
+                    = s.label :barra, 'Barra/Hibrida'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :carilla, :onclick => "service_add(this.id, 0)"
+                    = s.label :carilla, 'Carilla'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :in_onlay, :onclick => "service_add(this.id, 0)"
+                    = s.label :in_onlay, 'Inlay/Onlay'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :inlay_bridge, :onclick => "service_add(this.id, 0)"
+                    = s.label :inlay_bridge, 'Inlay Bridge'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :lente_contacto, :onclick => "service_add(this.id, 0)"
+                    = s.label :lente_contacto, 'Lente de Contacto'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :perno, :onclick => "service_add(this.id, #{@price.first.perno_price})"
+                    = s.label :perno, 'Perno'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :sold_laser, :onclick => "service_add(this.id, #{@price.first.soldadura_price})"
+                    = s.label :sold_laser, 'Soldadura Láser'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      %input#brand.validate{:placeholder => "Marca", :type => "text"}
+                %tr
+                  %td
+                    = s.check_box :cabutment, :onclick => "service_add(this.id, #{@price.first.abuitment_price})"
+                    = s.label :cabutment, 'Abutment Personalizado'
+                  %td
+                  %td
+                    .input-field.col.s6
+                      = s.text_field :cabutment_text, :placeholder => 'Marca', :style => 'width:150px;'
 
 
-        %li
+
+
+            -#%p
+            -#  = s.check_box :corona, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :corona, 'Corona'
+            -#  %br
+            -#  = s.check_box :puente, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :puente, 'Puente'
+            -#  = s.text_field :puente_a, :style => 'height: 36px;width: 35px;margin-left: 33px;'
+            -#  ' a '
+            -#  = s.text_field :puente_b, :style => 'height: 36px;width: 35px;'
+            -#  %br
+            -#  = s.check_box :implante, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :implante, 'implantes'
+            -#  %br
+            -#  = s.check_box :barra, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :barra, 'Barra/Hibrida'
+            -#  -# eliminar atributo
+            -#  -#%br
+            -#  -#= s.check_box :hibrida, :onclick => "service_add(this.id, 0)"
+            -#  -#= s.label :hibrida, 'Hibrida'
+            -#  %br
+            -#  = s.check_box :carilla, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :carilla, 'Carilla'
+            -#  %br
+            -#  = s.check_box :in_onlay, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :in_onlay, 'Inlay/Onlay'
+            -#  %br
+            -#  = s.check_box :inlay_bridge, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :inlay_bridge, 'Inlay Bridge'
+            -#  %br
+            -#  = s.check_box :lente_contacto, :onclick => "service_add(this.id, 0)"
+            -#  = s.label :lente_contacto, 'Lente de Contacto'
+            -#  %br
+            -#  = s.check_box :perno, :onclick => "service_add(this.id, #{@price.first.perno_price})"
+            -#  = s.label :perno, 'Perno'
+            -#  %br
+            -#  = s.check_box :sold_laser, :onclick => "service_add(this.id, #{@price.first.soldadura_price})"
+            -#  = s.label :sold_laser, 'Soldadura Láser'
+            -#  %br
+            -#  = s.check_box :cabutment, :onclick => "service_add(this.id, #{@price.first.abuitment_price})"
+            -#  = s.label :cabutment, 'Abutment Personalizado', :style=> 'margin-right:28px;'
+            -#  = s.text_field :cabutment_text, :style => 'width:150px;'
+
+
+        %li.work_enable
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Material
@@ -128,7 +224,7 @@
               = s.check_box :paladio, :onclick => "service_add(this.id, 0)"
               = s.label :paladio, 'Paladio'
 
-        %li
+        %li.work_enable
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Color de Muñon
@@ -144,7 +240,7 @@
               = s.label :metal, 'Metal'
 
 
-        %li
+        %li.work_enable
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Guía de Color
@@ -189,7 +285,7 @@
             -#  %label Otro Color
 
 
-        %li
+        %li.work_enable
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Procedimiento

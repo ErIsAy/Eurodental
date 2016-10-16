@@ -183,6 +183,7 @@ class OrdersController < ApplicationController
                                       :other_note,
                                       :client_id,
                                       :state,
+                                      :null_concept,
                                       :total_price,
                                       :partial_pay,
                                       :total_pending,

@@ -31,16 +31,24 @@
       %p
         %b{:style => "display: block;"} Nombre del Cliente:
         = @client.name
-      %p
-        %b{:style => "display: block;"} Tel.::
-        = @client.phone
+      -#%p
+      -#  %b{:style => "display: block;"} Tel.::
+      -#  = @client.phone
       %p
         %b{:style => "display: block;"} Dirección:
         = @client.address
+      -#%p
+      -#  %b{:style => "display: block;"} E-Mail:
+      -#  = @client.email
       %p
-        %b{:style => "display: block;"} E-Mail:
-        = @client.email
+        %b{:style => "display: block;"} Correos:
+        - @client.client_emails.each do |smail|
+          %li= smail.email
 
+      %p
+        %b{:style => "display: block;"} Teléfonos:
+        - @client.client_phones.each do |sphone|
+          %li= sphone.phone
 
   -# CONTENT
   .container

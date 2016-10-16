@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906202331) do
+ActiveRecord::Schema.define(version: 20161016212407) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -36,11 +36,27 @@ ActiveRecord::Schema.define(version: 20160906202331) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "client_emails", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "client_emails", ["client_id"], name: "index_client_emails_on_client_id"
+
+  create_table "client_phones", force: :cascade do |t|
+    t.string   "phone"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "client_phones", ["client_id"], name: "index_client_phones_on_client_id"
+
   create_table "clients", force: :cascade do |t|
     t.string   "name"
-    t.string   "phone"
     t.text     "address"
-    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

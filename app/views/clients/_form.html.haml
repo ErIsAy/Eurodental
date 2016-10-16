@@ -15,13 +15,13 @@
         = f.label :name, "Cliente"
         = f.text_field :name
 
-      .input-field{:class => "col s6"}
-        %i.material-icons.prefix phone
-        = f.label :phone, "Tel.:"
-        = f.text_field :phone,
-          :placeholder => "(___) ___ ____ ",
-          :type => "tel",
-          :class => "phone-mask"
+      -#.input-field{:class => "col s6"}
+      -#  %i.material-icons.prefix phone
+      -#  = f.label :phone, "Tel.:"
+      -#  = f.text_field :phone,
+      -#    :placeholder => "(___) ___ ____ ",
+      -#    :type => "tel",
+      -#    :class => "phone-mask"
 
 
       .input-field{:class => "col s12 s12 s6"}
@@ -30,13 +30,37 @@
         = f.text_area :address,
           :class => "materialize-textarea"
 
-      .input-field{:class => "col s12 s12 s6"}
-        %i.material-icons.prefix email
-        %label{:for => "email"} E-mail
-        = f.text_field :email,
-          :id => 'email',
-          :class=> 'validate',
-          :type => 'email'
+      -#.input-field{:class => "col s12 s12 s6"}
+      -#  %i.material-icons.prefix email
+      -#  %label{:for => "email"} E-mail
+      -#  = f.text_field :email,
+      -#    :id => 'email',
+      -#    :class=> 'validate',
+      -#    :type => 'email'
+
+      .row.container.col.s12{:style => "margin: 0 auto;"}
+        .col.m6
+          %h5{:style => "color: black"}
+            Correos
+          #emails
+            = f.fields_for :client_emails do |k|
+              = render 'client_email_fields', f: k
+            .links
+              = link_to_add_association '+', f, :client_emails, class: "btn", style: "font-size: 50px;"
+
+        .col.m6
+          %h5{:style => "color: black"}
+            Teléfonos
+          #emails
+            = f.fields_for :client_phones do |j|
+              = render 'client_phone_fields', f: j
+            .links
+              = link_to_add_association '+', f, :client_phones, class: "btn", style: "font-size: 50px;"
+
+          -2.times do
+            %br
+
+
     %br
     %br
     .actions.container{:style => "margin: 0 auto;"}
