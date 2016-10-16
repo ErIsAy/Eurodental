@@ -51,6 +51,7 @@ height: 666px;
   background-color: #c8a0d5;
   border-radius: 5px;
   margin: 0px 0px 5px 5px;
+  top: 40px;
   p {
     text-align: right;
   }
@@ -76,3 +77,13 @@ height: 666px;
   text-align: center;
   font-size: 20px;
 }
+
+.collapsible-body {
+  box-sizing: content-box;
+}
+
+.select-wrapper{
+  display: inline-flex;
+
+}
+

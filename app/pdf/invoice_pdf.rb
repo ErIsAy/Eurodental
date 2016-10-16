@@ -49,8 +49,8 @@ class InvoicePdf < Prawn::Document
       description_data += " - Corona" if a.corona == true
       description_data += " - Puente (#{a.puente_a} a #{a.puente_b})" if a.puente == true
       description_data += " - Implante" if a.implante == true
-      description_data += " - Barra" if a.barra == true
-      description_data += " - Hibrida" if a.hibrida == true
+      description_data += " - Barra/Hibrida" if a.barra == true
+      # description_data += " - Hibrida" if a.hibrida == true
       description_data += " - Carilla" if a.carilla == true
       description_data += " - Inlay/Onlay" if a.in_onlay == true
       description_data += " - Inlay Bridge" if a.inlay_bridge == true

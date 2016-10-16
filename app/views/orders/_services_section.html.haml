@@ -48,10 +48,11 @@
               = s.label :implante, 'implantes'
               %br
               = s.check_box :barra, :onclick => "service_add(this.id, 0)"
-              = s.label :barra, 'Barra'
-              %br
-              = s.check_box :hibrida, :onclick => "service_add(this.id, 0)"
-              = s.label :hibrida, 'Hibrida'
+              = s.label :barra, 'Barra/Hibrida'
+              -# eliminar atributo
+              -#%br
+              -#= s.check_box :hibrida, :onclick => "service_add(this.id, 0)"
+              -#= s.label :hibrida, 'Hibrida'
               %br
               = s.check_box :carilla, :onclick => "service_add(this.id, 0)"
               = s.label :carilla, 'Carilla'
@@ -108,7 +109,21 @@
               %br
               = s.check_box :peek, :onclick => "service_add(this.id, #{@price.first.peek_price})"
               = s.label :peek, 'Peek'
-
+              %br
+              = s.check_box :cromo_cobalto, :onclick => "service_add(this.id, 0)"
+              = s.label :cromo_cobalto, 'Cromo Cobalto'
+              %br
+              = s.check_box :titanium, :onclick => "service_add(this.id, 0)"
+              = s.label :titanium, 'Titanium'
+              %br
+              = s.check_box :cromo_niquel, :onclick => "service_add(this.id, 0)"
+              = s.label :cromo_niquel, 'Cromo Niquel'
+              %br
+              = s.check_box :oro, :onclick => "service_add(this.id, 0)"
+              = s.label :oro, 'Oro'
+              %br
+              = s.check_box :paladio, :onclick => "service_add(this.id, 0)"
+              = s.label :paladio, 'Paladio'
 
         %li
           .collapsible-header
@@ -133,24 +148,28 @@
           .collapsible-body{:style => "display: inline-block;"}
             %p
               = s.check_box :vita_classic, :onclick => "service_add(this.id, #{@price.first.vita_classic_price})"
-              = s.label :vita_classic, 'Vita Classic'
-              = s.text_field :vita_classic_text, :style => 'width:65px; margin-left:15px;'
+              = s.label :vita_classic, 'Vita Classic', :style=> 'margin-right:50px;'
+              -#= s.text_field :vita_classic_text, :style => 'width:65px; margin-left:15px;'
+              = s.select(:vita_classic_text, options_for_select([['A1'], ['A2'], ['A3'], ['A3.5'], ['A4'],
+                                                                 ['B1'], ['B2'], ['B3'], ['B4'],
+                                                                 ['C1'], ['C2'], ['C3'], ['C4'],
+                                                                 ['D2'], ['D3'], ['D4']]))
               %br
               = s.check_box :vita_td, :onclick => "service_add(this.id, #{@price.first.vita_3d_price})"
-              = s.label :vita_td, 'Vita 3D Master'
-              = s.text_field :vita_3d_text, :style => 'width:65px; margin-left:15px;'
+              = s.label :vita_td, 'Vita 3D Master', :style=> 'margin-right:28px;'
+              = s.text_field :vita_3d_text, :style => 'width:65px;'
               %br
               = s.check_box :bioform, :onclick => "service_add(this.id, #{@price.first.bioform_price})"
-              = s.label :bioform, 'Bioform'
-              = s.text_field :bioform_text, :style => 'width:65px; margin-left:15px;'
+              = s.label :bioform, 'Bioform', :style=> 'margin-right:83px;'
+              = s.text_field :bioform_text, :style => 'width:65px;'
               %br
               = s.check_box :chromarcop, :onclick => "service_add(this.id, #{@price.first.chromarcop_price})"
-              = s.label :chromarcop, 'Chromarcop'
-              = s.text_field :chromarcop_text, :style => 'width:65px; margin-left:15px;'
+              = s.label :chromarcop, 'Chromarcop', :style=> 'margin-right:50px;'
+              = s.text_field :chromarcop_text, :style => 'width:65px;'
               %br
               = s.check_box :col_otras, :onclick => "service_add(this.id, #{@price.first.otras_price})"
-              = s.label :col_otras, 'Otras'
-              = s.text_field :col_otras_text, :style => 'width:65px; margin-left:15px;'
+              = s.label :col_otras, 'Otras', :style=> 'margin-right:105px;'
+              = s.text_field :col_otras_text, :style => 'width:65px;'
 
 
 
@@ -181,26 +200,26 @@
               = s.check_box :colado, :onclick => "service_add(this.id, 0)"
               = s.label :colado, 'Colado'
 
-        %li
-          .collapsible-header
-            %i.material-icons> keyboard_arrow_right
-            Metales
-          .collapsible-body
-            %p
-              = s.check_box :cromo_cobalto, :onclick => "service_add(this.id, 0)"
-              = s.label :cromo_cobalto, 'Cromo Cobalto'
-              %br
-              = s.check_box :titanium, :onclick => "service_add(this.id, 0)"
-              = s.label :titanium, 'Titanium'
-              %br
-              = s.check_box :cromo_niquel, :onclick => "service_add(this.id, 0)"
-              = s.label :cromo_niquel, 'Cromo Niquel'
-              %br
-              = s.check_box :oro, :onclick => "service_add(this.id, 0)"
-              = s.label :oro, 'Oro'
-              %br
-              = s.check_box :paladio, :onclick => "service_add(this.id, 0)"
-              = s.label :paladio, 'Paladio'
+        -#%li
+        -#  .collapsible-header
+        -#    %i.material-icons> keyboard_arrow_right
+        -#    Metales
+        -#  .collapsible-body
+        -#    %p
+        -#      = s.check_box :cromo_cobalto, :onclick => "service_add(this.id, 0)"
+        -#      = s.label :cromo_cobalto, 'Cromo Cobalto'
+        -#      %br
+        -#      = s.check_box :titanium, :onclick => "service_add(this.id, 0)"
+        -#      = s.label :titanium, 'Titanium'
+        -#      %br
+        -#      = s.check_box :cromo_niquel, :onclick => "service_add(this.id, 0)"
+        -#      = s.label :cromo_niquel, 'Cromo Niquel'
+        -#      %br
+        -#      = s.check_box :oro, :onclick => "service_add(this.id, 0)"
+        -#      = s.label :oro, 'Oro'
+        -#      %br
+        -#      = s.check_box :paladio, :onclick => "service_add(this.id, 0)"
+        -#      = s.label :paladio, 'Paladio'
 
 
     .input-field.col.s12#subtotal_price

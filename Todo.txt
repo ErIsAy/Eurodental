@@ -24,13 +24,14 @@ ____ para entregar ____
 
 
 -- 10/9/2016 ToDo
+  # *Done* Cambiar nombre a Pigmentado (corregir)
+  # *Done* Opciones barra y hibrida unirlas como Barra/Hibrida
+  # *Done* Cambiar nombre a color por Guia de Color
+  # *Done* Unir Materiales y Metales
+  # *Done* Vita Classic agregar las opciones como select - hacer un select con la guia
+
   # Agregar a Tipo de Trabajo => abruitment Personalizado
   # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
   # Agregar un concepto por anulacion
-  # *Done* Cambiar nombre a Pigmentado (corregir)
-  # Opciones barra y hibrida unirlas como Barra/Hibrida
   # Agregar marca a implantes como descripcion (new feature)
-  # *Done* Cambiar nombre a color por Guia de Color
-  # Unir Materiales y Metales
-  # Vita Classic agregar las opciones como select - hacer un select con la guia
   # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden)
