@@ -15,13 +15,13 @@
       Otros Filtros
   %br
     %br
-    .row.card.container{:style => "margin: 0 auto"}
-      .input-field.col.s12
-        %select
-          %option{:selected => "selected", :value => "1"} Todas
-          %option{:value => "2"} Pendientes
-          %option{:value => "3"} Ordenes Facturadas
-        %label Filtrar por:
+    -#.row.card.container{:style => "margin: 0 auto"}
+    -#  .input-field.col.s12
+    -#    %select
+    -#      %option{:selected => "selected", :value => "1"} Todas
+    -#      %option{:value => "2"} Pendientes
+    -#      %option{:value => "3"} Ordenes Facturadas
+    -#    %label Filtrar por:
 
     .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
       = search_form_for @search do |f|
@@ -41,16 +41,14 @@
                          :class => "datepicker_all"
 
         .input-field.col.s6
-          %select
-            %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
-            %option{:value => "1"} Completada
-            %option{:value => "2"} En Proceso
-            %option{:value => "3"} Urgente
-            %option{:value => "4"} En Prueba
-            %option{:value => "5"} Nueva
-            %option{:value => "6"} Anulada
-            %option{:value => "7"} Facturada
-          %label Estado
+          = f.select( :state_cont, options_for_select([[""],
+                                                  ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
+                                                  ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
+                                                  ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+                                                  ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
+                                                  ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
+                                                  ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
+                                                  disabled: "Elige el Estado"), class: "icons" )
 
         = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
                               :style => "left: 15px; bottom: 5px;"
@@ -63,7 +61,7 @@
     %table.centered.highlight#orders_t
       %thead
         %tr
-          %th Referencia
+          %th Factura No.
           %th Cliente
           %th Fecha  de Entrada
           -#%th Fecha  de Entrega

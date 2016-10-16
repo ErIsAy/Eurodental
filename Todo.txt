@@ -18,6 +18,6 @@ Development
 
   # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
   # Agregar un concepto por anulacion
-  # fix all the filters!!!
-  # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden)
+  # fix all the filters!!! and fix accounting to redirect to itself
+  # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden), en accounting agregar el # de factura
   # complete the service sheet
