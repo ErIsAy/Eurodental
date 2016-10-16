@@ -30,8 +30,10 @@ ____ para entregar ____
   # *Done* Unir Materiales y Metales
   # *Done* Vita Classic agregar las opciones como select - hacer un select con la guia
 
+
   # Agregar a Tipo de Trabajo => abruitment Personalizado
   # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
   # Agregar un concepto por anulacion
   # Agregar marca a implantes como descripcion (new feature)
   # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden)
+  # fix all the filters!!!
