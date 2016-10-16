@@ -29,11 +29,11 @@ ____ para entregar ____
   # *Done* Cambiar nombre a color por Guia de Color
   # *Done* Unir Materiales y Metales
   # *Done* Vita Classic agregar las opciones como select - hacer un select con la guia
+  # *Done* Agregar a Tipo de Trabajo => abruitment Personalizado
 
-
-  # Agregar a Tipo de Trabajo => abruitment Personalizado
+  # agregar mas de 1 telefono y correo a los clientes
+  # Remover Implante y agregar un check de implante en tipo de trabajo con text para la marca
   # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
   # Agregar un concepto por anulacion
-  # Agregar marca a implantes como descripcion (new feature)
   # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden)
   # fix all the filters!!!

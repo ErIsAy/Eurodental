@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160906202331) do
   create_table "prices", force: :cascade do |t|
     t.integer  "perno_price",              default: 0
     t.integer  "soldadura_price",          default: 0
+    t.integer  "abuitment_price",          default: 0
     t.integer  "zirconio_price",           default: 0
     t.integer  "disilicato_price",         default: 0
     t.integer  "fedespatica_price",        default: 0
@@ -135,7 +136,7 @@ ActiveRecord::Schema.define(version: 20160906202331) do
     t.boolean  "antagonista",        default: false
     t.boolean  "foto",               default: false
     t.boolean  "mordida",            default: false
-    t.integer  "quantity"
+    t.integer  "quantity",           default: 0
     t.integer  "tooth_number"
     t.boolean  "corona",             default: false
     t.boolean  "puente",             default: false
@@ -150,6 +151,8 @@ ActiveRecord::Schema.define(version: 20160906202331) do
     t.boolean  "lente_contacto",     default: false
     t.boolean  "perno",              default: false
     t.boolean  "sold_laser",         default: false
+    t.boolean  "cabutment",          default: false
+    t.string   "cabutment_text"
     t.boolean  "vita_classic",       default: false
     t.boolean  "vita_td",            default: false
     t.boolean  "bioform",            default: false

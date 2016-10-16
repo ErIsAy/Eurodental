@@ -10,7 +10,7 @@
         %a.btn-floating.btn.waves-effect.waves-light.red{:id => "close_box#{cont}", "onClick"=>'close_box(this.id)'}
           %i.material-icons close
 
-    .input-field{:style => "", :class => "col s12"}
+    .input-field{:style => "padding-bottom: 17px;", :class => "col s12"}
       %br
         = image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 24px;", :class => "material-icons"
         = s.check_box :antagonista
@@ -33,7 +33,7 @@
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Tipo de Trabajo
-          .collapsible-body
+          .collapsible-body{:style => "display: inline-block;"}
             %p
               = s.check_box :corona, :onclick => "service_add(this.id, 0)"
               = s.label :corona, 'Corona'
@@ -71,7 +71,10 @@
               %br
               = s.check_box :sold_laser, :onclick => "service_add(this.id, #{@price.first.soldadura_price})"
               = s.label :sold_laser, 'Soldadura Láser'
-
+              %br
+              = s.check_box :cabutment, :onclick => "service_add(this.id, #{@price.first.abuitment_price})"
+              = s.label :cabutment, 'Abutment Personalizado', :style=> 'margin-right:28px;'
+              = s.text_field :cabutment_text, :style => 'width:150px;'
 
 
         %li
@@ -145,12 +148,13 @@
           .collapsible-header
             %i.material-icons> keyboard_arrow_right
             Guía de Color
-          .collapsible-body{:style => "display: inline-block;"}
+          .collapsible-body
             %p
               = s.check_box :vita_classic, :onclick => "service_add(this.id, #{@price.first.vita_classic_price})"
               = s.label :vita_classic, 'Vita Classic', :style=> 'margin-right:50px;'
               -#= s.text_field :vita_classic_text, :style => 'width:65px; margin-left:15px;'
-              = s.select(:vita_classic_text, options_for_select([['A1'], ['A2'], ['A3'], ['A3.5'], ['A4'],
+              = s.select(:vita_classic_text, options_for_select([[''],
+                                                                 ['A1'], ['A2'], ['A3'], ['A3.5'], ['A4'],
                                                                  ['B1'], ['B2'], ['B3'], ['B4'],
                                                                  ['C1'], ['C2'], ['C3'], ['C4'],
                                                                  ['D2'], ['D3'], ['D4']]))

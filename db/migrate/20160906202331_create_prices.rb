@@ -4,6 +4,7 @@ class CreatePrices < ActiveRecord::Migration
       #tipo de trabajo precios
       t.integer :perno_price,	default: 0
       t.integer :soldadura_price,	default: 0
+      t.integer :abuitment_price, default: 0
 
       #materiales precios
       t.integer :zirconio_price,	default: 0

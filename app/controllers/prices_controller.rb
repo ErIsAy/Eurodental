@@ -11,6 +11,7 @@ class PricesController < ApplicationController
 
   def update_prices
 
+    abuitment_price = params[:abuitment_price]
     perno_price = params[:perno_price]
     soldadura_price = params[:soldadura_price]
     zirconio_price = params[:zirconio_price]
@@ -31,7 +32,8 @@ class PricesController < ApplicationController
 
 
     precios = Price.find_by_id(1)
-    Price.where(:id => 1).update_all(:perno_price => perno_price,
+    Price.where(:id => 1).update_all(:abuitment_price => abuitment_price,
+                                     :perno_price => perno_price,
                                      :soldadura_price => soldadura_price,
                                      :zirconio_price => zirconio_price,
                                      :disilicato_price => disilicato_price,

@@ -235,6 +235,8 @@ class OrdersController < ApplicationController
                                                             :lente_contacto,
                                                             :perno,
                                                             :sold_laser,
+                                                            :cabutment,
+                                                            :cabutment_text,
                                                             :vita_classic,
                                                             :vita_td,
                                                             :bioform,

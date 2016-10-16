@@ -26,6 +26,8 @@ class CreateServices < ActiveRecord::Migration
             t.boolean  :lente_contacto, :default => false
             t.boolean  :perno, :default => false
             t.boolean  :sold_laser, :default => false
+            t.boolean :cabutment, :default => false
+            t.string :cabutment_text
 
             #colorimetro
             t.boolean  :vita_classic, :default => false

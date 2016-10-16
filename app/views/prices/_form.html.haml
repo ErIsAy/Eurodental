@@ -1,6 +1,10 @@
 = form_tag update_prices_path do
   .row.card.container.col.s12{:style => "margin: 0 auto;"}
     .input-field{:class => "col s6 "}
+      = label :abuitment_price, "Abuitment"
+      = number_field_tag :abuitment_price, @price.first.abuitment_price
+
+    .input-field{:class => "col s6 "}
       = label :perno_price, "Perno"
       = number_field_tag :perno_price, @price.first.perno_price
 

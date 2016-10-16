@@ -57,6 +57,11 @@ class InvoicePdf < Prawn::Document
       description_data += " - Lente de Contacto" if a.lente_contacto == true
       description_data += " - Perno" if a.perno == true
       description_data += " - Soldadura Laser" if a.sold_laser == true
+
+      description_data += " - Abuitment Personalizado" if a.cabutment == true
+      description_data += "(#{a.cabutment_text})" if not (a.cabutment_text.blank?)
+
+
       description_data += " - Vita Classic" if a.vita_classic == true
       description_data += "(#{a.vita_classic_text})" if not (a.vita_classic_text.blank?)
       description_data += " - Vita 3D Master" if  a.vita_td == true
