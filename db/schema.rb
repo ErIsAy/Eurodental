@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20161016212407) do
     t.integer  "partial_pay",   default: 0
     t.integer  "total_pending"
     t.string   "state",         default: "En proceso"
+    t.text     "null_concept"
     t.integer  "t1",            default: 0
     t.integer  "t2",            default: 0
     t.integer  "t3",            default: 0

@@ -25,17 +25,24 @@
       .col.s8.row
         = form_for(@order, remote: true, html: {id: "status-update"}) do |f|
           .input-field.col.s6
-            = f.select( :state, options_for_select([["Elige el Estado"],
+            = f.select :state, options_for_select([["Elige el Estado"],
                                                     ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
                                                     ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
                                                     ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
                                                     ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
                                                     ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
                                                     ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
-                                                    disabled: "Elige el Estado"), class: "icons" )
-            .input-field.col.s6
+                                                    disabled: "Elige el Estado"), class: "icons"
+
+            .input-field#order_null_concept
+              -#= f.label :null_contept, "Concepto por Anulación"
+              = f.text_area :null_concept, :placeholder => 'Concepto por Anulación',
+                :class => "materialize-textarea"
+            .input-field
               = f.label :partial_pay, 'Abono'
               = f.number_field :partial_pay
+
+
           .col.s2
             %button.btn.waves-effect.waves-light{:style => "height: 49px; top: 23px;", :name => "action", :type => "submit"}
               %i.material-icons.right{:style => "margin-left: 0px; padding-top: 4px; font-size:50px;"} check
@@ -71,7 +78,8 @@
 
     %p.col.s6.margin-f
       %b Cliente:
-      = @order.client_name
+      -#= @order.client_name
+      = link_to "#{@order.client_name}", client_path(@order.client_id)
     -#%p.col.s6.margin-f
     -#  %b E-Mail:
         -#= @order.client_email
@@ -179,25 +187,38 @@
 
 -# END OF MAIN
 
+
 -# FOOTER
 
 %footer.page-footer
   = render :partial => 'layouts/footer'
 -# END OF FOOTER
 -#
--# :javascript
--#   $(function() {
--#       Materialize.updateTextFields();
--#   });
--#   $( document ).ready(function(){
--#     document.getElementById("step_1").classList.add("complete");
--#     document.getElementById("step_2").classList.add("complete");
--#     document.getElementById("step_3").classList.add("complete");
--#     });
--#
--#
--#   function printpage()
--#     {
--#
--#       window.print()
--#     }
+:javascript
+  //Function to enable/disable concept description for canceling of orders
+  $(document).ready(function(){
+    if($("textarea#order_null_concept").val() == "")
+    {
+      $("#order_null_concept").hide();
+
+    }
+    else
+    {
+      $("#order_null_concept").show();
+
+    }
+    $('#order_state').on('change', function() {
+      if ( this.value == 'Anulada')
+      {
+        $("#order_null_concept").show();
+
+      }
+      else
+      {
+        $("#order_null_concept").hide();
+
+      }
+    });
+  });
+
+

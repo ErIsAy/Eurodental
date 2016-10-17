@@ -24,7 +24,7 @@
     -#    %label Filtrar por:
 
     .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
-      = search_form_for @search do |f|
+      = search_form_for @search, url: accountability_index_path do |f|
         .input-field{:class => "col s6"}
           = f.label :client_name_cont, "Cliente"
           = f.text_field :client_name_cont

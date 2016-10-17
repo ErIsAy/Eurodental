@@ -16,7 +16,7 @@
     -when "Facturada - pago"
       .chip.in_paid= @order.state.capitalize
     -when "Anulada"
-      .chip.in_null= @order.state.capitalize
+      .chip.in_null#order_null= @order.state.capitalize
     -when "Cotizacion"
       .chip.in_null= @order.state.capitalize
 

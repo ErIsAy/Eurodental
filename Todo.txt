@@ -13,11 +13,10 @@ Development
   # *Done* Agregar a Tipo de Trabajo => abruitment Personalizado
   # *Done* Remover Implante y agregar un check de implante en tipo de trabajo con text para la marca
   # *Done* agregar mas de 1 telefono y correo a los clientes
-
+  # *Done* Agregar un concepto por anulacion
 
 
   # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
-  # Agregar un concepto por anulacion
-  # fix all the filters!!! and fix accounting to redirect to itself
+  # fix all the filters!!!
   # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden), en accounting agregar el # de factura
   # complete the service sheet
