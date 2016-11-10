@@ -3,6 +3,7 @@ class Client < ActiveRecord::Base
   tracked owner: ->(controller, model) { controller && controller.current_user }
 
    has_many :orders, :dependent => :destroy
+   has_many :sales, dependent: :destroy
    has_many :client_emails, dependent: :destroy
    has_many :client_phones, dependent: :destroy
    accepts_nested_attributes_for :client_emails, reject_if: :all_blank, allow_destroy: true

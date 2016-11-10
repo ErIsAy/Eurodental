@@ -1,0 +1,24 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+
+
+  -# %br
+  -# %h3.container{:style => "margin: 0 auto;"} Nueva Orden
+  -# %br
+
+
+  %h3{:style => "margin: 0 auto; text-align: center;"}
+    = image_tag "eu-tooth.png", :style => "width: 80px;"
+
+  = render 'form'
+
+-# = link_to 'Back', sales_path
+-#
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

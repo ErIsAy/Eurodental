@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :sales
   get 'activity/index'
 
   get 'accountability/index'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   get 'admin/index'
+  get 'admin/servicios'
   # get 'orders/orders_completed'
   # get 'orders/orders_test'
   # get 'orders/orders_process'

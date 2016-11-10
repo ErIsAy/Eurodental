@@ -4,16 +4,19 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title EuroDentalLab
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    -# = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %link{:href => "http://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
   %body
 
+
+    = yield
+
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = yield :javascript
+
   - flash.each do |name, msg|
     :javascript
       Materialize.toast('#{msg}', 2000, 'rounded')
-
-
-  = yield

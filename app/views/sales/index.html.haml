@@ -1,0 +1,132 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Ordenes
+  %br
+
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_sale_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nueva Orden
+    %a.right.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right search
+      Filtro
+
+
+  .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
+    = search_form_for @search do |f|
+      .input-field{:class => "col s6"}
+        = f.label :client_name_cont, "Cliente"
+        = f.text_field :client_name_cont
+      .input-field{:class => "col s6"}
+        = f.label :patient_name_cont, "Paciente"
+        = f.text_field :patient_name_cont
+      .input-field{:class => "col s3"}
+        = f.label :created_at_date_gequals, "Desde"
+        = f.text_field :created_at_date_gequals,
+                       :class => "datepicker_all"
+      .input-field{:class => "col s3"}
+        = f.label :created_at_date_lequals, "Hasta"
+        = f.text_field :created_at_date_lequals,
+                       :class => "datepicker_all"
+      .input-field.col.s6
+        = f.select( :state_cont, options_for_select([[""],
+                                                ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
+                                                ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
+                                                ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+                                                ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
+                                                ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
+                                                ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
+                                                disabled: "Elige el Estado"), class: "icons" )
+
+      -#
+      -#.input-field.col.s6
+      -#  %select.icons
+      -#    %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
+      -#    %option.circle{:value => "1", "data-icon" => "/assets/blue.png"} En Proceso
+      -#    %option.circle{:value => "2", "data-icon" => "/assets/red.png"} Urgente
+      -#    %option.circle{:value => "3", "data-icon" => "/assets/orange.png"} En Prueba
+      -#    %option.circle{:value => "4", "data-icon" => "/assets/orange.png"} Facturada - Pendiente
+      -#    %option.circle{:value => "5", "data-icon" => "/assets/green.png"} Facturada - Pago
+      -#    %option.circle{:value => "6", "data-icon" => "/assets/null.png"} Anulada
+      -#  %label Estado
+
+
+
+      = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                            :style => "left: 15px; bottom: 5px;"
+
+
+  %br
+
+
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table.centered.highlight#table_line
+      %thead
+        %tr
+          %th Client
+          %th Paciente
+          %th Fecha  de Entrada
+          %th Fecha  de Entrega
+          %th Estado
+          %th
+          %th
+          %th
+          %th
+
+      %tbody
+        - @sales.each do |sale|
+          %tr
+            %td= sale.client.name
+            %td= sale.patient_name
+            %td= sale.created_at.strftime("%F")
+            %td= sale.order_date
+            - case sale.state.capitalize
+              -when "En proceso"
+                %td.chip.in_process{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Urgente"
+                %td.chip.in_urgent{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "En prueba"
+                %td.chip.in_test_pending{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Facturada - pendiente"
+                %td.chip.in_test_pending{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Facturada - pago"
+                %td.chip.in_paid{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Anulada"
+                %td.chip.in_null{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Cotizacion"
+                %td.chip.in_null{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+
+
+
+            %td.btn-group
+              %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                %i.material-icons.right search
+              - if current_user.role_level == 1
+                -#%a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
+                -#  %i.material-icons.right mode_edit
+                %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+                  = link_to 'X', sale_path(sale), :method => :delete, :style => "color: white;"
+
+            -# %td= link_to 'Show', sale
+            -# %td= link_to 'Edit', edit_sale_path(sale)
+            -# %td= link_to 'Destroy', sale, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %br
+    %ul.pagination.right{:style => "margin: 0 auto; text-align: right;"}
+      = will_paginate @sales, previous_label: h("<"), next_label: h(">")
+
+
+  = link_to 'New Sale', new_sale_path
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

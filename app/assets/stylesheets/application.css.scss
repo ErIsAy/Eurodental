@@ -32,7 +32,10 @@ $primary-color: color("indigo", "lighten-1") !default;
     margin: 10px auto 10px 10px;
 }
 
-
+/*New Order client select*/
+#select2-e1-container {
+    margin-top: 2px !important;
+}
 
 /*Select2 Style*/
 #new_order > div.row.card.container > div:nth-child(4) > span > span.selection > span {
@@ -92,7 +95,7 @@ z-index: 1030;
 
 /*reduce spacing for tables*/
 #table_line {
-line-height: 0.5;
+line-height: 1.5;
 }
 
 /*Fix Datepicker size*/

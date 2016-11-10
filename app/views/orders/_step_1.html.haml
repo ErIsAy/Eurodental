@@ -11,8 +11,6 @@
     -# %i.material-icons.prefix person_pi
     -# = f.label :client_id
     -# = f.collection_select :client_id, Client.order(:name),:id,:name, include_blank: false, prompt: 'Seleccionar Cliente'
-
-
     = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
   - 3.times do
     %br
@@ -99,4 +97,3 @@
       = f.label :other_note, "Otras Notas"
       = f.text_area :other_note,
         :class => "materialize-textarea"
-

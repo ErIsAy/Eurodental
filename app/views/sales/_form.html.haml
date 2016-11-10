@@ -1,0 +1,73 @@
+= form_for @sale do |f|
+  - if @sale.errors.any?
+    - flash[:notice] = "Orden no pudo ser procesada, favor llenar los campos correctamente"
+
+  .row.card.container.col.s12{:style => "margin: 0 auto;"}
+    .right{:style => "padding-right:15px;"}
+      .input-fields.right
+        %br
+        = f.check_box :coti
+        = f.label :coti, "Cotización"
+    %br
+    %br
+
+    .input-field{:class => "col s12 m6", :style => "margin-top: 0px;"}
+      -# = f.label :client
+      -# = f.text_field :client
+      = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
+    - 3.times do
+      %br
+    %hr.style17
+    .input-field{:class => "col s12 m6"}
+      %i.material-icons.prefix account_circle
+      = f.label :patient_name
+      = f.text_field :patient_name
+
+    .input-field{:class => "col s12 m6 s12"}
+      %i.material-icons.prefix perm_identity
+      = f.label :age
+      = f.number_field :age
+    .input-field{:class => "col s12 m6"}
+      %i.material-icons.prefix tag_faces
+      = f.radio_button :sex, 'Femenino'
+      = f.label :sex, 'Femenino', :value => 'Femenino'
+      = f.radio_button :sex, 'Masculino'
+      = f.label :sex, 'Masculino', :value => 'Masculino'
+
+    .input-field{:class => "col s12 m6 s12"}
+      %i.material-icons.prefix today
+      = f.label :order_date, "Fecha de Entrega"
+      = f.text_field :order_date,
+        :class => "datepicker"
+
+
+
+    %div.col.s12
+      .input-field.col.s6#textarea1
+        %i.material-icons.prefix mode_edit
+        = f.label :client_note, "Notas del Cliente"
+        = f.text_area :client_note,
+          :class => "materialize-textarea"
+
+      .input-field.col.s6
+        %i.material-icons.prefix mode_edit
+        = f.label :other_note, "Otras Notas"
+        = f.text_area :other_note,
+          :class => "materialize-textarea"
+
+    -# .input-field
+    -#   = f.label :coti
+    -#   = f.check_box :coti
+    -# .input-field
+    -#   = f.label :state
+    -#   = f.text_field :state
+    -# .input-field
+    -#   = f.label :concept
+    -#   = f.text_field :concept
+  %br
+  %br
+  .actions.container{:style => "margin: 0 auto;"}
+    -# = f.submit 'Save'
+    %button.btn.waves-effect.waves-light.right#order_submit{:name => "action", :type => "submit", data: { disable_with: "Procesando.." }}
+      %i.material-icons.right save
+      Salvar

@@ -20,3 +20,15 @@ Development
   # fix all the filters!!!
   # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden), en accounting agregar el # de factura
   # complete the service sheet
+
+
+
+  -- New
+   Agregar los Servicios belongs_to sale
+    > generar los diferentes servicios belongs to Servicio
+   Nested resource para sale > servicio
+   Agregar el cambio para los states de la orden
+   Agregar el cambio para el abono y los pagos
+   Agregar el cambio para imprimir la factura
+
+   Agregar todos los cambios anteriores a la pantalla de contabilidad

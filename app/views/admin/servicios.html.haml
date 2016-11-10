@@ -1,0 +1,55 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+
+  -# CONTENT
+
+  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+  -#   = render :partial => 'layouts/tooth_chart'
+
+  %br
+  -# %h3{:style => "margin: 0 auto; text-align: center;"}
+  -#   %i.material-icons{:style => "margin: 8px; font-size:46px;"} view_list
+  -#   Servicios
+  -# %br
+
+  .container.card{:style => "margin: 0 auto; "}
+
+    %ul.collection.with-header
+      %li.collection-header
+        %h4{:style=> "color:black; text-align: center;"} Servicios
+      %li.collection-item
+        %div
+          Tipo de Trabajo
+          %a.secondary-content{:href => "#!"}
+            %i.material-icons settings
+      %li.collection-item
+        %div
+          Material
+          %a.secondary-content{:href => "#!"}
+            %i.material-icons settings
+      %li.collection-item
+        %div
+          Color de Muñón
+          %a.secondary-content{:href => "#!"}
+            %i.material-icons settings
+      %li.collection-item
+        %div
+          Guía de Color
+          %a.secondary-content{:href => "#!"}
+            %i.material-icons settings
+      %li.collection-item
+        %div
+          Procedimiento
+          %a.secondary-content{:href => "#!"}
+            %i.material-icons settings
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER

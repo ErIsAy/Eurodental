@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016212407) do
+ActiveRecord::Schema.define(version: 20161110153945) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -147,6 +147,23 @@ ActiveRecord::Schema.define(version: 20161016212407) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end
+
+  create_table "sales", force: :cascade do |t|
+    t.string   "patient_name"
+    t.integer  "age"
+    t.string   "sex"
+    t.date     "order_date"
+    t.string   "client_note"
+    t.string   "other_note"
+    t.boolean  "coti"
+    t.string   "state",        default: "En proceso"
+    t.string   "concept"
+    t.integer  "client_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "sales", ["client_id"], name: "index_sales_on_client_id"
 
   create_table "services", force: :cascade do |t|
     t.integer  "order_id"

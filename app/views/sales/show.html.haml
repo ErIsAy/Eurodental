@@ -1,0 +1,198 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  -# %h1{:style => "text-align: center;"} Datos
+
+  %br
+  -# %h3{:style => "margin: 0 auto; text-align: center;"}
+  -#   -# %i.material-icons{:style => "margin: 8px; font-size:46px;"} check
+  -#   Detalles de la Orden
+  -# %br
+
+  %h3{:style => "margin: 0 auto; text-align: center;"}
+    = image_tag "eu-clipboard.png", :style => "width: 80px;"
+
+
+  .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
+    .div#order-status
+      = render 'order_status'
+    %br
+    .div{:style => "margin-left: 15px;"}
+      %p.col.s12.margin-f
+        %u Orden No:
+        = @sale.id
+
+      %p.col.s6.margin-f
+        %b Notas del Cliente:
+        = link_to "#{@sale.client.name}", client_path(@sale.client_id)
+
+      %p.col.s6.margin-f
+        %b Paciente:
+        = @sale.patient_name
+
+      %p.col.s6.margin-f
+        %b Fecha de Entrada:
+        = @sale.created_at.strftime("%F")
+
+      %p.col.s6.margin-f
+        %b Fecha de Entrega:
+        = @sale.order_date
+
+      %p.col.s6.margin-f
+        %b Edad:
+        = @sale.age
+
+      %p.col.s6.margin-f
+        %b Sexo:
+        = @sale.sex
+
+      %p.col.s6.margin-f
+        %b Notas del Cliente:
+        = @sale.client_note
+
+      %p.col.s6.margin-f
+        %b Otras Notas:
+        = @sale.other_note
+
+      -# %p.col.s6.margin-f
+      -#   %b Coti:
+      -#   = @sale.coti
+
+      %p.col.s6.margin-f
+        %b Concepto de Anulación:
+        = @sale.concept
+
+      %p.col.s6.margin-f
+        %b Fecha de Entrega:
+        = @sale.order_date
+
+      .row.col.s12{:style => "text-align: center;"}
+
+
+        -#Modificar esto: correos desabilitados temporalmente
+
+        -# %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#stickers_modal", :style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
+        -#   = image_tag "Paper-100.png", :id => "show_icons"
+    -#     %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
+    -#       = image_tag "Message-Filled-100.png", :id => "show_icons"
+    -#     %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#order_tooth_modal",:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
+    -#       = image_tag "Teeth-100.png", :id => "show_icons"
+    -#
+
+    -# .row.container.modal.bottom-sheet.col.s12#stickers_modal
+    -#   %div.col.s4.tooltipped{"data-tooltip" => "Circular", "data-position" => "top"}
+    -#     = link_to((image_tag "circle_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+    -#   %div.col.s4.tooltipped{"data-tooltip" => "5.0''x3.5''", "data-position" => "top"}
+    -#     = link_to((image_tag "large_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+    -#   %div.col.s4.tooltipped{"data-tooltip" => "1.1''x3.5''", "data-position" => "top"}
+    -#     = link_to((image_tag "regular_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
+    -#
+    -#
+    -# .row.card.container.modal.modal-fixed-footer#email_modal{:style => "width: 1024px; height:800px; overflow-y: initial;"}
+    -#   .input-field.col.s12
+    -#     %input#email.validate{:placeholder => "mail@mail.com", :type => "email", :id => "email", :value => "#{@sale.client.client_emails.first.email}"}
+    -#     %label{:for => "email"} Para
+    -#   .input-field.col.s12
+    -#     %input#subject.validate{:placeholder => "Asunto", :type => "text"}/
+    -#     %label{:for => "subject"} Asunto
+    -#   %br
+    -#   .file-field.input-field.col.s12
+    -#     .btn
+    -#       %span Elegir
+    -#       %input{:type => "file"}/
+    -#     .file-path-wrapper
+    -#       %input.file-path.validate{:type => "text"}/
+    -#   .input-field.col.s12
+    -#     %textarea#message.materialize-textarea{:length => "240"}
+    -#     %label{:for => "message"} Mensaje
+    -#   .modal-footer
+    -#     %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Enviar
+    -#
+    -#
+    -#
+    -# .row.card.container.modal.modal-fixed-footer#order_tooth_modal
+
+
+
+  .container
+    %br
+    %a{:href => edit_sale_path(@sale), :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right edit
+      Editar
+    %a{:href => "#", :class => "waves-effect waves-light btn green"}
+      %i.material-icons.right receipt
+      Imprimir Cotización
+
+  .container
+    %br
+    %a.right{:href => "#", :class => "waves-effect waves-light btn green"}
+      %i.material-icons.right receipt
+      Agregar Servicios
+
+
+  %br
+  %br
+  .card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    %table.striped
+      %thead
+        %tr
+          %th Cantidad
+          %th Descripción
+          %th.right Monto
+          %th
+            %b.right Acciones
+      %tbody
+        %tr
+          %td test
+          %td test
+          %td.right $0.00
+          %td
+            %i.material-icons.right delete
+            %i.material-icons.right search
+
+        %tr
+          %td test
+          %td test
+          %td.right $0.00
+          %td
+            %i.material-icons.right delete
+            %i.material-icons.right search
+        %tr
+          %td test
+          %td test
+          %td.right $0.00
+          %td
+            %i.material-icons.right delete
+            %i.material-icons.right search
+        %tr
+          %td
+          %td
+          %td.right
+            %b
+              Total: $0.00
+
+
+
+
+  .container
+    %br
+    -# - if current_user.role_level <= 2
+      -# = link_to '<i class="material-icons" style="font-size: 2.3rem;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right btn green", :target => "_blank", :data => { :reload => true}
+    %a{:href => sales_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right exit_to_app
+      Salir
+    %a.right{:href => "#", :class => "waves-effect waves-light btn green"}
+      %i.material-icons.right print
+      Facturar
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER
+  = link_to 'Edit', edit_sale_path(@sale)
+  \|
+  = link_to 'Back', sales_path

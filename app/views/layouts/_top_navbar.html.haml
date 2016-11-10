@@ -16,6 +16,11 @@
       %li
         %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
           %i.material-icons{:style => "color: #dda0dd;"} assignment
+      %li
+        %a.tooltipped{:href => sales_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
+          %i.material-icons{:style => "color: red;"} assignment
+
+
       - if current_user.role_level == 1
         %li
           %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
@@ -30,6 +35,8 @@
           /*Renders search field only if root page or orders*/
     = render 'layouts/search_nav' if current_page?('/')
     = render 'layouts/search_nav' if current_page?(orders_path)
+    = render 'layouts/search_nav' if current_page?(sales_path)
+
 
     %ul#slide-out.side-nav
       %li

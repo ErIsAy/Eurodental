@@ -1,0 +1,20 @@
+
+.col.s3.right
+  -case @sale.state.capitalize
+    -when "En proceso"
+      .chip.in_process= @sale.state.capitalize
+    -when "Urgente"
+      .chip.in_urgent= @sale.state.capitalize
+    -when "En prueba"
+      .chip.in_test_pending= @sale.state.capitalize
+    -when "Facturada - pendiente"
+      .chip.in_test_invoiced= @sale.state.capitalize
+    -when "Facturada - pago"
+      .chip.in_paid= @sale.state.capitalize
+    -when "Anulada"
+      .chip.in_null#sale_null= @sale.state.capitalize
+    -when "Cotizacion"
+      .chip.in_null= @sale.state.capitalize
+- case @sale.coti
+  -when true
+    .p.left{:style => "color: red;"} Cotizacion
