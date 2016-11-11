@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110153945) do
+ActiveRecord::Schema.define(version: 20161111033057) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(version: 20161110153945) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "gcolors", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
@@ -72,6 +79,20 @@ ActiveRecord::Schema.define(version: 20161110153945) do
 
   add_index "items", ["category_id"], name: "index_items_on_category_id"
   add_index "items", ["order_id"], name: "index_items_on_order_id"
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "mcolors", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.date     "order_date"
@@ -148,6 +169,13 @@ ActiveRecord::Schema.define(version: 20161110153945) do
     t.datetime "updated_at",                           null: false
   end
 
+  create_table "procedures", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
   create_table "sales", force: :cascade do |t|
     t.string   "patient_name"
     t.integer  "age"
@@ -155,7 +183,8 @@ ActiveRecord::Schema.define(version: 20161110153945) do
     t.date     "order_date"
     t.string   "client_note"
     t.string   "other_note"
-    t.boolean  "coti"
+    t.boolean  "coti",         default: false
+    t.integer  "invoice_num"
     t.string   "state",        default: "En proceso"
     t.string   "concept"
     t.integer  "client_id"
@@ -233,6 +262,32 @@ ActiveRecord::Schema.define(version: 20161110153945) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
+  create_table "stores", force: :cascade do |t|
+    t.integer  "tooth"
+    t.integer  "cant",                                 default: 0
+    t.boolean  "antagonista",                          default: false
+    t.boolean  "mordida",                              default: false
+    t.string   "note"
+    t.boolean  "implant",                              default: false
+    t.string   "brand"
+    t.decimal  "amount",       precision: 8, scale: 2
+    t.integer  "sale_id"
+    t.integer  "worktype_id"
+    t.integer  "material_id"
+    t.integer  "mcolor_id"
+    t.integer  "gcolor_id"
+    t.integer  "procedure_id"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  add_index "stores", ["gcolor_id"], name: "index_stores_on_gcolor_id"
+  add_index "stores", ["material_id"], name: "index_stores_on_material_id"
+  add_index "stores", ["mcolor_id"], name: "index_stores_on_mcolor_id"
+  add_index "stores", ["procedure_id"], name: "index_stores_on_procedure_id"
+  add_index "stores", ["sale_id"], name: "index_stores_on_sale_id"
+  add_index "stores", ["worktype_id"], name: "index_stores_on_worktype_id"
+
   create_table "supplier_emails", force: :cascade do |t|
     t.string   "email"
     t.integer  "supplier_id"
@@ -276,5 +331,12 @@ ActiveRecord::Schema.define(version: 20161110153945) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "worktypes", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
 
 end

@@ -1,0 +1,17 @@
+= form_for @worktype do |f|
+  - if @worktype.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@worktype.errors.count, "error")} prohibited this worktype from being saved:"
+      %ul
+        - @worktype.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :price
+    = f.text_field :price
+
+  .actions
+    = f.submit 'Save'

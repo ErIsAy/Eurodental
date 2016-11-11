@@ -1,0 +1,23 @@
+%h1 Listing procedures
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th
+      %th
+      %th
+
+  %tbody
+    - @procedures.each do |procedure|
+      %tr
+        %td= procedure.name
+        %td= procedure.price
+        %td= link_to 'Show', procedure
+        %td= link_to 'Edit', edit_procedure_path(procedure)
+        %td= link_to 'Destroy', procedure, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Procedure', new_procedure_path

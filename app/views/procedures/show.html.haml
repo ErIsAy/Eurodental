@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @procedure.name
+%p
+  %b Price:
+  = @procedure.price
+
+= link_to 'Edit', edit_procedure_path(@procedure)
+\|
+= link_to 'Back', procedures_path

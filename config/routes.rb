@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :sales
+  resources :procedures
+  resources :gcolors
+  resources :mcolors
+  resources :materials
+  resources :worktypes
+  resources :stores
+
+  resources :sales do
+    resources :stores
+  end
+
+
   get 'activity/index'
 
   get 'accountability/index'

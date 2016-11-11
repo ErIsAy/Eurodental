@@ -1,0 +1,31 @@
+%h1 Listing stores
+
+%table
+  %thead
+    %tr
+      %th Tooth
+      %th Note
+      %th Implant
+      %th Brand
+      %th Amount
+      %th Sale
+      %th
+      %th
+      %th
+
+  %tbody
+    - @stores.each do |store|
+      %tr
+        %td= store.tooth
+        %td= store.note
+        %td= store.implant
+        %td= store.brand
+        %td= store.amount
+        %td= store.sale
+        %td= link_to 'Show', store
+        %td= link_to 'Edit', edit_store_path(store)
+        %td= link_to 'Destroy', store, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Store', new_store_path

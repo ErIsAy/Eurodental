@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Tooth:
+  = @store.tooth
+%p
+  %b Note:
+  = @store.note
+%p
+  %b Implant:
+  = @store.implant
+%p
+  %b Brand:
+  = @store.brand
+%p
+  %b Amount:
+  = @store.amount
+%p
+  %b Sale:
+  = @store.sale
+
+= link_to 'Edit', edit_store_path(@store)
+\|
+= link_to 'Back', stores_path

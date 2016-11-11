@@ -26,7 +26,7 @@
         = @sale.id
 
       %p.col.s6.margin-f
-        %b Notas del Cliente:
+        %b Cliente:
         = link_to "#{@sale.client.name}", client_path(@sale.client_id)
 
       %p.col.s6.margin-f
@@ -128,10 +128,10 @@
 
   .container
     %br
-    %a.right{:href => "#", :class => "waves-effect waves-light btn green"}
-      %i.material-icons.right receipt
-      Agregar Servicios
-
+    -#%a.right{:href => "#", :class => "waves-effect waves-light btn green"}
+    -#  %i.material-icons.right receipt
+    -#  Agregar Servicios
+    = link_to 'Agregar Servicios', new_sale_store_path(@sale), :class => 'waves-effect waves-light btn green'
 
   %br
   %br

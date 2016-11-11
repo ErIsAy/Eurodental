@@ -1,0 +1,23 @@
+%h1 Listing worktypes
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th
+      %th
+      %th
+
+  %tbody
+    - @worktypes.each do |worktype|
+      %tr
+        %td= worktype.name
+        %td= worktype.price
+        %td= link_to 'Show', worktype
+        %td= link_to 'Edit', edit_worktype_path(worktype)
+        %td= link_to 'Destroy', worktype, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Worktype', new_worktype_path

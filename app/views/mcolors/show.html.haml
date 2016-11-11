@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @mcolor.name
+%p
+  %b Price:
+  = @mcolor.price
+
+
+= link_to 'Edit', edit_mcolor_path(@mcolor)
+\|
+= link_to 'Back', mcolors_path

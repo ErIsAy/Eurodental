@@ -34,7 +34,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
+        format.html { redirect_to @sale, notice: 'Orden Salvada Correctamente.' }
         format.json { render :show, status: :created, location: @sale }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class SalesController < ApplicationController
   def update
     respond_to do |format|
       if @sale.update(sale_params)
-        format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
+        format.html { redirect_to @sale, notice: 'La Orden fue actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @sale }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class SalesController < ApplicationController
   def destroy
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Sale was successfully destroyed.' }
+      format.html { redirect_to sales_url, notice: 'La Orden fue eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +75,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:patient_name, :age, :sex, :order_date, :client_note, :other_note, :coti, :state, :concept, :client_id)
+      params.require(:sale).permit(:patient_name, :age, :sex, :order_date, :client_note, :other_note, :coti, :state, :concept, :invoice_num, :client_id)
     end
 end

@@ -1,0 +1,17 @@
+= form_for @mcolor do |f|
+  - if @mcolor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@mcolor.errors.count, "error")} prohibited this mcolor from being saved:"
+      %ul
+        - @mcolor.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :price
+    = f.text_field :price
+
+  .actions
+    = f.submit 'Save'

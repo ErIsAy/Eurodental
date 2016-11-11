@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @worktype.name
+%p
+  %b Price:
+  = @worktype.price
+
+= link_to 'Edit', edit_worktype_path(@worktype)
+\|
+= link_to 'Back', worktypes_path

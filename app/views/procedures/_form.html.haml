@@ -1,0 +1,17 @@
+= form_for @procedure do |f|
+  - if @procedure.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@procedure.errors.count, "error")} prohibited this procedure from being saved:"
+      %ul
+        - @procedure.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :price
+    = f.text_field :price
+
+  .actions
+    = f.submit 'Save'

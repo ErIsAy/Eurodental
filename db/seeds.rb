@@ -33,50 +33,55 @@ Price.create
 #                 { name: 'Metales'}])
 #
 # # Tipo de Trabajo - Items
-# Item.create([{ name: 'Corona', price:1, category_id:1 },
-#                 { name: 'Puente', price:1, category_id:1 },
-#                 { name: 'Implantes', price:1, category_id:1 },
-#                 { name: 'Barra', price:1, category_id:1 },
-#                 { name: 'Híbrida', price:1, category_id:1 },
-#                 { name: 'Carilla', price:1, category_id:1 },
-#                 { name: 'Inlay/Onlay', price:1, category_id:1 },
-#                 { name: 'Inlay Bridge', price:1, category_id:1 },
-#                 { name: 'Lente de contacto', price:1, category_id:1 },
-#                 { name: 'Perno', price:1, category_id:1 },
-#                 { name: 'Soldadura Láser', price:1, category_id:1 }])
+Worktype.create([{ name: 'Corona', price:1},
+                { name: 'Puente', price:1},
+                { name: 'Implantes', price:1},
+                { name: 'Barra', price:1},
+                { name: 'Híbrida', price:1},
+                { name: 'Carilla', price:1},
+                { name: 'Inlay/Onlay' , price:1},
+                { name: 'Inlay Bridge' , price:1},
+                { name: 'Lente de contacto', price:1 },
+                { name: 'Perno', price:1},
+                { name: 'Soldadura Láser', price:1 }])
 #
 #
 # # Material - Items
-# Item.create([{ name: 'Zirconio', price:1, category_id:2 },
-#                 { name: 'Disilicato', price:1, category_id:2 },
-#                 { name: 'Fedespática', price:1, category_id:2 },
-#                 { name: 'Porcelana', price:1, category_id:2 },
-#                 { name: 'PMMA', price:1, category_id:2 },
-#                 { name: 'Polímero', price:1, category_id:2 },
-#                 { name: 'Composite', price:1, category_id:2 },
-#                 { name: 'Metal/Pocelana', price:1, category_id:2 },
-#                 { name: 'Zirconio/Pocelana', price:1, category_id:2 },
-#                 { name: 'Peek', price:1, category_id:2 }])
-#
-#
+Material.create([{ name: 'Zirconio', price:1 },
+                { name: 'Disilicato', price:1 },
+                { name: 'Fedespática', price:1 },
+                { name: 'Porcelana', price:1 },
+                { name: 'PMMA', price:1 },
+                { name: 'Polímero', price:1},
+                { name: 'Composite', price:1},
+                { name: 'Metal/Pocelana', price:1},
+                { name: 'Zirconio/Pocelana', price:1 },
+                { name: 'Peek', price:1 },
+                { name: 'Cromo cobalto', price:1 },
+                { name: 'Titanium', price:1 },
+                { name: 'Cromo níquel', price:1 },
+                { name: 'Oro', price:1 },
+                { name: 'Paladio', price:1 }])
+
+
 # # Color de muñon - Items
-# Item.create([{ name: 'Natural', price:1, category_id:3 },
-#                 { name: 'Pimentado', price:1, category_id:3 },
-#                 { name: 'Metal', price:1, category_id:3 }])
-#
+Mcolor.create([{ name: 'Natural', price:1},
+                { name: 'Pimentado', price:1},
+                { name: 'Metal', price:1}])
+
 # # Colorimetro - Items
-# Item.create([{ name: 'Vita Classic', price:1, category_id:4 },
-#                 { name: 'Vita 3D master', price:1, category_id:4 },
-#                 { name: 'Bioform', price:1, category_id:4 },
-#                 { name: 'Chromarcop', price:1, category_id:4 },
-#                 { name: 'Otras', price:1, category_id:4 }])
-#
-#
+Gcolor.create([{ name: 'Vita Classic', price:1},
+                { name: 'Vita 3D master', price:1},
+                { name: 'Bioform', price:1},
+                { name: 'Chromarcop', price:1 },
+                { name: 'Otras', price:1}])
+
+
 # # Procedimiento - Items
-# Item.create([{ name: 'Fresado/Maquinado', price:1, category_id:5 },
-#                 { name: 'Prensado', price:1, category_id:5 },
-#                 { name: 'Colado', price:1, category_id:5 }])
-#
+Procedure.create([{ name: 'Fresado/Maquinado', price:1},
+                { name: 'Prensado', price:1},
+                { name: 'Colado', price:1 }])
+
 # # Metales - Items
 # Item.create([{ name: 'Cromo cobalto', price:1, category_id:6 },
 #                 { name: 'Titanium', price:1, category_id:6 },

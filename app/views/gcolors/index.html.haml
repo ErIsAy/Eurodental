@@ -1,0 +1,36 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Servicios
+  %br
+
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Price
+        %th
+        %th
+        %th
+
+    %tbody
+      - @gcolors.each do |gcolor|
+        %tr
+          %td= gcolor.name
+          %td= gcolor.price
+          %td= link_to 'Show', gcolor
+          %td= link_to 'Edit', edit_gcolor_path(gcolor)
+          %td= link_to 'Destroy', gcolor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Gcolor', new_gcolor_path
+
+  = render :partial => 'layouts/footer'
+  -# END OF FOOTER
+
+
