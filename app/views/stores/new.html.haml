@@ -1,5 +1,24 @@
-%h1 New store
+%header
 
-= render 'form'
+-# MAIN
 
-= link_to 'Back', stores_path
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+
+
+    %br
+    %h3.container{:style => "margin: 0 auto; text-align: center;"} Agregar Servicio
+    %br
+
+  .container{:style => "margin: 0 auto;"}
+    .card.left#chart_container{:class => "col s12 m12 l6"}
+      = render :partial => 'layouts/tooth_chart'
+
+    .card.container.right#order_collection{:class => "col s12 m12 l6"}
+      = render 'form'
+
+  -# = link_to 'Back', stores_path
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

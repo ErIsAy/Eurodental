@@ -15,8 +15,10 @@
   %h3{:style => "margin: 0 auto; text-align: center;"}
     = image_tag "eu-clipboard.png", :style => "width: 80px;"
 
-
   .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
+    .collection-header
+      %h4{:style=> "color:black; text-align: center;"} Datos de la Orden
+    %hr.style17
     .div#order-status
       = render 'order_status'
     %br
@@ -69,52 +71,6 @@
         %b Fecha de Entrega:
         = @sale.order_date
 
-      .row.col.s12{:style => "text-align: center;"}
-
-
-        -#Modificar esto: correos desabilitados temporalmente
-
-        -# %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#stickers_modal", :style => "color: lightcoral;", "data-tooltip" => "Imprimir Label", "data-position" => "bottom"}
-        -#   = image_tag "Paper-100.png", :id => "show_icons"
-    -#     %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#email_modal", :style => "color: darkseagreen;", "data-tooltip" => "Enviar Correo", "data-position" => "bottom"}
-    -#       = image_tag "Message-Filled-100.png", :id => "show_icons"
-    -#     %p.col.s6.m4.tooltipped.modal-trigger{:href =>"#order_tooth_modal",:style => "color: lightseagreen;", "data-tooltip" => "Ver Orden de Trabajo", "data-position" => "bottom"}
-    -#       = image_tag "Teeth-100.png", :id => "show_icons"
-    -#
-
-    -# .row.container.modal.bottom-sheet.col.s12#stickers_modal
-    -#   %div.col.s4.tooltipped{"data-tooltip" => "Circular", "data-position" => "top"}
-    -#     = link_to((image_tag "circle_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-    -#   %div.col.s4.tooltipped{"data-tooltip" => "5.0''x3.5''", "data-position" => "top"}
-    -#     = link_to((image_tag "large_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-    -#   %div.col.s4.tooltipped{"data-tooltip" => "1.1''x3.5''", "data-position" => "top"}
-    -#     = link_to((image_tag "regular_sticker.png", :id => "stickers"), {:controller => :orders, :action => :label_print, :format => 'pdf'}, target: '_blank')
-    -#
-    -#
-    -# .row.card.container.modal.modal-fixed-footer#email_modal{:style => "width: 1024px; height:800px; overflow-y: initial;"}
-    -#   .input-field.col.s12
-    -#     %input#email.validate{:placeholder => "mail@mail.com", :type => "email", :id => "email", :value => "#{@sale.client.client_emails.first.email}"}
-    -#     %label{:for => "email"} Para
-    -#   .input-field.col.s12
-    -#     %input#subject.validate{:placeholder => "Asunto", :type => "text"}/
-    -#     %label{:for => "subject"} Asunto
-    -#   %br
-    -#   .file-field.input-field.col.s12
-    -#     .btn
-    -#       %span Elegir
-    -#       %input{:type => "file"}/
-    -#     .file-path-wrapper
-    -#       %input.file-path.validate{:type => "text"}/
-    -#   .input-field.col.s12
-    -#     %textarea#message.materialize-textarea{:length => "240"}
-    -#     %label{:for => "message"} Mensaje
-    -#   .modal-footer
-    -#     %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Enviar
-    -#
-    -#
-    -#
-    -# .row.card.container.modal.modal-fixed-footer#order_tooth_modal
-
 
 
   .container
@@ -128,14 +84,19 @@
 
   .container
     %br
-    -#%a.right{:href => "#", :class => "waves-effect waves-light btn green"}
-    -#  %i.material-icons.right receipt
-    -#  Agregar Servicios
-    = link_to 'Agregar Servicios', new_sale_store_path(@sale), :class => 'waves-effect waves-light btn green'
+    %a.right{:href => new_sale_store_path(@sale), :class => "waves-effect waves-light btn green"}
+      %i.material-icons.right add
+      Agregar Servicios
+    -# = link_to 'Agregar Servicios', new_sale_store_path(@sale), :class => 'waves-effect waves-light btn green'
 
   %br
-  %br
+
+
+
   .card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    .collection-header
+      %h4{:style=> "color:black; text-align: center;"} Servicios
+    %hr.style17
     %table.striped
       %thead
         %tr
@@ -143,36 +104,30 @@
           %th Descripción
           %th.right Monto
           %th
-            %b.right Acciones
+            %b.right Eliminar
       %tbody
-        %tr
-          %td test
-          %td test
-          %td.right $0.00
-          %td
-            %i.material-icons.right delete
-            %i.material-icons.right search
+        - @sale.stores.each do |store|
+          %tr
+            %td
+              %i
+                = store.cant
+            %td
+              Diente:
+              = "#{store.tooth}"
+              = " - Antagonista" if store.antagonista
+              = " - Mordida" if store.antagonista
+              %i
+                %br
+                = " #{store.worktype_name}-#{store.note}, #{store.material_name},#{store.mcolor_name}-#{store.color_note}, #{store.gcolor_name}, #{store.procedure_name}"
+                = "(Sobre Implante - Marca: #{store.brand})" if store.implant
+            %td.right
+              $0.00
+              = store.amount
+            %td
+              = link_to sale_store_path(store.sale, store), method: :delete, data: { confirm: "Está Seguro?" } do
+                %i.material-icons.right delete
 
-        %tr
-          %td test
-          %td test
-          %td.right $0.00
-          %td
-            %i.material-icons.right delete
-            %i.material-icons.right search
-        %tr
-          %td test
-          %td test
-          %td.right $0.00
-          %td
-            %i.material-icons.right delete
-            %i.material-icons.right search
-        %tr
-          %td
-          %td
-          %td.right
-            %b
-              Total: $0.00
+
 
 
 

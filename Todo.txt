@@ -28,7 +28,8 @@ Development
     > generar los diferentes servicios belongs to Servicio - done
    Nested resource para sale > servicio - done
    Finish styles for services(stores) and items(worktype, materials, etc)
-
+   Agregar a Tipo de Trabajo => abruitment Personalizado
+   Vita Classic agregar las opciones como select - hacer un select con la guia
    Agregar el cambio para los states de la orden
    Agregar el cambio para el abono y los pagos
    Agregar el cambio para imprimir la factura

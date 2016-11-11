@@ -10,6 +10,30 @@ function close_box(b_id){
 
 function reply_click(toothid)
   {
+
+    for(i=1; i<33; i++) {
+      $("#Tooth"+String(i)).css({ fill: "white" });
+    }
+      var x = toothid;
+      var y = String(x).replace(/\D/g, '');
+      var ToothColor = $("#"+String(x)).attr("style");
+      var service_box = document.getElementsByClassName("box"+y)[0];
+      var tooth_number = document.getElementById('tooth_number'); //tooth selection
+      var tooth_text = document.getElementById('txtTooth'+y);
+
+      if (String(ToothColor) != 'fill: lightskyblue;'){
+        $("#"+String(x)).css({ fill: "lightskyblue" });
+        tooth_number.value = Number(tooth_text.innerHTML);
+      }
+      else {
+      $("#"+String(x)).css({ fill: "white" });
+      }
+}
+
+
+/*
+function reply_click(toothid)
+  {
 //  var x = event.srcElement.id;
   var x = toothid;
   var y = String(x).replace(/\D/g, '');
@@ -22,7 +46,7 @@ function reply_click(toothid)
     $("#"+String(x)).css({ fill: "lightskyblue" });
     document.getElementById("t"+y).value = 1;
 
-    /*show the box*/
+
     service_box.style.display = "inline";
     tooth_number.value = y;
   }
@@ -30,11 +54,11 @@ function reply_click(toothid)
     $("#"+String(x)).css({ fill: "white" });
     document.getElementById("t"+y).value = 0;
 
-    /*hide the box*/
+
     service_box.style.display = "none";
 
     }
-}
+}*/
 
 
 /*Add or Remove price for each box*/
@@ -108,4 +132,3 @@ function order_total(){
 //         }
 //     });
 // });
-

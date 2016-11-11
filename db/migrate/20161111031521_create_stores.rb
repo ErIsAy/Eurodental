@@ -2,10 +2,11 @@ class CreateStores < ActiveRecord::Migration
   def change
     create_table :stores do |t|
       t.integer :tooth
-      t.integer :cant, :default => 0
+      t.integer :cant, :default => 1
       t.boolean :antagonista, :default => false
       t.boolean :mordida, :default => false
       t.string :note
+      t.string :color_note
       t.boolean :implant, :default => false
       t.string :brand
       t.decimal :amount, precision: 8, scale: 2

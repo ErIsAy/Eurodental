@@ -1,28 +1,123 @@
-= form_for @store do |f|
+-# = form_for @store do |f|
+= form_for([@sale, @sale.stores.build])  do |f|
   - if @store.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@store.errors.count, "error")} prohibited this store from being saved:"
-      %ul
-        - @store.errors.full_messages.each do |msg|
-          %li= msg
+    - flash[:notice] = "Orden no pudo ser procesada, favor llenar los campos correctamente"
 
-  .field
-    = f.label :tooth
-    = f.number_field :tooth
-  .field
-    = f.label :note
-    = f.text_field :note
-  .field
-    = f.label :implant
-    = f.check_box :implant
-  .field
-    = f.label :brand
-    = f.text_field :brand
-  .field
-    = f.label :amount
-    = f.text_field :amount
-  .field
-    = f.label :sale
-    = f.text_field :sale
-  .actions
-    = f.submit 'Save'
+
+  .input-field{:style => 'margin-top: 5px;'}
+    = image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 1px;", :class => "material-icons"
+    .left{:style => 'width: 4em; margin-bottom: -2em;'}
+      -#= s.label :tooth_number, 'Selección'
+      = f.text_field :tooth, :readonly => true, :id => "tooth_number"
+  %br
+  .container{:style => "margin: 0 auto;"}
+
+    .input-field
+      = f.check_box :antagonista
+      = f.label :antagonista, "Antagonista", :style => "padding-right:15px;"
+      -# = f.check_box :foto
+      -# = f.label :foto, "Foto", :style => "margin-left: 52px;"
+      = f.check_box :mordida
+      = f.label :mordida, "Mordida", :style => "margin-left: 52px;"
+    %br
+    .input-field{:style => 'width: 8em;'}
+      -# %i.material-icons.prefix library_add
+      = f.label :cant, "Cantidad/Unidad"
+      = f.number_field :cant
+    -# .input-fields
+    -#   = f.label :tooth
+    -#   = f.number_field :tooth
+
+    -# .input-fields
+    -#   = f.label :sale
+    -#   = f.text_field :sale
+
+
+  %ul.collapsible{"data-collapsible" => "accordion"}
+    %li
+      .collapsible-header
+        %i.material-icons> play_arrow
+        Tipo de Trabajo
+      .collapsible-body
+        .container
+          .input-fields
+            -# = f.collection_select :worktype_id, Worktype.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
+            -# = f.select(:worktype_id, @worktypes.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
+            = select_tag :worktype_store_id, options_from_collection_for_select(@worktypes, :id, :name), include_blank: false, prompt: 'Seleccionar'
+
+          .input-fields
+            = f.label :note, "Detalle"
+            = f.text_field :note
+
+          .input-fields
+            = f.check_box :implant
+            = f.label :implant, "Sobre Implante"
+
+            -# .input-fields{:style => 'width: 8em;'}
+            = f.label :brand,"Marca", :style => 'width: 8em; margin-left: 2em;'
+            = f.text_field :brand, :style => 'width: 12em;'
+
+    %li
+      .collapsible-header
+        %i.material-icons> play_arrow
+        Materiales y Metales
+      .collapsible-body
+        .container
+          .input-field{:class => "col s12 m6", :style => "margin-top: 0px;"}
+            -# = f.collection_select :worktype_id, Material.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
+            = select_tag :material_store_id, options_from_collection_for_select(@materials, :id, :name), include_blank: false, prompt: 'Seleccionar'
+
+
+    %li
+      .collapsible-header
+        %i.material-icons> play_arrow
+        Color de Muñon
+      .collapsible-body
+        .container
+          .input-field{:class => "col s12 m6", :style => "margin-top: 0px;"}
+            -# = f.collection_select :worktype_id, Mcolor.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
+            = select_tag :mcolor_store_id, options_from_collection_for_select(@mcolors, :id, :name), include_blank: false, prompt: 'Seleccionar'
+
+    %li
+      .collapsible-header
+        %i.material-icons> play_arrow
+        Guía de Color
+      .collapsible-body
+        .container.row.col.s12{:style => "margin: 0 auto;"}
+          .input-field{:class => "col s6"}
+            -# = f.collection_select :worktype_id, Gcolor.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
+            = select_tag :gcolor_store_id, options_from_collection_for_select(@gcolors, :id, :name), include_blank: false, prompt: 'Seleccionar'
+
+          .input-field{:class => "col s6"}
+            = f.label :color_note, "Color", :style => 'width: 8em; margin-left: 2em;'
+            = f.text_field :color_note, :style => 'width: 12em;'
+
+    %li
+      .collapsible-header
+        %i.material-icons> play_arrow
+        Procedimiento
+      .collapsible-body
+        .container
+          .input-field{:class => "col s12 m6", :style => "margin-top: 0px;"}
+            -# = f.collection_select :worktype_id, Procedure.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
+            = select_tag :procedure_store_id, options_from_collection_for_select(@procedures, :id, :name), include_blank: false, prompt: 'Seleccionar'
+
+
+  %br
+
+  -# .container{:style => "margin: 0 auto;"}
+  -#   .input-fields
+  -#     = f.label :amount
+  -#     = f.text_field :amount
+  -#
+  .input-field.col.s12#subtotal_price
+    = f.label :amount, 'Sub-Total RD$', :style => "color: #000000; font-size: 20px;"
+    = f.number_field :amount, :readonly => true,
+                                     :id => "service_total_f",
+                                     :class => 'right'
+
+
+    .actions
+      %button.btn.waves-effect.waves-light.right#order_submit{:name => "action", :type => "submit", data: { disable_with: "Agregando.." }}
+        %i.material-icons.right add
+        Agregar

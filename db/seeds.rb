@@ -9,13 +9,19 @@ require 'faker'
 
 User.create(email: 'admin@admin.com', password: '123456789', role_level: 1)
 
-#
+
 # 50.times do
 #   Client.create(name: Faker::Name.name,
 #                 phone: Faker::PhoneNumber.phone_number,
 #                 address: Faker::Address.street_address,
 #                 email: Faker::Internet.free_email)
 # end
+
+
+50.times do
+  Client.create(name: Faker::Name.name,
+                address: Faker::Address.street_address)
+end
 
 Price.create
 
@@ -66,7 +72,7 @@ Material.create([{ name: 'Zirconio', price:1 },
 
 # # Color de muñon - Items
 Mcolor.create([{ name: 'Natural', price:1},
-                { name: 'Pimentado', price:1},
+                { name: 'Pigmentado', price:1},
                 { name: 'Metal', price:1}])
 
 # # Colorimetro - Items
