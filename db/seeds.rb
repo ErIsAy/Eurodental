@@ -49,7 +49,8 @@ Worktype.create([{ name: 'Corona', price:1},
                 { name: 'Inlay Bridge' , price:1},
                 { name: 'Lente de contacto', price:1 },
                 { name: 'Perno', price:1},
-                { name: 'Soldadura Láser', price:1 }])
+                { name: 'Soldadura Láser', price:1 },
+                { name: 'Abutment Personalizado', price:1}])
 #
 #
 # # Material - Items

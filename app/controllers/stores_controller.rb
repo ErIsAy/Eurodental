@@ -52,7 +52,8 @@ class StoresController < ApplicationController
     @store.gcolor_id = params[:gcolor_store_id]
     @store.procedure_id = params[:procedure_store_id]
 
-
+    @sale.total_amount += @store.amount
+    @sale.save
 
     if @store.save
       redirect_to sale_path(@sale)
@@ -96,6 +97,8 @@ class StoresController < ApplicationController
   # DELETE /stores/1.json
   def destroy
     @store.destroy
+    @sale.total_amount -= @store.amount
+    @sale.save
     redirect_to sale_path(@sale)
     # respond_to do |format|
     #   format.html { redirect_to stores_url, notice: 'Store was successfully destroyed.' }

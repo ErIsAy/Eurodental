@@ -1,5 +1,6 @@
 class MaterialsController < ApplicationController
   before_action :set_material, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html, only: :show
 
   # GET /materials
   # GET /materials.json
@@ -10,6 +11,8 @@ class MaterialsController < ApplicationController
   # GET /materials/1
   # GET /materials/1.json
   def show
+    @material = Material.find(params[:id])
+    respond_with @material
   end
 
   # GET /materials/new

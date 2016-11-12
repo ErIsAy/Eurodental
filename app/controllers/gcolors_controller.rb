@@ -1,5 +1,6 @@
 class GcolorsController < ApplicationController
   before_action :set_gcolor, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html, only: :show
 
   # GET /gcolors
   # GET /gcolors.json
@@ -10,6 +11,8 @@ class GcolorsController < ApplicationController
   # GET /gcolors/1
   # GET /gcolors/1.json
   def show
+    @gcolors = Gcolor.find(params[:id])
+    respond_with @gcolors
   end
 
   # GET /gcolors/new

@@ -4,9 +4,9 @@
     - flash[:notice] = "Orden no pudo ser procesada, favor llenar los campos correctamente"
 
 
-  .input-field{:style => 'margin-top: 5px;'}
+  .input-field{:style => 'margin-left: 5px; margin-top: 5px;'}
     = image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 1px;", :class => "material-icons"
-    .left{:style => 'width: 4em; margin-bottom: -2em;'}
+    .left{:style => ' width: 4em; margin-bottom: -2em;'}
       -#= s.label :tooth_number, 'Selección'
       = f.text_field :tooth, :readonly => true, :id => "tooth_number"
   %br
@@ -45,6 +45,11 @@
             -# = f.select(:worktype_id, @worktypes.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
             = select_tag :worktype_store_id, options_from_collection_for_select(@worktypes, :id, :name), include_blank: false, prompt: 'Seleccionar'
 
+          .input-field
+            %input#price_worktype{:type => 'hidden'}
+
+
+
           .input-fields
             = f.label :note, "Detalle"
             = f.text_field :note
@@ -57,7 +62,7 @@
             = f.label :brand,"Marca", :style => 'width: 8em; margin-left: 2em;'
             = f.text_field :brand, :style => 'width: 12em;'
 
-    %li
+    %li#material_collapse{:style => "display: none;"}
       .collapsible-header
         %i.material-icons> play_arrow
         Materiales y Metales
@@ -67,8 +72,11 @@
             -# = f.collection_select :worktype_id, Material.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
             = select_tag :material_store_id, options_from_collection_for_select(@materials, :id, :name), include_blank: false, prompt: 'Seleccionar'
 
+          .input-field
+            %input#price_material{:type => 'hidden'}
 
-    %li
+
+    %li#mcolor_collapse{:style => "display: none;"}
       .collapsible-header
         %i.material-icons> play_arrow
         Color de Muñon
@@ -78,7 +86,11 @@
             -# = f.collection_select :worktype_id, Mcolor.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
             = select_tag :mcolor_store_id, options_from_collection_for_select(@mcolors, :id, :name), include_blank: false, prompt: 'Seleccionar'
 
-    %li
+          .input-field
+            %input#price_mcolor{:type => 'hidden'}
+
+
+    %li#gcolor_collapse{:style => "display: none;"}
       .collapsible-header
         %i.material-icons> play_arrow
         Guía de Color
@@ -88,11 +100,26 @@
             -# = f.collection_select :worktype_id, Gcolor.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
             = select_tag :gcolor_store_id, options_from_collection_for_select(@gcolors, :id, :name), include_blank: false, prompt: 'Seleccionar'
 
-          .input-field{:class => "col s6"}
+          .input-field#basic_color{:class => "col s6"}
             = f.label :color_note, "Color", :style => 'width: 8em; margin-left: 2em;'
             = f.text_field :color_note, :style => 'width: 12em;'
 
-    %li
+
+          -#.input-field#vita_classic_select{:class => "col s6", :style => 'display: none;'}
+          -#  = f.select(:color_note, options_for_select([[''],
+          -#                                             ['A1'], ['A2'], ['A3'], ['A3.5'], ['A4'],
+          -#                                             ['B1'], ['B2'], ['B3'], ['B4'],
+          -#                                             ['C1'], ['C2'], ['C3'], ['C4'],
+          -#                                             ['D2'], ['D3'], ['D4']]))
+
+
+
+
+          .input-field
+            %input#price_gcolor{:type => 'hidden'}
+
+
+    %li#procedure_collapse{:style => "display: none;"}
       .collapsible-header
         %i.material-icons> play_arrow
         Procedimiento
@@ -102,6 +129,8 @@
             -# = f.collection_select :worktype_id, Procedure.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
             = select_tag :procedure_store_id, options_from_collection_for_select(@procedures, :id, :name), include_blank: false, prompt: 'Seleccionar'
 
+          .input-field
+            %input#price_procedure{:type => 'hidden'}
 
   %br
 

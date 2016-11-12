@@ -1,5 +1,6 @@
 class WorktypesController < ApplicationController
   before_action :set_worktype, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html, only: :show
 
   # GET /worktypes
   # GET /worktypes.json
@@ -10,6 +11,8 @@ class WorktypesController < ApplicationController
   # GET /worktypes/1
   # GET /worktypes/1.json
   def show
+    @worktype = Worktype.find(params[:id])
+    respond_with @worktype
   end
 
   # GET /worktypes/new

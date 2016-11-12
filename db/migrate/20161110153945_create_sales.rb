@@ -11,6 +11,7 @@ class CreateSales < ActiveRecord::Migration
       t.integer :invoice_num
       t.string :state,         default: "En proceso"
       t.string :concept
+      t.decimal :total_amount, precision: 8, scale: 2, default: 0
       t.belongs_to :client, index: true, foreign_key: true
 
       t.timestamps null: false

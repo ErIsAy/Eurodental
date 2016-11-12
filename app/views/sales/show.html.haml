@@ -118,14 +118,22 @@
               = " - Mordida" if store.antagonista
               %i
                 %br
-                = " #{store.worktype_name}-#{store.note}, #{store.material_name},#{store.mcolor_name}-#{store.color_note}, #{store.gcolor_name}, #{store.procedure_name}"
-                = "(Sobre Implante - Marca: #{store.brand})" if store.implant
+                = "#{store.worktype_name} - #{store.note}"
+                = "(Sobre Implante - Marca: #{store.brand})," if store.implant
+                = "#{store.material_name}, #{store.mcolor_name}, #{store.gcolor_name} - #{store.color_note}, #{store.procedure_name}"
             %td.right
-              $0.00
-              = store.amount
+              -#= store.amount
+              = "$#{number_to_currency(store.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
             %td
               = link_to sale_store_path(store.sale, store), method: :delete, data: { confirm: "Está Seguro?" } do
                 %i.material-icons.right delete
+      %tr
+        %td
+        %td
+        %td.right
+          %b
+            = "Total $#{number_to_currency(@sale.total_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+        %td
 
 
 

@@ -1,6 +1,6 @@
 class McolorsController < ApplicationController
   before_action :set_mcolor, only: [:show, :edit, :update, :destroy]
-
+  respond_to :json, :html, only: :show
   # GET /mcolors
   # GET /mcolors.json
   def index
@@ -10,6 +10,8 @@ class McolorsController < ApplicationController
   # GET /mcolors/1
   # GET /mcolors/1.json
   def show
+    @mcolor = Mcolor.find(params[:id])
+    respond_with @mcolor
   end
 
   # GET /mcolors/new

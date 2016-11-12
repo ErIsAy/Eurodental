@@ -29,6 +29,120 @@
  });
 * */
 
+/*GET price functions */
+
+
+
+function amount_sum(){
+    var worktype_price = Number(document.getElementById('price_worktype').value);
+    var material_price = Number(document.getElementById('price_material').value);
+    var mcolor_price = Number(document.getElementById('price_mcolor').value);
+    var gcolor_price = Number(document.getElementById('price_gcolor').value);
+    var procedure_price = Number(document.getElementById('price_procedure').value);
+    document.getElementById("service_total_f").value = '';
+    var sum = worktype_price + material_price + mcolor_price + gcolor_price + procedure_price;
+
+    document.getElementById("service_total_f").value = sum;
+}
+
+
+
+$(document).on("change", "select#worktype_store_id", function(e){
+
+    document.getElementById('material_collapse').style.display = "inline";
+    document.getElementById('mcolor_collapse').style.display = "inline";
+    document.getElementById('gcolor_collapse').style.display = "inline";
+    document.getElementById('procedure_collapse').style.display = "inline";
+
+
+    $.ajax({
+        url: "/worktypes/"+$(this).val() ,
+        dataType: "json",
+        data: { id: $(this).val() },
+        success: function(data){
+            console.log(data.price);
+            var worktype_price = document.getElementById('price_worktype');
+            worktype_price.value = data.price;
+            amount_sum();
+        }
+
+    });
+});
+
+$(document).on("change", "select#material_store_id", function(e){
+    $.ajax({
+        url: "/materials/"+$(this).val() ,
+        dataType: "json",
+        data: { id: $(this).val() },
+        success: function(data){
+            console.log(data.price);
+            var material_price = document.getElementById('price_material');
+            material_price.value = data.price;
+            amount_sum();
+
+        }
+    });
+});
+
+
+$(document).on("change", "select#mcolor_store_id", function(e){
+    $.ajax({
+        url: "/mcolors/"+$(this).val() ,
+        dataType: "json",
+        data: { id: $(this).val() },
+        success: function(data){
+            console.log(data.price);
+            var mcolor_price = document.getElementById('price_mcolor');
+            mcolor_price.value = data.price;
+            amount_sum();
+
+        }
+    });
+});
+
+
+$(document).on("change", "select#gcolor_store_id", function(e){
+    $.ajax({
+        url: "/gcolors/"+$(this).val() ,
+        dataType: "json",
+        data: { id: $(this).val() },
+        success: function(data){
+            console.log(data.price);
+            var gcolor_price = document.getElementById('price_gcolor');
+            // var gcolor_vita_classic = document.getElementById('vita_classic_select');
+            // var gcolor_vasic_color = document.getElementById('basic_color');
+
+            // if (data.name == 'Vita Classic'){
+            //     gcolor_vasic_color.style.display = "none";
+            //     gcolor_vita_classic.style.display = "inline";
+            // }
+            // else{
+            //     gcolor_vita_classic.style.display = "none";
+            //     gcolor_vasic_color.style.display = "inline";
+            // }
+
+
+            gcolor_price.value = data.price;
+            amount_sum();
+
+        }
+    });
+});
+
+$(document).on("change", "select#procedure_store_id", function(e){
+    $.ajax({
+        url: "/procedures/"+$(this).val() ,
+        dataType: "json",
+        data: { id: $(this).val() },
+        success: function(data){
+            console.log(data.price);
+            var procedure_price = document.getElementById('price_procedure');
+            procedure_price.value = data.price;
+            amount_sum();
+
+        }
+    });
+});
 
 
 
@@ -39,6 +153,10 @@ $(document).ready(function(){
     accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
         });
 });
+
+
+
+
 
 
 /*JS pending refactoring*/
@@ -151,16 +269,16 @@ $( document ).ready(function(){
              }
       });
 
-$(function(){
-    $('a[data-reload="true"').on('click', function(e) {
+    $(function(){
+        $('a[data-reload="true"]').on('click', function(e) {
 
-        var delay=1000;
-        setTimeout(function() {
-         window.location = $(e.target).attr('href');
-          window.location.reload(true);
-        }, delay);
+            var delay=1000;
+            setTimeout(function() {
+                window.location = $(e.target).attr('href');
+                window.location.reload(true);
+            }, delay);
 
+        });
     });
-});
 
 });

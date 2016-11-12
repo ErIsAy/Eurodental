@@ -1,5 +1,6 @@
 class ProceduresController < ApplicationController
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html, only: :show
 
   # GET /procedures
   # GET /procedures.json
@@ -10,6 +11,8 @@ class ProceduresController < ApplicationController
   # GET /procedures/1
   # GET /procedures/1.json
   def show
+    @procedure = Procedure.find(params[:id])
+    respond_with @procedure
   end
 
   # GET /procedures/new
