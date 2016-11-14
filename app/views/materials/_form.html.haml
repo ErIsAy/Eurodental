@@ -1,17 +1,16 @@
 = form_for @material do |f|
-  - if @material.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@material.errors.count, "error")} prohibited this material from being saved:"
-      %ul
-        - @material.errors.full_messages.each do |msg|
-          %li= msg
+  .row.card.container.col.s12{:style => "margin: 0 auto;"}
+    - if @material.errors.any?
+      - flash[:notice] = "favor llenar los campos correctamente"
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :price
-    = f.text_field :price
+    .input-fields.col.s6
+      = f.label :name, 'Descripción'
+      = f.text_field :name
+    .input-fields.col.s6
+      = f.label :price, 'Precio'
+      = f.text_field :price
 
-  .actions
-    = f.submit 'Save'
+  %br
+  %br
+  .actions.container{:style => "margin: 0 auto;"}
+    = f.submit 'Salvar', :class => "waves-effect waves-light btn green right"

@@ -59,10 +59,15 @@ $(document).on("change", "select#worktype_store_id", function(e){
         url: "/worktypes/"+$(this).val() ,
         dataType: "json",
         data: { id: $(this).val() },
+
         success: function(data){
             console.log(data.price);
             var worktype_price = document.getElementById('price_worktype');
             worktype_price.value = data.price;
+
+            if (data.price == undefined) {
+            worktype_price.value = 0
+            }
             amount_sum();
         }
 
@@ -78,6 +83,10 @@ $(document).on("change", "select#material_store_id", function(e){
             console.log(data.price);
             var material_price = document.getElementById('price_material');
             material_price.value = data.price;
+
+            if (data.price == undefined) {
+            material_price.value = 0
+            }
             amount_sum();
 
         }
@@ -94,6 +103,10 @@ $(document).on("change", "select#mcolor_store_id", function(e){
             console.log(data.price);
             var mcolor_price = document.getElementById('price_mcolor');
             mcolor_price.value = data.price;
+
+            if (data.price == undefined) {
+            mcolor_price.value = 0
+            }
             amount_sum();
 
         }
@@ -109,20 +122,11 @@ $(document).on("change", "select#gcolor_store_id", function(e){
         success: function(data){
             console.log(data.price);
             var gcolor_price = document.getElementById('price_gcolor');
-            // var gcolor_vita_classic = document.getElementById('vita_classic_select');
-            // var gcolor_vasic_color = document.getElementById('basic_color');
-
-            // if (data.name == 'Vita Classic'){
-            //     gcolor_vasic_color.style.display = "none";
-            //     gcolor_vita_classic.style.display = "inline";
-            // }
-            // else{
-            //     gcolor_vita_classic.style.display = "none";
-            //     gcolor_vasic_color.style.display = "inline";
-            // }
-
-
             gcolor_price.value = data.price;
+
+            if (data.price == undefined) {
+            gcolor_price.value = 0
+            }
             amount_sum();
 
         }
@@ -138,6 +142,10 @@ $(document).on("change", "select#procedure_store_id", function(e){
             console.log(data.price);
             var procedure_price = document.getElementById('price_procedure');
             procedure_price.value = data.price;
+
+            if (data.price == undefined) {
+            procedure_price.value = 0
+            }
             amount_sum();
 
         }

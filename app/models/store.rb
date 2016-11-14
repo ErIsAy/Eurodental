@@ -1,11 +1,15 @@
 class Store < ActiveRecord::Base
   belongs_to :sale
-
   belongs_to :worktype
   belongs_to :material
   belongs_to :mcolor
   belongs_to :gcolor
   belongs_to :procedure
+
+
+  validates :worktype_id, :presence => true
+  validates :tooth, :presence => true
+
 
   attr_accessor :worktype_name
   attr_accessor :material_name

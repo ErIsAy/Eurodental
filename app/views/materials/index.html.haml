@@ -1,23 +1,43 @@
-%h1 Listing materials
+%header
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Price
-      %th
-      %th
-      %th
+-# MAIN
 
-  %tbody
-    - @materials.each do |material|
-      %tr
-        %td= material.name
-        %td= material.price
-        %td= link_to 'Show', material
-        %td= link_to 'Edit', edit_material_path(material)
-        %td= link_to 'Destroy', material, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%main
+  = render :partial => 'layouts/top_navbar'
 
-%br
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Listado de Material
+  %br
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_material_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nuevo Material
 
-= link_to 'New Material', new_material_path
+  %br
+
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table
+      %thead
+        %tr
+          %th Descripción
+          %th Precio
+          %th
+          %th
+          %th
+
+      %tbody
+        - @materials.each do |material|
+          %tr
+            %td= material.name
+            %td= "$ #{number_to_currency(material.price, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            -# %td= link_to 'Show', material
+            %td= link_to 'Editar', edit_material_path(material)
+            %td= link_to 'Eliminar', material, :method => :delete, :data => { :confirm => 'Esta Seguro?' }
+
+  %br
+
+-# = link_to 'New Material', new_material_path
+
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

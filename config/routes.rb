@@ -14,8 +14,9 @@ Rails.application.routes.draw do
 
   resources :sales do
     resources :stores
-  end
 
+  end
+  get '/sale/:id' => 'sales#factura_print'
 
   get 'activity/index'
 

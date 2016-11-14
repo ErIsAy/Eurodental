@@ -30,7 +30,8 @@ class McolorsController < ApplicationController
 
     respond_to do |format|
       if @mcolor.save
-        format.html { redirect_to @mcolor, notice: 'Mcolor was successfully created.' }
+        format.html { redirect_to mcolors_url, notice: 'Datos salvados correctamente' }
+        # format.html { redirect_to @mcolor, notice: 'Mcolor was successfully created.' }
         format.json { render :show, status: :created, location: @mcolor }
       else
         format.html { render :new }
@@ -44,7 +45,8 @@ class McolorsController < ApplicationController
   def update
     respond_to do |format|
       if @mcolor.update(mcolor_params)
-        format.html { redirect_to @mcolor, notice: 'Mcolor was successfully updated.' }
+        format.html { redirect_to mcolors_url, notice: 'Datos salvados correctamente' }
+        # format.html { redirect_to @mcolor, notice: 'Mcolor was successfully updated.' }
         format.json { render :show, status: :ok, location: @mcolor }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class McolorsController < ApplicationController
   def destroy
     @mcolor.destroy
     respond_to do |format|
-      format.html { redirect_to mcolors_url, notice: 'Mcolor was successfully destroyed.' }
+      format.html { redirect_to mcolors_url, notice: 'Color de Muñon Eliminado' }
       format.json { head :no_content }
     end
   end

@@ -31,7 +31,8 @@ class GcolorsController < ApplicationController
 
     respond_to do |format|
       if @gcolor.save
-        format.html { redirect_to @gcolor, notice: 'Gcolor was successfully created.' }
+        format.html { redirect_to gcolors_url, notice: 'Datos salvados correctamente' }
+        # format.html { redirect_to @gcolor, notice: 'Gcolor was successfully created.' }
         format.json { render :show, status: :created, location: @gcolor }
       else
         format.html { render :new }
@@ -45,7 +46,8 @@ class GcolorsController < ApplicationController
   def update
     respond_to do |format|
       if @gcolor.update(gcolor_params)
-        format.html { redirect_to @gcolor, notice: 'Gcolor was successfully updated.' }
+        format.html { redirect_to gcolors_url, notice: 'Datos salvados correctamente' }
+        # format.html { redirect_to @gcolor, notice: 'Gcolor was successfully updated.' }
         format.json { render :show, status: :ok, location: @gcolor }
       else
         format.html { render :edit }
@@ -59,7 +61,7 @@ class GcolorsController < ApplicationController
   def destroy
     @gcolor.destroy
     respond_to do |format|
-      format.html { redirect_to gcolors_url, notice: 'Gcolor was successfully destroyed.' }
+      format.html { redirect_to gcolors_url, notice: 'Guía de Color seleccionada ha sido Eliminada' }
       format.json { head :no_content }
     end
   end

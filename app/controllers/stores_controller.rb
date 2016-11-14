@@ -52,9 +52,9 @@ class StoresController < ApplicationController
     @store.gcolor_id = params[:gcolor_store_id]
     @store.procedure_id = params[:procedure_store_id]
 
-    @sale.total_amount += @store.amount
-    @sale.remaining_amount += @store.amount
-    @sale.order_total += @store.amount
+    @sale.total_amount += @store.amount.to_f
+    @sale.remaining_amount += @store.amount.to_f
+    @sale.order_total += @store.amount.to_f
     @sale.save
 
     if @store.save

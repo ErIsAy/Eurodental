@@ -12,6 +12,24 @@ class SalesController < ApplicationController
 
   end
 
+
+  def factura_print
+    @sale = Sale.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+      # Generar @order.invoice_num aqui
+      pdf = FacturaPdf.new(@sale)
+      send_data pdf.render,
+        filename: "factura_#{@sale.id}.pdf",
+        type: "application/pdf",
+        disposition: "inline" ##display in browser
+      end
+    end
+  end
+
+
+
   # GET /sales/1
   # GET /sales/1.json
   def show
@@ -58,6 +76,9 @@ class SalesController < ApplicationController
   # PATCH/PUT /sales/1
   # PATCH/PUT /sales/1.json
   def update
+    unless  params[:sale][:state] == "cotizacion"
+      @sale.coti = false
+    end
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: 'La Orden fue actualizada exitosamente.' }

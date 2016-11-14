@@ -4,33 +4,40 @@
 
 %main
   = render :partial => 'layouts/top_navbar'
+
   %br
-  %h3.container{:style => "margin: 0 auto;"} Listado de Servicios
+  %h3.container{:style => "margin: 0 auto;"} Guía de Color
+  %br
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_gcolor_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Guía de Color
+
   %br
 
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Price
-        %th
-        %th
-        %th
-
-    %tbody
-      - @gcolors.each do |gcolor|
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table
+      %thead
         %tr
-          %td= gcolor.name
-          %td= gcolor.price
-          %td= link_to 'Show', gcolor
-          %td= link_to 'Edit', edit_gcolor_path(gcolor)
-          %td= link_to 'Destroy', gcolor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %th Descripción
+          %th Precio
+          %th
+          %th
+          %th
 
-  %br
+      %tbody
+        - @gcolors.each do |gcolor|
+          %tr
+            %td= gcolor.name
+            %td= "$ #{number_to_currency(gcolor.price, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            -# %td= link_to 'Show', gcolor
+            %td= link_to 'Editar', edit_gcolor_path(gcolor)
+            %td= link_to 'Eliminar', gcolor, :method => :delete, :data => { :confirm => 'Esta Seguro?' }
 
-  = link_to 'New Gcolor', new_gcolor_path
+    %br
 
-  = render :partial => 'layouts/footer'
-  -# END OF FOOTER
+-# = link_to 'New gcolor', new_gcolor_path
 
 
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

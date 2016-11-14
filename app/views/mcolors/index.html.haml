@@ -1,23 +1,43 @@
-%h1 Listing mcolors
+%header
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Price
-      %th
-      %th
-      %th
+-# MAIN
 
-  %tbody
-    - @mcolors.each do |mcolor|
-      %tr
-        %td= mcolor.name
-        %td= mcolor.price
-        %td= link_to 'Show', mcolor
-        %td= link_to 'Edit', edit_mcolor_path(mcolor)
-        %td= link_to 'Destroy', mcolor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%main
+  = render :partial => 'layouts/top_navbar'
 
-%br
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Color de Muñon
+  %br
+  .container{:style => "margin: 0 auto;"}
+    %a{:href => new_mcolor_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right add
+      Nuevo Color de Muñon
 
-= link_to 'New Mcolor', new_mcolor_path
+  %br
+
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table
+      %thead
+        %tr
+          %th Descripción
+          %th Precio
+          %th
+          %th
+          %th
+
+      %tbody
+        - @mcolors.each do |mcolor|
+          %tr
+            %td= mcolor.name
+            %td= "$ #{number_to_currency(mcolor.price, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            -# %td= link_to 'Show', mcolor
+            %td= link_to 'Editar', edit_mcolor_path(mcolor)
+            %td= link_to 'Eliminar', mcolor, :method => :delete, :data => { :confirm => 'Esta Seguro?' }
+
+    %br
+
+-# = link_to 'New Mcolor', new_mcolor_path
+
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

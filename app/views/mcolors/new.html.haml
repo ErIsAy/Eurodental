@@ -1,5 +1,21 @@
-%h1 New mcolor
+%header
 
-= render 'form'
+-# MAIN
 
-= link_to 'Back', mcolors_path
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Nuevo Color de Muñon
+  %br
+
+  = render 'form'
+
+
+  .container{:style => "margin: 0 auto;"}
+    = link_to 'Volver', mcolors_path, :class => "waves-effect waves-light btn blue"
+
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

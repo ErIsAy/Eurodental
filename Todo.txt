@@ -30,7 +30,7 @@ Development
 
    Nested resource para sale > servicio - done
 
-   Finish styles for services(stores) and items(worktype, materials, etc)
+   Finish styles for services(stores) and items(worktype, materials, etc) - done
 
    Agregar a Tipo de Trabajo => abruitment Personalizado - done
 

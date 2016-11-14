@@ -31,7 +31,8 @@ class ProceduresController < ApplicationController
 
     respond_to do |format|
       if @procedure.save
-        format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
+        format.html { redirect_to procedures_url, notice: 'Procedimiento Salvado.' }
+        # format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
         format.json { render :show, status: :created, location: @procedure }
       else
         format.html { render :new }
@@ -45,7 +46,8 @@ class ProceduresController < ApplicationController
   def update
     respond_to do |format|
       if @procedure.update(procedure_params)
-        format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
+        format.html { redirect_to procedures_url, notice: 'Procedimiento Salvado.' }
+        # format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
         format.json { render :show, status: :ok, location: @procedure }
       else
         format.html { render :edit }
@@ -59,7 +61,7 @@ class ProceduresController < ApplicationController
   def destroy
     @procedure.destroy
     respond_to do |format|
-      format.html { redirect_to procedures_url, notice: 'Procedure was successfully destroyed.' }
+      format.html { redirect_to procedures_url, notice: 'Procedimiento Eliminado.' }
       format.json { head :no_content }
     end
   end

@@ -31,8 +31,6 @@
           %tr
             %td= worktype.name
             %td= "$ #{number_to_currency(worktype.price, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
-
-
             -#%td= link_to 'Ver', worktype
             %td= link_to 'Editar', edit_worktype_path(worktype)
             %td= link_to 'Eliminar', worktype, :method => :delete, :data => { :confirm => 'Esta Seguro?' }

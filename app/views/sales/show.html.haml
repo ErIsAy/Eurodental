@@ -24,17 +24,20 @@
     %a.right.dropdown-button.btn{"data-activates" => "acciones", :href => "#"} Acciones
 
     %ul.right#acciones.dropdown-content
-      %li
-        %a{:href => "#!"}
-          Facturar
-          %i.material-icons.right print
-      %li
-        %a.modal-trigger{:href => '#makepayment'}
-          Pagos
-          %i.material-icons.right local_atm
+      - unless @sale.coti
+        %li
+          = link_to("Facturar",{:controller => :sales, :action => :factura_print, :format => 'pdf'},
+                                :target => "_blank", :target => "_blank", :data => { :reload => true})
+
+        %li
+          %a.modal-trigger{:href => '#makepayment'}
+            Pagos
+            %i.material-icons.right local_atm
       %li.divider
       %li
         %a.modal-trigger{:href => '#statechange'} Cambiar Estado
+      %li
+        %a.modal-trigger{:href => '#labelprint'} Imprimir Label
 
 
 
@@ -53,24 +56,14 @@
                          :autocomplete => "off"
           = pay.hidden_field :sale_id, :value => @sale.id
           %br
-          = submit_tag "Submit Payment", :class => "waves-effect waves-green btn-flat green right"
+          = submit_tag "Realizar Pago", :class => "waves-effect waves-green btn-flat green right"
 
-
-      -#  .col.row.s12{:style => "margin: 0 auto;"}
-      -#    .input-field.col.s6
-      -#      %select.col.s12
-      -#        %option{:selected => "selected", :value => "Efectivo"} Efectivo
-      -#        %option{:value => "Tarjeta de Credito"} Tarjeta de Crédito
-      -#      %label Tipo de Pago
-      -#
-      -#    .input-field.col.s3
-      -#      %input#payamount{:type => "number"}
-      -#      %label{:for => "payamount"} Monto
-      -#.modal-footer
-      -#  %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Realizar
-      -#
-      -#
-
+    #labelprint.modal
+      .modal-content
+        %p
+          Lorem ipsun dolor sit amet
+      .modal-footer
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Imprimir?
 
 
 
@@ -175,10 +168,11 @@
     %br
     %a{:href => edit_sale_path(@sale), :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right edit
-      Editar
-    %a{:href => "#", :class => "waves-effect waves-light btn green"}
-      %i.material-icons.right receipt
-      Imprimir Cotización
+      Editar Datos
+    - if @sale.coti
+      %a{:href => "#", :class => "waves-effect waves-light btn green"}
+        %i.material-icons.right receipt
+        Imprimir Cotización
 
   .container
     %br
@@ -213,12 +207,19 @@
               Diente:
               = "#{store.tooth}"
               = " - Antagonista" if store.antagonista
-              = " - Mordida" if store.antagonista
+              = " - Mordida" if store.mordida
               %i
                 %br
-                = "#{store.worktype_name} - #{store.note}"
-                = "(Sobre Implante - Marca: #{store.brand})," if store.implant
-                = "#{store.material_name}, #{store.mcolor_name}, #{store.gcolor_name} - #{store.color_note}, #{store.procedure_name}"
+                = "#{store.worktype_name}"
+                = " - #{store.note}" if store.note != ""
+                = "(Sobre Implante)" if store.implant
+                = "- Marca: #{store.brand}" if store.brand != ""
+                = ", #{store.material_name}" if store.material_name != nil
+                = ", #{store.mcolor_name}" if store.mcolor_name != nil
+                = ", #{store.gcolor_name} - #{store.color_note}" if store.gcolor_name != nil
+                = ", #{store.procedure_name}" if store.procedure_name != nil
+
+
             %td.right
               -#= store.amount
               = "$#{number_to_currency(store.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
