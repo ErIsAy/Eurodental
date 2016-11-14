@@ -25,35 +25,53 @@
 
     %ul.right#acciones.dropdown-content
       %li
-        %a.modal-trigger{:href => '#makepayment'}
-          Pagos
-          %i.material-icons.right local_atm
-      %li
         %a{:href => "#!"}
           Facturar
           %i.material-icons.right print
-
+      %li
+        %a.modal-trigger{:href => '#makepayment'}
+          Pagos
+          %i.material-icons.right local_atm
       %li.divider
       %li
         %a.modal-trigger{:href => '#statechange'} Cambiar Estado
 
 
 
-    #makepayment.modal
+    #makepayment.modal{:style => 'height: 300px;'}
       .modal-content
         %h4{:style=> "color:black; text-align: center;"} Realizar Pago
-        .col.row.s12{:style => "margin: 0 auto;"}
+        = form_for :payments, :url => url_for(:controller => "payments", :action => "make_payment"),
+                              :method => "get" do |pay|
           .input-field.col.s6
-            %select.col.s12
-              %option{:selected => "selected", :value => "Efectivo"} Efectivo
-              %option{:value => "Tarjeta de Credito"} Tarjeta de Crédito
-            %label Tipo de Pago
-
+            = pay.select :payment_type, [['Efectivo', 'Efectivo'], ['Tarjeta de Crédito', 'Tarjeta de Crédito'],
+                                        ['Otro', 'Otro']], {}, { :class => "col s12" }
           .input-field.col.s3
-            %input#payamount{:type => "number"}
-            %label{:for => "payamount"} Monto
-      .modal-footer
-        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Realizar
+          = pay.text_field :amount, :placeholder => "Amount",
+                         :value => number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n",
+                         :unit => '',:delimiter => ',',:separator => '.'),
+                         :autocomplete => "off"
+          = pay.hidden_field :sale_id, :value => @sale.id
+          %br
+          = submit_tag "Submit Payment", :class => "waves-effect waves-green btn-flat green right"
+
+
+      -#  .col.row.s12{:style => "margin: 0 auto;"}
+      -#    .input-field.col.s6
+      -#      %select.col.s12
+      -#        %option{:selected => "selected", :value => "Efectivo"} Efectivo
+      -#        %option{:value => "Tarjeta de Credito"} Tarjeta de Crédito
+      -#      %label Tipo de Pago
+      -#
+      -#    .input-field.col.s3
+      -#      %input#payamount{:type => "number"}
+      -#      %label{:for => "payamount"} Monto
+      -#.modal-footer
+      -#  %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Realizar
+      -#
+      -#
+
+
 
 
     #statechange.modal{:style => "height: 700px;"}
@@ -147,9 +165,9 @@
         %b Fecha de Entrega:
         = @sale.order_date
 
-      %p.col.s6.margin-f{:style => 'color:orange;'}
-        %b Balance:
-        = "#{number_to_currency(@sale.remaining_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+      -#%p.col.s6.margin-f{:style => 'color:orange;'}
+      -#  %b Balance:
+      -#  = "#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
         -# balance = total - sumatoria de pagos
 
 
@@ -222,20 +240,50 @@
         %td
         %td.right
           %b
-            = "Total $#{number_to_currency(@sale.total_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            = "Total $#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+
+        %td
+      %tr
+        %td
+        %td
+        %td.right
+          %b
+            = "Total con Desc. $#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+
+        %td
+      %tr
+        %td
+        %td
+        %td.right
+          %b{:style => 'color: orange;'}
+            = "Balance $#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
 
         %td
 
 
-  #discountmodal.modal
+  #discountmodal.modal{:style => "height: 700px;"}
     .modal-content
       %h4{:style=> "color:black; text-align: center;"} Descuento
       .col.s6{:style=> "margin:0 auto; width: 50%;"}
         = form_for(@sale) do |d|
           .input-field.col.s6
             %i.material-icons.prefix money_attach
-            = d.label :discount, "Porcentaje"
-            = d.number_field :discount, :in => 0..100
+
+            = d.select :discount, options_for_select([["0 %"],
+                                                      ["5 %"],
+                                                      ["10 %"],
+                                                      ["15 %"],
+                                                      ["20 %"],
+                                                      ["25 %"],
+                                                      ["30 %"],
+                                                      ["35 %"],
+                                                      ["40 %"],
+                                                      ["45 %"],
+                                                      ["50 %"]])
+
+            -#= d.label :discount, "Porcentaje"
+            -#= d.number_field :discount, :in => 0..100
+
 
 
           .actions.modal-footer
@@ -244,10 +292,6 @@
               Aplicar
 
 
-
-
-    .modal-footer
-      %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Aplicar
 
   .card.container{:style => "margin: 0 auto;", :class => "highlight"}
     .collection-header
@@ -260,25 +304,28 @@
           %th Monto
           %th Fecha
       %tbody
-        %tr
-          %td
-            Efectivo
-          %td
-            $1550.00
-          %td
-            11/13/2016
+        - @sale.payments.each do |payment|
+          %tr
+            %td
+              = payment.payment_type
+            %td
+              %b{:style => "color: green"}
+                = "$#{number_to_currency(payment.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+
+            %td
+              = payment.created_at.strftime("%F")
 
   .container
     %br
-
-    %a.modal-trigger.waves-effect.waves-light.btn{:href => "#modal1"} Comentarios
-
-    #modal1.modal.bottom-sheet
-      .modal-content
-        %h4 Modal Header
-        %p A bunch of text
-      .modal-footer
-        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Agree
+    -#
+    -#%a.modal-trigger.waves-effect.waves-light.btn{:href => "#modal1"} Comentarios
+    -#
+    -##modal1.modal.bottom-sheet
+    -#  .modal-content
+    -#    %h4 Modal Header
+    -#    %p A bunch of text
+    -#  .modal-footer
+    -#    %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Agree
 
     -# - if current_user.role_level <= 2
       -# = link_to '<i class="material-icons" style="font-size: 2.3rem;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right btn green", :target => "_blank", :data => { :reload => true}

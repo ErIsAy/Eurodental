@@ -38,9 +38,11 @@ Development
 
    Agregar el cambio para los states de la orden - done
 
-   Agregar el cambio para el abono y los pagos
-   Agregar el cambio para los descuentos
+   Agregar el cambio para el abono y los pagos - done
+
+   Agregar el cambio para los descuentos - done
+
    Agregar el cambio para imprimir la factura
 
 
-   Agregar todos los cambios anteriores a la pantalla de contabilidad
+   Agregar todos los cambios anteriores a la pantalla de contabilidad - partially

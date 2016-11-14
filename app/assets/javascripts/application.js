@@ -157,8 +157,6 @@ $(document).ready(function(){
 
 
 
-
-
 /*JS pending refactoring*/
 
 (function() {
@@ -212,6 +210,8 @@ function printpage(){
      window.print()
   }
 $( document ).ready(function(){
+
+
 
   $(function() {
       Materialize.updateTextFields();

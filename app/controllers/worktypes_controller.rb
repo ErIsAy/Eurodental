@@ -31,7 +31,8 @@ class WorktypesController < ApplicationController
 
     respond_to do |format|
       if @worktype.save
-        format.html { redirect_to @worktype, notice: 'Worktype was successfully created.' }
+        format.html { redirect_to worktypes_url, notice: 'Tipo de Trabajo Salvado.' }
+        # format.html { redirect_to @worktype, notice: 'Tipo de Trabajo Salvado.' }
         format.json { render :show, status: :created, location: @worktype }
       else
         format.html { render :new }
@@ -45,7 +46,8 @@ class WorktypesController < ApplicationController
   def update
     respond_to do |format|
       if @worktype.update(worktype_params)
-        format.html { redirect_to @worktype, notice: 'Worktype was successfully updated.' }
+        format.html { redirect_to worktypes_url, notice: 'Tipo de Trabajo Salvado.' }
+        # format.html { redirect_to @worktype, notice: 'Worktype was successfully updated.' }
         format.json { render :show, status: :ok, location: @worktype }
       else
         format.html { render :edit }
@@ -59,7 +61,7 @@ class WorktypesController < ApplicationController
   def destroy
     @worktype.destroy
     respond_to do |format|
-      format.html { redirect_to worktypes_url, notice: 'Worktype was successfully destroyed.' }
+      format.html { redirect_to worktypes_url, notice: 'Tipo de Trabajo Eliminado.' }
       format.json { head :no_content }
     end
   end

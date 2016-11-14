@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :payments do
+    collection do
+      get 'make_payment'
+    end
+  end
   resources :procedures
   resources :gcolors
   resources :mcolors

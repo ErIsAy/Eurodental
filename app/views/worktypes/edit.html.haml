@@ -1,7 +1,25 @@
-%h1 Editing worktype
+-# %h1 Editar Orden
+-#
 
-= render 'form'
+%header
 
-= link_to 'Show', @worktype
-\|
-= link_to 'Back', worktypes_path
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+
+
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Editar
+  %br
+
+  = render 'form'
+
+
+  .container{:style => "margin: 0 auto;"}
+    = link_to 'Volver', worktypes_path, :class => "waves-effect waves-light btn blue"
+
+
+= render :partial => 'layouts/footer'
+-# END OF FOOTER

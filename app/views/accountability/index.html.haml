@@ -61,27 +61,36 @@
     %table.centered.highlight#orders_t
       %thead
         %tr
-          %th Factura No.
+          %th Orden No.
           %th Cliente
           %th Fecha  de Entrada
           -#%th Fecha  de Entrega
           %th Estado
           %th Monto RD$
+          %th Balance RD$
           -# %th Nota Del Cliente
           -# %th Otras Notas
+          %th Ver
 
 
 
       %tbody
-        - @orders.each do |order|
+        - @sales.each do |sale|
           %tr
-            %td= order.id
-            %td= order.client_name
-            %td= order.created_at.strftime("%F")
+            %td= sale.id
+            %td= sale.client.name
+            %td= sale.created_at.strftime("%F")
             -#%td= order.order_date
-            %td= order.state
-            %td= order.total_price
-            -# %td= order.client_note
+            %td= sale.state
+            %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            %td= "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            %td.btn-group
+              %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                %i.material-icons.right search
+
+
+
+  -# %td= order.client_note
             -# %td= order.other_note
 
 

@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
   before_action :set_discount, only: [:show, :edit, :update, :destroy]
-  before_action :set_total, only: [:show, :edit, :update, :destroy]
+  # before_action :set_total, only: [:show, :edit, :update, :destroy]
 
   # GET /sales
   # GET /sales.json
@@ -85,7 +85,7 @@ class SalesController < ApplicationController
   def destroy
     @sale.destroy
 
-    set_discount
+
     respond_to do |format|
       format.html { redirect_to sales_url, notice: 'La Orden fue eliminada exitosamente.' }
       format.json { head :no_content }
@@ -103,6 +103,6 @@ class SalesController < ApplicationController
       params.require(:sale).permit(:patient_name, :age, :sex, :order_date,
                                    :client_note, :other_note, :coti, :state,
                                    :concept, :invoice_num, :total_amount, :discount, :discount_amount,
-                                   :remaining_amount, :client_id)
+                                   :order_total, :remaining_amount, :client_id)
     end
 end

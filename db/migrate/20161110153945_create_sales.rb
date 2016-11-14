@@ -15,6 +15,7 @@ class CreateSales < ActiveRecord::Migration
       t.decimal :discount, default: 0
       t.decimal :discount_amount, precision: 8, scale: 2, default: 0
       t.decimal  :remaining_amount, precision: 8, scale: 2, default: 0
+      t.decimal  :order_total, precision: 8, scale: 2, default: 0
       t.belongs_to :client, index: true, foreign_key: true
 
 

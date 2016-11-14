@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111033057) do
+ActiveRecord::Schema.define(version: 20161114050117) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(version: 20161111033057) do
 
   add_index "orders", ["client_id"], name: "index_orders_on_client_id"
 
+  create_table "payments", force: :cascade do |t|
+    t.decimal  "amount",       precision: 8, scale: 2
+    t.string   "payment_type"
+    t.integer  "sale_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
   create_table "prices", force: :cascade do |t|
     t.integer  "perno_price",              default: 0
     t.integer  "soldadura_price",          default: 0
@@ -190,7 +198,8 @@ ActiveRecord::Schema.define(version: 20161111033057) do
     t.decimal  "total_amount",     precision: 8, scale: 2, default: 0.0
     t.decimal  "discount",                                 default: 0.0
     t.decimal  "discount_amount",  precision: 8, scale: 2, default: 0.0
-    t.decimal  "remaining_amount"
+    t.decimal  "remaining_amount", precision: 8, scale: 2, default: 0.0
+    t.decimal  "order_total",      precision: 8, scale: 2, default: 0.0
     t.integer  "client_id"
     t.datetime "created_at",                                                      null: false
     t.datetime "updated_at",                                                      null: false

@@ -1,6 +1,6 @@
 class AccountabilityController < ApplicationController
   def index
-    @search = Order.ransack(params[:q])
-    @orders = @search.result
+    @search = Sale.ransack(params[:q])
+    @sales = @search.result
   end
 end

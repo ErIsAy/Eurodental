@@ -54,6 +54,7 @@ class StoresController < ApplicationController
 
     @sale.total_amount += @store.amount
     @sale.remaining_amount += @store.amount
+    @sale.order_total += @store.amount
     @sale.save
 
     if @store.save
@@ -100,6 +101,7 @@ class StoresController < ApplicationController
 
     @store.destroy
     @sale.total_amount -= @store.amount
+    @sale.order_total -= @store.amount
     @sale.remaining_amount -= @store.amount
     @sale.save
 
