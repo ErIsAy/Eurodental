@@ -20,12 +20,12 @@
     %hr.style17
     .input-field{:class => "col s12 m6"}
       %i.material-icons.prefix account_circle
-      = f.label :patient_name
+      = f.label :patient_name, "Paciente"
       = f.text_field :patient_name
 
     .input-field{:class => "col s12 m6 s12"}
       %i.material-icons.prefix perm_identity
-      = f.label :age
+      = f.label :age, "Edad"
       = f.number_field :age
     .input-field{:class => "col s12 m6"}
       %i.material-icons.prefix tag_faces

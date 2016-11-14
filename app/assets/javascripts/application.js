@@ -162,6 +162,8 @@ $(document).ready(function(){
 /*JS pending refactoring*/
 
 (function() {
+    // $.mask.definitions['~']='[+-]';
+    //$(".money-mask").mask("9? 99? 9999",{placeholder:" "});
     $(".phone-mask").mask("(999) 999-9999");
     $("#e1").select2();
     $('#e1').select2({
@@ -192,7 +194,7 @@ $(document).ready(function(){
         // Buttons
         today: 'Hoy',
         clear: 'Borrar',
-        close: 'Cerrar',
+        close: 'X',
 
         // Accessibility labels
         labelMonthNext: 'Siguiente Mes',

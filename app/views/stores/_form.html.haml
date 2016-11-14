@@ -141,12 +141,13 @@
   -#
   .input-field.col.s12#subtotal_price
     = f.label :amount, 'Sub-Total RD$', :style => "color: #000000; font-size: 20px;"
-    = f.number_field :amount, :readonly => true,
-                                     :id => "service_total_f",
-                                     :class => 'right'
+    = f.text_field :amount, :class => "right", :id => "service_total_f"
 
+    -# :readonly => true,
 
     .actions
       %button.btn.waves-effect.waves-light.right#order_submit{:name => "action", :type => "submit", data: { disable_with: "Agregando.." }}
         %i.material-icons.right add
         Agregar
+
+

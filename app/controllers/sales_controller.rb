@@ -1,5 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_discount, only: [:show, :edit, :update, :destroy]
+  before_action :set_total, only: [:show, :edit, :update, :destroy]
 
   # GET /sales
   # GET /sales.json
@@ -24,6 +26,7 @@ class SalesController < ApplicationController
   # GET /sales/1/edit
   def edit
     @clients = Client.all
+
   end
 
   # POST /sales
@@ -31,6 +34,12 @@ class SalesController < ApplicationController
   def create
     @clients = Client.all
     @sale = Sale.new(sale_params)
+
+
+
+    if @sale.coti
+      @sale.state = "Cotizacion"
+    end
 
     respond_to do |format|
       if @sale.save
@@ -42,6 +51,9 @@ class SalesController < ApplicationController
       end
     end
   end
+
+
+
 
   # PATCH/PUT /sales/1
   # PATCH/PUT /sales/1.json
@@ -57,10 +69,23 @@ class SalesController < ApplicationController
     end
   end
 
+  def set_discount
+    @sale.discount_amount = @sale.total_amount*(@sale.discount/100)
+    @sale.save
+  end
+
+  def set_total
+    @sale.total_amount = @sale.total_amount - @sale.discount_amount
+    @sale.save
+  end
+
+
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
     @sale.destroy
+
+    set_discount
     respond_to do |format|
       format.html { redirect_to sales_url, notice: 'La Orden fue eliminada exitosamente.' }
       format.json { head :no_content }
@@ -77,6 +102,7 @@ class SalesController < ApplicationController
     def sale_params
       params.require(:sale).permit(:patient_name, :age, :sex, :order_date,
                                    :client_note, :other_note, :coti, :state,
-                                   :concept, :invoice_num, :total_amount, :client_id)
+                                   :concept, :invoice_num, :total_amount, :discount, :discount_amount,
+                                   :remaining_amount, :client_id)
     end
 end

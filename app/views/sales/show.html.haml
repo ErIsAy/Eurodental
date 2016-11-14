@@ -15,6 +15,81 @@
   %h3{:style => "margin: 0 auto; text-align: center;"}
     = image_tag "eu-clipboard.png", :style => "width: 80px;"
 
+  .container{:style => 'margin: 0 auto;display: table;'}
+
+    %a{:href => sales_path, :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.left keyboard_backspace
+      Salir
+
+    %a.right.dropdown-button.btn{"data-activates" => "acciones", :href => "#"} Acciones
+
+    %ul.right#acciones.dropdown-content
+      %li
+        %a.modal-trigger{:href => '#makepayment'}
+          Pagos
+          %i.material-icons.right local_atm
+      %li
+        %a{:href => "#!"}
+          Facturar
+          %i.material-icons.right print
+
+      %li.divider
+      %li
+        %a.modal-trigger{:href => '#statechange'} Cambiar Estado
+
+
+
+    #makepayment.modal
+      .modal-content
+        %h4{:style=> "color:black; text-align: center;"} Realizar Pago
+        .col.row.s12{:style => "margin: 0 auto;"}
+          .input-field.col.s6
+            %select.col.s12
+              %option{:selected => "selected", :value => "Efectivo"} Efectivo
+              %option{:value => "Tarjeta de Credito"} Tarjeta de Crédito
+            %label Tipo de Pago
+
+          .input-field.col.s3
+            %input#payamount{:type => "number"}
+            %label{:for => "payamount"} Monto
+      .modal-footer
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Realizar
+
+
+    #statechange.modal{:style => "height: 700px;"}
+      .modal-content
+        %h4{:style=> "color:black; text-align: center;"} Descuento
+        = form_for(@sale) do |f|
+          .input-field.col.s6
+            %i.material-icons.prefix label_outline
+            = f.select :state, options_for_select([["Elige el Estado"],
+                                                    ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
+                                                    ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
+                                                    ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+                                                    ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
+                                                    ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
+                                                    ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
+                                                    disabled: "Elige el Estado"), class: "icons"
+
+          .input-field.col.s6
+            %i.material-icons.prefix today
+            = f.label :order_date, "Fecha de Entrega"
+            = f.text_field :order_date,
+              :class => "datepicker"
+
+          %br
+          .input-field
+            %i.material-icons.prefix speaker_notes
+            = f.label :concept, "Nota"
+            = f.text_area :concept,
+              :class => "materialize-textarea"
+
+          .actions.modal-footer
+            %button.btn.waves-effect.waves-light.right{:name => "action", :type => "submit", data: { disable_with: "Cambiando Estado.." }}
+              %i.material-icons.right save
+              Salvar
+
+
   .card.container.row{:style => "margin: 0 auto; font-size: x-large;"}
     .collection-header
       %h4{:style=> "color:black; text-align: center;"} Datos de la Orden
@@ -64,13 +139,18 @@
       -#   = @sale.coti
 
       %p.col.s6.margin-f
-        %b Concepto de Anulación:
-        = @sale.concept
+        %b Notas:
+        -#= truncate(@sale.concept, 100, "... Read More")
+        = truncate(@sale.concept, :ommision => "...", :length => 200)
 
       %p.col.s6.margin-f
         %b Fecha de Entrega:
         = @sale.order_date
 
+      %p.col.s6.margin-f{:style => 'color:orange;'}
+        %b Balance:
+        = "#{number_to_currency(@sale.remaining_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+        -# balance = total - sumatoria de pagos
 
 
   .container
@@ -104,7 +184,7 @@
           %th Descripción
           %th.right Monto
           %th
-            %b.right Eliminar
+            %b.right Acciones
       %tbody
         - @sale.stores.each do |store|
           %tr
@@ -125,37 +205,91 @@
               -#= store.amount
               = "$#{number_to_currency(store.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
             %td
-              = link_to sale_store_path(store.sale, store), method: :delete, data: { confirm: "Está Seguro?" } do
+
+              = link_to sale_store_path(store.sale, store), method: :delete do
                 %i.material-icons.right delete
+              %i.material-icons.right assignment
+      %tr
+        %td
+        %td
+        %td.right
+          %a.modal-trigger{:href => '#discountmodal'}
+            = "Descuento"
+          = "(%#{@sale.discount}) - #{number_to_currency(@sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+        %td
       %tr
         %td
         %td
         %td.right
           %b
             = "Total $#{number_to_currency(@sale.total_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+
         %td
 
 
+  #discountmodal.modal
+    .modal-content
+      %h4{:style=> "color:black; text-align: center;"} Descuento
+      .col.s6{:style=> "margin:0 auto; width: 50%;"}
+        = form_for(@sale) do |d|
+          .input-field.col.s6
+            %i.material-icons.prefix money_attach
+            = d.label :discount, "Porcentaje"
+            = d.number_field :discount, :in => 0..100
+
+
+          .actions.modal-footer
+            %button.btn.waves-effect.waves-light.right{:name => "action", :type => "submit", data: { disable_with: "Cambiando Estado.." }}
+              %i.material-icons.right save
+              Aplicar
 
 
 
+
+    .modal-footer
+      %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Aplicar
+
+  .card.container{:style => "margin: 0 auto;", :class => "highlight"}
+    .collection-header
+      %h4{:style=> "color:black; text-align: center;"} Historial de Pago
+    %hr.style17
+    %table.striped
+      %thead
+        %tr
+          %th Tipo de Pago
+          %th Monto
+          %th Fecha
+      %tbody
+        %tr
+          %td
+            Efectivo
+          %td
+            $1550.00
+          %td
+            11/13/2016
 
   .container
     %br
+
+    %a.modal-trigger.waves-effect.waves-light.btn{:href => "#modal1"} Comentarios
+
+    #modal1.modal.bottom-sheet
+      .modal-content
+        %h4 Modal Header
+        %p A bunch of text
+      .modal-footer
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Agree
+
     -# - if current_user.role_level <= 2
       -# = link_to '<i class="material-icons" style="font-size: 2.3rem;">print</i>'.html_safe, order_path(@order, format: 'pdf'), class: "col s6 m3 right btn green", :target => "_blank", :data => { :reload => true}
-    %a{:href => sales_path, :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right exit_to_app
-      Salir
-    %a.right{:href => "#", :class => "waves-effect waves-light btn green"}
-      %i.material-icons.right print
-      Facturar
+    -#%a{:href => sales_path, :class => "waves-effect waves-light btn blue"}
+    -#  %i.material-icons.right exit_to_app
+    -#  Salir
+    -#%a.right{:href => "#", :class => "waves-effect waves-light btn green"}
+    -#  %i.material-icons.right print
+    -#  Facturar
 
 -# FOOTER
 
 %footer.page-footer
   = render :partial => 'layouts/footer'
--# END OF FOOTER
-  = link_to 'Edit', edit_sale_path(@sale)
-  \|
-  = link_to 'Back', sales_path

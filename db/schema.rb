@@ -183,14 +183,17 @@ ActiveRecord::Schema.define(version: 20161111033057) do
     t.date     "order_date"
     t.string   "client_note"
     t.string   "other_note"
-    t.boolean  "coti",                                 default: false
+    t.boolean  "coti",                                     default: false
     t.integer  "invoice_num"
-    t.string   "state",                                default: "En proceso"
+    t.string   "state",                                    default: "En proceso"
     t.string   "concept"
-    t.decimal  "total_amount", precision: 8, scale: 2, default: 0.0
+    t.decimal  "total_amount",     precision: 8, scale: 2, default: 0.0
+    t.decimal  "discount",                                 default: 0.0
+    t.decimal  "discount_amount",  precision: 8, scale: 2, default: 0.0
+    t.decimal  "remaining_amount"
     t.integer  "client_id"
-    t.datetime "created_at",                                                  null: false
-    t.datetime "updated_at",                                                  null: false
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
   end
 
   add_index "sales", ["client_id"], name: "index_sales_on_client_id"
