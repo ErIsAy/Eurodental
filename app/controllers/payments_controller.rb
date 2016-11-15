@@ -1,5 +1,20 @@
 class PaymentsController < ApplicationController
 
+    def receipt_print
+      # @sale = Sale.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.pdf do
+        pdf = ReceiptPdf.new(@sale)
+        send_data pdf.render,
+          filename: "recibo_#XXX.pdf",
+          type: "application/pdf",
+          disposition: "inline" ##display in browser
+        end
+      end
+    end
+
+
   def make_payment
     @sale = Sale.find(params[:payments][:sale_id])
     Payment.create(payment_type: params[:payments][:payment_type],
@@ -9,7 +24,7 @@ class PaymentsController < ApplicationController
     @amt = params[:payments][:amount]
 
     @sale.remaining_amount -= @amt.to_d
-    
+
     # ToDO - Check if this is working as intended
     # if @sale.remaining_amount < 0
     #   @sale.remaining_amount = 0
@@ -22,6 +37,7 @@ class PaymentsController < ApplicationController
     end
 
     if @sale.save
+      # receipt_print
       redirect_to sale_path(@sale)
     else
       render 'new'

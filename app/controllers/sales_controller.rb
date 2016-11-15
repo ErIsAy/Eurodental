@@ -12,13 +12,18 @@ class SalesController < ApplicationController
 
   end
 
-
   def factura_print
     @sale = Sale.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
       # Generar @order.invoice_num aqui
+      # byebug
+      if @sale.invoice_number.nil?
+        invoice_number = @sale.invoice_number || @sale.create_invoice_number
+        invoice_number.increment!
+        # @sale.save
+      end
       pdf = FacturaPdf.new(@sale)
       send_data pdf.render,
         filename: "factura_#{@sale.id}.pdf",
@@ -80,7 +85,7 @@ class SalesController < ApplicationController
       @sale.coti = false
     end
 
-    
+
 
     respond_to do |format|
       if @sale.update(sale_params)

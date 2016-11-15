@@ -60,10 +60,16 @@
 
     #labelprint.modal
       .modal-content
-        %p
-          Lorem ipsun dolor sit amet
-      .modal-footer
-        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Imprimir?
+        .row.container.col.s12{:style => "margin: 0 auto;"}
+          .col.s4
+            %a.waves-effect.waves-light.btn 5.0"x3.5"
+          .col.s4
+            %a.waves-effect.waves-light.btn 1.1"x3.5"
+          .col.s4
+            %a.waves-effect.waves-light.btn Circular
+
+      -# .modal-footer
+      -#   %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Imprimir?
 
 
 
@@ -304,6 +310,7 @@
           %th Tipo de Pago
           %th Monto
           %th Fecha
+          %th Acciones
       %tbody
         - @sale.payments.each do |payment|
           %tr
@@ -315,6 +322,9 @@
 
             %td
               = payment.created_at.strftime("%F")
+            %td
+              = link_to("Imprimir Recibo",{:controller => :payments, :action => :receipt_print, :format => 'pdf'},
+                                    :target => "_blank", :target => "_blank")
 
   .container
     %br

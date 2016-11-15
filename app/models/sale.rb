@@ -1,5 +1,6 @@
 class Sale < ActiveRecord::Base
   belongs_to :client
+  has_one :invoice_number
   has_many :stores, dependent: :destroy
   has_many :payments, dependent: :destroy
   validates :patient_name, :presence => true

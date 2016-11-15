@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114050117) do
+ActiveRecord::Schema.define(version: 20161115191110) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20161114050117) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
+
+  create_table "invoice_numbers", force: :cascade do |t|
+    t.integer  "sale_id"
+    t.integer  "next_number", default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "invoice_numbers", ["sale_id", "next_number"], name: "index_invoice_numbers_on_sale_id_and_next_number", unique: true
+  add_index "invoice_numbers", ["sale_id"], name: "index_invoice_numbers_on_sale_id"
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
