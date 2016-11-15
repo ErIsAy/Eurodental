@@ -8,8 +8,8 @@ class PaymentsController < ApplicationController
 
     @amt = params[:payments][:amount]
 
-    @sale.remaining_amount -= @amt.to_f
-
+    @sale.remaining_amount -= @amt.to_d
+    
     # ToDO - Check if this is working as intended
     # if @sale.remaining_amount < 0
     #   @sale.remaining_amount = 0

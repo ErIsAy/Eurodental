@@ -52,7 +52,7 @@
           .input-field.col.s3
           = pay.text_field :amount, :placeholder => "Amount",
                          :value => number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n",
-                         :unit => '',:delimiter => ',',:separator => '.'),
+                         :unit => '',:delimiter => '',:separator => '.'),
                          :autocomplete => "off"
           = pay.hidden_field :sale_id, :value => @sale.id
           %br
@@ -311,7 +311,7 @@
               = payment.payment_type
             %td
               %b{:style => "color: green"}
-                = "$#{number_to_currency(payment.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+                = "$#{number_to_currency(payment.amount.to_f, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
 
             %td
               = payment.created_at.strftime("%F")

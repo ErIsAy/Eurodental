@@ -25,7 +25,7 @@ class FacturaPdf < Prawn::Document
   end
 
   def details
-    text "No. de Factura: #{@sale.invoice_num}", size: 10, style: :italic, :align => :right
+    text "No. de Factura: #{@sale.invoice_num.to_s + "000001"}", size: 10, style: :italic, :align => :right
     text "No. de Orden: #{@sale.id}", size: 15, style: :italic, :align => :right
     text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
 
@@ -59,7 +59,7 @@ class FacturaPdf < Prawn::Document
       description_data += ", #{a.procedure_name}" if a.procedure_name != nil
 
       data = [
-                ["#{description_data}",
+                ["Diente: #{description_data}",
                  "#{a.cant}",
                  "$#{number_to_currency(a.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]
              ]

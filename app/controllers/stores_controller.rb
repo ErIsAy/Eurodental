@@ -59,6 +59,7 @@ class StoresController < ApplicationController
 
     if @store.valid?
       @sale.save
+      @store.save
       redirect_to sale_path(@sale)
     else
       render 'new'

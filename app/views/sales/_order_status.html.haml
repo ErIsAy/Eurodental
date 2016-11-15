@@ -1,5 +1,6 @@
 
 .col.s3.right
+  -# = @sale.paid_status
   -case @sale.state.capitalize
     -when "En proceso"
       .chip.in_process= @sale.state.capitalize
