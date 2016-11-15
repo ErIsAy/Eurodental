@@ -55,9 +55,10 @@ class StoresController < ApplicationController
     @sale.total_amount += @store.amount.to_f
     @sale.remaining_amount += @store.amount.to_f
     @sale.order_total += @store.amount.to_f
-    @sale.save
+    # @sale.save
 
-    if @store.save
+    if @store.valid?
+      @sale.save
       redirect_to sale_path(@sale)
     else
       render 'new'

@@ -79,6 +79,9 @@ class SalesController < ApplicationController
     unless  params[:sale][:state] == "cotizacion"
       @sale.coti = false
     end
+
+    
+
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: 'La Orden fue actualizada exitosamente.' }
@@ -123,7 +126,7 @@ class SalesController < ApplicationController
     def sale_params
       params.require(:sale).permit(:patient_name, :age, :sex, :order_date,
                                    :client_note, :other_note, :coti, :state,
-                                   :concept, :invoice_num, :total_amount, :discount, :discount_amount,
+                                   :concept, :invoice_num, :paid_status, :total_amount, :discount, :discount_amount,
                                    :order_total, :remaining_amount, :client_id)
     end
 end

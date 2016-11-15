@@ -10,8 +10,15 @@ class PaymentsController < ApplicationController
 
     @sale.remaining_amount -= @amt.to_f
 
-    if @sale.remaining_amount < 0
+    # ToDO - Check if this is working as intended
+    # if @sale.remaining_amount < 0
+    #   @sale.remaining_amount = 0
+    # end
+
+    if @sale.remaining_amount - @sale.discount_amount <=0
       @sale.remaining_amount = 0
+      @sale.paid_status = true
+      @sale.state = "Facturada - pago"
     end
 
     if @sale.save
@@ -34,4 +41,3 @@ class PaymentsController < ApplicationController
   end
 
 end
-

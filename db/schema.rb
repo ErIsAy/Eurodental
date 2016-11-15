@@ -193,6 +193,7 @@ ActiveRecord::Schema.define(version: 20161114050117) do
     t.string   "other_note"
     t.boolean  "coti",                                     default: false
     t.integer  "invoice_num"
+    t.boolean  "paid_status",                              default: false
     t.string   "state",                                    default: "En proceso"
     t.string   "concept"
     t.decimal  "total_amount",     precision: 8, scale: 2, default: 0.0
