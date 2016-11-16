@@ -9,6 +9,8 @@ class ReceiptPdf < Prawn::Document
     details
     move_down 15
     body_table
+    move_down 100
+    signature
   end
 
   def header
@@ -29,7 +31,7 @@ class ReceiptPdf < Prawn::Document
 
     address_text = "Cliente:   #{@sale.client.name}
                     Paciente:  #{@sale.patient_name}
-                    Dirección: #{@sale.client.address} "
+                    Dirección: #{@sale.client.address}"
     move_down 15
     data_client = [[{:image => "public/Tooth-100.png", :scale => 0.5}, address_text]]
     table(data_client, :column_widths => [320, 200], :cell_style => {:background_color => "f3e5f5",:border_color => "FFFFFF", :size => 11})
@@ -39,17 +41,31 @@ class ReceiptPdf < Prawn::Document
   def body_table
     text "Recibo", size: 25, style: :italic
 
-    description_data = String.new
+    # description_data = String.new
 
     table([["Descripción","Tipo de Pago","Monto"]], :column_widths => [320,100,100], :row_colors => ["9FA8DA"])
 
-    table([["Abono","#{@payment.payment_type}","$#{number_to_currency(@payment.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [320,100,100], :row_colors => ["f3e5f5"])
-    table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    unless (@sale.remaining_amount - @sale.discount_amount > 0)
+      table([["Saldo a Factura No. #{@sale.invoice_number.id.to_s}...(Restan $#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')})","#{@payment.payment_type}","$#{number_to_currency(@payment.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [320,100,100], :row_colors => ["f3e5f5"])
+    else
+      table([["Abono a Factura No. #{@sale.invoice_number.id.to_s}...(Restan $#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')})","#{@payment.payment_type}","$#{number_to_currency(@payment.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [320,100,100], :row_colors => ["f3e5f5"])
+    end
+    # table([["","Total Recibido","#{}"]], :column_widths => [320,100,100 ], :row_colors => ["f3e5f5"])
+
+    move_down 50
+    table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["bdc3c7"])
     # table([["Balance Actual:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
 
 
   end
 
-
+  def signature
+    stroke do
+      stroke_color '000000'
+      horizontal_line(40, 200)
+      move_down 10
+      draw_text "Recibido Por:", :at => [80,250]
+    end
+  end
 
 end

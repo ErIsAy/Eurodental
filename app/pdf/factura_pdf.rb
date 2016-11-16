@@ -9,6 +9,8 @@ class FacturaPdf < Prawn::Document
     details
     move_down 20
     body_table
+    move_down 100
+    signature
   end
 
   def header
@@ -73,9 +75,22 @@ class FacturaPdf < Prawn::Document
     #Table Footer for Totals
     table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
     table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
-    table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    # table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
 
 
+  end
+
+
+  def signature
+    stroke do
+      stroke_color '000000'
+      horizontal_line(40, 200)
+      horizontal_line(300, 460)
+    end
+
+
+    # text "Firma Cliente", size: 10, style: :italic, :align => :right
+    # text "Firma Cajero", size: 10, style: :italic, :align => :right
   end
 
 

@@ -29,10 +29,11 @@
           = link_to("Facturar",{:controller => :sales, :action => :factura_print, :format => 'pdf'},
                                 :target => "_blank", :target => "_blank", :data => { :reload => true})
 
-        %li
-          %a.modal-trigger{:href => '#makepayment'}
-            Pagos
-            %i.material-icons.right local_atm
+        - unless @sale.invoice_number.nil?
+          %li
+            %a.modal-trigger{:href => '#makepayment'}
+              Pagos
+              %i.material-icons.right local_atm
       %li.divider
       %li
         %a.modal-trigger{:href => '#statechange'} Cambiar Estado

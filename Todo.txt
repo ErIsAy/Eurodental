@@ -44,5 +44,6 @@ Development
 
    Agregar el cambio para imprimir la factura
 
+   Update receipt para reflejar el total pendiente global del cliente
 
    Agregar todos los cambios anteriores a la pantalla de contabilidad - partially
