@@ -73,7 +73,7 @@ class FacturaPdf < Prawn::Document
     #Table Footer for Totals
     table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
     table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
-    table([["Balance Actual:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
 
 
   end

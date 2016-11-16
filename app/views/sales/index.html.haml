@@ -109,8 +109,8 @@
               - if current_user.role_level == 1
                 -#%a{:href => edit_order_path(order), :class => "waves-effect waves-light btn-floating teal tooltipped", "data-tooltip" => "Editar", "data-position" => "top"}
                 -#  %i.material-icons.right mode_edit
-                %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
-                  = link_to 'X', sale_path(sale), :method => :delete, :style => "color: white;"
+                -# %button.btn.btn-floating.red.btn-sm.tooltipped{:type => "button", "data-tooltip" => "Eliminar", "data-position" => "right"}
+                -#   = link_to 'X', sale_path(sale), :method => :delete, :style => "color: white;"
 
             -# %td= link_to 'Show', sale
             -# %td= link_to 'Edit', edit_sale_path(sale)

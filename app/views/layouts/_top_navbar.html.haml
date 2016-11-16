@@ -13,18 +13,18 @@
         %a.tooltipped{:href => new_order_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
           = image_tag "Tooth-100", :style => "width: 39px; display:block; padding-top: 12px; padding-bottom: 12px;"
           -#  %i.material-icons{:style => "color: white;"} local_hospital
-      %li
-        %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
-          %i.material-icons{:style => "color: #dda0dd;"} assignment
+      -# %li
+      -#   %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
+      -#     %i.material-icons{:style => "color: #dda0dd;"} assignment
       %li
         %a.tooltipped{:href => sales_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
-          %i.material-icons{:style => "color: red;"} assignment
+          %i.material-icons{:style => "color: #dda0dd;"} assignment
 
 
-      - if current_user.role_level == 1
-        %li
-          %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
-            %i.material-icons{:style => "color: #adff2f;"} attach_money
+      -# - if current_user.role_level == 1
+      -#   %li
+      -#     %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
+      -#       %i.material-icons{:style => "color: #adff2f;"} attach_money
 
     %ul.right
       - if current_user.role_level == 1

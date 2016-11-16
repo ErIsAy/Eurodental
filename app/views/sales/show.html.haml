@@ -24,7 +24,7 @@
     %a.right.dropdown-button.btn{"data-activates" => "acciones", :href => "#"} Acciones
 
     %ul.right#acciones.dropdown-content
-      - unless @sale.coti
+      - unless @sale.stores.empty?
         %li
           = link_to("Facturar",{:controller => :sales, :action => :factura_print, :format => 'pdf'},
                                 :target => "_blank", :target => "_blank", :data => { :reload => true})
@@ -172,9 +172,10 @@
 
   .container
     %br
-    %a{:href => edit_sale_path(@sale), :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right edit
-      Editar Datos
+    - if @sale.payments.empty?
+      %a{:href => edit_sale_path(@sale), :class => "waves-effect waves-light btn blue"}
+        %i.material-icons.right edit
+        Editar Datos
     - if @sale.coti
       %a{:href => "#", :class => "waves-effect waves-light btn green"}
         %i.material-icons.right receipt
@@ -233,7 +234,7 @@
 
               = link_to sale_store_path(store.sale, store), method: :delete do
                 %i.material-icons.right delete
-              %i.material-icons.right assignment
+              -# %i.material-icons.right assignment
       %tr
         %td
         %td
@@ -323,8 +324,7 @@
             %td
               = payment.created_at.strftime("%F")
             %td
-              = link_to("Imprimir Recibo",{:controller => :payments, :action => :receipt_print, :format => 'pdf'},
-                                    :target => "_blank", :target => "_blank")
+              = link_to("<i class='material-icons'>print</i>".html_safe, {:paymentid => payment, :saleid => @sale, :controller => :payments, :action => :receipt_print, :format => 'pdf'},:target => "_blank")
 
   .container
     %br

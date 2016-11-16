@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :stores
   end
   get '/sale/:id' => 'sales#factura_print'
-  get '/payment/:id' => 'payments#receipt_print'
+  get '/payment/:id' => 'payments#receipt_print', as: :receipt_print
   get 'activity/index'
 
   get 'accountability/index'

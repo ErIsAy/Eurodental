@@ -28,9 +28,9 @@
         .input-field{:class => "col s6"}
           = f.label :client_name_cont, "Cliente"
           = f.text_field :client_name_cont
-        .input-field{:class => "col s6"}
-          = f.label :patient_name_cont, "Paciente"
-          = f.text_field :patient_name_cont
+        -# .input-field{:class => "col s6"}
+        -#   = f.label :patient_name_cont, "Paciente"
+        -#   = f.text_field :patient_name_cont
         .input-field{:class => "col s3"}
           = f.label :created_at_date_gequals, "Desde"
           = f.text_field :created_at_date_gequals,
@@ -63,6 +63,7 @@
         %tr
           %th Orden No.
           %th Cliente
+          %th No. Factura
           %th Fecha  de Entrada
           -#%th Fecha  de Entrega
           %th Estado
@@ -76,17 +77,19 @@
 
       %tbody
         - @sales.each do |sale|
-          %tr
-            %td= sale.id
-            %td= sale.client.name
-            %td= sale.created_at.strftime("%F")
-            -#%td= order.order_date
-            %td= sale.state
-            %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
-            %td= "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
-            %td.btn-group
-              %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
-                %i.material-icons.right search
+          - unless sale.invoice_number == nil
+            %tr
+              %td= sale.id
+              %td= sale.client.name
+              %td= sale.invoice_number.id
+              %td= sale.created_at.strftime("%F")
+              -#%td= order.order_date
+              %td= sale.state
+              %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+              %td= "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+              %td.btn-group
+                %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                  %i.material-icons.right search
 
 
 

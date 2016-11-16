@@ -1,11 +1,12 @@
 class PaymentsController < ApplicationController
 
     def receipt_print
-      # @sale = Sale.find(params[:id])
+      @payment = Payment.find(params[:paymentid])
+      @sale = Sale.find(@payment.sale_id)
       respond_to do |format|
         format.html
         format.pdf do
-        pdf = ReceiptPdf.new(@sale)
+        pdf = ReceiptPdf.new(@payment,@sale)
         send_data pdf.render,
           filename: "recibo_#XXX.pdf",
           type: "application/pdf",
