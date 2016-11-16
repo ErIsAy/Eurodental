@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-User.create(email: 'admin@admin.com', password: '123456789', role_level: 1)
+User.create(email: 'admin@admin.com', password: '123456789', role_level: 1, admin: true)
 
 
 # 50.times do
