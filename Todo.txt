@@ -42,8 +42,29 @@ Development
 
    Agregar el cambio para los descuentos - done
 
-   Agregar el cambio para imprimir la factura
+   Agregar el cambio para imprimir la factura - done
 
    Update receipt para reflejar el total pendiente global del cliente
 
-   Agregar todos los cambios anteriores a la pantalla de contabilidad - partially
+
+
+
+
+  **reportes
+
+  Reporte de Cuentas x Pagar
+
+  Reporte de Cuadres de Caja
+  	Permite consultar todos cuadres de caja por rangos de fechas (e.g. ganancia mensual )
+
+
+  Reporte de Ventas Consolidadas
+  	Reporte especializado que permite consultar de manera consolidada las ventas por DIA, MES o AÑO.
+  	Este reporte es muy útil para quienes les pasan reportes de ventas diarias a sus contadores. Además, permite graficar el comportamiento de su negocio de diferentes maneras.
+
+  Reporte de Producción (Ventas)
+  	Reporte especializado que permite consultar de manera rápida y ordenada toda la PRODUCCIÓN de su negocio
+  	filtrada por CIUDAD, VENDEDOR, SUCURSAL y Rangos de FECHAS.
+
+  Reporte de Vales
+  	Este Reporte le permite consultar el estado de VALES y ABONOS de sus empleados y socios.
