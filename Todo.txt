@@ -1,70 +1,55 @@
 
-Development
-->send emails for test
-
-
-
 -- 10/9/2016 ToDo
-  # *Done* Cambiar nombre a Pigmentado (corregir)
-  # *Done* Opciones barra y hibrida unirlas como Barra/Hibrida
-  # *Done* Cambiar nombre a color por Guia de Color
-  # *Done* Unir Materiales y Metales
-  # *Done* Vita Classic agregar las opciones como select - hacer un select con la guia
-  # *Done* Agregar a Tipo de Trabajo => abruitment Personalizado
-  # *Done* Remover Implante y agregar un check de implante en tipo de trabajo con text para la marca
-  # *Done* agregar mas de 1 telefono y correo a los clientes
-  # *Done* Agregar un concepto por anulacion
+  - [X] Cambiar nombre a Pigmentado (corregir)
+  - [X] Opciones barra y hibrida unirlas como Barra/Hibrida
+  - [X] Cambiar nombre a color por Guia de Color
+  - [X] Unir Materiales y Metales
+  - [X] Vita Classic agregar las opciones como select - hacer un select con la guia
+  - [X] Agregar a Tipo de Trabajo => abruitment Personalizado
+  - [X] Remover Implante y agregar un check de implante en tipo de trabajo con text para la marca
+  - [X] agregar mas de 1 telefono y correo a los clientes
+  - [X] Agregar un concepto por anulacion
 
 
-  # Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
-  # fix all the filters!!!
-  # Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden), en accounting agregar el # de factura
-  # complete the service sheet
-
+   - [X] Deshabilitar las demas opciones excepto tipo de trabajo antes de seguir con las demas
+   - [X] fix all the filters!!!
+   - [X] Generar No.# de facturas y No.# de Cotizacion (diferentes al numero de orden), en accounting agregar el # de factura
 
 
   -- New
-   Agregar los Servicios belongs_to sale - done
-
-    > generar los diferentes servicios belongs to Servicio - done
-
-   Nested resource para sale > servicio - done
-
-   Finish styles for services(stores) and items(worktype, materials, etc) - done
-
-   Agregar a Tipo de Trabajo => abruitment Personalizado - done
-
-   Vita Classic agregar las opciones como select - hacer un select con la guia - ?
-
-   Agregar el cambio para los states de la orden - done
-
-   Agregar el cambio para el abono y los pagos - done
-
-   Agregar el cambio para los descuentos - done
-
-   Agregar el cambio para imprimir la factura - done
-
-   Update receipt para reflejar el total pendiente global del cliente
+   - [X] Agregar los Servicios belongs_to sale
+   - [X] generar los diferentes servicios belongs to Servicio
+   - [X] Nested resource para sale > servicio
+   - [X] Finish styles for services(stores) and items(worktype, materials, etc)
+   - [X] Agregar a Tipo de Trabajo => abruitment Personalizado
+   - [ ] Vita Classic agregar las opciones como select - hacer un select con la guia - ?
+   - [X] Agregar el cambio para los states de la orden
+   - [X] Agregar el cambio para el abono y los pagos
+   - [X] Agregar el cambio para los descuentos
+   - [X] Agregar el cambio para imprimir la factura
+   - [ ] Update receipt para reflejar el total pendiente global del cliente
+   - [ ] Generate receipt number automatically
+   - [ ] Create a View with print for the order service
+   - [ ] install Admin panel
+   - [ ] install mailer to send invoices via email
+   - [ ] Create reports (see reports section below)
 
 
+  -< Reports section >-
+
+    - [ ] Reporte de Cuentas x Pagar
+
+    - [ ] Reporte de Cuadres de Caja
+    	Permite consultar todos cuadres de caja por rangos de fechas (e.g. ganancia mensual )
 
 
+    - [ ] Reporte de Ventas Consolidadas
+    	Reporte especializado que permite consultar de manera consolidada las ventas por DIA, MES o AÑO.
+    	Este reporte es muy útil para quienes les pasan reportes de ventas diarias a sus contadores. Además, permite graficar el comportamiento de su negocio de diferentes maneras.
 
-  **reportes
+    - [ ] Reporte de Producción (Ventas)
+    	Reporte especializado que permite consultar de manera rápida y ordenada toda la PRODUCCIÓN de su negocio
+    	filtrada por CIUDAD, VENDEDOR, SUCURSAL y Rangos de FECHAS.
 
-  Reporte de Cuentas x Pagar
-
-  Reporte de Cuadres de Caja
-  	Permite consultar todos cuadres de caja por rangos de fechas (e.g. ganancia mensual )
-
-
-  Reporte de Ventas Consolidadas
-  	Reporte especializado que permite consultar de manera consolidada las ventas por DIA, MES o AÑO.
-  	Este reporte es muy útil para quienes les pasan reportes de ventas diarias a sus contadores. Además, permite graficar el comportamiento de su negocio de diferentes maneras.
-
-  Reporte de Producción (Ventas)
-  	Reporte especializado que permite consultar de manera rápida y ordenada toda la PRODUCCIÓN de su negocio
-  	filtrada por CIUDAD, VENDEDOR, SUCURSAL y Rangos de FECHAS.
-
-  Reporte de Vales
-  	Este Reporte le permite consultar el estado de VALES y ABONOS de sus empleados y socios.
+    - [ ] Reporte de Vales
+    	Este Reporte le permite consultar el estado de VALES y ABONOS de sus empleados y socios.
