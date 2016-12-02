@@ -208,9 +208,9 @@ function printpage(){
 
   $(document).ready(function() {
     // Materialize.updateTextFields();
-
-    $('.modal').modal();
-    $('.modal-trigger').modal();
+    $('.modal-trigger').leanModal();
+    //$('.modal').modal();
+    // $('.modal-trigger').leanmodal();
   });
 
 
