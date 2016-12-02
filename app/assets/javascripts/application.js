@@ -31,9 +31,8 @@
 
 /*GET price functions */
 $.noConflict();
-jQuery(document).ready(function($) {
-  $('.modal-trigger').leanModal();
-});
+$('.modal-trigger').leanModal();
+
 
 function amount_sum(){
     var worktype_price = Number(document.getElementById('price_worktype').value);
