@@ -209,13 +209,13 @@ function printpage(){
 
   $( document ).ready(function(){
   //
-  // $('.modal-trigger').leanModal();
+
   $('.collapsible').collapsible({
   accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
       });
 
   // $(function() {
-  //     Materialize.updateTextFields();
+  //
   // });
   $(".button-collapse").sideNav();
   $('select').material_select();
@@ -283,5 +283,7 @@ function printpage(){
 
         });
     });
-
+    
+    $('.modal-trigger').leanModal();
+    Materialize.updateTextFields();
 });
