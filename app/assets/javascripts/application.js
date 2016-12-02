@@ -283,7 +283,10 @@ function printpage(){
 
         });
     });
-    
-    $('.modal-trigger').leanModal();
+
+    ;(function($){
+       $('.modal-trigger').leanModal();
+     })(jQuery);
+  
     Materialize.updateTextFields();
 });
