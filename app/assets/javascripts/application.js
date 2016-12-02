@@ -206,6 +206,11 @@ function printpage(){
      window.print()
   }
 
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+    $('.modal').modal();
+  });
+
 
   $( document ).ready(function(){
   //
@@ -284,10 +289,4 @@ function printpage(){
 
         });
     });
-
-
-
-
-
-    Materialize.updateTextFields();
 });
