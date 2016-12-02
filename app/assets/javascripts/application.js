@@ -153,17 +153,6 @@ $(document).on("change", "select#procedure_store_id", function(e){
 
 
 
-// $.noConflict();
-// $(document).ready(function(){
-//     $('.modal-trigger').leanModal();
-//     $('.collapsible').collapsible({
-//     accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-//         });
-// });
-
-
-
-
 /*JS pending refactoring*/
 
 (function() {
@@ -219,15 +208,15 @@ function printpage(){
 
 
   $( document ).ready(function(){
-
-  
+  //
+  // $('.modal-trigger').leanModal();
   $('.collapsible').collapsible({
   accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
       });
 
-  $(function() {
-      Materialize.updateTextFields();
-  });
+  // $(function() {
+  //     Materialize.updateTextFields();
+  // });
   $(".button-collapse").sideNav();
   $('select').material_select();
   $('.tooltipped').tooltip({delay: 25});
