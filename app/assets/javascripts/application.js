@@ -30,8 +30,6 @@
 * */
 
 /*GET price functions */
-$.noConflict();
-$('.modal-trigger').leanModal();
 
 
 function amount_sum(){
@@ -155,13 +153,13 @@ $(document).on("change", "select#procedure_store_id", function(e){
 
 
 
-
-$(document).ready(function(){
-
-    $('.collapsible').collapsible({
-    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
-});
+// $.noConflict();
+// $(document).ready(function(){
+//     $('.modal-trigger').leanModal();
+//     $('.collapsible').collapsible({
+//     accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+//         });
+// });
 
 
 
@@ -218,9 +216,15 @@ $(document).ready(function(){
 function printpage(){
      window.print()
   }
-$( document ).ready(function(){
 
 
+  $.noConflict();
+  $( document ).ready(function(){
+
+    $('.modal-trigger').leanModal();
+    $('.collapsible').collapsible({
+    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
 
   $(function() {
       Materialize.updateTextFields();
