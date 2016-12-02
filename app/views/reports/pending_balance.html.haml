@@ -1,0 +1,129 @@
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+  %h3.container{:style => "margin: 0 auto;"} Reporte de Balances pendientes
+  %br
+
+  .container{:style => "margin: 0 auto;"}
+
+    %a.right{:href =>"#", :class => "waves-effect waves-light btn blue"}
+      %i.material-icons.right print
+      Imprimir
+  %br
+    %br
+
+
+    -# .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
+    -#   = search_form_for @search, url: accountability_index_path do |f|
+    -#     .input-field{:class => "col s6"}
+    -#       = f.label :client_name_cont, "Cliente"
+    -#       = f.text_field :client_name_cont
+    -#     .input-field{:class => "col s3"}
+    -#       = f.label :created_at_date_gequals, "Desde"
+    -#       = f.text_field :created_at_date_gequals,
+    -#                      :class => "datepicker_all"
+    -#     .input-field{:class => "col s3"}
+    -#       = f.label :created_at_date_lequals, "Hasta"
+    -#       = f.text_field :created_at_date_lequals,
+    -#                      :class => "datepicker_all"
+    -#
+    -#     .input-field.col.s6
+    -#       = f.select( :state_cont, options_for_select([[""],
+    -#                                               ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
+    -#                                               ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
+    -#                                               ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
+    -#                                               ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
+    -#                                               ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
+    -#                                               ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
+    -#                                               disabled: "Elige el Estado"), class: "icons" )
+    -#
+    -#     = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+    -#                           :style => "left: 15px; bottom: 5px;"
+
+
+
+
+
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table.centered.highlight#orders_t
+      %thead
+        %tr
+          -# %th Orden No.
+          %th Cliente
+          -# %th No. Factura
+          -# %th Fecha  de Entrada
+          -#%th Fecha  de Entrega
+          -# %th Estado
+          -# %th Monto RD$
+          %th Balance RD$
+          -# %th Nota Del Cliente
+          -# %th Otras Notas
+          %th Ver
+
+
+
+      %tbody
+        - @sales.each do |sale|
+          - unless sale.invoice_number == nil
+            %tr
+              -# %td= sale.id
+              %td= sale.client.name
+              -# %td= sale.invoice_number.id
+              -# %td= sale.created_at.strftime("%F")
+              -#%td= order.order_date
+              -# %td= sale.state
+              -# %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+              %td= "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+              %td.btn-group
+                %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                  %i.material-icons.right search
+
+
+
+  -# %td= order.client_note
+            -# %td= order.other_note
+
+
+
+      -# %br
+      -# .div
+      -#   %ul.pagination{:style => "margin: 0 auto; text-align: right;"}
+      -#     %li.disabled
+      -#       %a{:href => "#!"}
+      -#         %i.material-icons chevron_left
+      -#     %li.active
+      -#       %a{:href => "#!"} 1
+      -#     %li.waves-effect
+      -#       %a{:href => "#!"} 2
+      -#     %li.waves-effect
+      -#       %a{:href => "#!"} 3
+      -#     %li.waves-effect
+      -#       %a{:href => "#!"}
+      -#         %i.material-icons chevron_right
+
+  %br
+
+
+
+.fixed-action-btn.horizontal.click-to-toggle{:style => "bottom: 45px; right: 24px;"}
+  %a.btn-floating.btn-large.green
+    %i.material-icons menu
+  %ul
+    %li
+      %a.btn-floating.blue{onclick: "printpage()"}
+        %i.material-icons print
+    %li
+      %a.btn-floating.purple.darken-1
+        %i.material-icons email
+  -# = link_to 'New Order', new_order_path
+  -# END OF MAIN
+
+  -# FOOTER
+
+  %footer.page-footer
+    = render :partial => 'layouts/footer'
+  -# END OF FOOTER

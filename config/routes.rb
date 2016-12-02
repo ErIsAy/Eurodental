@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   resources :categories
 
   get 'reports/index'
+  get 'reports/orders_paid'
+  get 'reports/orders_unpaid'
+  get 'reports/pending_balance'
 
   devise_for :users
   resources :users_admin, :controller => 'users'

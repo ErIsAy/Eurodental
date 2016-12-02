@@ -16,37 +16,37 @@
     Reportes
   %br
 
-  .row.container.card{:style => "margin: 0 auto;"}
-    .col.s12.m7{:style => "width: 426.66px;"}
+  .row.col.m12.container{:style => "margin: 0 auto;"}
+    .col.s6{:style => "width: 426.66px;"}
       .card
         .card-image
           =image_tag "summary-forms.jpg", :style => "height: 161.469px;"
           -# %span.card-title Report Title
         .card-content
           %p
-            Ordenes Facturadas del mes actual
+            Ordenes x Pagar
         .card-action
-          %a{:href => "#"} Generar
-    .col.s12.m7{:style => "width: 426.66px;"}
+          %a{:href => reports_orders_unpaid_path} Consultar
+    .col.s6{:style => "width: 426.66px;"}
       .card
         .card-image
           =image_tag "papers.jpg", :style => "height: 161.469px;"
           -# %span.card-title Report Title
         .card-content
           %p
-            Ordenes Pendientes de facturar
+            Reporte de Ordenes Consolidadas
         .card-action
-          %a{:href => "#"} Generar
+          %a{:href => reports_orders_paid_path} Consultar
     .col.s12.m7{:style => "width: 426.66px;"}
       .card
         .card-image
-          =image_tag "dentalreport1.jpg", :style => "height: 161.469px;"
+          =image_tag "pendingbalance.jpg", :style => "height: 161.469px;"
           -# %span.card-title Report Title
         .card-content
           %p
-            Ordenes Pendientes
+            Reporte de Balances pendientes
         .card-action
-          %a{:href => "#"} Generar
+          %a{:href => reports_pending_balance_path} Consultar
 
 
 
