@@ -31,12 +31,10 @@
 
 /*GET price functions */
 
+(function($){
+        $('.modal-trigger').leanModal();
+    })(jQuery);
 
-
-var jq=jQuery.noConflict();
-jq(document).ready(function(){
-  $('.modal-trigger').leanModal();
-});
 
 function amount_sum(){
     var worktype_price = Number(document.getElementById('price_worktype').value);
