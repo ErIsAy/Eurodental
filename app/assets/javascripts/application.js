@@ -31,12 +31,7 @@
 
 /*GET price functions */
 
-  Node.prototype.leanModal = (Node.prototype.leanModal || function () {
-  window.alert(document.body instanceof Node);
-  });
 
-
-  document.body.leanModal();
 
 function amount_sum(){
     var worktype_price = Number(document.getElementById('price_worktype').value);
@@ -157,19 +152,6 @@ $(document).on("change", "select#procedure_store_id", function(e){
     });
 });
 
-
-
-
-$(document).ready(function(){
-
-    $('.collapsible').collapsible({
-    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
-});
-
-
-
-
 /*JS pending refactoring*/
 
 (function() {
@@ -222,78 +204,3 @@ $(document).ready(function(){
 function printpage(){
      window.print()
   }
-$( document ).ready(function(){
-
-
-
-  $(function() {
-      Materialize.updateTextFields();
-  });
-  $(".button-collapse").sideNav();
-  $('select').material_select();
-  $('.tooltipped').tooltip({delay: 25});
-  $('ul.tabs').tabs();
-  $('input#input_text, textarea#textarea1').characterCounter();
-
-
-  //Datepicker withou date restriction
-  $('.datepicker_all').pickadate({
-    format: 'yyyy-mm-dd',
-    // Strings and translations
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
-    monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-    monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-    weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-    weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-
-    // Buttons
-    today: 'Hoy',
-    clear: 'Borrar',
-    close: 'Cerrar',
-
-    // Accessibility labels
-    labelMonthNext: 'Siguiente Mes',
-    labelMonthPrev: 'Mes Anterior',
-    labelMonthSelect: 'Seleccionar Mes',
-    labelYearSelect: 'Seleccionar Año'
-
-
-
-  });
-  $(".tabfactura").click(function() {
-    document.getElementById("invoice_tab").className = document.getElementById("invoice_tab").className.replace(/\bdisabled\b/,'');
-    $('ul.tabs').tabs('select_tab', 'test2');
-
-  });
-  $(".tabfactura_back").click(function() {
-    $('ul.tabs').tabs('select_tab', 'test1');
-
-  });
-
-
-
-  /*Changes Order Date to disabled and clear date if exist*/
-  $("#sale_coti").click(function() {
-            if (this.checked == true) {
-              document.getElementById("sale_order_date").disabled = "disabled";
-              document.getElementById("sale_order_date").value = "";
-            }
-            else{
-              document.getElementById("sale_order_date").disabled = "";
-             }
-      });
-
-    $(function(){
-        $('a[data-reload="true"]').on('click', function(e) {
-
-            var delay=1000;
-            setTimeout(function() {
-                window.location = $(e.target).attr('href');
-                window.location.reload(true);
-            }, delay);
-
-        });
-    });
-
-});
