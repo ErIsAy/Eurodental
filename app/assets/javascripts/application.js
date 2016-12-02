@@ -210,16 +210,26 @@ function printpage(){
     // Materialize.updateTextFields();
 
     $('.modal').modal();
+    $('.modal-trigger').modal();
   });
+
+
+  $(document).ready(function(){
+
+      $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+          });
+  });
+
 
 
   $( document ).ready(function(){
   //
-  $('.modal-trigger').modal();
+  $(function() {
+      Materialize.updateTextFields();
+  });
+
   //$('.modal-trigger').leanModal();
-  $('.collapsible').collapsible({
-  accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-      });
 
   // $(function() {
   //
