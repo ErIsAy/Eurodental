@@ -32,6 +32,7 @@
 /*GET price functions */
 
 
+$('.modal-trigger').leanModal();
 
 function amount_sum(){
     var worktype_price = Number(document.getElementById('price_worktype').value);
@@ -229,7 +230,7 @@ $( document ).ready(function(){
   $('.tooltipped').tooltip({delay: 25});
   $('ul.tabs').tabs();
   $('input#input_text, textarea#textarea1').characterCounter();
-  $('.modal-trigger').leanModal();
+
 
   //Datepicker withou date restriction
   $('.datepicker_all').pickadate({
