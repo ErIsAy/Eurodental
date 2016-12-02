@@ -31,7 +31,7 @@
 
 /*GET price functions */
 
-(function($){
+    ;(function($){
         $('.modal-trigger').leanModal();
     })(jQuery);
 
