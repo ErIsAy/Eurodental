@@ -23,10 +23,12 @@ test:
 #production:
 #  <<: *default
 #  database: db/production.sqlite3
-
-
 production:
-      adapter: postgresql
-      database: eurodental_prod
-      pool: 5
-      timeout: 5000
+  <<: *default
+  database: db/development.sqlite3
+
+# production:
+#       adapter: postgresql
+#       database: eurodental_prod
+#       pool: 5
+#       timeout: 5000
