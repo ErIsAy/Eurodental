@@ -173,7 +173,6 @@ $(document).on("change", "select#procedure_store_id", function(e){
 })();
 
 (function() {
-  Materialize.updateTextFields();
   $('.datepicker').pickadate({
         format: 'yyyy-mm-dd',
         //set today the min date
