@@ -209,7 +209,8 @@ function printpage(){
 
   $( document ).ready(function(){
   //
-
+  $('.modal-trigger').modal();
+  //$('.modal-trigger').leanModal();
   $('.collapsible').collapsible({
   accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
       });
@@ -284,9 +285,9 @@ function printpage(){
         });
     });
 
-    ;(function($){
-       $('.modal-trigger').leanModal();
-     })(jQuery);
-  
+
+
+
+
     Materialize.updateTextFields();
 });
