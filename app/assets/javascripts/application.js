@@ -30,7 +30,7 @@
 * */
 
 /*GET price functions */
-
+$.noConflict();
 jQuery(document).ready(function($) {
   $('.modal-trigger').leanModal();
 });
