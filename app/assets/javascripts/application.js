@@ -207,7 +207,7 @@ function printpage(){
   }
 
   $(document).ready(function() {
-    Materialize.updateTextFields();
+    // Materialize.updateTextFields();
     $('.modal').modal();
   });
 
