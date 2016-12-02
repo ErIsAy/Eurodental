@@ -42,14 +42,22 @@ group :development, :test do
   gem 'spring'
   #AwesomePrint.irb!
   gem 'awesome_print'
-
-
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+end
+
+gem 'puma'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
