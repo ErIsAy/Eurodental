@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20161115191110) do
 
   create_table "client_phones", force: :cascade do |t|
     t.string   "phone"
+    t.string   "ptype"
     t.integer  "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -324,6 +325,7 @@ ActiveRecord::Schema.define(version: 20161115191110) do
 
   create_table "supplier_phones", force: :cascade do |t|
     t.string   "phone"
+    t.string   "ptype"
     t.integer  "supplier_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

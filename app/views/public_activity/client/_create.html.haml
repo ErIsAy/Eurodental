@@ -5,6 +5,8 @@
   - if activity.trackable
     %b Detalle:
     = link_to activity.trackable.name, activity.trackable
+    %b Fecha:
+    = activity.created_at.strftime("%m/%d/%Y - %I:%M%p")
   -# - else
   -#   Ha Eliminado un cliente
 %br

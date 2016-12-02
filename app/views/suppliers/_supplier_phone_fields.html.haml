@@ -1,5 +1,11 @@
 .nested-fields
-  .input-field{:class => "col m8"}
+  .input-field{:class => "col m4"}
+    %i.material-icons.prefix phone
+    = f.select :ptype, options_for_select([["Móvil"],
+                                          ["Comercial"],
+                                          ["Otro"]])
+
+  .input-field{:class => "col m6"}
     %i.material-icons.prefix phone
     = f.label :phone, "Tel.:"
     = f.text_field :phone,
@@ -12,4 +18,5 @@
     (function() {
         $(".phone-mask").mask("(999) 999-9999");
         Materialize.updateTextFields();
+        $('select').material_select();
     })();

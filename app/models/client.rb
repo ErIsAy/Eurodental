@@ -7,7 +7,11 @@ class Client < ActiveRecord::Base
    has_many :client_emails, dependent: :destroy
    has_many :client_phones, dependent: :destroy
    accepts_nested_attributes_for :client_emails, reject_if: :all_blank, allow_destroy: true
-   accepts_nested_attributes_for :client_phones, reject_if: :all_blank, allow_destroy: true
+  #  accepts_nested_attributes_for :client_phones, reject_if: :all_blank, allow_destroy: true
+   accepts_nested_attributes_for :client_phones,
+                                 :reject_if => lambda { |a| a[:phone].blank? }
+
+
    validates :name, presence: true
    validates :address, presence: true
    # validates :phone,:presence => true

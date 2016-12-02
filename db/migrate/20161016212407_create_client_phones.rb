@@ -2,6 +2,7 @@ class CreateClientPhones < ActiveRecord::Migration
   def change
     create_table :client_phones do |t|
       t.string :phone
+      t.string :ptype
       t.belongs_to :client, index: true
 
       t.timestamps null: false

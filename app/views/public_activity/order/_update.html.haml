@@ -6,4 +6,6 @@
   - if activity.trackable
     %b Detalle:
     = link_to activity.trackable.id, activity.trackable
+    %b Fecha:
+    = activity.created_at.strftime("%m/%d/%Y - %I-4:%M%p")
 %br

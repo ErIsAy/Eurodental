@@ -48,7 +48,9 @@
       %p
         %b{:style => "display: block;"} Teléfonos:
         - @client.client_phones.each do |sphone|
-          %li= sphone.phone
+          %li
+            = sphone.ptype
+            = sphone.phone
 
   -# CONTENT
   .container

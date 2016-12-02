@@ -1,6 +1,14 @@
 .nested-fields
-  .input-field{:class => "col m8"}
+
+  .input-field{:class => "col m4"}
     %i.material-icons.prefix phone
+    = f.select :ptype, options_for_select([["Móvil"],
+                                          ["Consultorio"],
+                                          ["Otro"]])
+
+
+  .input-field{:class => "col m6"}
+    -# %i.material-icons.prefix phone
     = f.label :phone, "Tel.:"
     = f.text_field :phone,
       :placeholder => "(___) ___ ____ ",
@@ -8,8 +16,10 @@
       :class => "phone-mask"
 
     = link_to_remove_association "-", f, class: "", style: "font-size: 50px;"
+
 :javascript
     (function() {
         $(".phone-mask").mask("(999) 999-9999");
         Materialize.updateTextFields();
+        $('select').material_select();
     })();
