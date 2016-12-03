@@ -21,6 +21,13 @@
  *= require stores
  */
 
+// top navbar icons
+ .material-icons.top_navbar {
+
+   font-size: 36px;
+
+ }
+
 /* Materialize Color*/
 @import "materialize/components/color";
 $primary-color: color("indigo", "lighten-1") !default;

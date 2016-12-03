@@ -5,10 +5,10 @@
     %ul.left
       %li
         %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "bottom"}
-          %i.material-icons{:style => "color: white;"} home
+          %i.material-icons.top_navbar{:style => "color: white;"} home
       %li
         %a.tooltipped{:href => clients_path, "data-tooltip" => "Clientes", "data-position" => "bottom"}
-          %i.material-icons{:style => "color: #8fbc8f;"} person_pin
+          %i.material-icons.top_navbar{:style => "color: #8fbc8f;"} person_pin
       %li
         %a.tooltipped{:href => new_sale_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
           = image_tag "Tooth-100", :style => "width: 39px; display:block; padding-top: 12px; padding-bottom: 12px;"
@@ -18,7 +18,7 @@
       -#     %i.material-icons{:style => "color: #dda0dd;"} assignment
       %li
         %a.tooltipped{:href => sales_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
-          %i.material-icons{:style => "color: #dda0dd;"} assignment
+          %i.material-icons.top_navbar{:style => "color: #dda0dd;"} assignment
 
 
       -# - if current_user.role_level == 1
@@ -44,20 +44,24 @@
       -#    .background
       -#      = image_tag 'categories.jpg'
       %li
-        %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "right"} Inicio
+        %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "right", :style => "font-size: 22px;"} Inicio
       %li
-        %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right"} Clientes
+        %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right", :style => "font-size: 22px;"} Clientes
       %li
-        %a.tooltipped{:href => sales_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right"} Ordenes
+        %a.tooltipped{:href => sales_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right", :style => "font-size: 22px;"} Ordenes
       -# %li
       -#   %a.tooltipped{:href => consulta_index_path, "data-tooltip" => "Generar Consulta", "data-position" => "right"} Consultas
       %li
-        %a.tooltipped{:href => suppliers_path, "data-tooltip" => "Listado de Suplidores", "data-position" => "right"} Suplidores
+        %a.tooltipped{:href => suppliers_path, "data-tooltip" => "Listado de Suplidores", "data-position" => "right", :style => "font-size: 22px;"} Suplidores
       - if current_user.role_level == 1
         %li
-          %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right"} Reportes
+          %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right", :style => "font-size: 22px;"} Reportes
         %li
-          %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Consultas", "data-position" => "right"} Consultas
+          %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Consultas", "data-position" => "right", :style => "font-size: 22px;"} Consultas
         %li
-          %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Administración", "data-position" => "right"} Administración
+          %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Administración", "data-position" => "right", :style => "font-size: 22px;"} Administración
+
+
+      %br
+      %br	    
       = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
