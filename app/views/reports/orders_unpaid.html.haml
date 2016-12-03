@@ -90,7 +90,7 @@
           -#%th Fecha  de Entrega
           %th Estado
           %th Monto RD$
-          -# %th Balance RD$
+          %th Balance RD$
           -# %th Nota Del Cliente
           -# %th Otras Notas
           %th Ver
@@ -108,7 +108,7 @@
               -#%td= order.order_date
               %td= sale.state
               %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
-              -# %td= "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+              %td= "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
               %td.btn-group
                 %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
                   %i.material-icons.right search
