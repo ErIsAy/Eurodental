@@ -4,10 +4,27 @@ class StoresController < ApplicationController
   # before_action :set_store, only: [:show, :edit, :update, :destroy]
   before_action :find_store, only: [:edit, :update, :destroy]
 
+
+  def order_sheet
+    @store = Store.find(params[:store_id])
+    @sale = Sale.find(@store.sale_id)
+
+    respond_to do |format|
+      format.html
+      format.pdf {render template: 'stores/order_sheet', pdf: 'order_sheet', :disposition => "inline" }
+    end
+
+  end
+
+
   # GET /stores
   # GET /stores.json
   def index
     @stores = Store.all
+    respond_to do |format|
+      format.html
+      format.pdf {render template: 'stores/order_sheet', pdf: 'order_sheet' }
+    end
   end
 
   # GET /stores/1
@@ -117,7 +134,7 @@ class StoresController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:tooth, :note, :color_note, :implant, :brand, :amount, :sale_id, :cant,
+      params.require(:store).permit(:tooth, :tooth_element, :note, :color_note, :implant, :brand, :amount, :sale_id, :cant,
                                       :antagonista, :mordida,
                                       :worktype_id, :material_id, :mcolor_id, :gcolor_id, :procedure_id)
     end

@@ -20,10 +20,12 @@ function reply_click(toothid)
       var service_box = document.getElementsByClassName("box"+y)[0];
       var tooth_number = document.getElementById('tooth_number'); //tooth selection
       var tooth_text = document.getElementById('txtTooth'+y);
+      var tooth_inner = document.getElementById('tooth_inner');
 
       if (String(ToothColor) != 'fill: lightskyblue;'){
         $("#"+String(x)).css({ fill: "lightskyblue" });
-        tooth_number.value = Number(tooth_text.innerHTML);
+        tooth_number.value = y;
+        tooth_inner.value = Number(tooth_text.innerHTML);
       }
       else {
       $("#"+String(x)).css({ fill: "white" });

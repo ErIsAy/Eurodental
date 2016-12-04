@@ -232,9 +232,12 @@
               -#= store.amount
               = "$#{number_to_currency(store.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
             %td
+              - if @sale.invoice_number.nil?
+                = link_to sale_store_path(store.sale, store), method: :delete do
+                  %i.material-icons.right.service_icon delete
+              -# %i.material-icons.right.service_icon{:style => "color: #e67e22;"} assignment
+              = link_to("<i class='material-icons service_icon right' style='color: #e67e22;'>assignment</i>".html_safe, {:sale_id => store.sale, :store_id => store, :controller => :stores, :action => :order_sheet, :format => 'pdf'},:target => "_blank")
 
-              = link_to sale_store_path(store.sale, store), method: :delete do
-                %i.material-icons.right delete
               -# %i.material-icons.right assignment
       %tr
         %td
@@ -326,6 +329,9 @@
               = payment.created_at.strftime("%F")
             %td
               = link_to("<i class='material-icons'>print</i>".html_safe, {:paymentid => payment, :saleid => @sale, :controller => :payments, :action => :receipt_print, :format => 'pdf'},:target => "_blank")
+
+
+
 
   .container
     %br

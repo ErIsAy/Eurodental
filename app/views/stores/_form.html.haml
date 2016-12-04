@@ -8,7 +8,12 @@
     = image_tag "Tooth-icon.png", :style => "font-size:46px; width: 24px; margin-right: 1px;", :class => "material-icons"
     .left{:style => ' width: 4em; margin-bottom: -2em;'}
       -#= s.label :tooth_number, 'Selección'
-      = f.text_field :tooth, :readonly => true, :id => "tooth_number"
+      -# = f.text_field :tooth, :readonly => true, :id => "tooth_number"
+      -# %input#tooth_inner{ :type => "text", :readonly => true}
+      = f.text_field :tooth, :readonly => true, :id => "tooth_inner"
+      = f.hidden_field :tooth_element, :id => "tooth_number"
+
+
   %br
   .container{:style => "margin: 0 auto;"}
 

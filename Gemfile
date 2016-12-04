@@ -29,6 +29,9 @@ gem 'public_activity'
 gem 'will_paginate'
 gem 'prawn'
 gem 'prawn-table'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'select2-rails'
 
 gem 'faker'

@@ -14,7 +14,13 @@ Rails.application.routes.draw do
 
   resources :sales do
     resources :stores
+
   end
+  get '/store/:id' => 'stores#order_sheet', as: :order_sheet
+
+
+
+
   get '/sale/:id' => 'sales#factura_print'
   get '/payment/:id' => 'payments#receipt_print', as: :receipt_print
   get 'activity/index'

@@ -289,22 +289,23 @@ ActiveRecord::Schema.define(version: 20161115191110) do
 
   create_table "stores", force: :cascade do |t|
     t.integer  "tooth"
-    t.integer  "cant",                                 default: 1
-    t.boolean  "antagonista",                          default: false
-    t.boolean  "mordida",                              default: false
+    t.integer  "tooth_element"
+    t.integer  "cant",                                  default: 1
+    t.boolean  "antagonista",                           default: false
+    t.boolean  "mordida",                               default: false
     t.string   "note"
     t.string   "color_note"
-    t.boolean  "implant",                              default: false
+    t.boolean  "implant",                               default: false
     t.string   "brand"
-    t.decimal  "amount",       precision: 8, scale: 2
+    t.decimal  "amount",        precision: 8, scale: 2
     t.integer  "sale_id"
     t.integer  "worktype_id"
     t.integer  "material_id"
     t.integer  "mcolor_id"
     t.integer  "gcolor_id"
     t.integer  "procedure_id"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
   end
 
   add_index "stores", ["gcolor_id"], name: "index_stores_on_gcolor_id"

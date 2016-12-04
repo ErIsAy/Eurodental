@@ -22,12 +22,12 @@
  */
 
 // top navbar icons
- .material-icons.top_navbar {
-
+.material-icons.top_navbar {
    font-size: 36px;
-
- }
-
+}
+.service_icon {
+  font-size: 30px !important;
+}
 /* Materialize Color*/
 @import "materialize/components/color";
 $primary-color: color("indigo", "lighten-1") !default;

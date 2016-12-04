@@ -2,6 +2,7 @@ class CreateStores < ActiveRecord::Migration
   def change
     create_table :stores do |t|
       t.integer :tooth
+      t.integer :tooth_element
       t.integer :cant, :default => 1
       t.boolean :antagonista, :default => false
       t.boolean :mordida, :default => false

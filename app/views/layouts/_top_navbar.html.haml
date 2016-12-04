@@ -1,7 +1,7 @@
 %nav.nav-fixed
   .nav-wrapper
     %a.button-collapse{"data-activates" => "slide-out", :href => "#", :class => "button-collapse show-on-large"}
-      %i.material-icons menu
+      %i.material-icons.top_navbar menu
     %ul.left
       %li
         %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "bottom"}
@@ -63,5 +63,5 @@
 
 
       %br
-      %br	    
+      %br
       = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
