@@ -49,7 +49,7 @@
                               :method => "get" do |pay|
           .input-field.col.s6
             = pay.select :payment_type, [['Efectivo', 'Efectivo'], ['Tarjeta de Crédito', 'Tarjeta de Crédito'],
-                                        ['Otro', 'Otro']], {}, { :class => "col s12" }
+                                        ['Deposito', 'Deposito'], ['Cheque', 'Cheque']], {}, { :class => "col s12" }
           .input-field.col.s3
           = pay.text_field :amount, :placeholder => "Amount",
                          :value => number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n",
@@ -63,11 +63,11 @@
       .modal-content
         .row.container.col.s12{:style => "margin: 0 auto;"}
           .col.s4
-            %a.waves-effect.waves-light.btn 5.0"x3.5"
+            %a.waves-effect.waves-light.btn 6.0"
           .col.s4
-            %a.waves-effect.waves-light.btn 1.1"x3.5"
+            %a.waves-effect.waves-light.btn 3"
           .col.s4
-            %a.waves-effect.waves-light.btn Circular
+            %a.waves-effect.waves-light.btn 0.5"
 
       -# .modal-footer
       -#   %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Imprimir?
