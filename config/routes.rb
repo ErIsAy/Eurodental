@@ -20,8 +20,15 @@ Rails.application.routes.draw do
 
 
 
-
+  #routes sales controllers
   get '/sale/:id' => 'sales#factura_print'
+  get "label_print" => "sales#label_print", as: :label_print
+  get "label_print_e3" => "sales#label_print_e3", as: :label_print_e3
+  get "label_print_e5" => "sales#label_print_e5", as: :label_print_e5
+
+
+
+
   get '/payment/:id' => 'payments#receipt_print', as: :receipt_print
   get 'activity/index'
 

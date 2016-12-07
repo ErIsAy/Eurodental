@@ -63,12 +63,14 @@
       .modal-content
         .row.container.col.s12{:style => "margin: 0 auto;"}
           .col.s4
-            %a.waves-effect.waves-light.btn 6.0"
-          .col.s4
-            %a.waves-effect.waves-light.btn 3"
-          .col.s4
-            %a.waves-effect.waves-light.btn 0.5"
+            -# %a.waves-effect.waves-light.btn 6.0"
+            = link_to "6.0''", label_print_path(:format => 'pdf', :sale_id => @sale.id), :class => "btn", :target => "_blank"
 
+          .col.s4
+            = link_to "3.0''", label_print_e3_path(:format => 'pdf', :sale_id => @sale.id), :class => "btn", :target => "_blank"
+          .col.s4
+            -# %a.waves-effect.waves-light.btn 0.5"
+            = link_to "0.5''", label_print_e5_path(:format => 'pdf', :sale_id => @sale.id), :class => "btn", :target => "_blank"
       -# .modal-footer
       -#   %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Imprimir?
 

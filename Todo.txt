@@ -32,13 +32,13 @@
    - [X] Agregar el cambio para imprimir la factura
    - [ ] Update receipt para reflejar el total pendiente global del cliente
    - [ ] Generate receipt number automatically
-   - [ ] Create a View with print for the order service
+   - [X] Create a View with print for the order service
    - [ ] install Admin panel
    - [ ] install mailer to send invoices via email
    - [ ] Create reports (see reports section below)
    - [X] Add Deposit and Checks to the payment types
-   - [ ] Approval number for Credit Cards
-   - [ ] Print Labels in the orders
+   - [ ] Approval number for Credit Cards (ask the master)
+   - [X] Print Labels in the orders
    - [ ] Create a new section for print labels with clients and suppliers
    - [X] Log out Users after 10 min
 

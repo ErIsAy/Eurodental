@@ -12,6 +12,56 @@ class SalesController < ApplicationController
 
   end
 
+# Label de 6''
+  def label_print
+    @sale = Sale.find(params[:sale_id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+      pdf = LabelPdf.new(@sale)
+      send_data pdf.render,
+        filename: "Label_Orden_#{@sale.id}.pdf",
+        type: "application/pdf",
+        disposition: "inline" ##display in browser
+      end
+    end
+  end
+
+  # Label de 3''
+    def label_print_e3
+      @sale = Sale.find(params[:sale_id])
+      respond_to do |format|
+        format.html
+        format.pdf do
+        pdf = LabelPdfE3.new(@sale)
+        send_data pdf.render,
+          filename: "Label_Orden_#{@sale.id}.pdf",
+          type: "application/pdf",
+          disposition: "inline" ##display in browser
+        end
+      end
+    end
+
+
+    # Label de 0.5''
+      def label_print_e5
+        @sale = Sale.find(params[:sale_id])
+        respond_to do |format|
+          format.html
+          format.pdf do
+          pdf = LabelPdfE5.new(@sale)
+          send_data pdf.render,
+            filename: "Label_Orden_#{@sale.id}.pdf",
+            type: "application/pdf",
+            disposition: "inline" ##display in browser
+          end
+        end
+      end
+
+
+
+
+
   def factura_print
     @sale = Sale.find(params[:id])
     respond_to do |format|
@@ -32,6 +82,8 @@ class SalesController < ApplicationController
       end
     end
   end
+
+
 
 
 
