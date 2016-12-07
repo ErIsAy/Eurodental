@@ -12,7 +12,7 @@ class SalesController < ApplicationController
 
   end
 
-# Label de 6''
+# Label de 6'' (2.4 '' x 7.2'')
   def label_print
     @sale = Sale.find(params[:sale_id])
     respond_to do |format|
@@ -27,7 +27,7 @@ class SalesController < ApplicationController
     end
   end
 
-  # Label de 3''
+  # Label de 3'' (2.4'' x 3.9'')
     def label_print_e3
       @sale = Sale.find(params[:sale_id])
       respond_to do |format|
@@ -43,7 +43,7 @@ class SalesController < ApplicationController
     end
 
 
-    # Label de 0.5''
+    # Label de 0.5'' (2.4'' x 1.1'')
       def label_print_e5
         @sale = Sale.find(params[:sale_id])
         respond_to do |format|

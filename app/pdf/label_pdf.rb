@@ -2,7 +2,7 @@ class LabelPdf < Prawn::Document
 
 
   def initialize(sale)
-    super(top_margin: 10, page_size: [400,200])
+    super(right_margin: 5, left_margin: 10, top_margin: 10, page_size: [500,200])
     # image "#{Rails.root}/App/assets/images/logo.png", :scale => 0.2
     image "public/logo.png", :scale => 0.2
     @sale = sale
@@ -12,7 +12,7 @@ class LabelPdf < Prawn::Document
 
   def label_body
     text "Orden: #{@sale.id}", size: 20, :align => :right, :style => :bold
-    move_down 20
+    move_down 10
     text "Cliente: #{@sale.client.name}", size: 20, :style => :italic
     text "Dirección.: #{@sale.client.address} ", size:20
     text "Tel.: #{@sale.client.client_phones.first.phone} ", size:20

@@ -2,11 +2,11 @@ class LabelPdfE5 < Prawn::Document
 
 
   def initialize(sale)
-    super(top_margin: 10, page_size: [200,100])
+    super(right_margin: 1, left_margin: 1, top_margin: 15, page_size: [150,100])
     # image "#{Rails.root}/App/assets/images/logo.png", :scale => 0.2
     image "public/logo.png", :scale => 0.1
     @sale = sale
-    move_down 5
+    move_down 10
     label_body
   end
 
