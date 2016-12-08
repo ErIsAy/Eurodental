@@ -1,10 +1,11 @@
 class ReceiptPdf < Prawn::Document
   include ActionView::Helpers::NumberHelper
 
-  def initialize(payment, sale)
+  def initialize(payment, sale, balance)
     super(top_margin: 10)
     @payment = payment
     @sale = sale
+    @balance = balance
     header
     details
     move_down 15
@@ -53,8 +54,9 @@ class ReceiptPdf < Prawn::Document
     # table([["","Total Recibido","#{}"]], :column_widths => [320,100,100 ], :row_colors => ["f3e5f5"])
 
     move_down 50
-    table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["bdc3c7"])
+    # table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["bdc3c7"])
     # table([["Balance Actual:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    table([["Balance Pendiente:","$#{number_to_currency(@balance, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["bdc3c7"])
 
 
   end

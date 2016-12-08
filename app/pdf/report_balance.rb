@@ -16,7 +16,7 @@ class ReportBalance < Prawn::Document
   #remember to print the page count
 
   def header
-    text "Balances Pendientes", style: :italic
+    text "Balances Consolidadas", style: :italic
     text "Fecha de Reporte: #{Time.now.strftime("%F")}", :align => :right
 
     if @from && @to != ""

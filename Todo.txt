@@ -30,8 +30,8 @@
    - [X] Agregar el cambio para el abono y los pagos
    - [X] Agregar el cambio para los descuentos
    - [X] Agregar el cambio para imprimir la factura
-   - [ ] Update receipt para reflejar el total pendiente global del cliente
-   - [ ] Generate receipt number automatically
+   - [X] Update receipt para reflejar el total pendiente global del cliente
+   - [~] Generate receipt number automatically
    - [X] Create a View with print for the order service
    - [ ] install Admin panel
    - [ ] install mailer to send invoices via email

@@ -17,10 +17,15 @@ User.create(email: 'admin@admin.com', password: '123456789', role_level: 1, admi
 #                 email: Faker::Internet.free_email)
 # end
 
+# phones = ClientPhone.new :phone => Faker::PhoneNumber.phone_number,
+#                              :ptype => "Movil"
+
 
 50.times do
   Client.create(name: Faker::Name.name,
-                address: Faker::Address.street_address)
+                address: Faker::Address.street_address,
+                :client_phones_attributes => [:phone => Faker::PhoneNumber.phone_number,
+                                             :ptype => "Movil"])
 end
 
 Price.create

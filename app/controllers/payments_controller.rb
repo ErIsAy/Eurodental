@@ -3,10 +3,12 @@ class PaymentsController < ApplicationController
     def receipt_print
       @payment = Payment.find(params[:paymentid])
       @sale = Sale.find(@payment.sale_id)
+      @balance = Sale.where(:client_id => @sale.client_id).sum(:remaining_amount).to_i - Sale.where(:client_id => @sale.client_id).sum(:discount_amount).to_i
+
       respond_to do |format|
         format.html
         format.pdf do
-        pdf = ReceiptPdf.new(@payment,@sale)
+        pdf = ReceiptPdf.new(@payment,@sale,@balance)
         send_data pdf.render,
           filename: "recibo_#XXX.pdf",
           type: "application/pdf",
