@@ -19,8 +19,9 @@ class LabelPdf < Prawn::Document
 
     text "Orden: #{@sale.id}", size: 20, :align => :right, :style => :bold
     text "Cliente: #{@sale.client.name}", size: 20, :style => :italic
-    text "Dirección.: #{@sale.client.address} ", size:20
-    if @sale.client.client_phones == ""
+    text "Dirección: #{@sale.client.address} ", size:20
+    
+    if @sale.client.client_phones != ""
       text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 12
     end
     # text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 15

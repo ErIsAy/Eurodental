@@ -16,9 +16,9 @@ class LabelPdfE3 < Prawn::Document
     text "    Santiago, República Dominicana", size: 8, :style => :italic
     text "Orden: #{@sale.id}", size: 15, :align => :right, :style => :bold
     text "Cliente: #{@sale.client.name}", size: 15, :style => :italic
-    text "Dirección.: #{@sale.client.address} ", size: 15
-    byebug
-    if @sale.client.client_phones == ""
+    text "Dirección: #{@sale.client.address} ", size: 15
+
+    if @sale.client.client_phones != ""
       text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 12
     end
     # text "Fecha de Orden: #{@sale.created_at.strftime("%F")}", size: 20
