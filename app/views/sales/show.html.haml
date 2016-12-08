@@ -54,7 +54,7 @@
 
           %div.row.col.s12#tc
             .input-field.col.s6
-              = pay.select :tctype, [['Visa', 'Visa'], ['MasterCard', 'MasterCard']], {}, { :class => "col s6"}
+              = pay.select :tctype, [['', nil],['Visa', 'Visa'], ['MasterCard', 'MasterCard']], {}, { :class => "col s6"}
 
             .input-field.col.s4
               = pay.text_field :tcbank, :placeholder => "Banco"
@@ -335,9 +335,9 @@
           %tr
             %td
               = payment.payment_type
-              = "- #{payment.tctype}" if payment.tctype != nil
-              = "- #{payment.tcbank}" if payment.tctype != nil
-              = "*#{payment.tcdigit}" if payment.tctype != nil
+              = "- #{payment.tctype}" if payment.tctype != ""
+              = "- #{payment.tcbank}" if payment.tctype != ""
+              = "*#{payment.tcdigit}" if payment.tctype != ""
             %td
               %b{:style => "color: green"}
                 = "$#{number_to_currency(payment.amount.to_f, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
