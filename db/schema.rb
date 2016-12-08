@@ -160,6 +160,9 @@ ActiveRecord::Schema.define(version: 20161115191110) do
   create_table "payments", force: :cascade do |t|
     t.decimal  "amount",       precision: 8, scale: 2
     t.string   "payment_type"
+    t.string   "tctype"
+    t.string   "tcbank"
+    t.integer  "tcdigit"
     t.integer  "sale_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false

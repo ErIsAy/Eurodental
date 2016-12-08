@@ -29,6 +29,22 @@
  });
 * */
 
+
+$(document).on("change", "select#tcselect", function(e){
+  //var e = document.getElementById("tcselect");
+  var selectedtext = $("#tcselect :selected").text();
+  console.log (selectedtext);
+    if (selectedtext === "Tarjeta de Crédito"){
+      document.getElementById('tc').style.display = "inline";
+    }
+    else {
+      document.getElementById('tc').style.display = "none";
+    }
+});
+
+
+
+
 /*GET price functions */
 
 

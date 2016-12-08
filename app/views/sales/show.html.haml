@@ -49,7 +49,19 @@
                               :method => "get" do |pay|
           .input-field.col.s6
             = pay.select :payment_type, [['Efectivo', 'Efectivo'], ['Tarjeta de Crédito', 'Tarjeta de Crédito'],
-                                        ['Deposito', 'Deposito'], ['Cheque', 'Cheque']], {}, { :class => "col s12" }
+                                        ['Deposito', 'Deposito'], ['Cheque', 'Cheque']], {}, { :class => "col s12", :id => "tcselect" }
+
+
+          %div.row.col.s12#tc
+            .input-field.col.s6
+              = pay.select :tctype, [['Visa', 'Visa'], ['MasterCard', 'MasterCard']], {}, { :class => "col s6"}
+
+            .input-field.col.s4
+              = pay.text_field :tcbank, :placeholder => "Banco"
+
+            .input-field.col.s4
+              = pay.number_field :tcdigit, :placeholder => "_XXXX"
+
           .input-field.col.s3
           = pay.text_field :amount, :placeholder => "Amount",
                          :value => number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n",
@@ -323,6 +335,9 @@
           %tr
             %td
               = payment.payment_type
+              = "- #{payment.tctype}" if payment.tctype != nil
+              = "- #{payment.tcbank}" if payment.tctype != nil
+              = "*#{payment.tcdigit}" if payment.tctype != nil
             %td
               %b{:style => "color: green"}
                 = "$#{number_to_currency(payment.amount.to_f, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"

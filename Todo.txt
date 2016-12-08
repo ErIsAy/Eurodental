@@ -37,7 +37,7 @@
    - [ ] install mailer to send invoices via email
    - [X] Create reports (see reports section below)
    - [X] Add Deposit and Checks to the payment types
-   - [ ] Approval number for Credit Cards (ask the master)
+   - [X] Approval number for Credit Cards
    - [X] Print Labels in the orders
    - [ ] Create a new section for print labels with clients and suppliers
    - [X] Log out Users after 10 min

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin_panel', as: 'rails_admin'
   resources :payments do
     collection do
       get 'make_payment'

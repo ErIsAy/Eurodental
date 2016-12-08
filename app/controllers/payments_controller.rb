@@ -22,6 +22,9 @@ class PaymentsController < ApplicationController
     @sale = Sale.find(params[:payments][:sale_id])
     Payment.create(payment_type: params[:payments][:payment_type],
                    amount: params[:payments][:amount],
+                   tctype: params[:payments][:tctype],
+                   tcbank: params[:payments][:tcbank],
+                   tcdigit: params[:payments][:tcdigit],
                    sale_id: params[:payments][:sale_id])
 
     @amt = params[:payments][:amount]
@@ -56,7 +59,7 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:payment_type, :amount, :sale_id)
+    params.require(:payment).permit(:payment_type, :amount, :tctype, :tcbank, :tcdigit, :sale_id)
   end
 
 end
