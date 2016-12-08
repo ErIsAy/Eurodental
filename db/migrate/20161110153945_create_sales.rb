@@ -9,6 +9,7 @@ class CreateSales < ActiveRecord::Migration
       t.string :other_note
       t.boolean :coti, :default => false
       t.integer :invoice_num
+      t.date :invoice_date
       t.boolean :paid_status, :default => false  #Verifies if remaining_amount(balance) - discount = 0 or total is paid.
       t.string :state,         default: "En proceso"
       t.string :concept

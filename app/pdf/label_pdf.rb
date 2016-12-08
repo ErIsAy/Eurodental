@@ -20,7 +20,10 @@ class LabelPdf < Prawn::Document
     text "Orden: #{@sale.id}", size: 20, :align => :right, :style => :bold
     text "Cliente: #{@sale.client.name}", size: 20, :style => :italic
     text "Dirección.: #{@sale.client.address} ", size:20
-    text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 15
+    if @sale.client.client_phones == ""
+      text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 12
+    end
+    # text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 15
     # text "Fecha de Orden: #{@sale.created_at.strftime("%F")}", size: 20
     # text "Fecha de Entrega: #{@sale.sale_date}", size: 20
     # formatted_text [

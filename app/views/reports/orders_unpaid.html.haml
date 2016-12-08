@@ -10,9 +10,26 @@
 
 
   .container{:style => "margin: 0 auto;"}
-    %a.right{:href =>"#", :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right print
-      Imprimir
+    .card.row
+      = search_form_for @search, url: orders_unpaid_print_path, :html => {:target=>'_blank'} do |k|
+        .input-field{:class => "col s6"}
+          = k.label :client_name_cont, "Cliente"
+          = k.text_field :client_name_cont
+        .input-field{:class => "col s3"}
+          = k.label :created_at_date_gequals, "Desde"
+          = k.text_field :created_at_date_gequals,
+                         :class => "datepicker_all"
+        .input-field{:class => "col s3"}
+          = k.label :created_at_date_lequals, "Hasta"
+          = k.text_field :created_at_date_lequals,
+                         :class => "datepicker_all"
+
+        = k.submit "Imprimir", :class => "waves-effect waves-light btn",
+                               :style => "left: 15px; bottom: 5px;"
+
+
+
+    %br
     %a.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right search
       Filtro
@@ -38,48 +55,7 @@
 
   %br
 
-  -#
-  -# .container{:style => "margin: 0 auto;"}
-  -#
-  -#   %a.right{:href =>"#", :class => "waves-effect waves-light btn blue"}
-  -#     %i.material-icons.right print
-  -#     Imprimir
-  -# %br
-  -#   %br
-
-
-    -# .row.card.container.modal#search_filter_orders{:style => "width: 800px; height:900px;"}
-    -#   = search_form_for @search, url: accountability_index_path do |f|
-    -#     .input-field{:class => "col s6"}
-    -#       = f.label :client_name_cont, "Cliente"
-    -#       = f.text_field :client_name_cont
-    -#     .input-field{:class => "col s3"}
-    -#       = f.label :created_at_date_gequals, "Desde"
-    -#       = f.text_field :created_at_date_gequals,
-    -#                      :class => "datepicker_all"
-    -#     .input-field{:class => "col s3"}
-    -#       = f.label :created_at_date_lequals, "Hasta"
-    -#       = f.text_field :created_at_date_lequals,
-    -#                      :class => "datepicker_all"
-    -#
-    -#     .input-field.col.s6
-    -#       = f.select( :state_cont, options_for_select([[""],
-    -#                                               ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
-    -#                                               ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
-    -#                                               ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
-    -#                                               ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
-    -#                                               ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
-    -#                                               ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
-    -#                                               disabled: "Elige el Estado"), class: "icons" )
-    -#
-    -#     = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
-    -#                           :style => "left: 15px; bottom: 5px;"
-
-
-
-
-
-  .row.container.card{:style => "margin: 0 auto;"}
+  .container.card{:style => "margin: 0 auto;"}
     %table.centered.highlight#orders_t
       %thead
         %tr

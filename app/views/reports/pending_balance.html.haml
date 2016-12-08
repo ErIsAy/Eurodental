@@ -10,9 +10,22 @@
 
 
   .container{:style => "margin: 0 auto;"}
-    %a.right{:href =>"#", :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right print
-      Imprimir
+    .card.row
+      = search_form_for @search, url: pending_balance_print_path, :html => {:target=>'_blank'} do |k|
+        .input-field{:class => "col s6"}
+          = k.label :client_name_cont, "Cliente"
+          = k.text_field :client_name_cont
+        .input-field{:class => "col s3"}
+          = k.label :created_at_date_gequals, "Desde"
+          = k.text_field :created_at_date_gequals,
+                         :class => "datepicker_all"
+        .input-field{:class => "col s3"}
+          = k.label :created_at_date_lequals, "Hasta"
+          = k.text_field :created_at_date_lequals,
+                         :class => "datepicker_all"
+
+        = k.submit "Imprimir", :class => "waves-effect waves-light btn",
+                               :style => "left: 15px; bottom: 5px;"
     %a.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right search
       Filtro

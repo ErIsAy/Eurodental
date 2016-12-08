@@ -17,7 +17,10 @@ class LabelPdfE3 < Prawn::Document
     text "Orden: #{@sale.id}", size: 15, :align => :right, :style => :bold
     text "Cliente: #{@sale.client.name}", size: 15, :style => :italic
     text "Dirección.: #{@sale.client.address} ", size: 15
-    text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 12
+    byebug
+    if @sale.client.client_phones == ""
+      text "Tel.: #{@sale.client.client_phones.first.phone} ", size: 12
+    end
     # text "Fecha de Orden: #{@sale.created_at.strftime("%F")}", size: 20
     # text "Fecha de Entrega: #{@sale.sale_date}", size: 20
     # formatted_text [

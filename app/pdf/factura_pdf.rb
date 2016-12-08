@@ -29,7 +29,8 @@ class FacturaPdf < Prawn::Document
   def details
     text "No. de Factura: #{@sale.invoice_number.id.to_s}", size: 10, style: :italic, :align => :right
     text "No. de Orden: #{@sale.id}", size: 15, style: :italic, :align => :right
-    text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
+    # text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
+    text "Fecha de Facturación: #{@sale.invoice_date.strftime("%F")}", size: 10, style: :italic, :align => :right
 
 
     address_text = "Cliente:   #{@sale.client.name}

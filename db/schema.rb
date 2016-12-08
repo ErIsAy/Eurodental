@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20161115191110) do
     t.string   "other_note"
     t.boolean  "coti",                                     default: false
     t.integer  "invoice_num"
+    t.date     "invoice_date"
     t.boolean  "paid_status",                              default: false
     t.string   "state",                                    default: "En proceso"
     t.string   "concept"

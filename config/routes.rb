@@ -29,6 +29,9 @@ Rails.application.routes.draw do
 
 
 
+
+
+
   get '/payment/:id' => 'payments#receipt_print', as: :receipt_print
   get 'activity/index'
 
@@ -60,10 +63,16 @@ Rails.application.routes.draw do
 
   resources :categories
 
+
+  #routes reports controller
   get 'reports/index'
   get 'reports/orders_paid'
   get 'reports/orders_unpaid'
   get 'reports/pending_balance'
+  get "orders_unpaid_print" => "reports#orders_unpaid_print", as: :orders_unpaid_print, :defaults => { :format => 'pdf' }
+  get "orders_paid_print" => "reports#orders_paid_print", as: :orders_paid_print, :defaults => { :format => 'pdf' }
+  get "pending_balance_print" => "reports#pending_balance_print", as: :pending_balance_print, :defaults => { :format => 'pdf' }
+
 
   devise_for :users
   resources :users_admin, :controller => 'users'

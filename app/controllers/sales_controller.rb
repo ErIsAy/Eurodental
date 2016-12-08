@@ -64,6 +64,7 @@ class SalesController < ApplicationController
 
   def factura_print
     @sale = Sale.find(params[:id])
+    @sale.invoice_date = Time.now
     respond_to do |format|
       format.html
       format.pdf do
@@ -74,6 +75,7 @@ class SalesController < ApplicationController
         invoice_number.increment!
         # @sale.save
       end
+      @sale.save
       pdf = FacturaPdf.new(@sale)
       send_data pdf.render,
         filename: "factura_#{@sale.id}.pdf",
@@ -183,7 +185,7 @@ class SalesController < ApplicationController
     def sale_params
       params.require(:sale).permit(:patient_name, :age, :sex, :order_date,
                                    :client_note, :other_note, :coti, :state,
-                                   :concept, :invoice_num, :paid_status, :total_amount, :discount, :discount_amount,
+                                   :concept, :invoice_num, :invoice_date, :paid_status, :total_amount, :discount, :discount_amount,
                                    :order_total, :remaining_amount, :client_id)
     end
 end
