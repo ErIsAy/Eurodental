@@ -73,6 +73,7 @@ class SalesController < ApplicationController
       if @sale.invoice_number.nil?
         invoice_number = @sale.invoice_number || @sale.create_invoice_number
         invoice_number.increment!
+        # byebug
         # @sale.save
       end
       @sale.save
