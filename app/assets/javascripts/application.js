@@ -49,6 +49,7 @@ $(document).on("change", "select#tcselect", function(e){
 
 
 function amount_sum(){
+    var quantity = document.getElementById("item_quantity").value 
     var worktype_price = Number(document.getElementById('price_worktype').value);
     var material_price = Number(document.getElementById('price_material').value);
     var mcolor_price = Number(document.getElementById('price_mcolor').value);
@@ -57,7 +58,7 @@ function amount_sum(){
     document.getElementById("service_total_f").value = '';
     var sum = worktype_price + material_price + mcolor_price + gcolor_price + procedure_price;
 
-    document.getElementById("service_total_f").value = sum;
+    document.getElementById("service_total_f").value = sum * quantity;
 }
 
 

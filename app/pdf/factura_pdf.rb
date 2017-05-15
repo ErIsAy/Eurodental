@@ -21,23 +21,28 @@ class FacturaPdf < Prawn::Document
               Tel: 809-247-4649"
 
     data_header = [[{:image => "public/logo.png", :scale => 0.2}, address_text]]
-    table(data_header, :column_widths => [320, 200], :cell_style => {:border_color => "FFFFFF", :size => 11})
+    table(data_header, :column_widths => [320, 200], :cell_style => {:border_color => "FFFFFF", :size => 9})
 
 
   end
 
   def details
-    text "No. de Factura: #{@sale.invoice_number.next_number.to_s}", size: 10, style: :italic, :align => :right
-    text "No. de Orden: #{@sale.id}", size: 15, style: :italic, :align => :right
-    # text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
-    text "Fecha de Facturación: #{@sale.invoice_date.strftime("%F")}", size: 10, style: :italic, :align => :right
+    # text "Factura# #{@sale.invoice_number.next_number.to_s}", size: 10, style: :italic, :align => :right
+    # text "Orden# #{@sale.id}", size: 15, style: :italic, :align => :right
+    # # text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
+    # text "Fecha: #{@sale.invoice_date.strftime("%F")}", size: 10, style: :italic, :align => :right
 
+    order_text = "Factura# #{@sale.invoice_number.next_number.to_s}
+                  Orden# #{@sale.id}
+                  Fecha: #{@sale.invoice_date.strftime("%F")}"
 
     address_text = "Cliente:   #{@sale.client.name}
                     Paciente:  #{@sale.patient_name}
                     Dirección: #{@sale.client.address} "
     move_down 15
-    data_client = [[{:image => "public/Tooth-100.png", :scale => 0.5}, address_text]]
+    # data_client = [[{:image => "public/Tooth-100.png", :scale => 0.5}, address_text]]
+    data_client = [[address_text, order_text]]
+
     table(data_client, :column_widths => [320, 200], :cell_style => {:background_color => "f3e5f5",:border_color => "FFFFFF", :size => 11})
 
 
@@ -50,16 +55,16 @@ class FacturaPdf < Prawn::Document
 
     @sale.stores.each do |a|
       description_data += a.tooth.to_s
-      description_data += " - Antagonista" if a.antagonista
-      description_data += " - Mordida" if a.mordida
+      # description_data += " - Antagonista" if a.antagonista
+      # description_data += " - Mordida" if a.mordida
       description_data += ", #{a.worktype_name}"
       description_data += " - #{a.note}" if a.note != ""
       description_data += "(Sobre Implante)" if a.implant
       description_data += " - Marca: #{a.brand}" if a.brand != ""
       description_data += ", #{a.material_name}" if a.material_name != nil
-      description_data += ", #{a.mcolor_name}" if a.mcolor_name != nil
+      # description_data += ", #{a.mcolor_name}" if a.mcolor_name != nil
       description_data += ", #{a.gcolor_name} - #{a.color_note}" if a.gcolor_name != nil
-      description_data += ", #{a.procedure_name}" if a.procedure_name != nil
+      # description_data += ", #{a.procedure_name}" if a.procedure_name != nil
 
       data = [
                 ["Diente: #{description_data}",
@@ -74,8 +79,13 @@ class FacturaPdf < Prawn::Document
     end
 
     #Table Footer for Totals
-    table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
-    table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    if @sale.discount > 0
+      table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    else
+      table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    end
+    # table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+    # table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
     # table([["Balance Pendiente:","$#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
 
 

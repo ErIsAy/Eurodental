@@ -1,3 +1,12 @@
+-- Priority Todo:
+  - [X] Cambiar Fecha de Facturacion a 'Fecha'
+  - [X] Cambiar Numero de Factura a Factura#
+  - [X] Cambiar Numero de Orden por Orden#
+  - [X] Quitar el % de descuento en la factura, al menos que exista
+  - [X] Multiplicar el monto por el total
+  - [X] Solo mostrar en la factura Tipo de trabajo, Material y Guia de color
+  - [X] Minimizar la factura, reordenamiento de los datos, etc..
+
 
 -- 10/9/2016 ToDo
   - [X] Cambiar nombre a Pigmentado (corregir)
