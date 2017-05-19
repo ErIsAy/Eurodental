@@ -26,14 +26,14 @@ class ReportUnpaid < Prawn::Document
 
 
   def body
-    table([["No. Factura","Cliente","No. Orden.","Fecha", "Monto"]], :column_widths => [100,150,100,100,100], :row_colors => ["9FA8DA"])
+    table([["Factura#","Cliente","Paciente","No. Orden.","Fecha", "Monto"]], :column_widths => [50,150,120,80,70,80], :row_colors => ["9FA8DA"], :cell_style => {:background_color => "f3e5f5",:border_color => "000000", :size => 10})
     #
     # byebug
     @sales.each do |sale|
       # byebug
       unless sale.invoice_number.nil?
-        table([[sale.invoice_number.id, sale.client.name, sale.id, sale.invoice_date,
-          "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [100,150,100,100,100])
+        table([[sale.invoice_number.id, sale.client.name, sale.patient_name, sale.id, sale.invoice_date,
+          "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [50,150,120,80,70,80], :cell_style => {:background_color => "FFFFFF",:border_color => "000000", :size => 10})
       end
       # table([[sale.invoice_number, sale.client.name, sale.id, sale.invoice_number, "lolaso"]], :column_widths => [100,150,100,100,100], :row_colors => ["9FA8DA"])
     end

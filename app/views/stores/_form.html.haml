@@ -105,17 +105,19 @@
             -# = f.collection_select :worktype_id, Gcolor.order(:id),:id,:name, include_blank: false, prompt: 'Seleccionar'
             = select_tag :gcolor_store_id, options_from_collection_for_select(@gcolors, :id, :name), include_blank: false, prompt: 'Seleccionar'
 
-          .input-field#basic_color{:class => "col s6"}
-            = f.label :color_note, "Color", :style => 'width: 8em; margin-left: 2em;'
-            = f.text_field :color_note, :style => 'width: 12em;'
+          -# .input-field#basic_color{:class => "col s6"}
+          -#   = f.label :color_note, "Color", :style => 'width: 8em; margin-left: 2em;'
+          -#   = f.text_field :color_note, :style => 'width: 12em;'
 
-
-          -#.input-field#vita_classic_select{:class => "col s6", :style => 'display: none;'}
-          -#  = f.select(:color_note, options_for_select([[''],
-          -#                                             ['A1'], ['A2'], ['A3'], ['A3.5'], ['A4'],
-          -#                                             ['B1'], ['B2'], ['B3'], ['B4'],
-          -#                                             ['C1'], ['C2'], ['C3'], ['C4'],
-          -#                                             ['D2'], ['D3'], ['D4']]))
+          -# vita_classic_select
+          .input-field#basic_color{:class => "col s6", :style => 'width: 8em; margin-left: 2em;'}
+            = f.select(:color_note, options_for_select([[''],
+                                                      ['A1'], ['A2'], ['A3'], ['A3.5'], ['A4'],
+                                                      ['B1'], ['B2'], ['B3'], ['B4'],
+                                                      ['C1'], ['C2'], ['C3'], ['C4'],
+                                                      ['D2'], ['D3'], ['D4'],['___'],
+                                                      ['0 M2'], ['1 M2'] ,['2 M2'], ['3 M2'], ['4 M2'],
+                                                      ['5 M2']]), {}, {:id=>"", :class => ''})
 
 
 

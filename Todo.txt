@@ -34,7 +34,7 @@
    - [X] Agregar tipo de numero a los telefonos de clientes y suplidores
    - [X] Cambiar el Timezone a Dominican Republic
    - [X] Remover Background del logo
-   - [ ] Vita Classic agregar las opciones como select - hacer un select con la guia - ?
+   - [X] Vita Classic agregar las opciones como select - hacer un select con la guia - ?
    - [X] Agregar el cambio para los states de la orden
    - [X] Agregar el cambio para el abono y los pagos
    - [X] Agregar el cambio para los descuentos
