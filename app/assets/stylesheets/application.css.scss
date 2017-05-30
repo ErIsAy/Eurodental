@@ -19,8 +19,18 @@
  *= require select2
  *= require orders
  *= require stores
+ *= require jquery-ui
+ *= require jquery.tagit.css
  */
 
+
+.tagit-new {
+  visibility: hidden;
+}
+
+.tagit.ui-widget.ui-widget-content.ui-corner-all {
+  border: white;
+}
 // top navbar icons
 .material-icons.top_navbar {
    font-size: 36px;

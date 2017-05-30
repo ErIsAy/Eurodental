@@ -7,7 +7,22 @@
 
 :javascript
 
+
+
+
   (function() {
+
+      $("#mySingleField").tagit({
+        afterTagRemoved: function(evt, ui) {
+          //$('#item_quantity').value -= 1;
+          document.getElementById('item_quantity').value--;
+        },
+        afterTagAdded: function(evt, ui) {
+          document.getElementById('item_quantity').value++;
+        },
+        singleFieldDelimiter: '-'
+      });
+
       // $.mask.definitions['~']='[+-]';
       //$(".money-mask").mask("9? 99? 9999",{placeholder:" "});
       $(".phone-mask").mask("(999) 999-9999");
@@ -77,9 +92,7 @@
 
     $( document ).ready(function(){
     //
-    //$(function() {
-    //    Materialize.updateTextFields();
-    //});
+
 
     //$('.modal-trigger').leanModal();
 
@@ -153,3 +166,4 @@
           });
       });
   });
+  

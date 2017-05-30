@@ -63,6 +63,7 @@ class StoresController < ApplicationController
 
     @store = Store.new(store_params)
     @store.sale_id = params[:sale_id]
+    @store.tooth = params[:tags]
     @store.worktype_id = params[:worktype_store_id]
     @store.material_id = params[:material_store_id]
     @store.mcolor_id = params[:mcolor_store_id]

@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require tag-it
 //= require turbolinks
-//= require materialize-sprockets
+//= require materialize
 //= require materialize/extras/nouislider
 //= require cocoon
 //= require select2
@@ -28,6 +30,7 @@
  return false;
  });
 * */
+
 
 
 $(document).on("change", "select#tcselect", function(e){
@@ -49,7 +52,7 @@ $(document).on("change", "select#tcselect", function(e){
 
 
 function amount_sum(){
-    var quantity = document.getElementById("item_quantity").value 
+    var quantity = document.getElementById("item_quantity").value
     var worktype_price = Number(document.getElementById('price_worktype').value);
     var material_price = Number(document.getElementById('price_material').value);
     var mcolor_price = Number(document.getElementById('price_mcolor').value);
@@ -167,6 +170,7 @@ $(document).on("change", "select#procedure_store_id", function(e){
         }
     });
 });
+
 
 
 
