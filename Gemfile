@@ -10,11 +10,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'cocoon'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'rails_admin'
+gem 'json', github: 'flori/json', branch: 'v1.8'
 
 #____<<ASSETS>>______________
 gem 'normalize-rails'
@@ -32,6 +34,8 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem 'tag-it-rails', '~> 2.0'
 
 gem 'select2-rails'
 
