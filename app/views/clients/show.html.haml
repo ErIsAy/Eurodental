@@ -55,9 +55,22 @@
   -# CONTENT
   .container
     %a{:href => clients_path, :class => "waves-effect waves-light btn blue"}
-      %i.material-icons.right chevron_left
+      %i.material-icons.left chevron_left
       Volver
-  -# %div{:style => "width:90%; margin: 0 auto;transform: scale(1.0);"}
+    -# %a{:href => new_order_path, :class => "waves-effect waves-light btn blue right", :client => @client.id}
+    -#   %i.material-icons.right chevron_right
+    -#   Crear Nueva Orden
+    %button.btn.blue.btn-sm.tooltipped.right{:type => "button", "data-tooltip" => "Crear Orden", "data-position" => "right"}
+      = link_to(:controller => "sales", :action => "new", :client => @client.id) do
+        = "<span style='color:white;'>Crear Nueva Orden</span>".html_safe
+      %i.material-icons.right chevron_right
+
+    -# - "<i class=' btn blue material-icons right'></i>".html_safe
+    -# %i.material-icons.left chevron_left
+
+
+
+
   -#   = render :partial => 'layouts/tooth_chart'
 
 -# END OF MAIN

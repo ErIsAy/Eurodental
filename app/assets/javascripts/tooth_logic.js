@@ -119,9 +119,9 @@ function close_box(b_id){
 function reply_click(toothid)
   {
 
-    for(i=1; i<33; i++) {
-      $("#Tooth"+String(i)).css({ fill: "white" });
-    }
+    // for(i=1; i<33; i++) {
+    //   $("#Tooth"+String(i)).css({ fill: "white" });
+    // }
       var x = toothid;
       var y = String(x).replace(/\D/g, '');
       var ToothColor = $("#"+String(x)).attr("style");
@@ -143,6 +143,7 @@ function reply_click(toothid)
       }
       else {
       $("#"+String(x)).css({ fill: "white" });
+      $("#mySingleField").tagit("removeTagByLabel", tooth_text.innerHTML);
       }
 }
 

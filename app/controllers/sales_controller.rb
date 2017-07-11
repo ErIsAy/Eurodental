@@ -99,6 +99,10 @@ class SalesController < ApplicationController
   def new
     @sale = Sale.new
     @clients = Client.all
+
+    if params[:client]
+      @client = Client.find(params[:client])
+    end
   end
 
   # GET /sales/1/edit

@@ -54,6 +54,12 @@ class OrdersController < ApplicationController
     # 3.times { @order.services.build }
     @order.current_step = session[:order_step]
 
+    if params[:client]
+      @client = Client.find(params[:client])
+      # byebug
+    end
+    # byebug
+
   end
 
   # GET /orders/1/edit

@@ -14,7 +14,13 @@
     .input-field{:class => "col s12 m6", :style => "margin-top: 0px;"}
       -# = f.label :client
       -# = f.text_field :client
-      = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
+      -# = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
+      - if params[:client]
+        = f.label "Cliente: #{Client.find(params[:client]).name}"
+        = f.hidden_field :client_id, value: params[:client]
+      - else
+        = f.select(:client_id, @clients.collect {|p| [ p.name, p.id ] }, {include_blank: false, prompt: 'Seleccionar Cliente'}, :id => "e1", :class => "js-example-responsive", :style => "width: 100%;")
+
     - 3.times do
       %br
     %hr.style17
