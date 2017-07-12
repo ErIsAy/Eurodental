@@ -68,7 +68,7 @@
         %br
         .div
         %ul.pagination.right{:style => "margin: 0 auto;"}
-          = will_paginate @orders, previous_label: h("<"), next_label: h(">")
+          = will_paginate @clients, previous_label: h("<"), next_label: h(">"), page_gap: '...'
 
   -# = link_to 'Back', clients_path
   -# = link_to 'New Client', new_client_path

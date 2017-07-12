@@ -89,6 +89,10 @@
                 %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
                   %i.material-icons.right search
 
+        %br
+        .div
+        %ul.pagination.right{:style => "margin: 0 auto;"}
+          = will_paginate @sales, previous_label: h("<"), next_label: h(">"), page_gap: '...'
 
 
   -# %td= order.client_note

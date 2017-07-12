@@ -40,13 +40,16 @@
    - [X] Agregar el cambio para los descuentos
    - [X] Agregar el cambio para imprimir la factura
    - [X] Update receipt para reflejar el total pendiente global del cliente
-   - [~] Generate receipt number automatically
+   - [x] Generate receipt number automatically
    - [X] Create a View with print for the order service
-   - [ ] install Admin panel
+   - [X] install Admin panel
    - [ ] install mailer to send invoices via email
    - [X] Create reports (see reports section below)
    - [X] Add Deposit and Checks to the payment types
    - [X] Approval number for Credit Cards
    - [X] Print Labels in the orders
-   - [ ] Create a new section for print labels with clients and suppliers
+   - [X] Create a new section for print labels with clients and suppliers
    - [X] Log out Users after 10 min
+
+   - [ ] Bug in Orders to paid report
+   - [ ] Limit order status paid only when balance is 0 for that order

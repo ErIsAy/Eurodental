@@ -90,6 +90,11 @@
 
 
 
+        %br
+        .div
+        %ul.pagination.right{:style => "margin: 0 auto;"}
+          = will_paginate @sales, previous_label: h("<"), next_label: h(">"), page_gap: '...'
+
   -# %td= order.client_note
             -# %td= order.other_note
 
