@@ -21,7 +21,6 @@
       %i.material-icons.left keyboard_backspace
       Salir
 
-    %a.right.dropdown-button.btn{"data-activates" => "acciones", :href => "#"} Acciones
 
     %ul.right#acciones.dropdown-content
       - unless @sale.stores.empty?
@@ -40,6 +39,8 @@
       %li
         %a.modal-trigger{:href => '#labelprint'} Imprimir Label
 
+    %a.btn.dropdown-button.right{"data-activates" => "acciones", :href => "#"}
+      Acciones
 
 
     #makepayment.modal{:style => 'height: 300px;'}
@@ -375,3 +376,15 @@
 
 %footer.page-footer
   = render :partial => 'layouts/footer'
+
+:javascript
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
