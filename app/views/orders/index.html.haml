@@ -123,7 +123,7 @@
       .div
 
       %ul.pagination.right{:style => "margin: 0 auto; text-align: right;"}
-        = will_paginate @orders, previous_label: h("<"), next_label: h(">")
+        = will_paginate @orders
         -#   %li.disabled
         -#     %a{:href => "#!"}
         -#       %i.material-icons chevron_left

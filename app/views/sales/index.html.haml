@@ -118,7 +118,7 @@
 
     %br
     %ul.pagination.right{:style => "margin: 0 auto; text-align: right;"}
-      = will_paginate @sales, previous_label: h("<"), next_label: h(">"), page_gap: '...'
+      = will_paginate @sales
 
 
   -#= link_to 'New Sale', new_sale_path

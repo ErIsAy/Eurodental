@@ -63,6 +63,7 @@
         %tr
           %th Orden No.
           %th Cliente
+          %th Paciente
           %th No. Factura
           %th Fecha  de Entrada
           -#%th Fecha  de Entrega
@@ -81,6 +82,7 @@
             %tr
               %td= sale.id
               %td= sale.client.name
+              %td= sale.patient_name
               %td= sale.invoice_number.id
               %td= sale.created_at.strftime("%F")
               -#%td= order.order_date

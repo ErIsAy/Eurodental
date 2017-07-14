@@ -60,6 +60,7 @@
         %tr
           %th Orden No.
           %th Cliente
+          %th Paciente
           %th No. Factura
           %th Fecha  de Entrada
           -#%th Fecha  de Entrega
@@ -78,6 +79,7 @@
             %tr
               %td= sale.id
               %td= sale.client.name
+              %td= sale.patient_name
               %td= sale.invoice_number.id
               %td= sale.created_at.strftime("%F")
               -#%td= order.order_date
@@ -93,7 +95,7 @@
         %br
         .div
         %ul.pagination.right{:style => "margin: 0 auto;"}
-          = will_paginate @sales, previous_label: h("<"), next_label: h(">"), page_gap: '...'
+          = will_paginate @sales
 
   -# %td= order.client_note
             -# %td= order.other_note
