@@ -176,9 +176,9 @@
         -#= truncate(@sale.concept, 100, "... Read More")
         = truncate(@sale.concept, :ommision => "...", :length => 200)
 
-      %p.col.s6.margin-f
-        %b Fecha de Entrega:
-        = @sale.order_date
+      -# %p.col.s6.margin-f
+      -#   %b Fecha de Entrega:
+      -#   = @sale.order_date
 
       -#%p.col.s6.margin-f{:style => 'color:orange;'}
       -#  %b Balance:
