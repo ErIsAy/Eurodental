@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
   def orders_paid
     # @sales = Sale.all
     @search = Sale.where(:paid_status => true).ransack(params[:q])
-    @sales = @search.result.page(params[:page]).per_page(20).order('invoice_date DESC')
+    @sales = @search.result.page(params[:page]).order('invoice_date DESC')
   end
 
   def pending_balance
