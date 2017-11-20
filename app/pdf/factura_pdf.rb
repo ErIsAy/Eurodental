@@ -32,7 +32,7 @@ class FacturaPdf < Prawn::Document
     # # text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
     # text "Fecha: #{@sale.invoice_date.strftime("%F")}", size: 10, style: :italic, :align => :right
 
-    order_text = "Factura# #{@sale.invoice_number.next_number.to_s}
+    order_text = "Factura# #{@sale.invoice_number.id}
                   Orden# #{@sale.id}
                   Fecha: #{@sale.invoice_date.strftime("%F")}"
 
