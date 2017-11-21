@@ -32,7 +32,7 @@ class ReportBalance < Prawn::Document
     @sales.each do |sale|
       # byebug
       table([[sale.invoice_number.id, sale.client.name, sale.id,
-        "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}", sale.invoice_date]], :column_widths => [100,150,100,100,100])
+        "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}", sale.payments.last.created_at.strftime("%d/%m/%Y")]], :column_widths => [100,150,100,100,100])
 
       # table([[sale.invoice_number, sale.client.name, sale.id, sale.invoice_number, "lolaso"]], :column_widths => [100,150,100,100,100], :row_colors => ["9FA8DA"])
     end
