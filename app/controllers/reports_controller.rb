@@ -54,7 +54,7 @@ class ReportsController < ApplicationController
 
   def orders_paid_print
     @search = Sale.where(:paid_status => true)
-    @sales = @search.order('invoice_number DESC')
+    @sales = @search.order('invoice_date DESC')
 
     @from = params[:q][:created_at_date_gequals]
     @to = params[:q][:created_at_date_lequals]

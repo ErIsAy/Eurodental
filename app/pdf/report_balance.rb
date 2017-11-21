@@ -17,7 +17,7 @@ class ReportBalance < Prawn::Document
 
   def header
     text "Balances Consolidados", style: :italic
-    text "Fecha de Reporte: #{Time.now.strftime("%m/%d/%Y")}", :align => :right
+    text "Fecha de Reporte: #{Time.now.strftime("%d/%m/%Y")}", :align => :right
 
     if @from && @to != ""
       text "Desde:#{@from}   -  Hasta: #{@to}"

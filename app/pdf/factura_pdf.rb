@@ -34,7 +34,7 @@ class FacturaPdf < Prawn::Document
 
     
     order_text = "Orden# #{@sale.id} 
-                  Fecha: #{@sale.invoice_date.strftime("%m/%d/%Y")}"
+                  Fecha: #{@sale.invoice_date.strftime("%d/%m/%Y")}"
 
     address_text = "Paciente:  #{@sale.patient_name}
                     Dirección: #{@sale.client.address}"

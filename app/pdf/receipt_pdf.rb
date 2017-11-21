@@ -28,10 +28,10 @@ class ReceiptPdf < Prawn::Document
   def details
     text "Recibo No.: #{@payment.id.to_s}", size: 8, style: :italic, :align => :right
     text "No. de Orden: #{@payment.sale_id}", size: 8, style: :italic, :align => :right
-    text "Fecha: #{@payment.created_at.strftime("%m/%d/%Y")}", size: 8, style: :italic, :align => :right
+    text "Fecha: #{@payment.created_at.strftime("%d/%m/%Y")}", size: 8, style: :italic, :align => :right
 
     # order_text = "Orden# #{@sale.id} 
-    #               Fecha: #{@sale.invoice_date.strftime("%m/%d/%Y")}"
+    #               Fecha: #{@sale.invoice_date.strftime("%d/%m/%Y")}"
 
     address_text = "Paciente:  #{@sale.patient_name}
                     Dirección: #{@sale.client.address}"

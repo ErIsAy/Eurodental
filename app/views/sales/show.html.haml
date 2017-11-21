@@ -145,11 +145,11 @@
 
       %p.col.s6.margin-f
         %b Fecha de Entrada:
-        = @sale.created_at.strftime("%m/%d/%Y")
+        = @sale.created_at.strftime("%d/%m/%Y")
 
       %p.col.s6.margin-f
         %b Fecha de Entrega:
-        = @sale.order_date.strftime("%m/%d/%Y") if @sale.order_date != nil
+        = @sale.order_date.strftime("%d/%m/%Y") if @sale.order_date != nil
 
       %p.col.s6.margin-f
         %b Edad:
@@ -344,7 +344,7 @@
                 = "$#{number_to_currency(payment.amount.to_f, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
 
             %td
-              = payment.created_at.strftime("%m/%d/%Y") if payment != nil
+              = payment.created_at.strftime("%d/%m/%Y") if payment != nil
             %td
               = link_to("<i class='material-icons'>print</i>".html_safe, {:paymentid => payment, :saleid => @sale, :controller => :payments, :action => :receipt_print, :format => 'pdf'},:target => "_blank")
 
