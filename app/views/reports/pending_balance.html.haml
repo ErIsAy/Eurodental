@@ -118,7 +118,7 @@
               -# %td= sale.id
               %td= sale.client.name
               -# %td= sale.invoice_number.id
-              -# %td= sale.created_at.strftime("%F")
+              -# %td= sale.created_at.strftime("%m/%d/%Y")
               -#%td= order.order_date
               -# %td= sale.state
               -# %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"

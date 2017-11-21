@@ -17,7 +17,7 @@ class Reportpaid < Prawn::Document
 
   def header
     text "Ordenes Consolidadas", style: :italic
-    text "Fecha de Reporte: #{Time.now.strftime("%F")}", :align => :right
+    text "Fecha de Reporte: #{Time.now.strftime("%m/%d/%Y")}", :align => :right
 
     if @from && @to != ""
       text "Desde:#{@from}   -  Hasta: #{@to}"

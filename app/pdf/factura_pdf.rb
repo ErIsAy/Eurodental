@@ -21,7 +21,7 @@ class FacturaPdf < Prawn::Document
               Tel: 809-247-4649"
 
     data_header = [[{:image => "public/logo.png", :scale => 0.2}, address_text]]
-    table(data_header, :column_widths => [320, 200], :cell_style => {:border_color => "FFFFFF", :size => 9})
+    table(data_header, :column_widths => [320, 200], :cell_style => {:border_color => "FFFFFF", :size => 7})
 
 
   end
@@ -32,18 +32,25 @@ class FacturaPdf < Prawn::Document
     # # text "Fecha: #{@sale.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
     # text "Fecha: #{@sale.invoice_date.strftime("%F")}", size: 10, style: :italic, :align => :right
 
-    order_text = "Factura# #{@sale.invoice_number.id}
-                  Orden# #{@sale.id}
-                  Fecha: #{@sale.invoice_date.strftime("%F")}"
+    
+    order_text = "Orden# #{@sale.id} 
+                  Fecha: #{@sale.invoice_date.strftime("%m/%d/%Y")}"
 
-    address_text = "Cliente:   #{@sale.client.name}
-                    Paciente:  #{@sale.patient_name}
-                    Dirección: #{@sale.client.address} "
+    address_text = "Paciente:  #{@sale.patient_name}
+                    Dirección: #{@sale.client.address}"
+
+    invoice = "Factura# #{@sale.invoice_number.id}"
+    client_name = "Cliente: #{@sale.client.name}"
+
+
     move_down 15
     # data_client = [[{:image => "public/Tooth-100.png", :scale => 0.5}, address_text]]
+    # text invoice, size: 15,style: :italic, :align => :right
     data_client = [[address_text, order_text]]
+    invoice_table = [[client_name, invoice]]
 
-    table(data_client, :column_widths => [320, 200], :cell_style => {:background_color => "f3e5f5",:border_color => "FFFFFF", :size => 11})
+    table(invoice_table, :column_widths => [320,200], :cell_style => {:border_color => "FFFFFF", :size => 16})    
+    table(data_client, :column_widths => [320, 200], :cell_style => {:background_color => "f3e5f5",:border_color => "FFFFFF", :size => 10})
 
 
   end

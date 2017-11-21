@@ -23,7 +23,7 @@
 
 <h5>
   Fecha de Entrega:
-  <%= @sale.order_date %>
+  <%= @sale.order_date.strftime("%m/%d/%Y") if @sale.order_date != nil %>
 </h5>
 
 
