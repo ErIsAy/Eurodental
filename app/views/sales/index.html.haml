@@ -35,15 +35,16 @@
                        :class => "datepicker_all"
       .input-field.col.s6
         = f.select( :state_cont, options_for_select([[""],
-                                                ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
-                                                ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
-                                                ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
-                                                ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
-                                                ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
-                                                ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
-                                                disabled: "Elige el Estado"), class: "icons" )
+                                                ["En Proceso", {class: 'circle'}],
+                                                ["Urgente", {class: 'circle'}],
+                                                ["En Prueba", {class: 'circle'}],
+                                                ["Facturada - Pendiente", {class: 'circle'}],
+                                                ["Facturada - Pago", {class: 'circle'}],
+                                                ["Anulada", {class: 'circle'}]],
+                                                disabled: "Elige el Estado"), class: "browser-default" )
 
-      -#
+      -#"data-icon" => "/assets/blue.png"
+      
       -#.input-field.col.s6
       -#  %select.icons
       -#    %option{:disabled => "disabled", :selected => "selected", :value => ""} Elige el Estado
