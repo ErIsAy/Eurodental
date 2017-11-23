@@ -32,9 +32,7 @@
 * */
 
 
-$(document).ready(function() {
-    $('.modal').modal();
-});
+
 
 $(document).on("change", "select#tcselect", function(e){
   //var e = document.getElementById("tcselect");
