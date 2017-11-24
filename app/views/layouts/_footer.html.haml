@@ -9,6 +9,8 @@
   
   (function() {
 
+      $('.modal').modal();
+
       $("#mySingleField").tagit({
         afterTagRemoved: function(evt, ui) {
           //$('#item_quantity').value -= 1;
@@ -78,22 +80,10 @@
         accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
             });
     });
-    
-    var Modal = (function(){
-      $('.modal').modal(); 
-    }());
-    Modal();
 
 
     $( document ).ready(function(){
-    //
 
-
-    //$('.modal-trigger').leanModal();
-
-    // $(function() {
-    //
-    // });
     $(".button-collapse").sideNav();
     $('select').material_select();
     $('.tooltipped').tooltip({delay: 25});
