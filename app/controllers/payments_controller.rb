@@ -25,7 +25,8 @@ class PaymentsController < ApplicationController
                    tctype: params[:payments][:tctype],
                    tcbank: params[:payments][:tcbank],
                    tcdigit: params[:payments][:tcdigit],
-                   sale_id: params[:payments][:sale_id])
+                   sale_id: params[:payments][:sale_id],
+                   paydate: params[:payments][:paydate])
 
     @amt = params[:payments][:amount]
 
@@ -59,7 +60,7 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:payment_type, :amount, :tctype, :tcbank, :tcdigit, :sale_id)
+    params.require(:payment).permit(:payment_type, :amount, :tctype, :tcbank, :tcdigit, :sale_id, :paydate)
   end
 
 end

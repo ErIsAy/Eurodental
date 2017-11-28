@@ -28,8 +28,11 @@ class ReceiptPdf < Prawn::Document
   def details
     text "Recibo No.: #{@payment.id.to_s}", size: 8, style: :italic, :align => :right
     text "No. de Orden: #{@payment.sale_id}", size: 8, style: :italic, :align => :right
-    text "Fecha: #{@payment.created_at.strftime("%d/%m/%Y")}", size: 8, style: :italic, :align => :right
-
+    if @payment.paydate != nil
+      text "Fecha: #{@payment.paydate.strftime("%d/%m/%Y")}", size: 8, style: :italic, :align => :right      
+    else
+      text "Fecha: #{@payment.created_at.strftime("%d/%m/%Y")}", size: 8, style: :italic, :align => :right
+    end
     # order_text = "Orden# #{@sale.id} 
     #               Fecha: #{@sale.invoice_date.strftime("%d/%m/%Y")}"
 
@@ -75,7 +78,7 @@ class ReceiptPdf < Prawn::Document
       stroke_color '000000'
       horizontal_line(40, 200)
       move_down 10
-      draw_text "Recibido Por:", :at => [80,250]
+      draw_text "Recibido Por", :at => [80,250]
     end
   end
 

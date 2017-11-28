@@ -9,8 +9,10 @@ class FacturaPdf < Prawn::Document
     details
     move_down 20
     body_table
-    move_down 100
+    move_down 50
     signature
+    move_down 10
+    # table([["Recibido Por","Cant."]], :column_widths => [370,70], :row_colors => ["9FA8DA"])
   end
 
   def header
@@ -58,7 +60,7 @@ class FacturaPdf < Prawn::Document
   def body_table
     description_data = String.new
 
-    table([["Descripción","Cant.","Monto"]], :column_widths => [380,40,100], :row_colors => ["9FA8DA"])
+    table([["Descripción","Cant.","Monto"]], :column_widths => [370,70,80], :row_colors => ["9FA8DA"])
 
     @sale.stores.each do |a|
       description_data += a.tooth.to_s
@@ -72,14 +74,14 @@ class FacturaPdf < Prawn::Document
       # description_data += ", #{a.mcolor_name}" if a.mcolor_name != nil
       description_data += ", #{a.gcolor_name} - #{a.color_note}" if a.gcolor_name != nil
       # description_data += ", #{a.procedure_name}" if a.procedure_name != nil
-
+      
       data = [
                 ["Diente: #{description_data}",
-                 "#{a.cant}",
+                 "#{a.cant}($#{a.amount.to_f*(1.0/a.cant.to_f)})",
                  "$#{number_to_currency(a.amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]
              ]
-
-      table(data, :column_widths => [380,40,100], :cell_style => { :size => 10, :font_style => :italic}, :row_colors => ["f8f8f8", "ffffff"]) if not(description_data.blank?)
+        
+      table(data, :column_widths => [370,70,80], :cell_style => { :size => 10, :font_style => :italic}, :row_colors => ["f8f8f8", "ffffff"]) if not(description_data.blank?)
       description_data = ""
 
 
@@ -89,7 +91,7 @@ class FacturaPdf < Prawn::Document
     if @sale.discount > 0
       table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
     else
-      table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
+      table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [440,80 ], :row_colors => ["f3e5f5"])
     end
     # table([["Total:","$#{number_to_currency(@sale.order_total, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
     # table([["Total con Desc.: (%#{@sale.discount})","$#{number_to_currency(@sale.order_total - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [420,100 ], :row_colors => ["f3e5f5"])
@@ -103,6 +105,7 @@ class FacturaPdf < Prawn::Document
     stroke do
       stroke_color '000000'
       horizontal_line(40, 200)
+      # draw_text "Recibido Por:", :at => [80,400]
       horizontal_line(300, 460)
     end
 
