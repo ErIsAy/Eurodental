@@ -64,7 +64,9 @@ class SalesController < ApplicationController
 
   def factura_print
     @sale = Sale.find(params[:id])
-    @sale.invoice_date = Time.now
+    if @sale.invoice_date == nil
+      @sale.invoice_date = Time.now
+    end
     respond_to do |format|
       format.html
       format.pdf do
