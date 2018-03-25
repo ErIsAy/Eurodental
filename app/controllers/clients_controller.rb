@@ -31,6 +31,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
+        UserMonitor.create(user: current_user.id, info: "Ha agregado nuevo cliente: #{@client.name}")
         # format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.html { redirect_to clients_path, notice: 'Cliente fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @client }

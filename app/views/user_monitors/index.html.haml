@@ -1,0 +1,23 @@
+%h1 Listing user_monitors
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Info
+      %th
+      %th
+      %th
+
+  %tbody
+    - @user_monitors.each do |user_monitor|
+      %tr
+        %td= user_monitor.user
+        %td= user_monitor.info
+        %td= link_to 'Show', user_monitor
+        %td= link_to 'Edit', edit_user_monitor_path(user_monitor)
+        %td= link_to 'Destroy', user_monitor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New User monitor', new_user_monitor_path

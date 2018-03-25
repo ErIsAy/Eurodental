@@ -8,17 +8,60 @@
   %h3.container{:style => "margin: 0 auto;"} Monitoreo de Activiades
   %br
 
-  .container{:style => "margin: 0 auto;"}
+
+    .container{:style => "margin: 0 auto;"}
+      .card.row
+        = search_form_for @search, url: activity_index_path do |f|
+          -# .input-field{:class => "col s6"}
+          -#   = f.label :client_name_cont, "Correo de Usuario"
+          -#   = f.text_field :client_name_cont
+          .input-field{:class => "col s3"}
+            = f.label :created_at_date_gequals, "Desde"
+            = f.text_field :created_at_date_gequals,
+                          :class => "datepicker_all"
+          .input-field{:class => "col s3"}
+            = f.label :created_at_date_lequals, "Hasta"
+            = f.text_field :created_at_date_lequals,
+                          :class => "datepicker_all"
+
+          %br
+            = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+                                  :style => "left: 15px; bottom: 5px;"
+
+    .row.container.card{:style => "margin: 0 auto;"}
+      %table.highlight.bordered#table_line
+        %thead
+          %tr
+            %th Usuario
+            %th Detalle
+            %th Fecha
+            -# %th
+            -# %th
+      
+        %tbody
+          - @user_monitors.each do |user_monitor|
+            %tr
+              %td= User.find(user_monitor.user).email
+              %td= user_monitor.info
+              %td= user_monitor.created_at.strftime("%d/%m/%Y - %l:%M %p")
+              -# %td= link_to 'Show', user_monitor
+              -# %td= link_to 'Edit', edit_user_monitor_path(user_monitor)
+              -# %td= link_to 'Destroy', user_monitor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %br
+          .div
+            %ul.pagination.right{:style => "margin: 0 auto;"}
+              = will_paginate @user_monitors
+  
     -# %a{:href => new_item_path, :class => "waves-effect waves-light btn blue"}
     -#   %i.material-icons.right add
     -#   Nuevo Servicio
-  %br
-  .card.container{:style => "margin: 0 auto;"}
-    %ul.collection.with-header
-      %li.collection-header
-        %h6{:style => "color: black;"} Eventos
-      = render_activities(@activities)
-    %br
+  -# %br
+  -# .card.container{:style => "margin: 0 auto;"}
+  -#   %ul.collection.with-header
+  -#     %li.collection-header
+  -#       %h6{:style => "color: black;"} Eventos
+  -#     = render_activities(@activities)
+  -#   %br
 
     -# = link_to 'Nuevo', new_item_path
 

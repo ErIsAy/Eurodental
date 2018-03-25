@@ -30,6 +30,7 @@ class SuppliersController < ApplicationController
 
     respond_to do |format|
       if @supplier.save
+        UserMonitor.create(user: current_user.id, info: "Ha agregado nuevo suplidor: #{@supplier.name}")
         format.html { redirect_to @supplier, notice: 'Supplier was successfully created.' }
         format.json { render :show, status: :created, location: @supplier }
       else

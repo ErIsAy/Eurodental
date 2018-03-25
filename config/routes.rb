@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_monitors
   mount RailsAdmin::Engine => '/admin_panel', as: 'rails_admin'
   resources :payments do
     collection do
@@ -39,6 +40,8 @@ Rails.application.routes.draw do
   get 'accountability/index'
 
   get 'consulta/index'
+
+  # get 'user_monitor/index'
 
   resources :suppliers
   get 'prices/home' => 'prices#home'

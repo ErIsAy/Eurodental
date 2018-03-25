@@ -76,7 +76,8 @@ class SalesController < ApplicationController
         invoice_number = @sale.invoice_number || @sale.create_invoice_number
         invoice_number.increment!
         # byebug
-        # @sale.save
+        @sale.invoice_num = invoice_number.id
+        @sale.save
       end
       @sale.save
       pdf = FacturaPdf.new(@sale)
@@ -127,6 +128,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.save
+        UserMonitor.create(user: current_user.id, info: "Ha agregado Nueva Orden ##{@sale.id}")
         format.html { redirect_to @sale, notice: 'Orden Salvada Correctamente.' }
         format.json { render :show, status: :created, location: @sale }
       else
@@ -173,10 +175,11 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
+    @sale_d_id = @sale.id
     @sale.destroy
 
-
     respond_to do |format|
+      UserMonitor.create(user: current_user.id, info: "Ha Eliminado Orden ##{sale_d_id}")
       format.html { redirect_to sales_url, notice: 'La Orden fue eliminada exitosamente.' }
       format.json { head :no_content }
     end

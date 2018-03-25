@@ -45,6 +45,7 @@ class PaymentsController < ApplicationController
 
     if @sale.save
       # receipt_print
+      UserMonitor.create(user: current_user.id, info: "Ha realizado pago a orden ##{@sale.id}, factura##{@sale.invoice_num}")
       redirect_to sale_path(@sale)
     else
       render 'new'

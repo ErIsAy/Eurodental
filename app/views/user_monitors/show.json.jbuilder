@@ -1,0 +1,1 @@
+json.partial! "user_monitors/user_monitor", user_monitor: @user_monitor

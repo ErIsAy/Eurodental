@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @user_monitor.user
+%p
+  %b Info:
+  = @user_monitor.info
+
+= link_to 'Edit', edit_user_monitor_path(@user_monitor)
+\|
+= link_to 'Back', user_monitors_path
