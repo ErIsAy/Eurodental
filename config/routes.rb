@@ -68,10 +68,13 @@ Rails.application.routes.draw do
   #routes reports controller
   get 'reports/index'
   get 'reports/orders_paid'
+  # get 'reports/orders_paid_seq'
   get 'reports/orders_unpaid'
   get 'reports/pending_balance'
   get "orders_unpaid_print" => "reports#orders_unpaid_print", as: :orders_unpaid_print, :defaults => { :format => 'pdf' }
   get "orders_paid_print" => "reports#orders_paid_print", as: :orders_paid_print, :defaults => { :format => 'pdf' }
+  get "orders_paid_seq_print" => "reports#orders_paid_seq_print", as: :orders_paid_seq_print, :defaults => { :format => 'pdf' }
+  
   get "pending_balance_print" => "reports#pending_balance_print", as: :pending_balance_print, :defaults => { :format => 'pdf' }
 
 

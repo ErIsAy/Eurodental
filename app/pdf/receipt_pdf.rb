@@ -22,20 +22,32 @@ class ReceiptPdf < Prawn::Document
               Tel: 809-247-4649"
 
     data_header = [[{:image => "public/logo.png", :scale => 0.2}, address_text]]
-    table(data_header, :column_widths => [320, 200], :cell_style => {:border_color => "FFFFFF", :size => 11})
+    table(data_header, :column_widths => [320, 200], :cell_style => {:border_color => "FFFFFF", :size => 7})
   end
 
   def details
-    text "Recibo No.: #{@payment.id.to_s}", size: 10, style: :italic, :align => :right
-    text "No. de Orden: #{@payment.sale_id}", size: 15, style: :italic, :align => :right
-    text "Fecha: #{@payment.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
+    text "Recibo No.: #{@payment.id.to_s}", size: 8, style: :italic, :align => :right
+    text "No. de Orden: #{@payment.sale_id}", size: 8, style: :italic, :align => :right
+    if @payment.paydate != nil
+      text "Fecha: #{@payment.paydate.strftime("%d/%m/%Y")}", size: 8, style: :italic, :align => :right      
+    else
+      text "Fecha: #{@payment.created_at.strftime("%d/%m/%Y")}", size: 8, style: :italic, :align => :right
+    end
+    # order_text = "Orden# #{@sale.id} 
+    #               Fecha: #{@sale.invoice_date.strftime("%d/%m/%Y")}"
 
-    address_text = "Cliente:   #{@sale.client.name}
-                    Paciente:  #{@sale.patient_name}
+    address_text = "Paciente:  #{@sale.patient_name}
                     Dirección: #{@sale.client.address}"
-    move_down 15
+    invoice = "Factura# #{@sale.invoice_number.id}"
+    client_name = "Cliente: #{@sale.client.name}"
+
+
+    invoice_table = [[client_name, invoice]]
     data_client = [[{:image => "public/Tooth-100.png", :scale => 0.5}, address_text]]
-    table(data_client, :column_widths => [320, 200], :cell_style => {:background_color => "f3e5f5",:border_color => "FFFFFF", :size => 11})
+    
+    move_down 15
+    table(invoice_table, :column_widths => [320,200], :cell_style => {:border_color => "FFFFFF", :size => 16})        
+    table(data_client, :column_widths => [320, 200], :cell_style => {:background_color => "f3e5f5",:border_color => "FFFFFF", :size => 10})
 
   end
 
@@ -66,7 +78,7 @@ class ReceiptPdf < Prawn::Document
       stroke_color '000000'
       horizontal_line(40, 200)
       move_down 10
-      draw_text "Recibido Por:", :at => [80,250]
+      draw_text "Recibido Por", :at => [80,250]
     end
   end
 

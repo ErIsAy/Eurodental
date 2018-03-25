@@ -43,7 +43,7 @@
       Acciones
 
 
-    #makepayment.modal{:style => 'height: 300px;'}
+    #makepayment.modal{:style => 'height: 500px;'}
       .modal-content
         %h4{:style=> "color:black; text-align: center;"} Realizar Pago
         = form_for :payments, :url => url_for(:controller => "payments", :action => "make_payment"),
@@ -69,6 +69,9 @@
                          :unit => '',:delimiter => '',:separator => '.'),
                          :autocomplete => "off"
           = pay.hidden_field :sale_id, :value => @sale.id
+          .input-field.col.s3
+            = pay.text_field :paydate,
+              :class => "datepicker_all"
           %br
           = submit_tag "Realizar Pago", :class => "waves-effect waves-green btn-flat green right"
 
@@ -96,13 +99,13 @@
           .input-field.col.s6
             %i.material-icons.prefix label_outline
             = f.select :state, options_for_select([["Elige el Estado"],
-                                                    ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
-                                                    ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
-                                                    ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
-                                                    ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
-                                                    ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
-                                                    ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
-                                                    disabled: "Elige el Estado"), class: "icons"
+                                                    ["En Proceso", {class: 'circle'}],
+                                                    ["Urgente", {class: 'circle'}],
+                                                    ["En Prueba", {class: 'circle'}],
+                                                    ["Facturada - Pendiente", {class: 'circle'}],
+                                                    ["Facturada - Pago", {class: 'circle'}],
+                                                    ["Anulada", {class: 'circle'}]],
+                                                    disabled: "Elige el Estado"), class: "browser-default"
 
           .input-field.col.s6
             %i.material-icons.prefix today
@@ -113,7 +116,7 @@
           %br
           .input-field
             %i.material-icons.prefix speaker_notes
-            = f.label :concept, "Nota"
+            = f.label :concept, "Concepto"
             = f.text_area :concept,
               :class => "materialize-textarea"
 
@@ -145,11 +148,11 @@
 
       %p.col.s6.margin-f
         %b Fecha de Entrada:
-        = @sale.created_at.strftime("%F")
+        = @sale.created_at.strftime("%d/%m/%Y")
 
       %p.col.s6.margin-f
         %b Fecha de Entrega:
-        = @sale.order_date
+        = @sale.order_date.strftime("%d/%m/%Y") if @sale.order_date != nil
 
       %p.col.s6.margin-f
         %b Edad:
@@ -170,15 +173,17 @@
       -# %p.col.s6.margin-f
       -#   %b Coti:
       -#   = @sale.coti
+      
+      - if @sale.concept != nil
+        %p.col.s6.margin-f
+          %b Concepto:
+          -#= truncate(@sale.concept, 100, "... Read More")
+          = truncate(@sale.concept, :ommision => "...", :length => 200)
 
-      %p.col.s6.margin-f
-        %b Notas:
-        -#= truncate(@sale.concept, 100, "... Read More")
-        = truncate(@sale.concept, :ommision => "...", :length => 200)
-
-      -# %p.col.s6.margin-f
-      -#   %b Fecha de Entrega:
-      -#   = @sale.order_date
+      - if @sale.invoice_number != nil
+        %p.col.s6.margin-f
+          %b No. Factura
+          = @sale.invoice_number.id
 
       -#%p.col.s6.margin-f{:style => 'color:orange;'}
       -#  %b Balance:
@@ -344,7 +349,11 @@
                 = "$#{number_to_currency(payment.amount.to_f, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
 
             %td
-              = payment.created_at.strftime("%F")
+              - if payment.paydate != nil
+                = payment.paydate.strftime("%d/%m/%Y")
+              - else
+                = payment.created_at.strftime("%d/%m/%Y")
+                -# = payment.created_at.strftime("%d/%m/%Y") if payment != nil
             %td
               = link_to("<i class='material-icons'>print</i>".html_safe, {:paymentid => payment, :saleid => @sale, :controller => :payments, :action => :receipt_print, :format => 'pdf'},:target => "_blank")
 

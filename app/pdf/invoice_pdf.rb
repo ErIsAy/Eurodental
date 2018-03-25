@@ -22,7 +22,7 @@ class InvoicePdf < Prawn::Document
 
     move_down 10
     text "No. de Orden: #{@order.id}", size: 15, style: :italic, :align => :right
-    text "Fecha: #{@order.created_at.strftime("%F")}", size: 10, style: :italic, :align => :right
+    text "Fecha: #{@order.created_at.strftime("%d/%m/%Y")}", size: 10, style: :italic, :align => :right
   end
 
   def order_info

@@ -6,11 +6,10 @@
     %p.grey-text.text-lighten-4.right{:style => "margin-top: 0;margin-bottom: 0; font-family: 'Bauhaus'; font-size: 20px;"} EURODENTAL LAB
 
 :javascript
-
-
-
-
+  
   (function() {
+
+      $('.modal').modal();
 
       $("#mySingleField").tagit({
         afterTagRemoved: function(evt, ui) {
@@ -73,14 +72,8 @@
        window.print()
     }
 
-    $(document).ready(function() {
-      // Materialize.updateTextFields();
-      //$('.modal-trigger').Modal();
-      $('.modal').modal();
-      // $('.modal-trigger').leanmodal();
-    });
-
-
+  
+    
     $(document).ready(function(){
 
         $('.collapsible').collapsible({
@@ -89,16 +82,8 @@
     });
 
 
-
     $( document ).ready(function(){
-    //
 
-
-    //$('.modal-trigger').leanModal();
-
-    // $(function() {
-    //
-    // });
     $(".button-collapse").sideNav();
     $('select').material_select();
     $('.tooltipped').tooltip({delay: 25});

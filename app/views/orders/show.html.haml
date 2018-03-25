@@ -26,13 +26,13 @@
         = form_for(@order, remote: true, html: {id: "status-update"}) do |f|
           .input-field.col.s6
             = f.select :state, options_for_select([["Elige el Estado"],
-                                                    ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
-                                                    ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
-                                                    ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
-                                                    ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
-                                                    ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
-                                                    ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
-                                                    disabled: "Elige el Estado"), class: "icons"
+                                                    ["En Proceso", {class: 'circle'}],
+                                                    ["Urgente", {class: 'circle'}],
+                                                    ["En Prueba", {class: 'circle'}],
+                                                    ["Facturada - Pendiente", {class: 'circle'}],
+                                                    ["Facturada - Pago", {class: 'circle'}],
+                                                    ["Anulada", {class: 'circle'}]],
+                                                    disabled: "Elige el Estado"), class: "browser-default"
 
             .input-field#order_null_concept
               -#= f.label :null_contept, "Concepto por Anulación"

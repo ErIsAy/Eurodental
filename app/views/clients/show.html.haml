@@ -23,7 +23,7 @@
 
 %main
   = render :partial => 'layouts/top_navbar'
-  %h1{:style => "text-align: center;"} Ver Datos
+  %h3{:style => "text-align: center;"} Datos del Cliente
 
   .container.card{:style => "margin:0 auto;"}
     =image_tag "dentist_user.png", :style => "width: 250px; margin: 0 auto; display:block;"
@@ -52,8 +52,56 @@
             = sphone.ptype
             = sphone.phone
 
+  %br
+  %h4{:style => "text-align: center;"}
+    Historial de Ordenes
+  .row.container.card{:style => "margin: 0 auto;"}
+    %table.centered.highlight#table_line
+      %thead
+        %tr
+          -# %th Cliente
+          %th Paciente
+          %th Fecha  de Entrada
+          %th Fecha  de Entrega
+          %th Estado
+          %th
+          %th
+          %th
+          %th
+
+      %tbody
+        - @sales.each do |sale|
+          %tr
+            -# %td= sale.client.name
+            %td= sale.patient_name
+            %td= sale.created_at.strftime("%d/%m/%Y")
+            %td= sale.order_date.strftime("%d/%m/%Y") if sale.order_date != nil
+            - case sale.state.capitalize
+              -when "En proceso"
+                %td.chip.in_process{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Urgente"
+                %td.chip.in_urgent{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "En prueba"
+                %td.chip.in_test_pending{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Facturada - pendiente"
+                %td.chip.in_test_pending{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Facturada - pago"
+                %td.chip.in_paid{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Anulada"
+                %td.chip.in_null{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+              -when "Cotizacion"
+                %td.chip.in_null{:style => "margin: 5px auto 5px 5px; display: block;"}= sale.state.capitalize
+
+
+
+            %td.btn-group
+              %a{:href => sale_path(sale), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
+                %i.material-icons.right search
+
+
+  
   -# CONTENT
-  .container
+  .container{:style => "margin-top: 10px;"}
     %a{:href => clients_path, :class => "waves-effect waves-light btn blue"}
       %i.material-icons.left chevron_left
       Volver

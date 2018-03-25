@@ -26,6 +26,25 @@
 
         = k.submit "Imprimir", :class => "waves-effect waves-light btn",
                                :style => "left: 15px; bottom: 5px;"
+
+      
+      = search_form_for @search, url: orders_paid_seq_print_path, :html => {:target=>'_blank'} do |k|
+        .input-field{:class => "col s6"}
+          = k.label :client_name_cont, "Cliente"
+          = k.text_field :client_name_cont
+        .input-field{:class => "col s3"}
+          = k.label :created_at_date_gequals, "Desde"
+          = k.text_field :created_at_date_gequals,
+                        :class => "datepicker_all"
+        .input-field{:class => "col s3"}
+          = k.label :created_at_date_lequals, "Hasta"
+          = k.text_field :created_at_date_lequals,
+                        :class => "datepicker_all"
+
+        = k.submit "Imprimir en Secuencia", :class => "waves-effect waves-light btn",
+                              :style => "left: 15px; bottom: 5px;"
+
+
     %a.modal-trigger{:href =>"#search_filter_orders", :class => "waves-effect waves-light btn blue"}
       %i.material-icons.right search
       Filtro
@@ -58,11 +77,11 @@
     %table.centered.highlight#orders_t
       %thead
         %tr
-          %th Orden No.
+          %th No. Factura
           %th Cliente
           %th Paciente
-          %th No. Factura
-          %th Fecha  de Entrada
+          %th Orden No.
+          %th Fecha de Entrada
           -#%th Fecha  de Entrega
           -# %th Estado
           %th Monto RD$
@@ -77,11 +96,11 @@
         - @sales.each do |sale|
           - unless sale.invoice_number == nil
             %tr
-              %td= sale.id
+              %td= sale.invoice_number.id
               %td= sale.client.name
               %td= sale.patient_name
-              %td= sale.invoice_number.id
-              %td= sale.created_at.strftime("%F")
+              %td= sale.id
+              %td= sale.created_at.strftime("%d/%m/%Y")
               -#%td= order.order_date
               -# %td= sale.state
               %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"

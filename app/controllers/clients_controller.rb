@@ -12,6 +12,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @sales = Sale.joins(:client).where(client_id: @client)
   end
 
   # GET /clients/new

@@ -14,14 +14,14 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require tag-it
-//= require turbolinks
+
 //= require materialize
 //= require materialize/extras/nouislider
 //= require cocoon
 //= require select2
 //= require jquery.maskedinput
 //= require tooth_logic
-// Turbolinks.enableTransitionCache();
+
 
 
 // Function to disable events
@@ -30,6 +30,8 @@
  return false;
  });
 * */
+
+
 
 
 

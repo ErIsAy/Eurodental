@@ -42,12 +42,12 @@
 
         .input-field.col.s6
           = f.select( :state_cont, options_for_select([[""],
-                                                  ["En Proceso", {class: 'circle', "data-icon" => "/assets/blue.png"}],
-                                                  ["Urgente", {class: 'circle', "data-icon" => "/assets/red.png"}],
-                                                  ["En Prueba", {class: 'circle', "data-icon" => "/assets/orange.png"}],
-                                                  ["Facturada - Pendiente", {class: 'circle', "data-icon" => "/assets/purple.png"}],
-                                                  ["Facturada - Pago", {class: 'circle', "data-icon" => "/assets/green.png"}],
-                                                  ["Anulada", {class: 'circle', "data-icon" => "/assets/null.png"}]],
+                                                  ["En Proceso", {class: 'circle'}],
+                                                  ["Urgente", {class: 'circle'}],
+                                                  ["En Prueba", {class: 'circle'}],
+                                                  ["Facturada - Pendiente", {class: 'circle'}],
+                                                  ["Facturada - Pago", {class: 'circle'}],
+                                                  ["Anulada", {class: 'circle'}]],
                                                   disabled: "Elige el Estado"), class: "icons" )
 
         = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
@@ -61,10 +61,10 @@
     %table.centered.highlight#orders_t
       %thead
         %tr
-          %th Orden No.
+          %th No. Factura
           %th Cliente
           %th Paciente
-          %th No. Factura
+          %th Orden No.
           %th Fecha  de Entrada
           -#%th Fecha  de Entrega
           %th Estado
@@ -80,11 +80,11 @@
         - @sales.each do |sale|
           - unless sale.invoice_number == nil
             %tr
-              %td= sale.id
+              %td= sale.invoice_number.id
               %td= sale.client.name
               %td= sale.patient_name
-              %td= sale.invoice_number.id
-              %td= sale.created_at.strftime("%F")
+              %td= sale.id
+              %td= sale.created_at.strftime("%d/%m/%Y")
               -#%td= order.order_date
               %td= sale.state
               %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"

@@ -51,5 +51,17 @@
    - [X] Create a new section for print labels with clients and suppliers
    - [X] Log out Users after 10 min
 
-   - [ ] Bug in Orders to paid report
-   - [ ] Limit order status paid only when balance is 0 for that order
+   - [x] Bug in Orders to paid report
+   - [x] Limit order status paid only when balance is 0 for that order
+
+
+  --- Nov 2017
+
+   - [x] opcion imprimir reporte en secuencia 
+
+   - [x] cambiar tamano a mas pequeno el # de orden.
+   - [x] direccion pequena del cliente
+   - [x] nombre cliente mas grande
+   - [x] num factura mas grande
+   - [x] fecha dia mes y anio formato
+   - [x] dir mas pequena

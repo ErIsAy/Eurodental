@@ -17,7 +17,7 @@ class ReportBalance < Prawn::Document
 
   def header
     text "Balances Consolidados", style: :italic
-    text "Fecha de Reporte: #{Time.now.strftime("%F")}", :align => :right
+    text "Fecha de Reporte: #{Time.now.strftime("%d/%m/%Y")}", :align => :right
 
     if @from && @to != ""
       text "Desde:#{@from}   -  Hasta: #{@to}"
@@ -26,13 +26,13 @@ class ReportBalance < Prawn::Document
 
 
   def body
-    table([["No. Factura","Cliente","No. Orden.","Fecha","Balance"]], :column_widths => [100,150,100,100,100], :row_colors => ["9FA8DA"])
+    table([["No. Factura","Cliente","No. Orden.","Balance", "Fecha"]], :column_widths => [100,150,100,100,100], :row_colors => ["9FA8DA"])
     #
     # byebug
     @sales.each do |sale|
       # byebug
-      table([[sale.invoice_number.id, sale.client.name, sale.id, sale.invoice_date,
-        "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"]], :column_widths => [100,150,100,100,100])
+      table([[sale.invoice_number.id, sale.client.name, sale.id,
+        "$#{number_to_currency(sale.remaining_amount - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}", sale.payments.last.created_at.strftime("%d/%m/%Y")]], :column_widths => [100,150,100,100,100])
 
       # table([[sale.invoice_number, sale.client.name, sale.id, sale.invoice_number, "lolaso"]], :column_widths => [100,150,100,100,100], :row_colors => ["9FA8DA"])
     end
