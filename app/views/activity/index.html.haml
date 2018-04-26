@@ -41,7 +41,12 @@
         %tbody
           - @user_monitors.each do |user_monitor|
             %tr
-              %td= User.find(user_monitor.user).email
+              - if user_monitor.user == 8
+                %td= "g.medina@eurodental.com"
+              - elsif user_monitor.user == 6
+                %td= "b.alvarez@eurodental.com"
+              - else
+                %td= User.find(user_monitor.user).email
               %td= user_monitor.info
               %td= user_monitor.created_at.strftime("%d/%m/%Y - %l:%M %p")
               -# %td= link_to 'Show', user_monitor
