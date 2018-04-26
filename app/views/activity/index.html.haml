@@ -12,9 +12,9 @@
     .container{:style => "margin: 0 auto;"}
       .card.row
         = search_form_for @search, url: activity_index_path do |f|
-          -# .input-field{:class => "col s6"}
-          -#   = f.label :client_name_cont, "Correo de Usuario"
-          -#   = f.text_field :client_name_cont
+          .input-field{:class => "col s6"}
+            = f.label :user_eq, "ID/# Usuario"
+            = f.text_field :user_eq
           .input-field{:class => "col s3"}
             = f.label :created_at_date_gequals, "Desde"
             = f.text_field :created_at_date_gequals,
