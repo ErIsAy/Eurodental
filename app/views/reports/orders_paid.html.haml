@@ -73,7 +73,7 @@
 
 
 
-  .row.container.card{:style => "margin: 0 auto;"}
+  .row.container.card{:style => "margin: 0 auto; width: 80%;"}
     %table.centered.highlight#orders_t
       %thead
         %tr
@@ -81,7 +81,8 @@
           %th Cliente
           %th Paciente
           %th Orden No.
-          %th Fecha de Entrada
+          %th Fecha de Entrada 
+          %th Fecha de Pago
           -#%th Fecha  de Entrega
           -# %th Estado
           %th Monto RD$
@@ -101,6 +102,7 @@
               %td= sale.patient_name
               %td= sale.id
               %td= sale.created_at.strftime("%d/%m/%Y")
+              %td= sale.payments.last.created_at.strftime("%d/%m/%Y")  
               -#%td= order.order_date
               -# %td= sale.state
               %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"

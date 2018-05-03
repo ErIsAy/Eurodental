@@ -48,6 +48,8 @@
       %tr
         %th Usuario
         %th Tipo de Usuario
+        %th Estatus 
+
 
 
     %tbody
@@ -63,7 +65,12 @@
               %td Social
             - when 4
               %td Tecnico
-
+          - case user.is_active
+            - when true
+              %td= "Activo"
+            - when false
+              %td= "Deshabilitado"
+                
           %td.btn-group
             %a{:href => users_admin_path(user), :class => "waves-effect waves-light btn-floating blue tooltipped", "data-tooltip" => "Ver", "data-position" => "top"}
               %i.material-icons.right search
