@@ -5,7 +5,6 @@ gem 'rails', '4.2.6'
 gem 'haml'
 gem "haml-rails", "~> 0.9"
 gem 'sass-rails', '~> 5.0'
-
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'cocoon'
@@ -66,6 +65,7 @@ group :development do
 end
 
 gem 'puma'
+gem "puma_worker_killer"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
