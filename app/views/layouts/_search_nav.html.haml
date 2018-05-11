@@ -1,9 +1,30 @@
+-# %a.right.modal-trigger{:href =>"#search_filter_ordersx", :class => "waves-effect waves-light btn blue"}
+-#   -# %i.material-icons.right search
+-#   Filtro
+
+
 = search_form_for @search do |f|
   .input-field.right.hide-on-small-only{:center => ""}
-    = f.number_field :id_eq, :placeholder => "Buscar...",
-                                      :required => "",
+    = f.number_field :invoice_num_eq, :placeholder => "Factura...",
                                       :type => "search",
                                       :style => "height: 63px; margin: 0;",
                                       :id => "search"
     %label{:for => "search"}
       %i.material-icons search
+-# .modal#search_filter_ordersx
+-#   .row
+-#     .container
+-#       = search_form_for @search, url: sales_path do |f|
+-#         .input-field{:class => "col s6"}
+-#           = f.label :client_name_cont, "Cliente"
+-#           = f.text_field :client_name_cont
+-#         .input-field{:class => "col s6"}
+-#           = f.label :patient_name_cont, "Paciente"
+-#           = f.text_field :patient_name_cont
+
+-#         = f.submit "Buscar", :class => "waves-effect waves-light btn blue",
+-#         :style => "left: 15px; bottom: 5px;"
+      
+
+
+      
