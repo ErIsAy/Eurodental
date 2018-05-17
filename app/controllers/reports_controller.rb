@@ -74,7 +74,7 @@ class ReportsController < ApplicationController
   end
 
   def orders_paid_seq_print
-    @search = Sale.joins(:invoice_number).merge(InvoiceNumber.order(id: :asc)).where(:paid_status => true).ransack(params[:q])
+    @search = Sale.includes(:invoice_number).merge(InvoiceNumber.order(id: :asc)).where(:paid_status => true).ransack(params[:q])
     @sales = @search.result
 
     @from = params[:q][:created_at_date_gequals]
