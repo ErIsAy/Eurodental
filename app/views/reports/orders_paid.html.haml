@@ -102,7 +102,7 @@
               %td= sale.patient_name
               %td= sale.id
               %td= sale.created_at.strftime("%d/%m/%Y")
-              %td= sale.payments.last.created_at.strftime("%d/%m/%Y")  
+              %td= sale.payments.last.paydate.strftime("%d/%m/%Y")  
               -#%td= order.order_date
               -# %td= sale.state
               %td= "$#{number_to_currency(sale.order_total - sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
