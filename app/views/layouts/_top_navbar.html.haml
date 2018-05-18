@@ -8,60 +8,136 @@
           %i.material-icons.top_navbar{:style => "color: white;"} home
       %li
         %a.tooltipped{:href => clients_path, "data-tooltip" => "Clientes", "data-position" => "bottom"}
-          %i.material-icons.top_navbar{:style => "color: #8fbc8f;"} person_pin
-      %li
-        %a.tooltipped{:href => new_sale_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
-          = image_tag "Tooth-100", :style => "width: 39px; display:block; padding-top: 12px; padding-bottom: 12px;"
-          -#  %i.material-icons{:style => "color: white;"} local_hospital
+          %i.material-icons.top_navbar{:style => "color: #8fbc8f;"} group
+      -# %li
+      -#   %a.tooltipped{:href => new_sale_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
+      -#     = image_tag "Tooth-100", :style => "width: 39px; display:block; padding-top: 12px; padding-bottom: 12px;"
+      -#      %i.material-icons{:style => "color: white;"} local_hospital
       -# %li
       -#   %a.tooltipped{:href => orders_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
       -#     %i.material-icons{:style => "color: #dda0dd;"} assignment
       %li
         %a.tooltipped{:href => sales_path, "data-tooltip" => "Consultar Ordenes", "data-position" => "bottom"}
-          %i.material-icons.top_navbar{:style => "color: #dda0dd;"} assignment
-
-
+          %i.material-icons.top_navbar{:style => "color: #dda0dd;"} book
+      %li
+        %i.material-icons more_vert
+          
+      %li
+        %a.tooltipped{:href => new_sale_path, "data-tooltip" => "Nueva Orden", "data-position" => "bottom"}
+          %i.material-icons{:style => "color: white;"} add_box
+           
       -# - if current_user.role_level == 1
       -#   %li
       -#     %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Contabilidad", "data-position" => "bottom"}
       -#       %i.material-icons{:style => "color: #adff2f;"} attach_money
-
-    %ul.right
-      - if current_user.role_level == 1
+    - if current_page?(sales_path) || current_page?('/')
+      %ul.right
         %li
-          %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
-            %i.material-icons{:style => "color: white;"} settings
+          %a.modal-trigger{:href => "#main-search"}
+            %i.material-icons search
+        - if current_user.role_level == 1
+          %li
+            %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Ajustes", "data-position" => "bottom"}
+              %i.material-icons{:style => "color: white;"} settings
 
-          /*Renders search field only if root page or orders*/
-    = render 'layouts/search_nav' if current_page?('/')
-    = render 'layouts/search_nav' if current_page?(orders_path)
-    = render 'layouts/search_nav' if current_page?(sales_path)
-
-
-    %ul#slide-out.side-nav
-      -#%li
-      -#  .userView
-      -#    .background
-      -#      = image_tag 'categories.jpg'
-      %li
-        %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "right", :style => "font-size: 22px;"} Inicio
-      %li
-        %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right", :style => "font-size: 22px;"} Clientes
-      %li
-        %a.tooltipped{:href => sales_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right", :style => "font-size: 22px;"} Ordenes
-      -# %li
-      -#   %a.tooltipped{:href => consulta_index_path, "data-tooltip" => "Generar Consulta", "data-position" => "right"} Consultas
-      %li
-        %a.tooltipped{:href => suppliers_path, "data-tooltip" => "Listado de Suplidores", "data-position" => "right", :style => "font-size: 22px;"} Suplidores
-      - if current_user.role_level == 1
-        %li
-          %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right", :style => "font-size: 22px;"} Reportes
-        %li
-          %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Consultas", "data-position" => "right", :style => "font-size: 22px;"} Consultas
-        %li
-          %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Administración", "data-position" => "right", :style => "font-size: 22px;"} Administración
+            
+      = render 'layouts/search_nav' if current_page?('/')
+      = render 'layouts/search_nav' if current_page?(orders_path)
+      = render 'layouts/search_nav' if current_page?(sales_path)
 
 
-      %br
-      %br
-      = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
+    -# %ul#slide-out.side-nav
+    -#   -#%li
+    -#   -#  .userView
+    -#   -#    .background
+    -#   -#      = image_tag 'categories.jpg'
+    -#   %li
+    -#     %a.tooltipped{:href => root_path, "data-tooltip" => "Inicio", "data-position" => "right", :style => "font-size: 22px;"} Inicio
+    -#   %li
+    -#     %a.tooltipped{:href => clients_path, "data-tooltip" => "Listado de Clientes", "data-position" => "right", :style => "font-size: 22px;"} Clientes
+    -#   %li
+    -#     %a.tooltipped{:href => sales_path, "data-tooltip" => "Listado de Ordenes", "data-position" => "right", :style => "font-size: 22px;"} Ordenes
+    -#   -# %li
+    -#   -#   %a.tooltipped{:href => consulta_index_path, "data-tooltip" => "Generar Consulta", "data-position" => "right"} Consultas
+    -#   %li
+    -#     %a.tooltipped{:href => suppliers_path, "data-tooltip" => "Listado de Suplidores", "data-position" => "right", :style => "font-size: 22px;"} Suplidores
+    -#   - if current_user.role_level == 1
+    -#     %li
+    -#       %a.tooltipped{:href => reports_index_path, "data-tooltip" => "Generar Reportes", "data-position" => "right", :style => "font-size: 22px;"} Reportes
+    -#     %li
+    -#       %a.tooltipped{:href => accountability_index_path, "data-tooltip" => "Consultas", "data-position" => "right", :style => "font-size: 22px;"} Consultas
+    -#     %li
+    -#       %a.tooltipped{:href => admin_index_path, "data-tooltip" => "Administración", "data-position" => "right", :style => "font-size: 22px;"} Administración
+
+
+    -#   %br
+    -#   %br
+    -#   = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
+  %ul#slide-out.side-nav
+    %li
+      .user-view
+        .background
+          =image_tag "navbg.jpg", :style => "width: 100%;"
+        %a{:href => "#!user"}
+          -# %img.circle{:src => "images/yuna.jpg"}/
+          =image_tag "dentist_user.png", :class => 'circle'
+        %a{:href => "#!name"}
+          %span.white-text.name 
+            -# = current_user.email
+        %a{:href => "#!email"}
+          %span.white-text.email
+            = current_user.email
+    -# %li
+    -#   %a{:href => "#!"}
+    -#     %i.material-icons> cloud
+    -#     First Link With Icon
+    %li
+      %a{:href => root_path}
+        %i.material-icons> home
+        Inicio
+
+    %li
+      %a{:href => clients_path} 
+        %i.material-icons> group
+        Clientes
+
+    %li
+      %a{:href => sales_path} 
+        %i.material-icons> book
+        Ordenes
+
+    %li
+      %a{:href => suppliers_path} 
+        %i.material-icons> person_outline
+        Suplidores
+
+    %li
+      %a{:href => reports_index_path} 
+        %i.material-icons> assignment
+        Reportes
+
+    %li
+      %a{:href => accountability_index_path} 
+        %i.material-icons> search
+        Consultas
+
+    %li
+      %a{:href => admin_index_path} 
+        %i.material-icons> settings
+        Administración
+
+    -# %li
+    -#   %a{:href => "#!"} Second Link
+    %li
+      .divider
+    -# %li
+    -#   %a.subheader Subheader
+    -# %li
+      -# %a.waves-effect{:href => "#!"} Third Link With Waves
+      -# = link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete, :class => "btn btn-default red btn-flat", :id => "logoutnav-bar")
+    %li
+      %a{:href => destroy_user_session_path, :method => :delete} 
+        %i.material-icons> power_settings_new
+        Cerrar Sesión
+  -# %a.button-collapse{"data-activates" => "slide-out", :href => "#"}
+  -#   %i.material-icons menu

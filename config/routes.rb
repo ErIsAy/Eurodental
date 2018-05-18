@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new"
     get "/sign_up" => "devise/sessions#new", as: "new_user_registration"
+    get '/users/sign_out' => 'devise/sessions#destroy' 
   end
 
   get 'admin/index'
