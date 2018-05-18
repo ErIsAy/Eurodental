@@ -6,7 +6,7 @@ class ReportBalance < Prawn::Document
     image "public/logo.png", :scale => 0.2
     @sales = sales
     @from = from
-    @to = to
+    @to = to || "Fecha Actual"
     move_down 20
     header
     move_down 10
