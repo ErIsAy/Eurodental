@@ -28,13 +28,13 @@
   %br
   .container{:style => "margin: 0 auto;"}
 
-    .input-field
-      = f.check_box :antagonista
-      = f.label :antagonista, "Antagonista", :style => "padding-right:15px;"
-      -# = f.check_box :foto
-      -# = f.label :foto, "Foto", :style => "margin-left: 52px;"
-      = f.check_box :mordida
-      = f.label :mordida, "Mordida", :style => "margin-left: 52px;"
+    
+    = f.check_box :antagonista
+    = f.label :antagonista, "Antagonista", :style => "padding-right:15px;"
+    -# = f.check_box :foto
+    -# = f.label :foto, "Foto", :style => "margin-left: 52px;"
+    = f.check_box :mordida
+    = f.label :mordida, "Mordida", :style => "margin-left: 52px;"
     %br
     .input-field{:style => 'width: 8em;'}
       -# %i.material-icons.prefix library_add
