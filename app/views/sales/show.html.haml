@@ -288,7 +288,8 @@
         %td
         %td.right
           %b{:style => 'color: orange;'}
-            = "Balance $#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            -# = "Balance $#{number_to_currency(@sale.remaining_amount - @sale.discount_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
+            = "Balance $#{number_to_currency(@sale.remaining_amount, :format => "%u%n", :unit => '',:delimiter => ',',:separator => '.')}"
 
         %td
 
