@@ -71,7 +71,8 @@
           = pay.hidden_field :sale_id, :value => @sale.id
           .input-field.col.s3
             = pay.text_field :paydate,
-              :class => "datepicker_all"
+              :class => "datepicker_all",
+              :value => Time.now.strftime("%d/%m/%Y")
           %br
           = submit_tag "Realizar Pago", :class => "waves-effect waves-green btn-flat green right"
 
