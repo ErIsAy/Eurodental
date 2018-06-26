@@ -57,6 +57,7 @@ Rails.application.routes.draw do
 
   get 'admin/index'
   get 'admin/servicios'
+  get 'admin/auth'
   # get 'orders/orders_completed'
   # get 'orders/orders_test'
   # get 'orders/orders_process'

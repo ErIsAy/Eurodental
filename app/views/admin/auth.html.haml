@@ -1,0 +1,44 @@
+
+%header
+
+-# MAIN
+
+%main
+  = render :partial => 'layouts/top_navbar'
+  %br
+
+  -# CONTENT
+  
+  %h4.container{:style => "text-align: center;"} Administración
+  .box
+    %br
+    .container
+      %div{:class => "center-align", :style => "margin: 0 auto"}
+        %i.material-icons.prefix.large{:style =>"color: teal;"} lock
+      
+      = form_tag({controller: "admin", action: "auth"}, method: "get", class: "", :autocomplete => "off") do
+        .input-field
+          %i.material-icons.prefix person
+          = label_tag :username, "Usuario"
+          = text_field_tag  :username
+      
+        .input-field
+          %i.material-icons.prefix lock_outline
+          = label_tag :pass, "Contraseña"
+          = text_field_tag  :pass
+      
+        %br
+        .actions{:class => "center-align"}
+          = submit_tag "Ingresar", :class => "btn waves-effect waves-light"
+
+          
+  %br
+  -# = link_to 'Back', clients_path
+
+-# END OF MAIN
+
+-# FOOTER
+
+%footer.page-footer
+  = render :partial => 'layouts/footer'
+-# END OF FOOTER
